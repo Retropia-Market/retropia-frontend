@@ -1,0 +1,620 @@
+[
+    {
+        "id": 1,
+        "seller_id": 1,
+        "name": "play1",
+        "status": "nuevo",
+        "upload_date": "2192-12-30T23:00:00.000Z",
+        "location": "KANTO",
+        "price": "34",
+        "sale_status": "disponible",
+        "description": "super consola",
+        "sale_date": null,
+        "review_rating": null,
+        "review_text": null,
+        "review_date": null,
+        "views": 8,
+        "images": []
+    },
+    {
+        "id": 2,
+        "seller_id": 1,
+        "name": "Xbox",
+        "status": "nuevo",
+        "upload_date": "1994-12-30T23:00:00.000Z",
+        "location": "Huesca",
+        "price": "200",
+        "sale_status": "disponible",
+        "description": "Espectacularmente maravilloso",
+        "sale_date": null,
+        "review_rating": null,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 3,
+        "seller_id": 2,
+        "name": "NES",
+        "status": "Pa tirar",
+        "upload_date": "2122-12-30T23:00:00.000Z",
+        "location": "Mozambique",
+        "price": "53",
+        "sale_status": "disponible",
+        "description": "super consola",
+        "sale_date": null,
+        "review_rating": null,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 4,
+        "seller_id": 3,
+        "name": "Playstation 6",
+        "status": "Reventao",
+        "upload_date": "2092-12-30T23:00:00.000Z",
+        "location": "El Vaticano",
+        "price": "312201",
+        "sale_status": "disponible",
+        "description": "super bien",
+        "sale_date": null,
+        "review_rating": null,
+        "review_text": null,
+        "review_date": null,
+        "views": 8,
+        "images": []
+    },
+    {
+        "id": 6,
+        "seller_id": 4,
+        "name": "Xbox 5",
+        "status": "GUAU",
+        "upload_date": "2021-05-09T22:00:00.000Z",
+        "location": "CHECOSLOVAQUIA",
+        "price": "2432",
+        "sale_status": "vendido",
+        "description": "Muy buena y barata compra",
+        "sale_date": "2021-05-09T22:00:00.000Z",
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 3,
+        "images": []
+    },
+    {
+        "id": 7,
+        "seller_id": 4,
+        "name": "Xbo212",
+        "status": "GAU",
+        "upload_date": "2021-05-09T22:00:00.000Z",
+        "location": "CHECOQUIA",
+        "price": "24332",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 12,
+        "images": []
+    },
+    {
+        "id": 8,
+        "seller_id": 4,
+        "name": "Xbox 2313133324",
+        "status": "NANrotoOeU",
+        "upload_date": "2021-05-11T22:00:00.000Z",
+        "location": "TAILANDIA",
+        "price": "332",
+        "sale_status": "En venta",
+        "description": "BUENO SIIIIII",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 9,
+        "seller_id": 4,
+        "name": "Switch",
+        "status": "Bueno",
+        "upload_date": "2021-05-11T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 10,
+        "seller_id": 4,
+        "name": "Nintendo DS",
+        "status": "Bueno",
+        "upload_date": "2021-05-11T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 11,
+        "seller_id": 4,
+        "name": "Xbox One",
+        "status": "Bueno",
+        "upload_date": "2021-05-11T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 12,
+        "seller_id": 4,
+        "name": "Xbox 2313133324",
+        "status": "NANrotoOeU",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "TAILANDIA",
+        "price": "332",
+        "sale_status": "en venta",
+        "description": "BUENO SIIIIII",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 7,
+                "product_id": 12,
+                "url": "static/images/12/7342ca1b-d775-4e86-9030-7c82867dde1c.png"
+            },
+            {
+                "id": 8,
+                "product_id": 12,
+                "url": "static/images/12/693255a0-198e-4ddf-8a0e-6cd39ccb9ba5.jpg"
+            },
+            {
+                "id": 9,
+                "product_id": 12,
+                "url": "static/images/12/ac186a1b-813f-481b-84a1-2d50c0a5f1f3.jpg"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "seller_id": 4,
+        "name": "Xbox 2313133324",
+        "status": "Quebrado",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "NUEVO MEXICO",
+        "price": "33322",
+        "sale_status": "En venta",
+        "description": "BUENO SIIIIII que guapo tiooooooooooooo",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 14,
+        "seller_id": 4,
+        "name": "Xbox 2313133324",
+        "status": "NANrotoOeU",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "TAILANDIA",
+        "price": "332",
+        "sale_status": "En venta",
+        "description": "BUENO SIIIIII",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 1,
+                "product_id": 14,
+                "url": "static/images/4/a0b2c553-fdd6-4e57-8eb1-a8541a5f0563.png"
+            },
+            {
+                "id": 2,
+                "product_id": 14,
+                "url": "static/images/4/403ed0f9-f618-443e-8986-b16f751d7c52.png"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "seller_id": 4,
+        "name": "Xbox 2313133324",
+        "status": "NANrotoOeU",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "TAILANDIA",
+        "price": "332",
+        "sale_status": "En venta",
+        "description": "BUENO SIIIIII",
+        "sale_date": null,
+        "review_rating": 1,
+        "review_text": null,
+        "review_date": null,
+        "views": 8,
+        "images": [
+            {
+                "id": 3,
+                "product_id": 15,
+                "url": "static/images/4/158e1b03-8a61-4cce-b62d-491074d3ba5f.png"
+            },
+            {
+                "id": 4,
+                "product_id": 15,
+                "url": "static/images/4/20acb739-0a26-4588-9548-93f501f8e419.png"
+            },
+            {
+                "id": 5,
+                "product_id": 15,
+                "url": "static/images/4/a2576db9-b290-409b-8576-1aa035c014f7.png"
+            },
+            {
+                "id": 6,
+                "product_id": 15,
+                "url": "static/images/4/5960f729-aa48-45ef-b8a0-a2226999f661.jpg"
+            },
+            {
+                "id": 18,
+                "product_id": 15,
+                "url": "static/images/15/afbfb4b8-b953-4e5b-a8cd-f238527439db.jpg"
+            },
+            {
+                "id": 19,
+                "product_id": 15,
+                "url": "static/images/15/583ee410-2fd2-4770-85ad-2d45930c120a.jpg"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "seller_id": 4,
+        "name": "Xbox One",
+        "status": "Bueno",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 1,
+        "review_text": null,
+        "review_date": null,
+        "views": 1,
+        "images": [
+            {
+                "id": 10,
+                "product_id": 16,
+                "url": "static/images/4/34125da6-6356-45aa-919c-6391e76c6dbc.png"
+            },
+            {
+                "id": 11,
+                "product_id": 16,
+                "url": "static/images/4/5463f38a-8011-4d39-a786-1b901405d12b.png"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "seller_id": 4,
+        "name": "Xbox One",
+        "status": "Bueno",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 1,
+        "review_text": null,
+        "review_date": null,
+        "views": 1,
+        "images": [
+            {
+                "id": 12,
+                "product_id": 17,
+                "url": "static/images/4/0eb7a948-92d4-4788-8d7f-336e3868de7c.png"
+            },
+            {
+                "id": 13,
+                "product_id": 17,
+                "url": "static/images/4/f7635c24-f0ab-4608-916a-2cde2bce9100.png"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "seller_id": 4,
+        "name": "Xbox One",
+        "status": "Bueno",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 2,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 14,
+                "product_id": 18,
+                "url": "static/images/4/fe12c960-a5a4-4e30-9127-7bd57aeac88e.png"
+            },
+            {
+                "id": 15,
+                "product_id": 18,
+                "url": "static/images/4/bd533af0-381e-4696-9aba-e40b45db3adc.png"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "seller_id": 4,
+        "name": "Xbox One",
+        "status": "Bueno",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 16,
+                "product_id": 19,
+                "url": "static/images/4/5e33fdb6-0cf7-4f6f-aac1-48319281d79b.png"
+            },
+            {
+                "id": 17,
+                "product_id": 19,
+                "url": "static/images/4/82739cfe-7014-4e5b-9750-9b5a53fac524.png"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "seller_id": 4,
+        "name": "Xbox One",
+        "status": "Bueno",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielo",
+        "price": "243",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 20,
+                "product_id": 20,
+                "url": "static/images/4/adbdea59-75ba-4c4e-b341-ee33d11a7eca.png"
+            },
+            {
+                "id": 21,
+                "product_id": 20,
+                "url": "static/images/4/dd5783f8-6181-4794-a403-5fde9aa1b74b.png"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 23,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 24,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 25,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 26,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 27,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 28,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 29,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": []
+    },
+    {
+        "id": 30,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 22,
+                "product_id": 30,
+                "url": "static/images/4/9ec52ef6-7db2-4800-9297-3288e271bec4.png"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "seller_id": 4,
+        "name": "Xbox 2",
+        "status": "MALA",
+        "upload_date": "2021-05-17T22:00:00.000Z",
+        "location": "Bielorrusia",
+        "price": "2432",
+        "sale_status": "En venta",
+        "description": "Muy buena y barata compra",
+        "sale_date": null,
+        "review_rating": 4,
+        "review_text": null,
+        "review_date": null,
+        "views": 0,
+        "images": [
+            {
+                "id": 23,
+                "product_id": 31,
+                "url": "static/images/4/05c9b0a0-fb71-4775-a7a2-a62c8d02dcf6.png"
+            }
+        ]
+    }
+]
