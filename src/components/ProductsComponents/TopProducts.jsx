@@ -3,16 +3,16 @@ import ProductCard from "../ProductCard"
 import '../../styles/Products.css'
 
 
-const Catalogue = () => {
+const TopProducts = () => {
 
-    const apiURL = 'http://localhost:8080/catalogue'
+    const apiURL = 'http://localhost:8080/top'
 
     const [results] = useFetch(apiURL)
 
 
     return (
         <div className="catalogue">
-            <h1>Catálogo</h1>
+            <h1>Productos mas vistos.</h1>
             <div className="catalogue-products">
                 {results && results.map((product) => {
                return <ProductCard data={product} key={product.id}/>
@@ -23,4 +23,4 @@ const Catalogue = () => {
 }
 
 
-export default Catalogue
+export default TopProducts

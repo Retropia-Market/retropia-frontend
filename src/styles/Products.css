@@ -1,7 +1,7 @@
 .product-card {
     display: flex;
     flex-direction: column;
-    width: 15vw;
+    width: 17vw;
     padding: 1rem;
     margin: 1rem;
     border: 2px solid black;
@@ -17,8 +17,8 @@
     height: 150px;
     background-size: cover;
     background-position: center;
-    background-color: black;
     align-self: center;
+    background-color: black;
 }
 
 .product-card-info-name-price {
