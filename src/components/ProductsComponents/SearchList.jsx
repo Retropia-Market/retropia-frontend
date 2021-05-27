@@ -2,6 +2,7 @@ import useFetch from "../../hooks/useFetch"
 import ProductCard from "../ProductCard"
 import '../../styles/Products.css'
 import { useParams } from "react-router"
+import { FormattedMessage } from "react-intl"
 
 
 const SearchList = () => {
@@ -15,7 +16,7 @@ const SearchList = () => {
 
     return (
         <div className="catalogue">
-            <h1>Productos según tu busqueda</h1>
+            <h1><FormattedMessage id='search.title'/></h1>
             <div className="catalogue-products">
                 {results && results.map((product) => {
                return <ProductCard data={product} key={product.id}/>

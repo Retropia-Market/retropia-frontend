@@ -18,7 +18,7 @@ const Product = () => {
     return (
         <div className="single-product-page">
             <ProductInfo data={results}/>
-            <Location/>
+            <Location place={results?.location}/>
             <ProductDataSheet/>
         </div>
     )
