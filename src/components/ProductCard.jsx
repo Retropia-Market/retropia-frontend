@@ -1,10 +1,17 @@
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import useFetch from '../hooks/useFetch';
 
 const ProductCard = ({data}) => {
 
+    const history = useHistory()
+
     const {seller, name, status, price, images, id, seller_id} = data;
     const results = useFetch(`http://localhost:8080/user/${seller_id}/rating` );
+
+    const handleOnClick = () => {
+        history.push('/catalogue/'+ data.id)
+
+    }
 
 
 
@@ -13,7 +20,7 @@ const ProductCard = ({data}) => {
 
     return (
         <div className="product-card">
-                <div className="product-card-img" style={{backgroundImage: `url(https://via.placeholder.com/150)`}}></div>
+                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: `url(https://via.placeholder.com/150)`}}></div>
             <div className="product-card-info">
                 <div className="product-card-info-name-price">
                     <span className='product-card-info-name'>{name}</span>
