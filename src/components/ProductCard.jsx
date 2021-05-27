@@ -1,3 +1,4 @@
+import { FormattedNumber } from 'react-intl';
 import {Link, useHistory} from 'react-router-dom'
 import useFetch from '../hooks/useFetch';
 
@@ -20,11 +21,11 @@ const ProductCard = ({data}) => {
 
     return (
         <div className="product-card">
-                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: `url(https://via.placeholder.com/150)`}}></div>
+                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: `url(http:/\/\localhost:8080/${images[0].url})`}}></div>
             <div className="product-card-info">
                 <div className="product-card-info-name-price">
                     <span className='product-card-info-name'>{name}</span>
-                    <span className='product-card-info-price'>{price} €</span>
+                    <span className='product-card-info-price'><FormattedNumber style="currency" value={price} currency="EUR" /></span>
                 </div>
                 <div className="product-card-info-user">
                     <span className='product-card-info-status'>{status}</span>

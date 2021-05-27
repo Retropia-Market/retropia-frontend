@@ -1,6 +1,7 @@
 import useFetch from "../../hooks/useFetch"
 import ProductCard from "../ProductCard"
 import '../../styles/Products.css'
+import { FormattedMessage } from "react-intl"
 
 
 const Catalogue = () => {
@@ -12,7 +13,7 @@ const Catalogue = () => {
 
     return (
         <div className="catalogue">
-            <h1>Catálogo</h1>
+            <h1><FormattedMessage id="catalogue.title" /></h1>
             <div className="catalogue-products">
                 {results && results.map((product) => {
                return <ProductCard data={product} key={product.id}/>

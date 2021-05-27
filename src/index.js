@@ -4,11 +4,15 @@ import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
+import es from './locale/es.json';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            <App />
+            <IntlProvider messages={es} locale="es" defaultLocale="es">
+                <App />
+            </IntlProvider>
         </Router>
     </React.StrictMode>,
     document.getElementById('root')
