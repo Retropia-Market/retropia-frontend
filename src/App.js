@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import Catalogue from './components/ProductsComponents/ProductList';
+import ProductList from './components/ProductList';
 import Product from './components/ProductsComponents/Product';
 import SearchList from './components/ProductsComponents/SearchList';
 import TopProducts from './components/ProductsComponents/TopProducts';
@@ -12,8 +12,14 @@ function App() {
             <Navbar />
             <main>
                 <Switch>
-                    <Route path="/catalogue" exact>
-                        <Catalogue />
+                    <Route path="/catalogue/videogames" exact>
+                        <ProductList type={'videogame'} />
+                    </Route>
+                    <Route path="/catalogue/consoles" exact>
+                        <ProductList type={'console'} />
+                    </Route>
+                    <Route path="/catalogue/accesories" exact>
+                        <ProductList type={'accesory'} />
                     </Route>
                     <Route path="/" exact>
                         <TopProducts />
