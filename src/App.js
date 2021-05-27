@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import Catalogue from './components/ProductsComponents/Catalogue';
+import Catalogue from './components/ProductsComponents/ProductList';
 import Product from './components/ProductsComponents/Product';
 import SearchList from './components/ProductsComponents/SearchList';
 import TopProducts from './components/ProductsComponents/TopProducts';

@@ -4,7 +4,7 @@ import '../../styles/Products.css'
 import { FormattedMessage } from "react-intl"
 
 
-const Catalogue = () => {
+const ProductList = () => {
 
     const apiURL = 'http://localhost:8080/catalogue'
 
@@ -24,4 +24,4 @@ const Catalogue = () => {
 }
 
 
-export default Catalogue
+export default ProductList

@@ -1,4 +1,7 @@
 const Location = (place) => {
+
+    const {API_KEY} = process.env
+    console.log(API_KEY)
     return (
         <div className="location">
             <iframe title='product-map'
@@ -7,7 +10,7 @@ const Location = (place) => {
             style={{border: 0}}
             loading="lazy"
             allowfullscreen
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD68L1yufnrY_Q7lLlfav43P-33LauEgso
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}
     &q=${place}`}
         >
         </iframe>
