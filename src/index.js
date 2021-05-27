@@ -7,20 +7,17 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import es from './locale/es.json';
 
-import { BrowserRouter as Router } from 'react-router-dom';
-
 import { Provider } from 'react-redux';
 import store from './reducer';
 
 ReactDOM.render(
-
     <React.StrictMode>
         <Router>
-    <Provider store={store}>
-            <IntlProvider messages={es} locale="es" defaultLocale="es">
-                <App />
-            </IntlProvider>
-</Provider>
+            <Provider store={store}>
+                <IntlProvider messages={es} locale="es" defaultLocale="es">
+                    <App />
+                </IntlProvider>
+            </Provider>
         </Router>
     </React.StrictMode>,
     document.getElementById('root')

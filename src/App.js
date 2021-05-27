@@ -1,15 +1,15 @@
-
 import { Route, Switch } from 'react-router-dom';
 import Catalogue from './components/ProductsComponents/Catalogue';
 import Product from './components/ProductsComponents/Product';
 import SearchList from './components/ProductsComponents/SearchList';
 import TopProducts from './components/ProductsComponents/TopProducts';
+import Navbar from './components/Navbar';
 import './styles/App.css';
 
 function App() {
     return (
         <div className="App">
-      <Navbar />
+            <Navbar />
             <main>
                 <Switch>
                     <Route path="/catalogue" exact>
@@ -28,7 +28,6 @@ function App() {
             </main>
         </div>
     );
-
 }
 
 export default App;
