@@ -1,3 +1,4 @@
+
 import { Route, Switch } from 'react-router-dom';
 import Catalogue from './components/ProductsComponents/Catalogue';
 import Product from './components/ProductsComponents/Product';
@@ -8,6 +9,7 @@ import './styles/App.css';
 function App() {
     return (
         <div className="App">
+      <Navbar />
             <main>
                 <Switch>
                     <Route path="/catalogue" exact>
@@ -26,6 +28,7 @@ function App() {
             </main>
         </div>
     );
+
 }
 
 export default App;
