@@ -79,7 +79,7 @@ function Navbar () {
               </button>
             </> :
             <>
-            <Link className="sell-button">VENDER +</Link>
+            <Link className="sell-button" to="#">VENDER +</Link>
             <div className="messages">ICON</div>
             <div className="notifications">ICON</div>
             <div className="user">
