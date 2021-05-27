@@ -21,7 +21,7 @@ const ProductCard = ({data}) => {
 
     return (
         <div className="product-card">
-                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: `url(http:/\/\localhost:8080/${images[0].url})`}}></div>
+                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: `url(http:/\/\localhost:8080/${images[0]?.url})`}}></div>
             <div className="product-card-info">
                 <div className="product-card-info-name-price">
                     <span className='product-card-info-name'>{name}</span>
