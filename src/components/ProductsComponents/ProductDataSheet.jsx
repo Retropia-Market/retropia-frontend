@@ -10,7 +10,8 @@ const ProductDataSheet = () => {
 
 
     return (
-        <div className="catalogue">
+        <div className="data-sheet">
+            <h3>Ficha técnica del producto</h3>
         </div>
     )
 }
