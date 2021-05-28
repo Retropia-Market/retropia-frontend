@@ -1,57 +1,43 @@
 import { useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
 import Login from './Login'
+import Register from "./Register";
+import Types from './navbar-components/Types'
+import Categories from './navbar-components/Categories'
+import Subcategories from './navbar-components/Subcategories'
+
+import '../styles/Navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from '../img/logo.svg';
-import '../styles/Navbar.css';
-import Register from "./Register";
-
-const Categories = ({categories, setIndex}) =>{
-  const hoverHandler = i => {
-    setIndex(i)
-  }
-  return( 
-    <div className="categories">
-      {categories.map((c, i) =>
-      <Link to={'/catalogue/' + c.id} key={i} onMouseEnter={() => hoverHandler(i)}>{c.name}</Link>)}
-    </div>
-  )
-}
-
-const Subcategories = ({index}) => {
-  return <>
-    {index === 0 && <>
-      subcategorias consolas
-    </>}
-    {index === 1 && <>
-      subcategorias videojuegos
-    </> }
-    {index === 2 && <>
-      subcategorias perifericos
-    </> }
-  </>
-}
+import {faUser, faCommentDots, faBell} from '@fortawesome/free-regular-svg-icons'
+import { faEllipsisV} from '@fortawesome/free-solid-svg-icons'
 
 function Navbar () {
   const {q} = useParams();
   const history = useHistory()
   const user = useSelector(s => s.user);
+  const dispatch = useDispatch()
+
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
-  const [index, setIndex] = useState(0)
-  const [search, setSearch] = useState(q || '')
-  
-  const categories = [
-    {id: 'consoles', name: 'consolas'},
-    {id: 'videogames', name: 'videojuegos'},
-    {id: 'accesories', name: 'perifericos'}
-  ]
+  const [showSettings, setShowSettings] = useState(false)
 
-  const submitHandler = (e) => {
+  const [search, setSearch] = useState(q || '')
+  const [typeIndex, setTypeIndex] = useState(0)
+  const [categoryIndex, setCategoryIndex] = useState([null, null])
+  const [showSubcategories, setShowSubcategories] = useState(false)
+
+  const handleSubmit = (e) => {
     e.preventDefault()
     history.push('/search/' + search)
+  }
+
+  const handleLogout = e => {
+    e.stopPropagation()
+    dispatch({ type: 'LOGOUT' })
   }
 
   return (
@@ -63,11 +49,11 @@ function Navbar () {
       <nav className="right-navbar">
         <div className="upper">
           <div className="search">
-            <form className="search-bar" onSubmit={submitHandler}>
+            <form className="search-bar" onSubmit={handleSubmit}>
               <input type="text" placeholder="Ingresa tu búsqueda..." value={search} onChange={e=> setSearch(e.target.value)}/>
               <button>🔍</button>
             </form>
-            <Categories categories={categories} setIndex={setIndex}/>
+            <Types setTypeIndex={setTypeIndex}/>
           </div>
           <div className="user-nav">
             {!user ? <>
@@ -80,17 +66,25 @@ function Navbar () {
             </> :
             <>
             <Link className="sell-button" to="#">VENDER +</Link>
-            <div className="messages">ICON</div>
-            <div className="notifications">ICON</div>
+            <FontAwesomeIcon className="messages" icon={faCommentDots}>ICON</FontAwesomeIcon>
+            <FontAwesomeIcon className="notifications" icon={faBell}>ICON</FontAwesomeIcon>
             <div className="user">
-              <div className="user-pic">FOTO</div>
-              <div className="user-settings">ICON</div>
+              <FontAwesomeIcon className="user-pic" icon={faUser}>Photo</FontAwesomeIcon>
+              <div className="user-settings">
+                <FontAwesomeIcon className="user-options" icon={faEllipsisV} onClick={() => setShowSettings(!showSettings)}>
+                  Settings
+                </FontAwesomeIcon>
+                {showSettings && <div className="user-settings">
+                  <li onClick={handleLogout}>log out</li>
+                </div> }
+              </div>
             </div>
             </>}
           </div>
         </div>
         <div className="lower">
-          <Subcategories index={index} />
+          <Categories typeIndex={typeIndex} setCategoryIndex={setCategoryIndex} showSubcategories={() => setShowSubcategories(true)}/>
+          {showSubcategories && <Subcategories typeIndex={typeIndex} CategoryIndex={categoryIndex} goBack={() => setShowSubcategories(false)}/>}
         </div>
       </nav>
     </div>

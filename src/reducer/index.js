@@ -4,14 +4,16 @@ const userReducer = (state = null, action) => {
   switch (action.type) {
     case 'LOGIN':
       return action.user;
+    case 'LOGOUT':
+      return null;
     default:
       return state;
   }
 };
 
-const localStorageMiddleware = (store) => (next) => (action) => {
+const sessionStorageMiddleware = (store) => (next) => (action) => {
   let result = next(action);
-  localStorage.setItem('session', JSON.stringify(store.getState()));
+  sessionStorage.setItem('session', JSON.stringify(store.getState()));
   return result;
 };
 
@@ -19,8 +21,8 @@ const store = createStore(
   combineReducers({
     user: userReducer,
   }),
-  // JSON.parse(localStorage.getItem('session')) || {},
-  applyMiddleware(localStorageMiddleware)
+  JSON.parse(sessionStorage.getItem('session')) || {},
+  applyMiddleware(sessionStorageMiddleware)
 );
 
 export default store;
