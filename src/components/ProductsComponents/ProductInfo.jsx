@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
+import {faUser, faHeart} from '@fortawesome/free-regular-svg-icons'
 import useFetch from '../../hooks/useFetch';
 import '../../styles/Products.css'
 
@@ -18,14 +20,18 @@ const ProductInfo = ({data}) => {
                 <h3>{data.name}</h3>
                 <div className="seller-info">
                     
-                    <div className="seller-icon">ICON</div>
+                    <div className="seller-icon">
+                        <FontAwesomeIcon className="user-pic" icon={faUser}>userIcon</FontAwesomeIcon>
+                    </div>
                     <div className="seller-name">{data.seller}</div>
                     <div className="review-average">{results.review_average}</div>
                     <div className="total-review">{results.total_review}</div>
                 </div>
                 <div className="status-fav-price-bar">
-                    <div className="fav-icon">FAV ICON</div>
+                    <div className="fav-status">
+                    <div className="fav-icon"><FontAwesomeIcon className="user-pic" icon={faHeart}>Heart</FontAwesomeIcon></div>
                     <div className="product-status">{data.status}</div>
+                    </div>
                     <div className="price"><FormattedNumber style="currency" value={data.price} currency="EUR" /></div>
                 </div>
                 <div className="product-description">

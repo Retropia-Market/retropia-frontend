@@ -4,6 +4,7 @@ import '../../styles/Products.css'
 import ProductInfo from "./ProductInfo"
 import Location from '../Location'
 import ProductDataSheet from "./ProductDataSheet"
+import RelatedProducts from "./RelatedProducts"
 
 
 const Product = () => {
@@ -20,6 +21,7 @@ const Product = () => {
             <ProductInfo data={results}/>
             <Location place={results?.location}/>
             <ProductDataSheet/>
+            <RelatedProducts data={results}/> 
         </div>
     )
 }

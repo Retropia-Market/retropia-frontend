@@ -1,8 +1,8 @@
 {
     "catalogue.title": "Catálogo",
-  "top.title": "Productos mas vistos",
+  "top.title": "Más vistos",
   "search.title": "Productos según tu busqueda",
   "button.message": "Mensaje",
-  "button.bid": "Oferta"
-  
+  "button.bid": "Oferta",
+  "prod.related" : "Relacionados"  
 }
