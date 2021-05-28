@@ -4,7 +4,7 @@ import '../styles/Login.css'
 
 
 
-function Login ({closeModal}) {
+function Login ({setShowLogin, setShowRegister}) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
@@ -20,10 +20,15 @@ function Login ({closeModal}) {
     if (res.ok) {
       const data = await res.json()
       dispatch({type: 'LOGIN', user: data})
-      closeModal()
+      setShowLogin(false)
     } else {
       alert('parece que algo salio mal')
     }
+  }
+
+  const handleClick = () => {
+    setShowLogin(false)
+    setShowRegister(true)
   }
 
   return <div className="modal-bg">
@@ -36,9 +41,10 @@ function Login ({closeModal}) {
         Password
         <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
       </label>
+      <button type="button" onClick={handleClick}>No tienes cuenta?</button>
       <button>LOGIN</button>
     </form>
-    <button onClick={closeModal}>X</button>
+    <button onClick={() => setShowLogin(false)}>X</button>
   </div>
 }
 

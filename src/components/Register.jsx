@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import '../styles/Register.css'
 
-function Register ({closeModal}) {
+
+function Register ({setShowRegister, setShowLogin}) {
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -25,12 +26,18 @@ function Register ({closeModal}) {
       const data = await res.json()
       dispatch({type: 'LOGIN', user: data})
       console.log(data)
-      closeModal()
+      
+      setShowRegister(false)
     } else {
       alert('parece que algo salio mal')
       const data = await res.json()
       console.log(data)
     }
+  }
+
+  const handleClick = () => {
+    setShowRegister(false);
+    setShowLogin(true);
   }
 
   const updateField = (e) => {
@@ -101,7 +108,8 @@ function Register ({closeModal}) {
       </label>
       <button>Register</button>
     </form>
-    <button onClick={closeModal}>x</button>
+    <button type="button" onClick={handleClick}>Ya tienes cuenta?</button>
+    <button onClick={() => setShowRegister(false)}>x</button>
   </div>
 }
 

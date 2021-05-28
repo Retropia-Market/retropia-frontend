@@ -94,8 +94,8 @@ function Navbar () {
         </div>
       </nav>
     </div>
-    {showLogin && <Login closeModal={() => setShowLogin(false)}/>}
-    {showRegister && <Register closeModal={() => setShowRegister(false)}/>}
+    {showLogin && <Login setShowLogin={setShowLogin} setShowRegister={setShowRegister}/>}
+    {showRegister && <Register setShowLogin={setShowLogin} setShowRegister={setShowRegister}/>}
     </>
   );
 };
