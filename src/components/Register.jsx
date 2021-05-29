@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import '../styles/Register.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
+import {faCalendarAlt, faChevronUp, faEnvelope, faLock, faSignature, faUser } from '@fortawesome/free-solid-svg-icons'
 
 function Register ({setShowRegister, setShowLogin}) {
   const [userData, setUserData] = useState({
@@ -56,7 +56,7 @@ function Register ({setShowRegister, setShowLogin}) {
         <div className="register-inputs-1">
           <label htmlFor="name-register">First Name</label>
           <div className="register-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faSignature}></FontAwesomeIcon>
             <input id="name-register"
               type="text" 
               value={userData.firstName} 
@@ -66,7 +66,7 @@ function Register ({setShowRegister, setShowLogin}) {
           </div>
           <label htmlFor="last-name-register">Last Name</label>
           <div className="register-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faSignature}></FontAwesomeIcon>
             <input id="last-name-register"
               type="text" 
               value={userData.lastName} 
@@ -76,7 +76,7 @@ function Register ({setShowRegister, setShowLogin}) {
           </div>
           <label htmlFor="birth-date-register">Birth Date</label>
           <div className="register-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faCalendarAlt}></FontAwesomeIcon>
             <input id="birth-date-register"
               type="date" 
               value={userData.birthDate} 
@@ -98,7 +98,7 @@ function Register ({setShowRegister, setShowLogin}) {
           </div>
           <label htmlFor="email-register">Email</label>
           <div className="register-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
             <input id="email-register"
               type="text" 
               value={userData.email} 
@@ -108,7 +108,7 @@ function Register ({setShowRegister, setShowLogin}) {
           </div>
           <label htmlFor="password-register">Password</label>
           <div className="register-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
             <input id="password-register"
               type="password" 
               value={userData.password} 
@@ -118,7 +118,7 @@ function Register ({setShowRegister, setShowLogin}) {
           </div>
           <label htmlFor="repeated-password-register">Repeat password</label>
           <div className="register-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
             <input id="repeated-password-register"
               type="password" 
               value={userData.repeatedPassword} 
