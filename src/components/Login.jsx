@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import '../styles/Login.css'
 
+import '../styles/Login.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 function Login ({setShowLogin, setShowRegister}) {
@@ -31,20 +33,32 @@ function Login ({setShowLogin, setShowRegister}) {
     setShowRegister(true)
   }
 
-  return <div className="modal-bg">
-    <form className="modal-fg" onSubmit={handleSubmit}>
-      <label>
-        User
-        <input type="text" placeholder="username or email..." value={username} onChange={e => setUsername(e.target.value)}/>
-      </label>
-      <label>
-        Password
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-      </label>
-      <button type="button" onClick={handleClick}>No tienes cuenta?</button>
-      <button>LOGIN</button>
+  return <div className="login-bg">
+    <form className="login-fg" onSubmit={handleSubmit}>
+      <h2 className="login-title">Login</h2>
+      <div className="login-inputs">
+        <label htmlFor="username-login">User</label>
+        <div className="login-field">
+          <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+          <input id="username-login" type="text" placeholder="email..." value={username} onChange={e => setUsername(e.target.value)}/>
+        </div>
+        <label htmlFor="password-login">Password</label>
+        <div className="login-field">
+          <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+          <input id="password-login" type="password" placeholder="************" value={password} onChange={e => setPassword(e.target.value)}/>
+        </div>
+      </div>
+      
+      <div className="login-options">
+        <button type="button" className="login-options" onClick={handleClick}>¿No tienes cuenta?</button>
+        <button type="button" className="login-options">¿Olvidaste tu clave?</button>
+      </div>
+      
+      <button className="login-button">LOG IN</button>
+      <img clasName="login-logo" src="" alt="logo" />
     </form>
-    <button onClick={() => setShowLogin(false)}>X</button>
+      <FontAwesomeIcon className="login-exit" icon={faChevronUp} size="2x" onClick={() => setShowLogin(false)} ></FontAwesomeIcon>
+      {/* <button className="login-exit" onClick={() => setShowLogin(false)}>X</button> */}
   </div>
 }
 

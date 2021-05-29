@@ -1,25 +1,29 @@
+import { useState } from 'react'
 import {Link} from 'react-router-dom'
 
-const Types = ({ setTypeIndex}) =>{
+const Types = () =>{
+  const [selected ,setSelected] = useState(null)
+
   const types = [
     {id: 'consoles', name: 'consolas'},
     {id: 'videogames', name: 'videojuegos'},
     {id: 'accesories', name: 'perifericos'}
   ]
-  
-  const handleHover = i => {
-    setTypeIndex(i)
+
+  const handleClick = (i) => {
+    setSelected(i)
   }
 
   return( 
-    <div className="categories">
-      {types.map((t, i) =>
-      <Link to={'/catalogue/' + t.id} 
-          key={i} 
-          onMouseEnter={() => handleHover(i)}>
-        {t.name}
-      </Link>)}
-    </div>
+      types.map((t, i) =>
+    <div className={`types ${selected === i ? 'selected' : ''}`}>
+      <Link onClick={() => handleClick(i)} 
+        className= "types-names" 
+        to={'/catalogue/' + t.id} key={i}>
+          {t.name}
+      </Link>
+      </div>
+      )
   )
 }
 

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux"
+import useFetch from '../hooks/useFetch';
 
 import Login from './Login'
 import Register from "./Register";
@@ -26,9 +27,13 @@ function Navbar () {
   const [showSettings, setShowSettings] = useState(false)
 
   const [search, setSearch] = useState(q || '')
-  const [typeIndex, setTypeIndex] = useState(0)
-  const [categoryIndex, setCategoryIndex] = useState([null, null])
+  const [categoryIndex, setCategoryIndex] = useState(1)
+  const [showCategories, setShowCategories] = useState(true)
   const [showSubcategories, setShowSubcategories] = useState(false)
+
+  const [allCategories] = useFetch('http://localhost:8080/categories')
+  
+  console.log(allCategories)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -53,7 +58,7 @@ function Navbar () {
               <input type="text" placeholder="Ingresa tu búsqueda..." value={search} onChange={e=> setSearch(e.target.value)}/>
               <button>🔍</button>
             </form>
-            <Types setTypeIndex={setTypeIndex}/>
+            <Types/>
           </div>
           <div className="user-nav">
             {!user ? <>
@@ -83,8 +88,16 @@ function Navbar () {
           </div>
         </div>
         <div className="lower">
-          <Categories typeIndex={typeIndex} setCategoryIndex={setCategoryIndex} showSubcategories={() => setShowSubcategories(true)}/>
-          {showSubcategories && <Subcategories typeIndex={typeIndex} CategoryIndex={categoryIndex} goBack={() => setShowSubcategories(false)}/>}
+          {showCategories &&  <Categories 
+            setCategoryIndex={setCategoryIndex} 
+            hideCategories={() => setShowCategories(false)}
+            showSubcategories={() => setShowSubcategories(true)}
+          />}
+          {showSubcategories && <Subcategories 
+            CategoryIndex={categoryIndex} 
+            showCategories={() => setShowCategories(true)} 
+            hideSubcategories={() => setShowSubcategories(false)}
+          />}
         </div>
       </nav>
     </div>
