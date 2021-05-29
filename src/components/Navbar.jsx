@@ -31,10 +31,6 @@ function Navbar () {
   const [showCategories, setShowCategories] = useState(true)
   const [showSubcategories, setShowSubcategories] = useState(false)
 
-  const [allCategories] = useFetch('http://localhost:8080/categories')
-  
-  console.log(allCategories)
-
   const handleSubmit = (e) => {
     e.preventDefault()
     history.push('/search/' + search)
@@ -49,7 +45,7 @@ function Navbar () {
     <>
     <div className="navbar-container">
       <div className="logo">
-        <img src={logo} alt="Logo Retropia Market" />
+        <img onClick={() => history.push('/')} className="logo-img" src={logo} alt="Logo Retropia Market" />
       </div>
       <nav className="right-navbar">
         <div className="upper">

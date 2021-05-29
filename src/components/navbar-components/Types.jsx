@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 const Types = () =>{
   const [selected ,setSelected] = useState(null)
@@ -16,7 +16,7 @@ const Types = () =>{
 
   return( 
       types.map((t, i) =>
-    <div className={`types ${selected === i ? 'selected' : ''}`}>
+    <div key={i} className={`types ${selected === i ? 'selected' : ''}`}>
       <Link onClick={() => handleClick(i)} 
         className= "types-names" 
         to={'/catalogue/' + t.id} key={i}>
