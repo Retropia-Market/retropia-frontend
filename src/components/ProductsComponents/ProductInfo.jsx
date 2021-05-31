@@ -23,9 +23,7 @@ const ProductInfo = ({ data }) => {
         <div className="product-main-page">
           <div
             className="product-img"
-            style={{
-              backgroundImage: `url(http:/\/\localhost:8080/${data.images[0].url})`,
-            }}
+            style={{backgroundImage: data.images[0]?.url ? `url(http:/\/\localhost:8080/${data.images[0]?.url})` : `url(${productPlaceholder})`}}
           ></div>
           <div className="product-info">
             <h3>{data.name}</h3>
