@@ -1,6 +1,7 @@
 import { FormattedNumber } from 'react-intl';
 import {Link, useHistory} from 'react-router-dom'
 import useFetch from '../hooks/useFetch';
+import productPlaceholder from '../img/colorPlaceholder.svg';
 
 const ProductCard = ({data}) => {
 
@@ -21,7 +22,7 @@ const ProductCard = ({data}) => {
 
     return (
         <div className="product-card">
-                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: `url(http:/\/\localhost:8080/${images[0]?.url})`}}></div>
+                <div className="product-card-img" onClick={handleOnClick} style={{backgroundImage: data.images[0]?.url ? `url(http:/\/\localhost:8080/${data.images[0]?.url})` : `url(${productPlaceholder})`}}></div>
             <div className="product-card-info">
                 <div className="product-card-info-name-price">
                     <span className='product-card-info-name'>{name}</span>
