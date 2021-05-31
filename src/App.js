@@ -11,9 +11,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <MainBackground />
       <main>
         <Switch>
+          <MainBackground />
           <Route path="/catalogue/videogames" exact>
             <ProductList type={'videogame'} />
           </Route>
