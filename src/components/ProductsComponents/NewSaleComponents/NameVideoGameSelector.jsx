@@ -1,6 +1,6 @@
 import SelectSearch from "react-select-search";
 
-const NewSaleSelector = ({setProductName}) => {
+const NameVideoGameSelector = ({setProductName, setCategoryList}) => {
         
         const getFunOp = (query) => {
             if(!query)return [];
@@ -26,4 +26,4 @@ return (
 )
 }
 
-export default NewSaleSelector
+export default NameVideoGameSelector

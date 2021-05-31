@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
-import NewSaleSelector from "./NewSaleSelector"
+import CatSelector from "./CatSelector"
+import NameVideoGameSelector from "./NameVideoGameSelector"
 
 const NewSaleInfo = ({files}) => {
+
+    const [categoryList, setCategoryList] = useState()
 
      
     const [productName, setProductName] = useState()
@@ -45,7 +48,7 @@ const NewSaleInfo = ({files}) => {
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
-                      <NewSaleSelector setProductName={setProductName}/>
+                      <NameVideoGameSelector setProductName={setProductName} setCategoryList={setCategoryList}/>
                     </label>
                     <label >
                         <FormattedMessage id='sale.productPrice'/>
@@ -70,7 +73,7 @@ const NewSaleInfo = ({files}) => {
                     <label >
                         <FormattedMessage id='sale.productCat'/>
                         <br />
-                        <input type="text" onChange={(e) => setProductCategory(e.target.value)}/>
+                        <CatSelector setProductCategory={setProductCategory} categoryList={categoryList}  />
                     </label>
                     <label >
                         <FormattedMessage id='sale.productDescrip'/>
