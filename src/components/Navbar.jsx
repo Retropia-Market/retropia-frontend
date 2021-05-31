@@ -9,7 +9,6 @@ import Categories from './navbar-components/Categories';
 import Subcategories from './navbar-components/Subcategories';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import logo from '../img/logo.svg';
 import {
   faUser,

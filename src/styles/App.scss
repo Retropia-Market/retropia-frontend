@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+html {
+  min-height: 100%;
+  body {
+    height: 100%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
-  overflow-y: hidden;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,3 +31,4 @@
 @import './Login';
 @import './Products';
 @import './Register';
+@import './Profile';
