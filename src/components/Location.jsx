@@ -9,7 +9,7 @@ const Location = (place) => {
             height="225"
             style={{border: 0}}
             loading="lazy"
-            allowfullscreen
+            allowFullScreen
             src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}
     &q=${place}`}
         >
