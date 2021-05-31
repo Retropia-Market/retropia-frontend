@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
+import SelectSearch from "react-select-search"
 import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
 import NameVideoGameSelector from "./NameVideoGameSelector"
@@ -62,12 +63,14 @@ const NewSaleInfo = ({files}) => {
                     <label >
                        <FormattedMessage id='sale.productStatus'/>
                         <br />
-                        <input type="text" onChange={(e) => setProductStatus(e.target.value)}/>
+                        <SelectSearch options={[{value: 'casi nuevo', name: 'casi nuevo'} , {value: 'usado', name: 'usado'}, {value: 'muy desgastado', name: 'muy desgastado'}]} search
+        placeholder="Nombre" onChange={setProductStatus} />
                     </label>
                     <label >
                         <FormattedMessage id='sale.productType'/>
                         <br />
-                        <input type="text" onChange={(e) => setProductType(e.target.value)} />
+                       <SelectSearch options={[{value: 'consola', name: 'Consola'} ,{value: 'videogame', name: 'Videojuego'}, {value: 'accesory', name: 'Accesorio'}]} search
+        placeholder="Nombre" onChange={setProductType} />
                     </label>
                     <label >
                         <FormattedMessage id='sale.productCat'/>
