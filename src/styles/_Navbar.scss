@@ -77,6 +77,10 @@
     transition: 0.2s ease-in-out;
     justify-content: center;
     align-items: center;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+    }
     .types-names {
       color: #fff;
     }
@@ -94,6 +98,10 @@
       rgba(45, 19, 66, 0.5) 1%,
       rgba(147, 38, 131, 1) 100%
     );
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+    }
     letter-spacing: 0.1rem;
     font-weight: 800;
     cursor: pointer;
@@ -120,6 +128,7 @@
 
   .lower {
     grid-area: lower;
+    display: flex;
     background: rgb(147, 38, 131);
     background: linear-gradient(
       0deg,
@@ -131,20 +140,19 @@
       display: none;
       visibility: hidden;
     }
-  }
-  .category {
-    display: flex;
-    font-weight: 300;
-    height: 100%;
-    gap: 2rem;
-    padding: 0 2rem;
-    flex: 1;
-    transition: 0.2s ease-in-out;
-    justify-content: flex-start;
-    align-items: center;
-    .category-name {
-      color: #fff;
+    .category {
       display: flex;
+      font-weight: 300;
+      height: 100%;
+      gap: 2rem;
+      padding: 0 2rem;
+      flex: 1;
+      transition: 0.2s ease-in-out;
+      justify-content: flex-start;
+      align-items: center;
+      .category-name {
+        color: #fff;
+      }
     }
   }
 }
