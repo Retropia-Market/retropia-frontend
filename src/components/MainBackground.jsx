@@ -9,7 +9,6 @@ const MainBackground = () => {
     var x = 0;
     const interval = setInterval(function () {
       setBckPosY(x);
-      console.log(x);
       x += 10;
     }, 100);
 

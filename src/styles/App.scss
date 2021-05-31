@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-* {
+body {
+  padding: 10vh 0 0 0;
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+}
+
+* {
   max-width: 100%;
   overflow-x: hidden;
-  overflow-y: hidden;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -20,8 +23,18 @@
   text-align: center;
 }
 
+$main-gradient: linear-gradient(
+  0deg,
+  rgba(147, 38, 131, 1) 0%,
+  rgba(45, 19, 66, 1) 30%,
+  rgba(24, 15, 53, 1) 100%
+);
+
+$primary-color: #88236b;
+
 @import './MainBackground';
 @import './Navbar';
 @import './Login';
 @import './Products';
 @import './Register';
+@import './Bid';
