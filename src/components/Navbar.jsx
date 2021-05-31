@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import useFetch from '../hooks/useFetch';
+import { useState } from "react"
+import { Link, useHistory, useParams } from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux"
 
 import Login from './Login';
 import Register from './Register';
@@ -10,7 +9,6 @@ import Categories from './navbar-components/Categories';
 import Subcategories from './navbar-components/Subcategories';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import logo from '../img/logo.svg';
 import {
   faUser,
@@ -33,10 +31,6 @@ function Navbar() {
   const [categoryIndex, setCategoryIndex] = useState(1);
   const [showCategories, setShowCategories] = useState(true);
   const [showSubcategories, setShowSubcategories] = useState(false);
-
-  const [allCategories] = useFetch('http://localhost:8080/categories');
-
-  console.log(allCategories);
 
   const handleSubmit = (e) => {
     e.preventDefault();

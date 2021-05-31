@@ -15,7 +15,7 @@ const Subcategories = ({ categoryIndex, hideSubcategories, showCategories}) => {
   console.log('categoryIndex: ' + categoryIndex )
 
   return <> 
-    <FontAwesomeIcon icon={faChevronLeft} onClick={handleClick}></FontAwesomeIcon>
+    <FontAwesomeIcon className="category-select" icon={faChevronLeft} onClick={handleClick}></FontAwesomeIcon>
     {!allCategories && <li>cargando...</li> }
     {allCategories?.filter(c => c.category_id === categoryIndex).map(c => 
       <li className="category" key={c.id}>
