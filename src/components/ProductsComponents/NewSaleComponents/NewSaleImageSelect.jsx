@@ -17,10 +17,20 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles}) => {
     }
 
      
-    const handleClickApi = (e) => {
+     const handleSubmit = async(e) => {
         e.preventDefault()
+        const fd = new FormData()
+        fd.append('image', files )
+        const ret = await fetch('http://localhost:8080/sell/vision/', {
+      method: 'POST',
+      body: fd
+    })
+    if(ret.ok){
+        const response = await ret.json()
         setImageAdded(true)
-    }
+        console.log(response)
+
+    }}
     
 
     return(
@@ -39,7 +49,7 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles}) => {
                 <input type="file" onChange={handleFile}/>
                 <h3><FormattedMessage id='sale.imgDescription'/></h3>
                 </label>
-                <button className="agregar-imagen" onClick={handleClickApi}>Agregar Imagen</button>
+                <button className="agregar-imagen" onClick={handleSubmit}>Agregar Imagen</button>
 
             </div>
         </div>

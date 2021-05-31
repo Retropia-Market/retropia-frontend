@@ -6,14 +6,14 @@ import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
 import NameVideoGameSelector from "./NameVideoGameSelector"
 
-const NewSaleInfo = ({files}) => {
+const NewSaleInfo = ({files, setProductLocation, productLocation}) => {
 
      
     const [productName, setProductName] = useState()
     const [productStatus, setProductStatus] = useState()
     const [productPrice, setProductPrice] = useState()
     const [productDescription, setProductDescription] = useState()
-    const [productLocation, setProductLocation] = useState()
+    
     const [productCategory, setProductCategory] = useState([])
     const [productType, setProductType] = useState()
 

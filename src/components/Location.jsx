@@ -1,7 +1,5 @@
-const Location = (place) => {
+const Location = ({place}) => {
 
-    const {API_KEY} = process.env
-    console.log(API_KEY)
     return (
         <div className="location">
             <iframe title='product-map'
