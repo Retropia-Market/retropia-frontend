@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux"
-import useFetch from '../hooks/useFetch';
 
 import Login from './Login'
 import Register from "./Register";
@@ -70,15 +69,23 @@ function Navbar () {
             <FontAwesomeIcon className="messages" icon={faCommentDots}>ICON</FontAwesomeIcon>
             <FontAwesomeIcon className="notifications" icon={faBell}>ICON</FontAwesomeIcon>
             <div className="user">
-              <FontAwesomeIcon className="user-pic" icon={faUser}>Photo</FontAwesomeIcon>
-              <div className="user-settings">
+              <div className="user-pic">
+                <FontAwesomeIcon icon={faUser} 
+                  size="2x" 
+                  onClick={() => setShowSettings(!showSettings)}>
+                    Photo
+                </FontAwesomeIcon>
+                {showSettings && <div className="user-settings">
+                  <li onClick={handleLogout}>Log Out</li>
+                  <li>Profile</li>
+                  <li>Profile longer</li>
+                </div> }
+              </div>
+              {/* <div className="user-settings">
                 <FontAwesomeIcon className="user-options" icon={faEllipsisV} onClick={() => setShowSettings(!showSettings)}>
                   Settings
                 </FontAwesomeIcon>
-                {showSettings && <div className="user-settings">
-                  <li onClick={handleLogout}>log out</li>
-                </div> }
-              </div>
+              </div> */}
             </div>
             </>}
           </div>
