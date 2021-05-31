@@ -5,10 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 const Categories = ({hideCategories, showSubcategories, setCategoryIndex}) => {
-
   const [allCategories] = useFetch('http://localhost:8080/categories')
-  // const categories = allCategories?.reduce((acc, c) => acc.includes(c.categoria) ? acc : [...acc, c.categoria]  ,[])
-  // console.log(categories)
 
   const handleClick = (i) => {
     // setCategoryIndex(i)

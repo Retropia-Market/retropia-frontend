@@ -7,13 +7,14 @@ const MainBackground = () => {
 
   useEffect(() => {
     var x = 0;
-    setInterval(function () {
+    const interval = setInterval(function () {
       setBckPosY(x);
-      console.log(x);
-      x += 50;
-    }, 1000);
+      x += 10;
+    }, 100);
 
-    return () => {};
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (

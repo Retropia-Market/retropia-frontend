@@ -1,10 +1,10 @@
 {
-    "catalogue.title": "Catálogo",
+  "catalogue.title": "Catálogo",
   "top.title": "Más vistos",
   "search.title": "Productos según tu busqueda",
   "button.message": "Mensaje",
   "button.bid": "Oferta",
-  "prod.related" : "Relacionados",
+  "prod.related": "Relacionados",
   "sale.imgTitle": "Agrega una imagen",
   "sale.imgDescription": "Agrega una imagen del producto que quieras vender, en la que se vea claramente.",
   "sale.productName": "Nombre del producto",
@@ -13,7 +13,8 @@
   "sale.productCat": "Categoria",
   "sale.productLoc": "Localización",
   "sale.productPrice": "Precio",
-  "sale.productDescrip": "Descripcion del producto"
-
-
+  "sale.productDescrip": "Descripcion del producto",
+  "bid.new": "Nueva oferta",
+  "bid.message": "Mensaje al vendedor",
+  "bid.price": "Monto a ofertar"
 }
