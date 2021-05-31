@@ -86,7 +86,8 @@
     }
   }
 
-  .types:hover {
+  .types:hover,
+  .selected {
     background: rgb(147, 38, 131);
     background: linear-gradient(
       0deg,
