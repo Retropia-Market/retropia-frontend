@@ -51,82 +51,79 @@ function Navbar() {
   return (
     <>
       <div className="navbar-container">
-        <div className="logo">
-          <img src={logo} alt="Logo Retropia Market" />
+        <Link className="logo" to="/">
+          <img href="/" src={logo} alt="Logo Retropia Market" />
+        </Link>
+
+        <div className="search">
+          <form className="search-bar" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Ingresa tu búsqueda..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button>🔍</button>
+          </form>
         </div>
-        <nav className="right-navbar">
-          <div className="upper">
-            <div className="search">
-              <form className="search-bar" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="Ingresa tu búsqueda..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                <button>🔍</button>
-              </form>
-              <Types />
-            </div>
-            <div className="user-nav">
-              {!user ? (
-                <>
-                  <button onClick={() => setShowLogin(true)}>Log in</button>
-                  <button onClick={() => setShowRegister(true)}>
-                    Register
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link className="sell-button" to="#">
-                    VENDER +
-                  </Link>
-                  <FontAwesomeIcon className="messages" icon={faCommentDots}>
-                    ICON
+        <div className="categories">
+          <Types />
+        </div>
+        <div className="user-nav">
+          {!user ? (
+            <>
+              <button onClick={() => setShowLogin(true)}>Log in</button>
+              <button onClick={() => setShowRegister(true)}>Register</button>
+            </>
+          ) : (
+            <>
+              <Link className="sell-button" to="#">
+                VENDER +
+              </Link>
+              <FontAwesomeIcon className="messages" icon={faCommentDots}>
+                ICON
+              </FontAwesomeIcon>
+              <FontAwesomeIcon className="notifications" icon={faBell}>
+                ICON
+              </FontAwesomeIcon>
+              <div className="user">
+                <FontAwesomeIcon className="user-pic" icon={faUser}>
+                  Photo
+                </FontAwesomeIcon>
+                <div className="user-settings">
+                  <FontAwesomeIcon
+                    className="user-options"
+                    icon={faEllipsisV}
+                    onClick={() => setShowSettings(!showSettings)}
+                  >
+                    Settings
                   </FontAwesomeIcon>
-                  <FontAwesomeIcon className="notifications" icon={faBell}>
-                    ICON
-                  </FontAwesomeIcon>
-                  <div className="user">
-                    <FontAwesomeIcon className="user-pic" icon={faUser}>
-                      Photo
-                    </FontAwesomeIcon>
+                  {showSettings && (
                     <div className="user-settings">
-                      <FontAwesomeIcon
-                        className="user-options"
-                        icon={faEllipsisV}
-                        onClick={() => setShowSettings(!showSettings)}
-                      >
-                        Settings
-                      </FontAwesomeIcon>
-                      {showSettings && (
-                        <div className="user-settings">
-                          <li onClick={handleLogout}>log out</li>
-                        </div>
-                      )}
+                      <li onClick={handleLogout}>log out</li>
                     </div>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-          <div className="lower">
-            {showCategories && (
-              <Categories
-                setCategoryIndex={setCategoryIndex}
-                hideCategories={() => setShowCategories(false)}
-                showSubcategories={() => setShowSubcategories(true)}
-              />
-            )}
-            {showSubcategories && (
-              <Subcategories
-                CategoryIndex={categoryIndex}
-                showCategories={() => setShowCategories(true)}
-                hideSubcategories={() => setShowSubcategories(false)}
-              />
-            )}
-          </div>
-        </nav>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="lower">
+          {showCategories && (
+            <Categories
+              setCategoryIndex={setCategoryIndex}
+              hideCategories={() => setShowCategories(false)}
+              showSubcategories={() => setShowSubcategories(true)}
+            />
+          )}
+          {showSubcategories && (
+            <Subcategories
+              CategoryIndex={categoryIndex}
+              showCategories={() => setShowCategories(true)}
+              hideSubcategories={() => setShowSubcategories(false)}
+            />
+          )}
+        </div>
       </div>
       {showLogin && (
         <Login setShowLogin={setShowLogin} setShowRegister={setShowRegister} />

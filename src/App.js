@@ -13,7 +13,6 @@ function App() {
       <Navbar />
       <main>
         <Switch>
-          <MainBackground />
           <Route path="/catalogue/videogames" exact>
             <ProductList type={'videogame'} />
           </Route>
@@ -24,6 +23,7 @@ function App() {
             <ProductList type={'accesory'} />
           </Route>
           <Route path="/" exact>
+            <MainBackground />
             <TopProducts />
           </Route>
           <Route path="/search/:q?" exact>
