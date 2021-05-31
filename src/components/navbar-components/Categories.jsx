@@ -1,43 +1,31 @@
 import {Link} from 'react-router-dom'
+import useFetch from '../../hooks/useFetch';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
-const Categories = ({typeIndex, setCategoryIndex, showSubcategories}) => {
+const Categories = ({hideCategories, showSubcategories, setCategoryIndex}) => {
 
-  const categories = {
-    consoles : ['sony', 'nintendo', 'microsoft', 'atari', 'sega'],
-    videogames: ['sony', 'nintendo', 'microsoft', 'atari', 'sega'],
-    accesories: ['algo', 'otra', 'otro'],
-  }
+  const [allCategories] = useFetch('http://localhost:8080/categories')
+  // const categories = allCategories?.reduce((acc, c) => acc.includes(c.categoria) ? acc : [...acc, c.categoria]  ,[])
+  // console.log(categories)
 
   const handleClick = (i) => {
-    setCategoryIndex(i)
+    // setCategoryIndex(i)
+    hideCategories()
     showSubcategories()
   }
 
   return <>
-    {typeIndex === 0 && <ul >
-      {categories.consoles.map((t, i) => 
-      <li>
-        <Link to="#">{t}</Link>
-        <FontAwesomeIcon icon={faChevronRight} onClick={() => handleClick(i)}></FontAwesomeIcon>
-      </li> )}
-    </ul>}
-    {typeIndex === 1 && <ul >
-      {categories.videogames.map((t, i) => 
-      <li>
-        <Link to="#">{t}</Link>
-        <FontAwesomeIcon icon={faChevronRight} onClick={() => handleClick(i)}></FontAwesomeIcon>
-      </li> )}
-    </ul>}
-    {typeIndex === 2 && <ul >
-      {categories.accesories.map((t, i) => 
-      <li>
-        <Link to="#">{t}</Link>
-        <FontAwesomeIcon icon={faChevronRight} onClick={() => handleClick(i)}></FontAwesomeIcon>
-      </li> )}
-    </ul>}
-  </>
+      {!allCategories && <li>cargando...</li>} 
+      
+      {allCategories?.reduce((acc, c) => 
+        acc.includes(c.categoria) ? acc : [...acc, c.categoria]  ,[]).map((c,i) =>
+          <li className="category" key={i}>
+            <Link className="category-name" to="#">{c}</Link>
+            <FontAwesomeIcon className="category-select" icon={faChevronRight} onClick={() => handleClick(i)}></FontAwesomeIcon>
+          </li> )}
+    </>
 }
 
 export default Categories
