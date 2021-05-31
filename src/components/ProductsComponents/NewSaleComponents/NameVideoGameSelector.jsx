@@ -1,6 +1,6 @@
 import SelectSearch from "react-select-search";
 
-const NewSaleSelector = ({setProductName}) => {
+const NameVideoGameSelector = ({setProductName}) => {
         
         const getFunOp = (query) => {
             if(!query)return [];
@@ -9,7 +9,11 @@ const NewSaleSelector = ({setProductName}) => {
                         fetch(`http://localhost:8080/rawg/search/${query}`)
                             .then(response => response.json())
                             .then(( {results} ) => {
-                                if(results)  resolve(results.filter((_,i)=> i < 5).map((product) => ({ value: product.name, name: product.name })))
+                                if(results) {
+                                    resolve(results.filter((_,i)=> i < 5).map((product, i) => ({ value: [product, i], name: product.name })))
+
+
+                                } 
                               
                             })
                             .catch(reject);
@@ -26,4 +30,4 @@ return (
 )
 }
 
-export default NewSaleSelector
+export default NameVideoGameSelector

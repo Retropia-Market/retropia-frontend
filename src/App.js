@@ -6,7 +6,8 @@ import SearchList from './components/ProductsComponents/SearchList';
 import TopProducts from './components/ProductsComponents/TopProducts';
 import Navbar from './components/Navbar';
 import MainBackground from './components/MainBackground';
-import NewSale from './components/ProductsComponents/NewSale';
+
+import NewSale from './components/ProductsComponents/NewSaleComponents/NewSale';
 import Profile from './components/profile-components/Profile';
 
 import './styles/App.scss';

@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
-import NewSaleSelector from "./NewSaleSelector"
+import CatSelector from "./CatSelector"
+import LocationSelector from "./LocationSelector"
+import NameVideoGameSelector from "./NameVideoGameSelector"
 
 const NewSaleInfo = ({files}) => {
 
@@ -11,7 +13,7 @@ const NewSaleInfo = ({files}) => {
     const [productPrice, setProductPrice] = useState()
     const [productDescription, setProductDescription] = useState()
     const [productLocation, setProductLocation] = useState()
-    const [productCategory, setProductCategory] = useState()
+    const [productCategory, setProductCategory] = useState([])
     const [productType, setProductType] = useState()
 
     const user = useSelector(s => s.user)
@@ -20,11 +22,11 @@ const NewSaleInfo = ({files}) => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         const fd = new FormData()
-        fd.append('name', productName )
+        fd.append('name', productName[0].name )
         fd.append('status', productStatus )
         fd.append('price', +productPrice )
         fd.append('description', productDescription )
-        fd.append('subcategory', productCategory )
+        fd.append('subcategory', productCategory[1] )
         fd.append('product_type', productType )
         fd.append('images', files )
         fd.append('location', productLocation )
@@ -45,7 +47,7 @@ const NewSaleInfo = ({files}) => {
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
-                      <NewSaleSelector setProductName={setProductName}/>
+                      <NameVideoGameSelector setProductName={setProductName} />
                     </label>
                     <label >
                         <FormattedMessage id='sale.productPrice'/>
@@ -55,7 +57,7 @@ const NewSaleInfo = ({files}) => {
                     <label >
                         <FormattedMessage id='sale.productLoc'/>
                         <br />
-                        <input type="text" onChange={(e) => setProductLocation(e.target.value)}/>
+                        <LocationSelector  setProductLocation={setProductLocation}/>
                     </label>
                     <label >
                        <FormattedMessage id='sale.productStatus'/>
@@ -70,7 +72,7 @@ const NewSaleInfo = ({files}) => {
                     <label >
                         <FormattedMessage id='sale.productCat'/>
                         <br />
-                        <input type="text" onChange={(e) => setProductCategory(e.target.value)}/>
+                        <CatSelector setProductCategory={setProductCategory} productName={productName}  />
                     </label>
                     <label >
                         <FormattedMessage id='sale.productDescrip'/>
