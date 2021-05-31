@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from '../img/logo.svg';
 import {faUser, faCommentDots, faBell} from '@fortawesome/free-regular-svg-icons'
-import { faEllipsisV} from '@fortawesome/free-solid-svg-icons'
 
 function Navbar () {
   const {q} = useParams();
@@ -81,11 +80,6 @@ function Navbar () {
                   <li>Profile longer</li>
                 </div> }
               </div>
-              {/* <div className="user-settings">
-                <FontAwesomeIcon className="user-options" icon={faEllipsisV} onClick={() => setShowSettings(!showSettings)}>
-                  Settings
-                </FontAwesomeIcon>
-              </div> */}
             </div>
             </>}
           </div>
