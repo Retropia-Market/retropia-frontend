@@ -11,6 +11,7 @@
   "sale.productStatus": "Estado del producto",
   "sale.productType": "Tipo de producto",
   "sale.productCat": "Categoria",
+  "sale.productLoc": "Localización",
   "sale.productPrice": "Precio",
   "sale.productDescrip": "Descripcion del producto",
   "bid.new": "Nueva oferta",
