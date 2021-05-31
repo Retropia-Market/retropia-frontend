@@ -95,3 +95,26 @@
 .fav-status {
     display: flex;
 }
+
+.new-sale .avatar,
+.image {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.new-sale .add-first-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30vh;
+    flex: 1 1 auto;
+}
+
+.new-sale .sale-user-input form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}

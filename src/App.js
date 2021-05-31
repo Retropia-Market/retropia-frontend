@@ -6,6 +6,7 @@ import TopProducts from './components/ProductsComponents/TopProducts';
 import Navbar from './components/Navbar';
 import MainBackground from './components/MainBackground';
 import './styles/App.scss';
+import NewSale from './components/ProductsComponents/newSale';
 
 function App() {
     return (
@@ -21,6 +22,9 @@ function App() {
                     </Route>
                     <Route path="/catalogue/accesories" exact>
                         <ProductList type={'accesory'} />
+                    </Route>
+                    <Route path="/sell" exact>
+                        <NewSale />
                     </Route>
                     <Route path="/" exact>
                         <MainBackground />
