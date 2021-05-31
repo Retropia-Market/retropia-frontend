@@ -4,5 +4,15 @@
   "search.title": "Productos según tu busqueda",
   "button.message": "Mensaje",
   "button.bid": "Oferta",
-  "prod.related" : "Relacionados"  
+  "prod.related" : "Relacionados",
+  "sale.imgTitle": "Agrega una imagen",
+  "sale.imgDescription": "Agrega una imagen del producto que quieras vender, en la que se vea claramente.",
+  "sale.productName": "Nombre del producto",
+  "sale.productStatus": "Estado del producto",
+  "sale.productType": "Tipo de producto",
+  "sale.productCat": "Categoria",
+  "sale.productPrice": "Precio",
+  "sale.productDescrip": "Descripcion del producto"
+
+
 }

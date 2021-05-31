@@ -1,20 +1,21 @@
-import useFetch from "../../hooks/useFetch"
-import '../../styles/Products.css'
-
+import { useEffect, useState } from 'react';
 
 const ProductDataSheet = () => {
+  const [results, setResults] = useState();
 
-    const apiURL = 'http://localhost:8080/top'
+  //ENDPOINT hecho
+  //TODO - Sacar los datos necesarios para la ficha técnica, pero aun por decidir.
 
-    const [results] = useFetch(apiURL)
+  return (
+    <div className="data-sheet">
+      <h3>Ficha técnica del producto</h3>
+      {/* {results && 
+            <div className="data-sheet-inf">
+                <span></span>
+            </div>
+            } */}
+    </div>
+  );
+};
 
-
-    return (
-        <div className="data-sheet">
-            <h3>Ficha técnica del producto</h3>
-        </div>
-    )
-}
-
-
-export default ProductDataSheet
+export default ProductDataSheet;

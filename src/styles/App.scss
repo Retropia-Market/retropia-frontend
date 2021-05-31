@@ -2,6 +2,11 @@
 
 * {
   margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,3 +19,9 @@
 .App {
   text-align: center;
 }
+
+@import './MainBackground';
+@import './Navbar';
+@import './Login';
+@import './Products';
+@import './Register';
