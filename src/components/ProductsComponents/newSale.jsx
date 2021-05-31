@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { FormattedMessage } from "react-intl"
+import { useSelector } from "react-redux"
 
 const NewSale = () => {
 
@@ -13,6 +14,8 @@ const NewSale = () => {
     const [productLocation, setProductLocation] = useState()
     const [productCategory, setProductCategory] = useState()
     const [productType, setProductType] = useState()
+
+    const user = useSelector(s => s.user)
     
     const handleFile = e => {
         const l = Array.from(e.target.files)
@@ -31,10 +34,27 @@ const NewSale = () => {
         setImageAdded(true)
     }
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
         const fd = new FormData()
-        fd.append('name', )
+        fd.append('name', productName )
+        fd.append('status', productStatus )
+        fd.append('price', +productPrice )
+        fd.append('description', productDescription )
+        fd.append('subcategory', productCategory )
+        fd.append('product_type', productType )
+        fd.append('images', files )
+        fd.append('location', 'Mallorca' )
+        const ret = await fetch('http://localhost:8080/catalogue/sell', {
+      method: 'POST',
+      headers : {
+          'Authorization' : 'Bearer ' + user.token,
+      },
+      body: fd
+    })
+    console.log('Status' , ret.status)
+    const data = await ret.json()
+    console.log('Data', data)
     }
 
     return (
@@ -58,7 +78,7 @@ const NewSale = () => {
             </div>
             {imageAdded && 
             <div className="sale-user-input">
-                <form >
+                <form onSubmit={handleSubmit}>
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
@@ -67,7 +87,7 @@ const NewSale = () => {
                     <label >
                         <FormattedMessage id='sale.productPrice'/>
                         <br />
-                        <input type="text" onChange={(e) => setProductName(e.target.value)}/>
+                        <input type="text" onChange={(e) => setProductPrice(e.target.value)}/>
                     </label>
                     <label >
                        <FormattedMessage id='sale.productStatus'/>
@@ -89,6 +109,7 @@ const NewSale = () => {
                         <br />
                         <textarea cols="30" rows="10" onChange={(e) => setProductDescription(e.target.value)}></textarea>
                     </label>
+                    <button>Crea tu venta</button>
                 </form>
             </div>}
 
