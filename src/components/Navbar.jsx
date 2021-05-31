@@ -77,7 +77,7 @@ function Navbar() {
             </>
           ) : (
             <>
-              <Link className="sell-button" to="#">
+              <Link className="sell-button" to="/sell">
                 VENDER +
               </Link>
               <FontAwesomeIcon className="messages" icon={faCommentDots}>

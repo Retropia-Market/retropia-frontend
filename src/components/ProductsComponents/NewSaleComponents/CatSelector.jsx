@@ -1,27 +1,15 @@
 import SelectSearch from "react-select-search";
 
-const CatSelector = ({setProductCategory}) => {
-        
-        const getFunOp = (query) => {
-            if(!query)return [];
-                return new Promise((resolve, reject) => {
-                        
-                        fetch(`http://localhost:8080/rawg/search/${query}`)
-                            .then(response => response.json())
-                            .then(( {results} ) => {
-                                if(results)  resolve(results.filter((_,i)=> i < 5).map((product) => ({ value: product.name, name: product.name })))
-                              
-                            })
-                            .catch(reject);
-                    
-                });
-            
-    }
+const CatSelector = ({productName, setProductCategory}) => {
+
 
 return (
     <div className="new-sale-selector">
-          <SelectSearch options={[]} getOptions={getFunOp} search
-        placeholder="Nombre"  debounce={1000}  onChange={setProductCategory} />
+        {productName ?  <SelectSearch options={productName[0]?.platforms.map((p, i) => ({value: [p.platform.id, p.platform.name], name: p.platform.name}))} search
+        placeholder="Nombre"  debounce={1000}  onChange={setProductCategory} /> : 
+        <SelectSearch options={[]} search
+        placeholder="Nombre" onChange={setProductCategory} />}
+          
     </div>
 )
 }
