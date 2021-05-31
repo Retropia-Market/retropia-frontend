@@ -4,12 +4,14 @@ import Product from './components/ProductsComponents/Product';
 import SearchList from './components/ProductsComponents/SearchList';
 import TopProducts from './components/ProductsComponents/TopProducts';
 import Navbar from './components/Navbar';
-import './styles/App.css';
+import MainBackground from './components/MainBackground';
+import './styles/App.scss';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <MainBackground />
       <main>
         <Switch>
           <Route path="/catalogue/videogames" exact>
