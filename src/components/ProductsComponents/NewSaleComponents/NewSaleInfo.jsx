@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
+import { Redirect } from "react-router"
 import SelectSearch from "react-select-search"
 import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
@@ -15,6 +16,8 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
     const [productDescription, setProductDescription] = useState()
     
     const [productCategory, setProductCategory] = useState([])
+
+    const [redirect, setRedirect] = useState(false)
     
 
     const user = useSelector(s => s.user)
@@ -27,7 +30,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
         fd.append('status', productStatus )
         fd.append('price', +productPrice )
         fd.append('description', productDescription )
-        fd.append('subcategory', productCategory[1] )
+        fd.append('subcategory', productCategory[1].toLowerCase() )
         fd.append('product_type', productType )
         fd.append('images', files )
         fd.append('location', productLocation )
@@ -38,12 +41,13 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
       },
       body: fd
     })
-    console.log('Status' , ret.status)
-    const data = await ret.json()
-    console.log('Data', data)
+    if(ret.ok){
+        setRedirect(true)
+    }
     }
     return (
         <div className="new-sale-info"><div className="sale-user-input">
+            {redirect && <Redirect to='/'/>}
                 <form onSubmit={handleSubmit}>
                      <label >
                         <h2><FormattedMessage id='sale.productType'/></h2>
@@ -53,7 +57,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
-                      <NameVideoGameSelector setProductName={setProductName} />
+                      <NameVideoGameSelector setProductName={setProductName} productType={productType}/>
                     </label>
                     <label >
                         <FormattedMessage id='sale.productPrice'/>

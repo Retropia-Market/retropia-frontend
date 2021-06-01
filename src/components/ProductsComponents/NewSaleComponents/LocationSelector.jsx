@@ -1,6 +1,6 @@
 import SelectSearch from "react-select-search";
 
-const LocationSelector = ({setLocation}) => {
+const LocationSelector = ({setProductLocation}) => {
         
         const getFunOp = (query) => {
             if(!query)return [];
@@ -25,7 +25,7 @@ const LocationSelector = ({setLocation}) => {
 return (
     <div className="new-sale-selector">
           <SelectSearch options={[]} getOptions={getFunOp} search
-        placeholder="Lugar donde resides actualmente"  debounce={1000}  onChange={setLocation} />
+        placeholder="Lugar donde resides actualmente"  debounce={1000}  onChange={setProductLocation} />
     </div>
 )
 }
