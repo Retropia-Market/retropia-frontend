@@ -6,7 +6,7 @@ import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
 import NameVideoGameSelector from "./NameVideoGameSelector"
 
-const NewSaleInfo = ({files, setProductLocation, productLocation}) => {
+const NewSaleInfo = ({files, setProductLocation, productLocation ,productType}) => {
 
      
     const [productName, setProductName] = useState()
@@ -15,7 +15,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation}) => {
     const [productDescription, setProductDescription] = useState()
     
     const [productCategory, setProductCategory] = useState([])
-    const [productType, setProductType] = useState()
+    
 
     const user = useSelector(s => s.user)
 
@@ -66,12 +66,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation}) => {
                         <SelectSearch options={[{value: 'casi nuevo', name: 'casi nuevo'} , {value: 'usado', name: 'usado'}, {value: 'muy desgastado', name: 'muy desgastado'}]} search
         placeholder="Nombre" onChange={setProductStatus} />
                     </label>
-                    <label >
-                        <FormattedMessage id='sale.productType'/>
-                        <br />
-                       <SelectSearch options={[{value: 'consola', name: 'Consola'} ,{value: 'videogame', name: 'Videojuego'}, {value: 'accesory', name: 'Accesorio'}]} search
-        placeholder="Nombre" onChange={setProductType} />
-                    </label>
+                    
                     <label >
                         <FormattedMessage id='sale.productCat'/>
                         <br />

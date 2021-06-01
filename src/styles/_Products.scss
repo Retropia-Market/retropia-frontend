@@ -142,3 +142,9 @@
     justify-content: space-around;
     margin: 1rem;
 }
+
+.new-sale-first-step {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
