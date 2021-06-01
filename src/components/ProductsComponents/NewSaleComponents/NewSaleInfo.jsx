@@ -6,7 +6,7 @@ import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
 import NameVideoGameSelector from "./NameVideoGameSelector"
 
-const NewSaleInfo = ({files, setProductLocation, productLocation ,productType}) => {
+const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, setProductType}) => {
 
      
     const [productName, setProductName] = useState()
@@ -45,6 +45,11 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType}) 
     return (
         <div className="new-sale-info"><div className="sale-user-input">
                 <form onSubmit={handleSubmit}>
+                     <label >
+                        <h2><FormattedMessage id='sale.productType'/></h2>
+                       <SelectSearch options={[{value: 'console', name: 'Consola'} ,{value: 'videogame', name: 'Videojuego'}, {value: 'accesory', name: 'Accesorio'}]} search
+        placeholder="Nombre" onChange={setProductType} value={productType}/>
+                    </label>
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
