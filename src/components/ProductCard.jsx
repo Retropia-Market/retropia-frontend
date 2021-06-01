@@ -9,7 +9,7 @@ const ProductCard = ({ data }) => {
   const [showBidModal, setShowBidModal] = useState(false);
   const history = useHistory();
 
-  const { seller, name, status, price, images, id, seller_id } = data;
+  const { seller, name, status, price, images, seller_id } = data;
   const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
 
   const handleBid = () => {
@@ -29,7 +29,7 @@ const ProductCard = ({ data }) => {
           className="product-card-img"
           onClick={handleOnClick}
           style={{
-            backgroundImage: data.images[0]?.url
+            backgroundImage: images[0]?.url
               ? `url(http:/\/\localhost:8080/${data.images[0]?.url})`
               : `url(${productPlaceholder})`,
           }}

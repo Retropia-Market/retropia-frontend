@@ -2,8 +2,8 @@ import { useParams } from 'react-router';
 import useFetch from '../../hooks/useFetch';
 import ProductInfo from './ProductInfo';
 import Location from '../Location';
-import ProductDataSheet from './ProductDataSheet';
 import RelatedProducts from './RelatedProducts';
+import ProductScreenShots from './ProductScreenShots';
 
 const Product = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const Product = () => {
     <div className="single-product-page">
       <ProductInfo data={results} />
       <Location place={results?.location} />
-      <ProductDataSheet />
+      <ProductScreenShots  query={results?.name} type={results?.product_type}/>
       <RelatedProducts data={results} />
     </div>
   );
