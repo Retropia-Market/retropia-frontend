@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import LocationSelector from '../../ProductsComponents/NewSaleComponents/LocationSelector'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBook,
@@ -133,19 +135,27 @@ function ProfileData({updateField, user}) {
       <label htmlFor="profile-update-location">Location</label>
       <div className="profile-update-field">
         <FontAwesomeIcon icon={faMap}></FontAwesomeIcon>
-        <input 
+        {/* <input 
           id="profile-update-location" 
           type="text"
-          value={profileData.country}
+          value={profileData.location}
           name="location"
           placeHolder={user.userData.location}
           onChange={e => updateField(e, setProfileData, profileData)}
-          />
+          /> */}
+            <LocationSelector 
+              name="location" 
+              value="profileData.location" 
+              placeholder="user.userData.location"
+              onChange={e => updateField(e, setProfileData, profileData)}
+            />
       </div>
       <label htmlFor="profile-update-bio">Bio</label>
       <div className="profile-update-field">
         <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>
-        <input 
+        <textarea 
+          rows="10"
+          cols="50"
           id="profile-update-bio" 
           type="textarea"
           value={profileData.bio}
