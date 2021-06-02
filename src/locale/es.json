@@ -16,5 +16,15 @@
   "sale.productDescrip": "Descripcion del producto",
   "bid.new": "Nueva oferta",
   "bid.message": "Mensaje al vendedor",
-  "bid.price": "Monto a ofertar"
+  "bid.price": "Monto a ofertar",
+  "error.user.empty": "El Usuario no puede estar vacío",
+  "error.password.empty": "La contraseña no puede estar vacía",
+  "error.repeated.password.empty": "Repite la contraseña",
+  "error.password.minumun.lenght": "La contraseña necesita como mínimo 8 carácteres",
+  "error.repeated.password.minumun.lenght": "Las contraseñas no coinciden",
+  "error.email.not.valid": "Debes ingresar un email valido (ejemplo@ejemplo.com)",
+  "error.birthday": "Ingresa una fecha de nacimiento válida",
+  "error.first.name": "Ingresa un nombre válido",
+  "error.last.name": "Ingresa un apellido válido",
+  "error.default": "Ha ocurrido un error"
 }

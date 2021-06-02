@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCommentDots,
-  faEuroSign,
-  faChevronUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
 const NewBid = ({ showBidModal, setShowBidModal }) => {
@@ -95,12 +91,6 @@ const NewBid = ({ showBidModal, setShowBidModal }) => {
         </div>
         <button>Hacer Oferta</button>
       </form>
-      <FontAwesomeIcon
-        className="register-exit"
-        icon={faChevronUp}
-        size="2x"
-        onClick={() => setShowBidModal(false)}
-      ></FontAwesomeIcon>
     </div>
   );
 };

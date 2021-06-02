@@ -33,9 +33,17 @@ function Login({ setShowLogin, setShowRegister }) {
     setShowRegister(true);
   };
 
+  const closeModalHandler = (e) => {
+    setShowLogin(false);
+  };
+
   return (
-    <div className="login-bg">
-      <form className="login-fg" onSubmit={handleSubmit}>
+    <div className="login-bg" onClick={closeModalHandler}>
+      <form
+        className="login-fg"
+        onSubmit={handleSubmit}
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="login-title">Login</h2>
         <div className="login-inputs">
           <label htmlFor="username-login">User</label>
