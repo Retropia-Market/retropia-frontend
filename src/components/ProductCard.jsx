@@ -9,7 +9,7 @@ const ProductCard = ({ data }) => {
   const [showBidModal, setShowBidModal] = useState(false);
   const history = useHistory();
 
-  const { seller, name, status, price, images, seller_id } = data;
+  const { seller, name, status, price, images, seller_id, id } = data;
   const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
 
   const handleBid = () => {
@@ -59,7 +59,11 @@ const ProductCard = ({ data }) => {
         </div>
       </div>
       {showBidModal && (
-        <NewBid showBidModal={showBidModal} setShowBidModal={setShowBidModal} />
+        <NewBid
+          id={id}
+          showBidModal={showBidModal}
+          setShowBidModal={setShowBidModal}
+        />
       )}
     </>
   );

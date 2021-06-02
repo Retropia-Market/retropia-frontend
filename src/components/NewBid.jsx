@@ -4,19 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentDots, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
-const NewBid = ({ showBidModal, setShowBidModal }) => {
-  const productId = 1;
+const NewBid = ({ id, showBidModal, setShowBidModal }) => {
   const [bidData, setBidData] = useState({
     message: '',
     bidPrice: 0,
   });
 
   const user = useSelector((s) => s.user);
-  console.log(user);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:8080/products/${productId}/bid`, {
+    console.log(id);
+    const res = await fetch(`http://localhost:8080/products/${id}/bid`, {
       method: 'POST',
       body: JSON.stringify(bidData),
       headers: {
@@ -66,7 +65,7 @@ const NewBid = ({ showBidModal, setShowBidModal }) => {
                   id="message-bid"
                   type="textarea"
                   value={bidData.bidMessage}
-                  name="bidMessage"
+                  name="message"
                   onChange={updateField}
                 />
               </div>
