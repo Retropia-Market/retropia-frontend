@@ -9,6 +9,8 @@ import {
   faSignature,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { FormattedMessage } from 'react-intl';
+import errorHandler from '../utils';
 
 function Register({ setShowRegister, setShowLogin }) {
   const [userData, setUserData] = useState({
@@ -20,10 +22,12 @@ function Register({ setShowRegister, setShowLogin }) {
     repeatedPassword: '',
     birthDate: '',
   });
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     const res = await fetch('http://localhost:8080/users/register', {
       method: 'POST',
       body: JSON.stringify(userData),
@@ -36,9 +40,10 @@ function Register({ setShowRegister, setShowLogin }) {
 
       setShowRegister(false);
     } else {
-      alert('parece que algo salio mal');
       const data = await res.json();
-      console.log(data);
+      console.log(data.error);
+      setError(errorHandler(data.error));
+      console.log(error);
     }
   };
 
@@ -53,10 +58,17 @@ function Register({ setShowRegister, setShowLogin }) {
       [e.target.name]: e.target.value,
     });
   };
+  const closeModalHandler = (e) => {
+    setShowRegister(false);
+  };
 
   return (
-    <div className="register-bg">
-      <form className="register-fg" onSubmit={handleSubmit}>
+    <div className="register-bg" onClick={closeModalHandler}>
+      <form
+        className="register-fg"
+        onSubmit={handleSubmit}
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="register-title">Register</h2>
         <div className="register-inputs">
           <div className="register-inputs-1">
@@ -149,6 +161,11 @@ function Register({ setShowRegister, setShowLogin }) {
           Ya tienes cuenta?
         </button>
         <button className="register-button">SIGN UP</button>
+        {error && (
+          <div className="error-message">
+            <FormattedMessage id={error} />
+          </div>
+        )}
       </form>
       <FontAwesomeIcon
         className="register-exit"

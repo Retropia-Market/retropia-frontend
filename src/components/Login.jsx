@@ -6,10 +6,12 @@ import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 function Login({ setShowLogin, setShowRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
     const res = await fetch('http://localhost:8080/users/login', {
       method: 'POST',
       body: JSON.stringify({ email: username, password }),
@@ -22,7 +24,8 @@ function Login({ setShowLogin, setShowRegister }) {
       dispatch({ type: 'LOGIN', user: data });
       setShowLogin(false);
     } else {
-      alert('parece que algo salio mal');
+      setErrorMessage('Usuario o Contraseña incorrectos.');
+      console.log(errorMessage);
     }
   };
 
@@ -31,9 +34,17 @@ function Login({ setShowLogin, setShowRegister }) {
     setShowRegister(true);
   };
 
+  const closeModalHandler = (e) => {
+    setShowLogin(false);
+  };
+
   return (
-    <div className="login-bg">
-      <form className="login-fg" onSubmit={handleSubmit}>
+    <div className="login-bg" onClick={closeModalHandler}>
+      <form
+        className="login-fg"
+        onSubmit={handleSubmit}
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="login-title">Login</h2>
         <div className="login-inputs">
           <label htmlFor="username-login">User</label>
@@ -70,8 +81,9 @@ function Login({ setShowLogin, setShowRegister }) {
         </div>
 
         <button className="login-button">LOG IN</button>
-        <img clasName="login-logo" src="" alt="logo" />
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </form>
+
       <FontAwesomeIcon
         className="login-exit"
         icon={faChevronUp}
