@@ -16,7 +16,7 @@ const Product = () => {
     {results && <div className="single-product-page">
       <ProductInfo data={results} />
       <Location place={results?.location} />
-      {/* <ProductScreenShots  query={results?.name} type={results?.product_type}/> */}
+      <ProductScreenShots  query={results?.name} type={results?.product_type}/>
       <RelatedProducts data={results} />
     </div>}
     </>
