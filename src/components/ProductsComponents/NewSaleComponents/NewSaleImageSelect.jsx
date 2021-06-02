@@ -38,17 +38,17 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType}) =>
      
      const handleSubmit = async (e) => {
         e.preventDefault()
-        const fd = new FormData()
-        fd.append('image', files )
-        const ret = await fetch('http://localhost:8080/sell/vision/', {
-      method: 'POST',
-      headers : {
-          'Authorization' : 'Bearer ' + user.token,
-      },
-      body: fd
-    })
-    if(ret.ok){
-        const response = await ret.json()
+    //     const fd = new FormData()
+    //     fd.append('image', files )
+    //     const ret = await fetch('http://localhost:8080/sell/vision/', {
+    //   method: 'POST',
+    //   headers : {
+    //       'Authorization' : 'Bearer ' + user.token,
+    //   },
+    //   body: fd
+    // })
+    if(true){
+        // const response = await ret.json()
         // setProductType(handleTypeData(response))
         setImageAdded(true)
 
