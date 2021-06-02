@@ -9,8 +9,7 @@ const ProductScreenShots = ({query, type}) => {
   
   if(type === 'videogame' && results){
     
-     filteredResults = results ? results.results.filter(game => game.name === query): []
-    console.log(filteredResults[0].short_screenshots)
+     filteredResults = results ? results.results.filter(game => game.name === query): [];
     
   } 
   return (
