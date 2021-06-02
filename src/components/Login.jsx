@@ -6,10 +6,12 @@ import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 function Login({ setShowLogin, setShowRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
     const res = await fetch('http://localhost:8080/users/login', {
       method: 'POST',
       body: JSON.stringify({ email: username, password }),
@@ -21,7 +23,8 @@ function Login({ setShowLogin, setShowRegister }) {
       dispatch({ type: 'LOGIN', user: data });
       setShowLogin(false);
     } else {
-      alert('parece que algo salio mal');
+      setErrorMessage('Usuario o Contraseña incorrectos.');
+      console.log(errorMessage);
     }
   };
 
@@ -69,8 +72,9 @@ function Login({ setShowLogin, setShowRegister }) {
         </div>
 
         <button className="login-button">LOG IN</button>
-        <img clasName="login-logo" src="" alt="logo" />
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </form>
+
       <FontAwesomeIcon
         className="login-exit"
         icon={faChevronUp}
