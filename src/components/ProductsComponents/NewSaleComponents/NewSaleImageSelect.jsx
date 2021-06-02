@@ -20,16 +20,17 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType}) =>
 
     const handleTypeData = (visionData) => {
 
-        const wordsArray = visionData.map(data => data.name.toLowerCase().split(' ')).flatMap(v => v)
+        // const wordsArray = visionData.map(data => data.name.toLowerCase().split(' ')).flatMap(v => v)
         
-        for (let word of wordsArray){
-           if(word === 'console'){
-               return 'console'
-           }
-           else if(word === 'controller'){
-               return 'accesory'
-           }
-        }
+        // for (let word of wordsArray){
+        //    if(word === 'console'){
+        //        return 'console'
+        //    }
+        //    else if(word === 'controller'){
+        //        return 'accesory'
+        //    }
+        // }
+        // return 'videogame';
         return 'videogame';
         
     }
@@ -48,7 +49,7 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType}) =>
     })
     if(ret.ok){
         const response = await ret.json()
-        setProductType(handleTypeData(response))
+        // setProductType(handleTypeData(response))
         setImageAdded(true)
 
     }}

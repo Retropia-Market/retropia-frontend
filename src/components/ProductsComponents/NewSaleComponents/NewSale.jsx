@@ -22,7 +22,7 @@ const NewSale = () => {
             <NewSaleImageSelect setImageAdded={setImageAdded} setFiles={setFiles} files={files} setProductType={setProductType}/>
                  </div>
             
-            {imageAdded && <NewSaleInfo files={files} setLocation={setProductLocation} productLocation={productLocation} productType={productType} setProductType={setProductType}/>}
+            {imageAdded && <NewSaleInfo files={files} setProductLocation={setProductLocation} productLocation={productLocation} productType={productType} setProductType={setProductType}/>}
             </div>
            {productLocation && <Location place={productLocation}/>}
 

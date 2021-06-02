@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
+import { Redirect } from "react-router"
 import SelectSearch from "react-select-search"
 import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
+import NameConsoleSelector from "./NameConsoleSelector"
 import NameVideoGameSelector from "./NameVideoGameSelector"
 
 const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, setProductType}) => {
@@ -15,6 +17,8 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
     const [productDescription, setProductDescription] = useState()
     
     const [productCategory, setProductCategory] = useState([])
+
+    const [redirect, setRedirect] = useState(false)
     
 
     const user = useSelector(s => s.user)
@@ -27,7 +31,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
         fd.append('status', productStatus )
         fd.append('price', +productPrice )
         fd.append('description', productDescription )
-        fd.append('subcategory', productCategory[1] )
+        fd.append('subcategory', productType === 'console' ? productCategory.toLowerCase() :productCategory[1].toLowerCase() )
         fd.append('product_type', productType )
         fd.append('images', files )
         fd.append('location', productLocation )
@@ -38,12 +42,14 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
       },
       body: fd
     })
-    console.log('Status' , ret.status)
-    const data = await ret.json()
-    console.log('Data', data)
+    if(ret.ok){
+        setRedirect(true)
+    }
+    console.log(ret)
     }
     return (
         <div className="new-sale-info"><div className="sale-user-input">
+            {redirect && <Redirect to='/'/>}
                 <form onSubmit={handleSubmit}>
                      <label >
                         <h2><FormattedMessage id='sale.productType'/></h2>
@@ -53,7 +59,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
-                      <NameVideoGameSelector setProductName={setProductName} />
+                      {productType === 'console' ? <NameConsoleSelector setProductName={setProductName} productType={productType}/> : <NameVideoGameSelector setProductName={setProductName} productType={productType}/>}
                     </label>
                     <label >
                         <FormattedMessage id='sale.productPrice'/>
@@ -68,14 +74,14 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                        <FormattedMessage id='sale.productStatus'/>
                         <br />
-                        <SelectSearch options={[{value: 'casi nuevo', name: 'casi nuevo'} , {value: 'usado', name: 'usado'}, {value: 'muy desgastado', name: 'muy desgastado'}]} search
+                        <SelectSearch options={[{value: 'Nuevo', name: 'Nuevo'} , {value: 'semi nuevo', name: 'Semi nuevo'}, {value: 'usado', name: 'Usado'}, {value: 'deteriorado', name: 'Deteriorado'}, {value: 'recambio', name: 'Recambio'}]} search
         placeholder="Nombre" onChange={setProductStatus} />
                     </label>
                     
                     <label >
                         <FormattedMessage id='sale.productCat'/>
                         <br />
-                        <CatSelector setProductCategory={setProductCategory} productName={productName}  />
+                        <CatSelector setProductCategory={setProductCategory} productName={productName}  productType={productType}/>
                     </label>
                     <label >
                         <FormattedMessage id='sale.productDescrip'/>

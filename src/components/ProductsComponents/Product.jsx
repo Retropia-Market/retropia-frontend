@@ -12,13 +12,14 @@ const Product = () => {
 
   const [results] = useFetch(apiURL);
 
-  return (
-    <div className="single-product-page">
+  return (<>
+    {results && <div className="single-product-page">
       <ProductInfo data={results} />
       <Location place={results?.location} />
       <ProductScreenShots  query={results?.name} type={results?.product_type}/>
       <RelatedProducts data={results} />
-    </div>
+    </div>}
+    </>
   );
 };
 
