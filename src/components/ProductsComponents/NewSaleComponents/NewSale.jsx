@@ -9,6 +9,7 @@ const NewSale = () => {
 
     const [files, setFiles] = useState([])
     const [productLocation, setProductLocation] = useState()
+    const [productType, setProductType] = useState()
 
     const [imageAdded, setImageAdded] = useState(false)
     const isLoggedIn = useSelector(s => !!s.user)
@@ -17,9 +18,11 @@ const NewSale = () => {
     return (
         <div className="new-sale">
             <div className="new-sale-main">
-            <NewSaleImageSelect setImageAdded={setImageAdded} setFiles={setFiles} files={files}/>
+                <div className="new-sale-first-step">
+            <NewSaleImageSelect setImageAdded={setImageAdded} setFiles={setFiles} files={files} setProductType={setProductType}/>
+                 </div>
             
-            {imageAdded && <NewSaleInfo files={files} setProductLocation={setProductLocation} productLocation={productLocation} />}
+            {imageAdded && <NewSaleInfo files={files} setProductLocation={setProductLocation} productLocation={productLocation} productType={productType} setProductType={setProductType}/>}
             </div>
            {productLocation && <Location place={productLocation}/>}
 

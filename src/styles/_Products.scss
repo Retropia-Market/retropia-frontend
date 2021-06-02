@@ -83,6 +83,30 @@
     margin: 0.5rem;
 }
 
+.img-gallery {
+    display: flex;
+    flex: 1 1 AUTO;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50vw;
+}
+
+.screen-shots {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    margin: 0.5rem;
+}
+
+.metacritic-score {
+    background-color: yellow;
+    font-size: 1.8em;
+    border-radius: 5px;
+    padding: 4px;
+}
+
 .product-main-page .product-info {
     display: flex;
     flex-direction: column;
@@ -141,4 +165,10 @@
     display: flex;
     justify-content: space-around;
     margin: 1rem;
+}
+
+.new-sale-first-step {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
 }
