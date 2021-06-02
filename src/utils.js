@@ -30,6 +30,9 @@ function errorHandler(error) {
     case `"lastName" is not allowed to be empty`:
       return 'error.last.name';
 
+    case `"Parece que ya existe un usuario con ese correo.`:
+      return 'error.user.exists';
+
     default:
       return 'error.default';
   }

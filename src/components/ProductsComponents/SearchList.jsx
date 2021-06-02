@@ -12,9 +12,12 @@ const SearchList = () => {
 
   return (
     <div className="catalogue">
-      <h1>
-        <FormattedMessage id="search.title" />
-      </h1>
+      <div className="upper">
+        <h1>
+          <FormattedMessage id="search.title" />
+        </h1>
+        <hr className="horizontal-rule" />
+      </div>
       <div className="catalogue-products">
         {results &&
           results.map((product) => {

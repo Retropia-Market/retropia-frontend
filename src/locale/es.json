@@ -26,5 +26,6 @@
   "error.birthday": "Ingresa una fecha de nacimiento válida",
   "error.first.name": "Ingresa un nombre válido",
   "error.last.name": "Ingresa un apellido válido",
-  "error.default": "Ha ocurrido un error"
+  "error.default": "Ha ocurrido un error",
+  "error.user.exists": "Parece que ya existe un usuario con ese correo."
 }
