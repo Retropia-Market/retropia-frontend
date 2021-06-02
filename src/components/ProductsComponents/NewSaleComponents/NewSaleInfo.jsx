@@ -5,6 +5,7 @@ import { Redirect } from "react-router"
 import SelectSearch from "react-select-search"
 import CatSelector from "./CatSelector"
 import LocationSelector from "./LocationSelector"
+import NameConsoleSelector from "./NameConsoleSelector"
 import NameVideoGameSelector from "./NameVideoGameSelector"
 
 const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, setProductType}) => {
@@ -30,7 +31,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
         fd.append('status', productStatus )
         fd.append('price', +productPrice )
         fd.append('description', productDescription )
-        fd.append('subcategory', productCategory[1].toLowerCase() )
+        fd.append('subcategory', productType === 'console' ? productCategory.toLowerCase() :productCategory[1].toLowerCase() )
         fd.append('product_type', productType )
         fd.append('images', files )
         fd.append('location', productLocation )
@@ -44,6 +45,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
     if(ret.ok){
         setRedirect(true)
     }
+    console.log(ret)
     }
     return (
         <div className="new-sale-info"><div className="sale-user-input">
@@ -57,7 +59,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
-                      <NameVideoGameSelector setProductName={setProductName} productType={productType}/>
+                      {productType === 'console' ? <NameConsoleSelector setProductName={setProductName} productType={productType}/> : <NameVideoGameSelector setProductName={setProductName} productType={productType}/>}
                     </label>
                     <label >
                         <FormattedMessage id='sale.productPrice'/>
@@ -72,14 +74,14 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                        <FormattedMessage id='sale.productStatus'/>
                         <br />
-                        <SelectSearch options={[{value: 'casi nuevo', name: 'casi nuevo'} , {value: 'usado', name: 'usado'}, {value: 'muy desgastado', name: 'muy desgastado'}]} search
+                        <SelectSearch options={[{value: 'Nuevo', name: 'Nuevo'} , {value: 'semi nuevo', name: 'Semi nuevo'}, {value: 'usado', name: 'Usado'}, {value: 'deteriorado', name: 'Deteriorado'}, {value: 'recambio', name: 'Recambio'}]} search
         placeholder="Nombre" onChange={setProductStatus} />
                     </label>
                     
                     <label >
                         <FormattedMessage id='sale.productCat'/>
                         <br />
-                        <CatSelector setProductCategory={setProductCategory} productName={productName}  />
+                        <CatSelector setProductCategory={setProductCategory} productName={productName}  productType={productType}/>
                     </label>
                     <label >
                         <FormattedMessage id='sale.productDescrip'/>
