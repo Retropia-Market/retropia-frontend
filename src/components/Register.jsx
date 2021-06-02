@@ -20,6 +20,7 @@ function Register({ setShowRegister, setShowLogin }) {
     repeatedPassword: '',
     birthDate: '',
   });
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -36,9 +37,9 @@ function Register({ setShowRegister, setShowLogin }) {
 
       setShowRegister(false);
     } else {
-      alert('parece que algo salio mal');
       const data = await res.json();
       console.log(data);
+      setErrorMessage(data.error);
     }
   };
 
@@ -149,6 +150,7 @@ function Register({ setShowRegister, setShowLogin }) {
           Ya tienes cuenta?
         </button>
         <button className="register-button">SIGN UP</button>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </form>
       <FontAwesomeIcon
         className="register-exit"
