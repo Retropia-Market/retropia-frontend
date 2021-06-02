@@ -1,0 +1,22 @@
+.user-private-page {
+  .user-private-content {
+    .profile-update {
+      display: flex;
+      display: column;
+      .profile-img {
+        .avatar {
+          border-radius: 100%;
+          width: 150px;
+          height: 150px;
+          background-size: cover;
+          background-position: center;
+          border: solid 1px black;
+          cursor: pointer;
+        }
+        input[type='file'] {
+          display: none;
+        }
+      }
+    }
+  }
+}

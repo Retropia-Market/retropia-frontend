@@ -15,7 +15,7 @@ function Profile() {
     return <Redirect to='/' />
   }
 
-  return <div className="user-private-menu">
+  return <div className="user-private-page">
     <ul className='user-private-sidebar'>
       <li className="user-sidebar-item">
           <NavLink to='/profile'>
@@ -43,7 +43,7 @@ function Profile() {
         </NavLink>
       </li>
     </ul>
-    <div className="content">
+    <div className="user-private-content">
       <Switch>
         <Route path="/profile">
           <ProfileUpdate/>

@@ -38,7 +38,6 @@ function Navbar() {
   };
 
   const handleLogout = (e) => {
-    e.stopPropagation();
     dispatch({ type: 'LOGOUT' });
   };
 
@@ -94,7 +93,12 @@ function Navbar() {
                   </FontAwesomeIcon>
                   {showSettings && (
                     <div className="user-settings">
-                      <li onClick={handleLogout}>log out</li>
+                      <li>
+                        <Link onClick={handleLogout} to="/">log out</Link>
+                      </li>
+                      <li>
+                        <Link to="/profile">view profile</Link>
+                      </li>
                     </div>
                   )}
                 </div>

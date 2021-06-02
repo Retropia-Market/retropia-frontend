@@ -12,7 +12,6 @@ const Subcategories = ({ categoryIndex, hideSubcategories, showCategories}) => {
     hideSubcategories()
     showCategories()
   }
-  console.log('categoryIndex: ' + categoryIndex )
 
   return <> 
     <FontAwesomeIcon className="category-select" icon={faChevronLeft} onClick={handleClick}></FontAwesomeIcon>

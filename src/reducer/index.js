@@ -1,9 +1,16 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 
-const userReducer = (state = null, action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOGIN':
       return action.user;
+    case 'UPDATE':
+      const newState = { ...state };
+      console.log(Object.keys(action.data));
+      for (const prop in action.data) {
+        newState.userData[prop] = action.data[prop];
+      }
+      return newState;
     case 'LOGOUT':
       return null;
     default:

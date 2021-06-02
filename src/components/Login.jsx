@@ -18,6 +18,7 @@ function Login({ setShowLogin, setShowRegister }) {
     console.log(res);
     if (res.ok) {
       const data = await res.json();
+      console.log(data)
       dispatch({ type: 'LOGIN', user: data });
       setShowLogin(false);
     } else {
@@ -77,7 +78,6 @@ function Login({ setShowLogin, setShowRegister }) {
         size="2x"
         onClick={() => setShowLogin(false)}
       ></FontAwesomeIcon>
-      {/* <button className="login-exit" onClick={() => setShowLogin(false)}>X</button> */}
     </div>
   );
 }
