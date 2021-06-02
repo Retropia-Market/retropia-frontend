@@ -13,13 +13,10 @@ const ProductScreenShots = ({query, type}) => {
     console.log(filteredResults[0].short_screenshots)
     
   } 
-  else if (type === 'console' && results){
-    
-    }
   return (
     <div className="data-sheet">
+      {filteredResults && type === 'videogame' && <>
       <h3>Ficha técnica del producto</h3>
-      {filteredResults && 
             <div className="data-sheet-inf">
                 <span>Metacritic : <span className='metacritic-score'>{filteredResults[0].metacritic}</span></span>
                 <div className="img-gallery">
@@ -29,7 +26,7 @@ const ProductScreenShots = ({query, type}) => {
                  })}
                 </div>
                 
-            </div>
+            </div></>
             }
     </div>
   );

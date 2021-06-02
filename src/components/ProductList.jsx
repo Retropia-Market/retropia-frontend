@@ -15,7 +15,7 @@ const ProductList = ({ type }) => {
       <div className="catalogue-products">
         {results &&
           results
-            .filter((product) => product.product_type === type)
+            .filter((product) => product.product_type === type )
             .map((product) => {
               return <ProductCard data={product} key={product.id} />;
             })}
