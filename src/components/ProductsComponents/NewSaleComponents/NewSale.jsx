@@ -19,7 +19,7 @@ const NewSale = () => {
         <div className="new-sale">
             <div className="new-sale-main">
                 <div className="new-sale-first-step">
-            <NewSaleImageSelect setImageAdded={setImageAdded} setFiles={setFiles} files={files} setProductType={setProductType}/>
+            <NewSaleImageSelect imageAdded={imageAdded} setImageAdded={setImageAdded} setFiles={setFiles} files={files} setProductType={setProductType}/>
                  </div>
             
             {imageAdded && <NewSaleInfo files={files} setProductLocation={setProductLocation} productLocation={productLocation} productType={productType} setProductType={setProductType}/>}

@@ -27,14 +27,15 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
     const handleSubmit = async(e) => {
         e.preventDefault()
         const fd = new FormData()
-        fd.append('name', productName[0].name )
+        fd.append('name', productType === 'accesory' ? productName :  productName[0].name )
         fd.append('status', productStatus )
         fd.append('price', +productPrice )
         fd.append('description', productDescription )
-        fd.append('subcategory', productType === 'console' ? productCategory.toLowerCase() :productCategory[1].toLowerCase() )
+        fd.append('subcategory', productType === 'console' ? productCategory.toLowerCase() :  productType === 'videogame' ? productCategory[1].toLowerCase() : productCategory)
         fd.append('product_type', productType )
         fd.append('images', files )
         fd.append('location', productLocation )
+        console.log(productCategory ,productDescription, productName, productLocation)
         const ret = await fetch('http://localhost:8080/catalogue/sell', {
       method: 'POST',
       headers : {
@@ -59,7 +60,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                         <FormattedMessage id='sale.productName'/>
                         <br />
-                      {productType === 'console' ? <NameConsoleSelector setProductName={setProductName} productType={productType}/> : <NameVideoGameSelector setProductName={setProductName} productType={productType}/>}
+                      {productType === 'console' ? <NameConsoleSelector setProductName={setProductName} productType={productType}/> : productType === 'videogame' ? <NameVideoGameSelector setProductName={setProductName} productType={productType}/> : <input type='text' onChange={(e) => setProductName(e.target.value)}/>}
                     </label>
                     <label >
                         <FormattedMessage id='sale.productPrice'/>

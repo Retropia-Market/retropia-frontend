@@ -2,7 +2,7 @@ import { useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
 
-const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType}) => {
+const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, imageAdded}) => {
     const [previews, setPreviews] = useState([])
     const user = useSelector(s => s.user)
     
@@ -11,11 +11,13 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType}) =>
         const l = Array.from(e.target.files)
         setFiles(...l)
         setPreviews([...l.map(f => URL.createObjectURL(f))])
+        e.target.value = null
     }
     
     const handleClick = i => {
-        setFiles(files.filter((_, j) => i !== j))
-        setPreviews(previews.filter((_, j) => i !== j))
+        setFiles([])
+        setPreviews([])
+        setImageAdded(false)
     }
 
     const handleTypeData = (visionData) => {
@@ -60,19 +62,18 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType}) =>
             <div className="add-first-image">
             {previews.map((preview, i) =>
              <div
-            className="image"
+            className={!imageAdded ? "image" : 'image visioned'}
             style={{ backgroundImage: `url(${preview})` }}
             onClick={() => handleClick(i)}
             key={i}
              />
                 )}
-                <label htmlFor="">
-                <h2><FormattedMessage id='sale.imgTitle'/></h2>
+               {!imageAdded && <> <label htmlFor="">
                 <input type="file" onChange={handleFile}/>
                 <h3><FormattedMessage id='sale.imgDescription'/></h3>
                 </label>
                 <button className="agregar-imagen" onClick={handleSubmit}>Agregar Imagen</button>
-
+                </>}
             </div>
         </div>
     )
