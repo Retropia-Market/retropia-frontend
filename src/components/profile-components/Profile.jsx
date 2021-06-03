@@ -25,31 +25,31 @@ function Profile() {
   return (
     <div className="user-private-page">
       <ul className="user-private-sidebar">
-        <li className="user-sidebar-item">
-          <NavLink to="/profile">
+        <NavLink to="/profile">
+          <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faUser} size="3x"></FontAwesomeIcon>
-          </NavLink>
-        </li>
-        <li className="user-sidebar-item">
-          <NavLink to="/profile/chat">
+          </li>
+        </NavLink>
+        <NavLink to="/profile/chat">
+          <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faCommentDots} size="3x"></FontAwesomeIcon>
-          </NavLink>
-        </li>
-        <li className="user-sidebar-item">
-          <NavLink to="/profile/favourites">
+          </li>
+        </NavLink>
+        <NavLink to="/profile/favourites">
+          <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faHeart} size="3x"></FontAwesomeIcon>
-          </NavLink>
-        </li>
-        <li className="user-sidebar-item">
-          <NavLink to="/profile/ratings">
+          </li>
+        </NavLink>
+        <NavLink to="/profile/ratings">
+          <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faStar} size="3x"></FontAwesomeIcon>
-          </NavLink>
-        </li>
-        <li className="user-sidebar-item">
-          <NavLink to="/profile/transactions">
+          </li>
+        </NavLink>
+        <NavLink to="/profile/transactions">
+          <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faHandshake} size="3x"></FontAwesomeIcon>
-          </NavLink>
-        </li>
+          </li>
+        </NavLink>
       </ul>
       <div className="user-private-content">
         <Switch>
