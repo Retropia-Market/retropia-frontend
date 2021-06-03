@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
 
-const Types = () =>{
-  const [selected ,setSelected] = useState(null)
+const Types = ({typeIndex, setTypeIndex}) =>{
 
   const types = [
     {id: 'consoles', name: 'consolas'},
@@ -11,14 +10,16 @@ const Types = () =>{
   ]
 
   const handleClick = (i) => {
-    setSelected(i)
+    setTypeIndex(i)
   }
 
   return( 
       types.map((t, i) =>
-    <div key={i} className={`types ${selected === i ? 'selected' : ''}`}>
-      <Link onClick={() => handleClick(i)} 
-        className= "types-names" 
+    <div key={i}
+      onClick={() => handleClick(i)}
+      className={`type ${typeIndex === i ? 'selected' : ''}`}>
+      <Link 
+        className= "type-name" 
         to={'/catalogue/' + t.id} key={i}>
           {t.name}
       </Link>
