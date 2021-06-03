@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileUpdate from './profile-update/ProfileUpdate';
 import ProfileFavs from './profile-favs/ProfileFavs';
 import ProfileReviews from './profile-reviews/ProfileReviews';
-import ProfileTransactions from './profile-transaction/ProfileTransaction';
+// import ProfileTransactions from './profile-transaction/ProfileTransaction';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -66,7 +66,7 @@ function Profile() {
             <ProfileReviews />
           </Route>
           <Route path="/profile/transactions">
-            <ProfileTransactions />
+            {/* <ProfileTransactions /> */}
           </Route>
           <Route path="/profile">Not Found</Route>
         </Switch>
