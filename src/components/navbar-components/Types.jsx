@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 
 const Types = ({typeIndex, setTypeIndex}) =>{
+  const {pathname} = useLocation()
+  console.log(pathname)
 
   const types = [
     {id: 'consoles', name: 'consolas'},
@@ -17,7 +18,7 @@ const Types = ({typeIndex, setTypeIndex}) =>{
       types.map((t, i) =>
     <div key={i}
       onClick={() => handleClick(i)}
-      className={`type ${typeIndex === i ? 'selected' : ''}`}>
+      className={`type ${(typeIndex === i && pathname === `/catalogue/${t.id}` ) ? 'selected' : ''}`}>
       <Link 
         className= "type-name" 
         to={'/catalogue/' + t.id} key={i}>

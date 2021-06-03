@@ -2,6 +2,8 @@ import {NavLink, Switch, Route, Redirect} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
 import ProfileUpdate from './profile-update/ProfileUpdate'
+import ProfileFavs from './profile-favs/ProfileFavs';
+import ProfileReviews from './profile-reviews/ProfileReviews';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faCommentDots, faHandshake, faHeart, faStar, faUser } from '@fortawesome/free-regular-svg-icons';
@@ -45,8 +47,23 @@ function Profile() {
     </ul>
     <div className="user-private-content">
       <Switch>
-        <Route path="/profile">
+        <Route path="/profile" exact>
           <ProfileUpdate/>
+        </Route>
+        <Route path="/profile/chat" exact>
+          Chat...
+        </Route>
+        <Route path="/profile/favourites" exact>
+          <ProfileFavs/>
+        </Route>
+        <Route path="/profile/ratings" exact>
+          <ProfileReviews/>
+        </Route>
+        <Route path="/profile/transactions" exact>
+          transactions...
+        </Route>
+        <Route path="/profile">
+          Not Found
         </Route>
       </Switch>
     </div>

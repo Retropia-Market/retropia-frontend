@@ -68,7 +68,7 @@ function ProfileData({updateField, user}) {
           type="text"
           value={profileData.firstName}
           name="firstName"
-          placeHolder={user.userData.firstName}
+          placeholder={user.userData.firstName}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
@@ -80,7 +80,7 @@ function ProfileData({updateField, user}) {
           type="text"
           value={profileData.lastName}
           name="lastName"
-          placeHolder={user.userData.lastName}
+          placeholder={user.userData.lastName}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
@@ -92,7 +92,7 @@ function ProfileData({updateField, user}) {
           type="date"
           value={profileData.birthDate}
           name="birthDate"
-          placeHolder={user.userData.birthDate}
+          placeholder={user.userData.birthDate}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
@@ -104,7 +104,7 @@ function ProfileData({updateField, user}) {
           type="phone"
           value={profileData.phone}
           name="phone"
-          placeHolder={user.userData.phoneNumber}
+          placeholder={user.userData.phoneNumber}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
@@ -116,7 +116,7 @@ function ProfileData({updateField, user}) {
           type="email"
           value={profileData.email}
           name="email"
-          placeHolder={user.userData.email}
+          placeholder={user.userData.email}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
@@ -128,7 +128,7 @@ function ProfileData({updateField, user}) {
           type="text"
           value={profileData.username}
           name="username"
-          placeHolder={user.userData.username}
+          placeholder={user.userData.username}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
@@ -140,7 +140,7 @@ function ProfileData({updateField, user}) {
           type="text"
           value={profileData.location}
           name="location"
-          placeHolder={user.userData.location}
+          placeholder={user.userData.location}
           onChange={e => updateField(e, setProfileData, profileData)}
           /> */}
             <LocationSelector 
@@ -160,7 +160,7 @@ function ProfileData({updateField, user}) {
           type="textarea"
           value={profileData.bio}
           name="bio"
-          placeHolder={user.userData.bio}
+          placeholder={user.userData.bio}
           onChange={e => updateField(e, setProfileData, profileData)}
           />
       </div>
