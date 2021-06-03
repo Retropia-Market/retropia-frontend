@@ -36,7 +36,7 @@ function App() {
           <Route path="/sell" exact>
             <NewSale />
           </Route>
-          <Route path="/profile" exact>
+          <Route path="/profile">
             <Profile />
           </Route>
           <Route path="/" exact>
