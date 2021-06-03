@@ -1,5 +1,6 @@
 .navbar-container {
   color: #fff;
+  min-height: 100px;
   display: grid;
   @media screen and (min-width: 1000px) {
     grid-template-areas:
@@ -11,7 +12,7 @@
   @media screen and (max-width: 999px) {
     padding: 0 2rem;
     grid-template-areas: 'logo search user';
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 0.4fr 1fr 1fr;
     grid-template-rows: 1fr;
   }
   width: 100%;
@@ -24,7 +25,6 @@
     rgba(45, 19, 66, 1) 30%,
     rgba(24, 15, 53, 1) 100%
   );
-  transition: all 0.2s ease-in-out;
 
   .logo {
     display: flex;
