@@ -20,7 +20,7 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 function Navbar() {
   const { q } = useParams();
   const history = useHistory();
-  const user = useSelector((s) => s.user);
+  const {token} = useSelector((s) => s.user);
   const dispatch = useDispatch();
 
   const [showLogin, setShowLogin] = useState(false);
@@ -28,6 +28,7 @@ function Navbar() {
   const [showSettings, setShowSettings] = useState(false);
 
   const [search, setSearch] = useState(q || '');
+  const [typeIndex, setTypeIndex] = useState(null)
   const [categoryIndex, setCategoryIndex] = useState(1);
   const [showCategories, setShowCategories] = useState(true);
   const [showSubcategories, setShowSubcategories] = useState(false);
@@ -59,11 +60,14 @@ function Navbar() {
             <button>🔍</button>
           </form>
         </div>
-        <div className="categories">
-          <Types />
+        <div className="types">
+          <Types 
+            typeIndex={typeIndex}
+            setTypeIndex={setTypeIndex}  
+          />
         </div>
         <div className="user-nav">
-          {!user ? (
+          {!token ? (
             <>
               <button onClick={() => setShowLogin(true)}>Log in</button>
               <button onClick={() => setShowRegister(true)}>Register</button>
@@ -116,7 +120,7 @@ function Navbar() {
           )}
           {showSubcategories && (
             <Subcategories
-              CategoryIndex={categoryIndex}
+              categoryIndex={categoryIndex}
               showCategories={() => setShowCategories(true)}
               hideSubcategories={() => setShowSubcategories(false)}
             />

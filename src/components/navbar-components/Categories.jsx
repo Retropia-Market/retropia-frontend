@@ -8,7 +8,7 @@ const Categories = ({hideCategories, showSubcategories, setCategoryIndex}) => {
   const [allCategories] = useFetch('http://localhost:8080/categories')
 
   const handleClick = (i) => {
-    setCategoryIndex(i)
+    setCategoryIndex(i + 1)
     hideCategories()
     showSubcategories()
   }
