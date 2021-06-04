@@ -80,7 +80,6 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
-    height: 100%;
   }
 
   .type {
@@ -90,14 +89,13 @@
     flex-grow: 1;
     transition: 0.2s ease-in-out;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     .type-name {
       color: #fff;
       text-transform: uppercase;
       text-decoration: none;
-      width: 100%;
-      height: 100%;
-      transform: translateY(50%);
+      display: flex;
+      align-items: center;
     }
     @media screen and (max-width: 1000px) {
       display: none;

@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { Link, useHistory, useParams } from "react-router-dom"
-import {useDispatch, useSelector} from "react-redux"
+import { useState } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Login from './Login';
 import Register from './Register';
@@ -28,7 +28,7 @@ function Navbar() {
   const [showSettings, setShowSettings] = useState(false);
 
   const [search, setSearch] = useState(q || '');
-  const [typeIndex, setTypeIndex] = useState(null)
+  const [typeIndex, setTypeIndex] = useState(null);
   const [categoryIndex, setCategoryIndex] = useState(1);
   const [showCategories, setShowCategories] = useState(true);
   const [showSubcategories, setShowSubcategories] = useState(false);
@@ -61,10 +61,7 @@ function Navbar() {
           </form>
         </div>
         <div className="types">
-          <Types 
-            typeIndex={typeIndex}
-            setTypeIndex={setTypeIndex}  
-          />
+          <Types typeIndex={typeIndex} setTypeIndex={setTypeIndex} />
         </div>
         <div className="user-nav">
           {!Object.keys(user).length ? (
@@ -98,7 +95,9 @@ function Navbar() {
                   {showSettings && (
                     <div className="user-settings">
                       <li>
-                        <Link onClick={handleLogout} to="/">log out</Link>
+                        <Link onClick={handleLogout} to="/">
+                          log out
+                        </Link>
                       </li>
                       <li>
                         <Link to="/profile">view profile</Link>
