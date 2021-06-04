@@ -18,7 +18,7 @@ import {
 function Profile() {
   const user = useSelector((s) => s.user);
 
-  if (!user) {
+  if (!Object.keys(user).length) {
     return <Redirect to="/" />;
   }
 
