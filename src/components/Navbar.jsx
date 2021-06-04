@@ -20,7 +20,7 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 function Navbar() {
   const { q } = useParams();
   const history = useHistory();
-  const {token} = useSelector((s) => s.user);
+  const user = useSelector((s) => s.user);
   const dispatch = useDispatch();
 
   const [showLogin, setShowLogin] = useState(false);
@@ -67,7 +67,7 @@ function Navbar() {
           />
         </div>
         <div className="user-nav">
-          {!token ? (
+          {!Object.keys(user).length ? (
             <>
               <button onClick={() => setShowLogin(true)}>Log in</button>
               <button onClick={() => setShowRegister(true)}>Register</button>

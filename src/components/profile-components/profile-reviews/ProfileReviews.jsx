@@ -1,25 +1,30 @@
 import { useState } from "react"
-import ReviewCard from "./ReviewCard"
+import MadeReviews from "./MadeReviews"
+import ReceivedReviews from "./ReceivedReviews"
 
 function ProfileReviews() {
+  const [section, setSection] = useState(false)
+  console.log(section)
 
-  const [section, setSection] = useState(1)
+  // const [madeReviews] = useFetch(`http://localhost:8080/users/${user.userData.id}/review/reviews-made`, user)
+  // const [receivedReviews] = useFetch(`http://localhost:8080/users/${user.userData.id}/review/reviews-received`, user)
 
   return <div className="profile-reviews">
     <h2 className="title">
       <span 
         className="tab" 
-        onClick={() => setSection(1)}>
+        onClick={() => setSection(false)}>
           Valoraciones recibidas
       </span>
       <span className="tab-divider">|</span>
       <span 
         className="tab"
-        onClick={() => setSection(2)}>
+        onClick={() => setSection(true)}>
           Valoraciones hechas
       </span>
     </h2>
-      <ReviewCard section={section}/>
+      {section === false && <ReceivedReviews/>}
+      {section === true && <MadeReviews/>}
   </div>
 }
 

@@ -22,7 +22,7 @@ function ProfileData({updateField, user}) {
   const [profileData, setProfileData] = useState({
     firstName: '',
     lastName: '',
-    birthDate: undefined,
+    birthDate: '',
     phone: '',
     email: '',
     username: '',
@@ -46,7 +46,7 @@ function ProfileData({updateField, user}) {
       setProfileData({
         firstName: '',
         lastName: '',
-        birthDate: undefined,
+        birthDate: '',
         phone: '',
         email: '',
         username: '',

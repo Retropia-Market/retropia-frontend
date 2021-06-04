@@ -6,7 +6,6 @@ const userReducer = (state = {}, action) => {
       return action.user;
     case 'UPDATE':
       const newState = { ...state };
-      console.log(Object.keys(action.data));
       for (const prop in action.data) {
         newState.userData[prop] = action.data[prop];
       }
