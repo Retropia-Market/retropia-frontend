@@ -8,6 +8,14 @@
 }
 
 .transactions-navbar-item {
-  padding: 3rem;
+  padding: 0.2rem 3rem;
   background-color: aqua;
+}
+
+.transactions-subnav {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

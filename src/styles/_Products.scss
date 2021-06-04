@@ -1,5 +1,6 @@
 .catalogue {
   padding: 0 2rem;
+
   .upper {
     align-items: space-between;
     justify-content: space-between;
@@ -8,13 +9,20 @@
   .catalogue-products {
     display: grid;
     grid-gap: 2rem;
-    justify-content: start;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
+
     @media screen and (min-width: 900px) {
       grid-template-columns: repeat(auto-fit, minmax(300px, 0.3fr));
       justify-content: start;
     }
+    @media screen and (max-width: 899px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 0.8fr));
+      justify-content: center;
+    }
+    @media screen and (max-width: 630px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      justify-content: center;
+    }
+
     grid-template-rows: repeat(1, auto);
     .product-card {
       display: flex;
