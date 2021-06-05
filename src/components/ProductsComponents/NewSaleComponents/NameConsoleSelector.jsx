@@ -8,7 +8,7 @@ const NameConsoleSelector = ({setProductName}) => {
                         .then(response => response.json())
                         .then(( {results} ) => {
                             if(results) {
-                                resolve(results.filter((console,i)=> console.name.toLowerCase().startsWith(query)).map((product, i) => ({ value: [product, i], name: product.name })))
+                                resolve(results.filter((console,i)=> console.name.toLowerCase().indexOf(query.toLowerCase()) != -1).map((product, i) => ({ value: [product, i], name: product.name })))
                             } 
                            })
                         .catch(reject);

@@ -11,6 +11,7 @@ import NewSale from './components/ProductsComponents/NewSaleComponents/NewSale';
 import Profile from './components/profile-components/Profile';
 
 import './styles/App.scss';
+import UserPublicProfile from './components/UserPublicProfile/UserPublicProfile';
 
 function App() {
   return (

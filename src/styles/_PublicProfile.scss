@@ -1,0 +1,65 @@
+.user-public-profile {
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.user-public-data {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+
+    .public-avatar {
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+    }
+    .username {
+        font-size: 1.7em;
+    }
+
+    .reviews-info {
+        display: flex;
+    }
+}
+
+.user-public-inventory {
+    .inventory-products {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .sold .product-card {
+        filter: grayscale(70%);
+    }
+
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
+        border-radius: 1rem;
+        transition: 0.2s ease-in-out;
+        margin: 3rem;
+        .product-card-info-name {
+            font-size: 1.2em;
+        }
+        .product-card-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: space-between;
+            padding: 1rem;
+        }
+        width: 15vw;
+        min-width: 200px;
+        max-height: 40vh;
+    }
+    .product-card:hover {
+        background-color: rgb(241, 241, 241);
+    }
+}
