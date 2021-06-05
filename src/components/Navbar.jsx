@@ -15,7 +15,7 @@ import {
   faCommentDots,
   faBell,
 } from '@fortawesome/free-regular-svg-icons';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const { q } = useParams();
@@ -70,7 +70,7 @@ function Navbar() {
               <button onClick={() => setShowRegister(true)}>Register</button>
             </>
           ) : (
-            <>
+            <div className="user-nav">
               <Link className="sell-button" to="/sell">
                 VENDER +
               </Link>
@@ -87,7 +87,7 @@ function Navbar() {
                 <div className="user-settings">
                   <FontAwesomeIcon
                     className="user-options"
-                    icon={faEllipsisV}
+                    icon={faEllipsisH}
                     onClick={() => setShowSettings(!showSettings)}
                   >
                     Settings
@@ -96,17 +96,17 @@ function Navbar() {
                     <div className="user-settings">
                       <li>
                         <Link onClick={handleLogout} to="/">
-                          log out
+                          Logout
                         </Link>
                       </li>
                       <li>
-                        <Link to="/profile">view profile</Link>
+                        <Link to="/profile">Perfil</Link>
                       </li>
                     </div>
                   )}
                 </div>
               </div>
-            </>
+            </div>
           )}
         </div>
         <div className="lower">

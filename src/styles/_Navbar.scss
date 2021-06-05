@@ -126,8 +126,31 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 2rem;
-    gap: 2rem;
+    margin-right: 1rem;
+    gap: 1rem;
+    button {
+      border-style: none;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .user {
+    display: flex;
+    gap: 0.5rem;
+    .user-settings {
+      list-style: none;
+      a {
+        color: #fff;
+        margin-left: 1rem;
+        text-decoration: none;
+        :hover {
+          background-color: aqua;
+          letter-spacing: 0.1rem;
+        }
+      }
+      display: flex;
+    }
   }
 
   .sell-button {
