@@ -43,7 +43,7 @@ const ProductCard = ({ data }) => {
           </div>
           <div className="product-card-info-user">
             <span className="product-card-info-status">{status}</span>
-            <span className="product-card-info-seller">{seller}</span>
+            <span className="product-card-info-seller"><Link to={`/users/${seller_id}`}>{seller}</Link></span>
             <span className="product-card-info-average-rating">
               {results[0]?.review_average}
             </span>
