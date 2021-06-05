@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import useFetch from "../hooks/useFetch"
 
+import colorHeart from '../img/icons/heart-color-icon.svg';
+import greyHeart from '../img/icons/heart-grey-icon.svg';
+
 const GiveFavComponent = ({ data}) => {
 
     const user = useSelector(s => s.user)
@@ -50,8 +53,7 @@ const GiveFavComponent = ({ data}) => {
    
         }}
     return (
-            <div className="heart-icon" onClick={handleFav}>
-                {fav ? 'Fav' : 'NoFav'}
+            <div className="heart-icon" onClick={handleFav} style={{backgroundImage : fav ? `url(${colorHeart})` : `url(${greyHeart})`}}>
             </div>
     )
 }
