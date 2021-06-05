@@ -1,6 +1,13 @@
 .catalogue {
   padding: 0 2rem;
-
+  h1 {
+    text-align: left;
+    color: rgb(92, 92, 92);
+    hr {
+      border-top: 2px solid rgb(92, 92, 92);
+      opacity: 0.2;
+    }
+  }
   .upper {
     align-items: space-between;
     justify-content: space-between;
@@ -8,7 +15,7 @@
   }
   .catalogue-products {
     display: grid;
-    padding: 2rem;
+    padding: 1rem 2rem;
     grid-gap: 2rem;
 
     @media screen and (min-width: 900px) {
@@ -32,9 +39,10 @@
       .product-card-info {
         flex-grow: 1;
         display: flex;
+        justify-content: space-between;
         flex-direction: column;
-        display: flex;
-        padding: 1rem;
+        gap: 0rem;
+        padding: 1rem 2rem;
       }
     }
     .product-card:hover {
@@ -60,7 +68,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
-  margin-top: 0.5em;
+  margin-top: 0;
 
   .product-card-info-name {
     text-align: left;
@@ -68,11 +76,20 @@
     font-size: 1.2rem;
   }
   .product-card-info-price {
-    text-align: right;
-    padding: 1rem 0;
-    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0 1rem 0;
+    font-size: 1.5rem;
     font-weight: 900;
     color: $primary-color;
+  }
+  .product-card-info-status {
+    background-color: rgb(167, 221, 67);
+    padding: 0.2rem 0.6rem;
+    color: rgb(3, 88, 0);
+    font-size: 0.8rem;
+    border-radius: 1rem;
   }
 }
 
@@ -80,14 +97,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0rem;
+  gap: 0.5rem;
   margin: 0;
-  .product-card-info-status {
-    background-color: rgb(167, 221, 67);
-    padding: 0.2rem 0.6rem;
-    color: #fff;
-    border-radius: 10%;
-  }
 }
 
 .product-card-info-icons {
@@ -99,11 +110,24 @@
   text-decoration: none;
 }
 
-.product-card .heart-icon {
-  width: 20px;
-  height: 20px;
+.product-card-info-icons {
+  margin-top: 1rem;
+  font-size: 25px;
+  gap: 10px;
+  .heart-icon {
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+  }
+  .message-icon {
+    width: 1em;
+    height: 1em;
+  }
+  .basket-icon {
+    width: 1em;
+    height: 1em;
+  }
 }
-
 .single-product-page {
   display: flex;
   align-items: center;

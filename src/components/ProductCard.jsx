@@ -8,13 +8,16 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 import GiveFavComponent from './GiveFavComponent';
 import { useSelector } from 'react-redux';
 
-const ProductCard = ({ data , favorites}) => {
+import messageIcon from '../img/icons/message-grey-icon.svg';
+import basketIcon from '../img/icons/basket-grey-icon.svg';
+
+const ProductCard = ({ data, favorites }) => {
   const [showBidModal, setShowBidModal] = useState(false);
   const history = useHistory();
 
   const { seller, name, status, price, images, seller_id, id } = data;
   const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
-   const {userData} = useSelector(s => s.user)
+  const { userData } = useSelector((s) => s.user);
 
   const handleBid = () => {
     setShowBidModal(!showBidModal);
@@ -24,7 +27,6 @@ const ProductCard = ({ data , favorites}) => {
     history.push('/catalogue/' + data.id);
   };
 
- 
   if (!data) return;
 
   return (
@@ -43,25 +45,46 @@ const ProductCard = ({ data , favorites}) => {
           <div className="product-card-info-name-price">
             <span className="product-card-info-name">{name}</span>
             <span className="product-card-info-price">
+              <span className="product-card-info-status">{status}</span>
               <FormattedNumber style="currency" value={price} currency="EUR" />
             </span>
           </div>
-          <div className="product-card-info-user">
-            <span className="product-card-info-status">{status}</span>
-            <span className="product-card-info-seller"><Link to={`/users/${seller_id}`}>{seller}</Link></span>
-            <span className="product-card-info-average-rating">
-              <ReactStarsRating value={results[0]?.review_average} isEdit={false} isHalf={true}/>
-            </span>
-            <span className="product-card-info-total-ratings">
-              ({results[0]?.total_review})
-            </span>
-          </div>
-          <div className="product-card-info-icons">
-            <div>
-              {userData ? <GiveFavComponent favorites={favorites} data={data}/> : ''}
-           </div>
-            <Link to="/">💬</Link>
-            <Link onClick={handleBid}>🛍️</Link>
+          <div className="product-card-info-user-icons">
+            <div className="product-card-info-user">
+              <span className="product-card-info-seller">
+                <Link to={`/users/${seller_id}`}>{seller}</Link>
+              </span>
+              <span className="product-card-info-average-rating">
+                <ReactStarsRating
+                  value={results[0]?.review_average}
+                  isEdit={false}
+                  isHalf={true}
+                />
+              </span>
+              <span className="product-card-info-total-ratings">
+                ({results[0]?.total_review})
+              </span>
+            </div>
+            <div className="product-card-info-icons">
+              <div>
+                {userData ? (
+                  <GiveFavComponent favorites={favorites} data={data} />
+                ) : (
+                  ''
+                )}
+              </div>
+
+              <Link
+                to="/"
+                className="message-icon"
+                style={{ background: `url(${messageIcon}) no-repeat` }}
+              ></Link>
+              <Link
+                onClick={handleBid}
+                className="basket-icon"
+                style={{ background: `url(${basketIcon}) no-repeat` }}
+              ></Link>
+            </div>
           </div>
         </div>
       </div>
