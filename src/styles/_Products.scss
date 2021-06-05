@@ -8,16 +8,14 @@
   }
   .catalogue-products {
     display: grid;
+    padding: 2rem;
     grid-gap: 2rem;
 
     @media screen and (min-width: 900px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 0.3fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       justify-content: start;
     }
-    @media screen and (max-width: 899px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 0.8fr));
-      justify-content: center;
-    }
+
     @media screen and (max-width: 630px) {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       justify-content: center;
@@ -49,8 +47,9 @@
 .product-card .product-card-img {
   width: 100%;
   margin: -1rem 0 0 0;
-  height: 20rem;
-  border-radius: 0.5rem;
+  height: 12em;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   background-size: cover;
   background-position: center;
   align-self: center;
@@ -66,12 +65,12 @@
   .product-card-info-name {
     text-align: left;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1rem;
   }
   .product-card-info-price {
     text-align: right;
     padding: 1rem 0;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 900;
     color: $primary-color;
   }
@@ -79,8 +78,9 @@
 
 .product-card-info-user {
   display: flex;
-  align-items: space-between;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem;
   margin-top: 0.3em;
   .product-card-info-status {
     background-color: rgb(167, 221, 67);

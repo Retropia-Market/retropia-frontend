@@ -1,21 +1,23 @@
 .user-private-page {
   display: grid;
   height: 90vh;
+
   @media screen and (min-width: 1000px) {
     grid-template-areas: 's c c c';
-    grid-template-columns: 0.2fr 0.3fr 0.6fr 1fr;
+    grid-template-columns: 100px 0.3fr 0.6fr 1fr;
     grid-template-rows: auto;
   }
+
   @media screen and (max-width: 999px) {
-    padding: 0 2rem 0 0;
     grid-template-areas: 's c c';
     grid-template-columns: 0.4fr 1fr 1fr;
     grid-template-rows: 1fr;
   }
+
   .user-private-content {
     grid-column: 2 / 5;
-    margin-left: 2rem;
   }
+
   .user-private-sidebar {
     grid-area: 's';
     display: grid;
@@ -27,7 +29,6 @@
     box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.2);
     margin: 0;
     padding: 0;
-
     .user-sidebar-item {
       display: flex;
       flex-direction: column;
@@ -36,7 +37,6 @@
       height: 100%;
       cursor: pointer;
       border-bottom: 1px solid lightgray;
-
       a {
         color: rgb(147, 38, 131);
       }

@@ -14,20 +14,32 @@ function ProfileTransaction() {
   return (
     <div className="transactions-main">
       <ul className="transactions-navbar">
-        <NavLink to="/profile/transactions/bids">
-          <li className="transactions-navbar-item">
+        <NavLink
+          to="/profile/transactions/bids"
+          className={'transactions-navbar-item'}
+          activeClassName="selected"
+        >
+          <li>
             <h2>Ofertas</h2>
           </li>
         </NavLink>
 
-        <NavLink to="/profile/transactions/sell">
-          <li className="transactions-navbar-item">
+        <NavLink
+          to="/profile/transactions/sell"
+          className={'transactions-navbar-item'}
+          activeClassName="selected"
+        >
+          <li>
             <h2>Ventas</h2>
           </li>
         </NavLink>
 
-        <NavLink to="/profile/transactions/buy">
-          <li className="transactions-navbar-item">
+        <NavLink
+          to="/profile/transactions/buy"
+          className={'transactions-navbar-item'}
+          activeClassName="selected"
+        >
+          <li>
             <h2>Compras</h2>
           </li>
         </NavLink>

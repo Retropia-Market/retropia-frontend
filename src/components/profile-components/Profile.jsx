@@ -45,7 +45,7 @@ function Profile() {
             <FontAwesomeIcon icon={faStar} size="3x"></FontAwesomeIcon>
           </li>
         </NavLink>
-        <NavLink to="/profile/transactions/bids">
+        <NavLink to="/profile/transactions/bids/made">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faHandshake} size="3x"></FontAwesomeIcon>
           </li>

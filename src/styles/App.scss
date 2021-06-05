@@ -23,6 +23,11 @@ body {
   outline: none;
 }
 
+.main {
+  height: 90vh;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -33,6 +38,8 @@ $main-gradient: linear-gradient(
   rgba(45, 19, 66, 1) 30%,
   rgba(24, 15, 53, 1) 100%
 );
+
+$primary-color: #88236b;
 
 @keyframes shake {
   10%,
@@ -56,8 +63,6 @@ $main-gradient: linear-gradient(
     transform: translate3d(4px, 0, 0);
   }
 }
-
-$primary-color: #88236b;
 
 .error-message {
   color: red;

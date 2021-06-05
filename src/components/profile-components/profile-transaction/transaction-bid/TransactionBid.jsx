@@ -14,19 +14,27 @@ function TransactionBid() {
     <>
       <div className="transactions-subnav">
         <ul className="transactions-bids-navbar">
-          <NavLink to="/profile/transactions/bids">
-            <li className="transactions-navbar-item">
+          <NavLink
+            to="/profile/transactions/bids/made"
+            className="transactions-navbar-item"
+            activeClassName="selected"
+          >
+            <li>
               <h2>Ofertas Realizadas</h2>
             </li>
           </NavLink>
-          <NavLink to="/profile/transactions/bids/received">
-            <li className="transactions-navbar-item">
+          <NavLink
+            to="/profile/transactions/bids/received"
+            className="transactions-navbar-item"
+            activeClassName="selected"
+          >
+            <li>
               <h2>Ofertas Recibidas</h2>
             </li>
           </NavLink>
         </ul>
         <Switch>
-          <Route path="/profile/transactions/bids" exact>
+          <Route path="/profile/transactions/bids/made" exact>
             <BidsMade />
           </Route>
           <Route path="/profile/transactions/bids/received" exact>
