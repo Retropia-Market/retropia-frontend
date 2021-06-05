@@ -14,8 +14,8 @@ const UserPublicData = ({uid}) => {
             <div className="user-public-info">
                 <div className="username">{results?.username}</div>
                 <div className="reviews-info">
-                    <div className="average-rating">{ratings.review_average}</div>
-                    <div className="rating-number">({ratings.total_review})</div>
+                    <div className="average-rating">{ratings?.review_average ?? ' ' }</div>
+                    <div className="rating-number">({ratings?.total_review ?? '0'})</div>
                 </div>
                 <div className="location">{results?.location ?? 'Localización no específicada' }</div>
                 <div className="bio">{results?.bio ?? 'Aun no tiene ninguna bio'}</div>
