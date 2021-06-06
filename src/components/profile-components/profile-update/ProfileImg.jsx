@@ -41,7 +41,7 @@ function ProfileImg({loggedUser}) {
   return <form className="profile-img" onSubmit={handleSubmit} >
     <h3 className="profile-img-title">Foto de perfil</h3>
     <label>
-      <div className="avatar" style={preview && {background: `url(${preview})`}}/>
+      <div className="avatar" style={preview && {backgroundImage: `url(${preview})`}}/>
       <input onChange={handleFile} type="file"/>
     </label>
     <button className="submit-button">

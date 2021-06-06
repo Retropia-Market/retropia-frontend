@@ -5,6 +5,7 @@ import ProfileUpdate from './profile-update/ProfileUpdate';
 import ProfileFavs from './profile-favs/ProfileFavs';
 import ProfileReviews from './profile-reviews/ProfileReviews';
 import ProfileTransactions from './profile-transaction/ProfileTransaction';
+import Chat from '../chat-components/Chat'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -51,13 +52,14 @@ function Profile() {
           </li>
         </NavLink>
       </ul>
-      <div className="user-private-content">
+      {/* <div className="user-private-content"> */}
+      <>
         <Switch>
           <Route path="/profile" exact>
             <ProfileUpdate />
           </Route>
-          <Route path="/profile/chat" exact>
-            Chat...
+          <Route path="/profile/chat">
+            <Chat/>
           </Route>
           <Route path="/profile/favourites" exact>
             <ProfileFavs />
@@ -70,7 +72,8 @@ function Profile() {
           </Route>
           <Route path="/profile">Not Found</Route>
         </Switch>
-      </div>
+        </>
+      {/* </div> */}
     </div>
   );
 }
