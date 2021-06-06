@@ -38,15 +38,6 @@ const contactReducer = (state = {}, action) => {
 const messageReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
-    // case 'fetch/chatlist': {
-    //   newState = { ...state };
-    //   action.data.forEach((c) => {
-    //     if (c.lastMessage) {
-    //       newState[c.id + ''] = [c.lastMessage];
-    //     }
-    //   });
-    //   return newState;
-    // }
     case 'fetch/messages':
       newState = { ...state };
       newState[action.data.user] = action.data.messages;
