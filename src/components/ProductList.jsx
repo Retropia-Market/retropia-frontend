@@ -11,7 +11,6 @@ const ProductList = ({ type }) => {
     <div className="catalogue">
       <h1>
         <FormattedMessage id="catalogue.title" />
-        <hr />
       </h1>
       <div className="catalogue-products">
         {results &&

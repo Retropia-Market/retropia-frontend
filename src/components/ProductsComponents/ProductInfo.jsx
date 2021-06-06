@@ -5,9 +5,14 @@ import useFetch from '../../hooks/useFetch';
 import productPlaceholder from '../../img/colorPlaceholder.svg';
 import { useState } from 'react';
 import NewBid from '../NewBid';
+import { useSelector } from 'react-redux';
+import GiveFavComponent from '../GiveFavComponent';
+import ReactStarsRating from 'react-awesome-stars-rating';
+import { Link } from 'react-router-dom';
 
 const ProductInfo = ({ data }) => {
   const [showBidModal, setShowBidModal] = useState(false);
+  const {userData} = useSelector(s => s.user)
 
   const results = useFetch(
     `http://localhost:8080/user/${data?.seller_id}/rating`
@@ -45,20 +50,26 @@ const ProductInfo = ({ data }) => {
                   userIcon
                 </FontAwesomeIcon>
               </div>
-              <div className="seller-name">{data.seller}</div>
-              <div className="review-average">{results.review_average}</div>
+              <div className="seller-name"><Link to={`/users/${data.seller_id}`}>{data.seller}</Link></div>
+              <div className="review-average"><ReactStarsRating
+                  value={results[0]?.review_average}
+                  isEdit={false}
+                  isHalf={true}
+                /></div>
               <div className="total-review">{results.total_review}</div>
             </div>
             <div className="status-fav-price-bar">
               <div className="fav-status">
-                <div className="fav-icon">
-                  <FontAwesomeIcon className="user-pic" icon={faHeart}>
-                    Heart
-                  </FontAwesomeIcon>
-                </div>
-                <div className="product-status">{data.status}</div>
+                <div>
+                {userData ? (
+                  <GiveFavComponent  data={data} />
+                ) : (
+                  ''
+                )}
               </div>
-              <div className="price">
+                <span className="product-card-info-status">{data.status}</span>
+              </div>
+              <div className="product-card-info-price">
                 <FormattedNumber
                   style="currency"
                   value={data.price}
