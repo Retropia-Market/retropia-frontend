@@ -52,8 +52,7 @@ function Profile() {
           </li>
         </NavLink>
       </ul>
-      {/* <div className="user-private-content"> */}
-      <>
+      <div className="user-private-content">
         <Switch>
           <Route path="/profile" exact>
             <ProfileUpdate />
@@ -72,8 +71,7 @@ function Profile() {
           </Route>
           <Route path="/profile">Not Found</Route>
         </Switch>
-        </>
-      {/* </div> */}
+      </div>
     </div>
   );
 }
