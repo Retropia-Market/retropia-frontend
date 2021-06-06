@@ -2,7 +2,6 @@ import {Link, useLocation} from 'react-router-dom'
 
 const Types = ({typeIndex, setTypeIndex}) =>{
   const {pathname} = useLocation()
-  console.log(pathname)
 
   const types = [
     {id: 'consoles', name: 'consolas'},
