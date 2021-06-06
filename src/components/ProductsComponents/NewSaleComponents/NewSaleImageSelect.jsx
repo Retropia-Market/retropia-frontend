@@ -1,10 +1,34 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
+import DragNDrop from "./DragNDrop"
+import ImageList from "./ImageList"
+
 
 const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, imageAdded}) => {
-    const [previews, setPreviews] = useState([])
-    const user = useSelector(s => s.user)
+    const [previews, setPreviews] = useState([]);
+    const [images, setImages] = useState([ ]);
+    const user = useSelector(s => s.user);
+
+   
+  const onDrop = useCallback(acceptedFiles => {
+    // Loop through accepted files
+    acceptedFiles.map(file => {
+      // Initialize FileReader browser API
+      const reader = new FileReader();
+      // onload callback gets called after the reader reads the file data
+      reader.onload = function(e) {
+        // add the image into the state. Since FileReader reading process is asynchronous, its better to get the latest snapshot state (i.e., prevState) and update it. 
+        setImages(prevState => [
+          ...prevState,
+          { id: file.path, src: e.target.result }
+        ]);
+      };
+      // Read the file as Data URL (since we accept only images)
+      reader.readAsDataURL(file);
+      return file;
+    });
+  }, []);
     
 
     const handleFile = e => {
@@ -75,6 +99,8 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, ima
                 <button className="agregar-imagen" onClick={handleSubmit}>Agregar Imagen</button>
                 </>}
             </div>
+            <DragNDrop onDrop={onDrop} accept={"image/*"}/>
+            <ImageList images={images}/>
         </div>
     )
 }

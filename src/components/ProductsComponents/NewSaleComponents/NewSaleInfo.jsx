@@ -46,7 +46,6 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
     if(ret.ok){
         setRedirect(true)
     }
-    console.log(ret)
     }
     return (
         <div className="new-sale-info"><div className="sale-user-input">

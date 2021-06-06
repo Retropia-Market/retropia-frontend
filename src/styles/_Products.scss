@@ -247,3 +247,18 @@
     flex-direction: column;
     height: fit-content;
 }
+
+.single-file-box {
+    border: 2px solid black;
+}
+
+.new-sale {
+    .file-list {
+        display: flex;
+
+        .file-item {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
