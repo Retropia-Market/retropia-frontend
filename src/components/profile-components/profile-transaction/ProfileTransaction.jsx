@@ -1,5 +1,5 @@
 import { NavLink, Redirect, Switch, Route } from 'react-router-dom';
-import TransactionSell from './transaction-sell/TransactionSell';
+import UserPublicInventory from '../../UserPublicProfile/UserPublicInventory';
 import TransactionBid from './transaction-bid/TransactionBid';
 import TransactionBuy from './transaction-buy/TransactionBuy';
 import { useSelector } from 'react-redux';
@@ -25,7 +25,7 @@ function ProfileTransaction() {
         </NavLink>
 
         <NavLink
-          to="/profile/transactions/sell"
+          to={`/profile/transactions/sell/user/${user.userData.id}`}
           className={'transactions-navbar-item'}
           activeClassName="selected"
         >
@@ -50,8 +50,8 @@ function ProfileTransaction() {
             <TransactionBid />
           </Route>
 
-          <Route path="/profile/transactions/sell">
-            <TransactionSell />
+          <Route path={`/profile/transactions/sell/user/${user.userData.id}`}>
+            <UserPublicInventory uid={user.userData.id} />
           </Route>
 
           <Route path="/profile/transactions/buy">
