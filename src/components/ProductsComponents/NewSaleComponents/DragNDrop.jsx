@@ -1,5 +1,4 @@
 import React from "react"
-import { useCallback, useState } from "react"
 import { useDropzone } from "react-dropzone"
 
 const DragNDrop = ({onDrop, accept}) => {

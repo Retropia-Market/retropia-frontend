@@ -7,7 +7,7 @@ import ImageList from "./ImageList"
 
 const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, imageAdded}) => {
     const [previews, setPreviews] = useState([]);
-    const [images, setImages] = useState([ ]);
+    const [images, setImages] = useState([]);
     const user = useSelector(s => s.user);
 
    
@@ -25,15 +25,16 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, ima
         ]);
       };
       // Read the file as Data URL (since we accept only images)
+      setFiles(prev => [...prev, file ])
       reader.readAsDataURL(file);
       return file;
     });
-  }, []);
+  }, [setFiles]);
     
 
     const handleFile = e => {
         const l = Array.from(e.target.files)
-        setFiles(...l)
+        setFiles(prevFiles => [...prevFiles, ...l])
         setPreviews([...l.map(f => URL.createObjectURL(f))])
         e.target.value = null
     }
@@ -42,6 +43,7 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, ima
         setFiles([])
         setPreviews([])
         setImageAdded(false)
+
     }
 
     const handleTypeData = (visionData) => {
