@@ -21,9 +21,9 @@ const MainBackground = () => {
     <div className="main-background">
       <div className="hero">
         <img className="main-logo" src={logo} alt="" />
-        <div class="scene">
+        <div className="scene">
           <div
-            class="grid"
+            className="grid"
             style={{ backgroundPositionY: bckPosY + 'px' }}
           ></div>
         </div>

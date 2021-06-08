@@ -19,7 +19,6 @@ function Login({ setShowLogin, setShowRegister }) {
     });
     if (res.ok) {
       const data = await res.json();
-      console.log(data)
       dispatch({ type: 'LOGIN', user: data });
       setShowLogin(false);
     } else if(res.status === 401){

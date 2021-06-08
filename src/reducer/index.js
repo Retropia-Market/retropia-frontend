@@ -43,7 +43,6 @@ const messageReducer = (state = {}, action) => {
             newState[action.data.user] = action.data.messages;
             return newState;
         case 'ws/message':
-            console.log(action);
             const target =
                 action.me === action.message.src_id
                     ? action.message.dst_id
@@ -60,8 +59,6 @@ const messageReducer = (state = {}, action) => {
 };
 
 const sessionStorageMiddleware = (store) => (next) => (action) => {
-    console.log(store);
-    console.log(action);
     let result = next(action);
     sessionStorage.setItem('session', JSON.stringify(store.getState()));
     return result;
