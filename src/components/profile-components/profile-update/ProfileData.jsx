@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 
 import LocationSelector from '../../ProductsComponents/NewSaleComponents/LocationSelector';
 
@@ -66,6 +67,10 @@ function ProfileData({ updateField, user }) {
     }
   };
 
+  if (!user) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <form onSubmit={handleData} className="profile-form profile-data">
       <h3 className="profile-update-section-title">Datos personales</h3>
@@ -125,7 +130,7 @@ function ProfileData({ updateField, user }) {
           type="email"
           value={profileData.email}
           name="email"
-          placeholder={user.userData.email}
+          placeholder={user?.userData.email}
           onChange={(e) => updateField(e, setProfileData, profileData)}
         />
       </div>

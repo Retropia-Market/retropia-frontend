@@ -2,11 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 
 
-function ProfileImg({loggedUser}) {
+function ProfileImg({user}) {
   const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg'
-  const {userData} = loggedUser
+  const {userData} = user
   const userImg = userData.image ? 'http://localhost:8080/' + userData.image.slice(6) : null
 
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ function ProfileImg({loggedUser}) {
     const res = await fetch(`http://localhost:8080/users/${userData.id}/update-img`, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + loggedUser.token
+        'Authorization': 'Bearer ' + user.token
       },
       body: fd
     })

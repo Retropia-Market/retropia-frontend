@@ -2,10 +2,8 @@ import { NavLink, Redirect, Switch, Route } from 'react-router-dom';
 import UserPublicInventory from '../../UserPublicProfile/UserPublicInventory';
 import TransactionBid from './transaction-bid/TransactionBid';
 import TransactionBuy from './transaction-buy/TransactionBuy';
-import { useSelector } from 'react-redux';
 
-function ProfileTransaction() {
-  const user = useSelector((s) => s.user);
+function ProfileTransaction({user}) {
 
   if (!user) {
     return <Redirect to="/" />;

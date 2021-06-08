@@ -19,7 +19,7 @@ import {
 function Profile() {
   const user = useSelector((s) => s.user);
 
-  if (!user) {
+  if (!Object.keys(user).length) {
     return <Redirect to="/" />;
   }
 
@@ -55,19 +55,19 @@ function Profile() {
       <div className="user-private-content">
         <Switch>
           <Route path="/profile" exact>
-            <ProfileUpdate />
+            <ProfileUpdate user={user}/>
           </Route>
           <Route path="/profile/chat">
-            <Chat/>
+            <Chat user={user}/>
           </Route>
           <Route path="/profile/favourites" exact>
-            <ProfileFavs />
+            <ProfileFavs user={user}/>
           </Route>
           <Route path="/profile/ratings" exact>
-            <ProfileReviews />
+            <ProfileReviews user={user}/>
           </Route>
           <Route path="/profile/transactions">
-            <ProfileTransactions />
+            <ProfileTransactions user={user}/>
           </Route>
           <Route path="/profile">Not Found</Route>
         </Switch>

@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router';
 import MadeReviews from './MadeReviews';
 import ReceivedReviews from './ReceivedReviews';
 
-function ProfileReviews() {
+function ProfileReviews({user}) {
   const [section, setSection] = useState(false);
-  console.log(section);
 
-  // const [madeReviews] = useFetch(`http://localhost:8080/users/${user.userData.id}/review/reviews-made`, user)
-  // const [receivedReviews] = useFetch(`http://localhost:8080/users/${user.userData.id}/review/reviews-received`, user)
+  if (!Object.keys(user).length) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="profile-reviews">

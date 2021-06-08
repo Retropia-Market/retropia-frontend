@@ -1,12 +1,10 @@
-import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router';
 
 import ProfileData from './ProfileData'
 import ProfilePassword from './ProfilePassword'
 import ProfileImg from './ProfileImg'
 
-function ProfileUpdate() {
-
-  const user = useSelector(s => s.user)
+function ProfileUpdate({user}) {
 
   const updateField = (e, setData, data) => {
     setData({
@@ -15,13 +13,13 @@ function ProfileUpdate() {
     });
   };
 
-  if(!user) {
-    return <div>no user found</div>
+  if (!Object.keys(user).length) {
+    return <Redirect to="/" />;
   }
 
   return <div className="profile-update">
     <h2>Gestion de perfil</h2>
-    <ProfileImg loggedUser={user}/>
+    <ProfileImg user={user}/>
     <ProfileData updateField={updateField} user={user}/>
     <ProfilePassword updateField={updateField} user={user}/>
   </div>

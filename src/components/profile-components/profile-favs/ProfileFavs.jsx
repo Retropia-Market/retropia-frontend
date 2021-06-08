@@ -1,15 +1,17 @@
-import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
 import useFetch from '../../../hooks/useFetch';
 import ProductCard from '../../ProductCard';
 
-function ProfileFavs() {
-  const user = useSelector((s) => s.user);
+function ProfileFavs({user}) {
 
   const [favs] = useFetch(
     `http://localhost:8080/${user.userData.id}/getFavourites`,
     user
   );
-  console.log(favs);
+
+  if (!Object.keys(user).length) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="profile-favs">
