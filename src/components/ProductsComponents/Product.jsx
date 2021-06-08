@@ -18,8 +18,8 @@ const Product = () => {
       <ProductInfo data={results} />
       <div className="locationimg">
       <Location place={results?.location} />
-      <ImageGallery items={results.images.map(p => {
-             return {original : `http:/\/\localhost:8080/${p.url}`, thumbnail: `http:/\/\localhost:8080/${p.url}`}})}/> 
+     {results.images.length > 1 &&  <ImageGallery items={results.images.slice(1).map(p => {
+             return {original : `http:/\/\localhost:8080/${p.url}`, thumbnail: `http:/\/\localhost:8080/${p.url}`}})}/> }
              </div>
       <ProductScreenShots  query={results?.name} type={results?.product_type}/>
       <RelatedProducts data={results} />
