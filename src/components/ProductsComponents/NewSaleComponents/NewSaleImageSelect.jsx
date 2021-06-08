@@ -2,7 +2,7 @@ import { useCallback, useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { useSelector } from "react-redux"
 import DragNDrop from "./DragNDrop"
-import ImageList from "./ImageList"
+
 
 
 const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, imageAdded}) => {
@@ -101,8 +101,7 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, ima
                 <button className="agregar-imagen" onClick={handleSubmit}>Agregar Imagen</button>
                 </>}
             </div>
-            <DragNDrop onDrop={onDrop} accept={"image/*"}/>
-            <ImageList images={images}/>
+            <DragNDrop onDrop={onDrop} accept={"image/*"} images={images}/>
         </div>
     )
 }
