@@ -16,11 +16,12 @@ const UserPublicData = ({uid}) => {
             <div className="user-public-info">
                 <div className="username">{results?.username}</div>
                 <div className="reviews-info">
-                    <div className="review-average"><ReactStarsRating
-                  value={+ratings?.review_average}
+                    <div className="review-average">
+                    {results[0]?.review_average && <ReactStarsRating
+                  value={+(results[0]?.review_average)}
                   isEdit={false}
                   isHalf={true}
-                /></div>
+                />}</div>
                     <div className="rating-number">({ratings?.total_review ?? '0'})</div>
                 </div>
                 <div className="location">{results?.location ?? 'Localización no específicada' }</div>

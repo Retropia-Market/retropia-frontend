@@ -53,11 +53,12 @@ const ProductInfo = ({ data }) => {
                 </FontAwesomeIcon>
               </div>
               <div className="seller-name"><Link to={`/users/${data.seller_id}`}>{data.seller}</Link></div>
-              <div className="review-average"><ReactStarsRating
-                  value={+results[0]?.review_average}
+              <div className="review-average">
+                {results[0]?.review_average && <ReactStarsRating
+                  value={+(results[0]?.review_average)}
                   isEdit={false}
                   isHalf={true}
-                /></div>
+                />}</div>
               <div className="total-review">{results.total_review}</div>
             </div>
             <div className="status-fav-price-bar">
