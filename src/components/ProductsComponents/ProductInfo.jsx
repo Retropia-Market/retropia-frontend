@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
-import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 import useFetch from '../../hooks/useFetch';
 import productPlaceholder from '../../img/colorPlaceholder.svg';
 import { useState } from 'react';

@@ -1,10 +1,11 @@
 import useFetch from '../hooks/useFetch';
 import ProductCard from './ProductCard';
 import { FormattedMessage } from 'react-intl';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 
 const ProductList = ({ type }) => {
-  const apiURL = 'http://localhost:8080/catalogue';
+  const {category, subcategory} = useParams()
+  const apiURL = subcategory ? `http://localhost:8080/catalogue?subcategory=${subcategory}` : category ? `http://localhost:8080/catalogue?category=${category}` : `http://localhost:8080/catalogue` ;
   const [results] = useFetch(apiURL);
 
   return (

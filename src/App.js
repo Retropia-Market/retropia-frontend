@@ -22,10 +22,28 @@ function App() {
                     <Route path="/catalogue/videogames" exact>
                         <ProductList type={'videogame'} />
                     </Route>
+                    <Route
+                        path="/catalogue/videogames/:category/:subcategory?"
+                        exact
+                    >
+                        <ProductList type={'videogame'} />
+                    </Route>
                     <Route path="/catalogue/consoles" exact>
                         <ProductList type={'console'} />
                     </Route>
+                    <Route
+                        path="/catalogue/consoles/:category/:subcategory?"
+                        exact
+                    >
+                        <ProductList type={'console'} />
+                    </Route>
                     <Route path="/catalogue/accesories" exact>
+                        <ProductList type={'accesory'} />
+                    </Route>
+                    <Route
+                        path="/catalogue/accesories/:category/:subcategory?"
+                        exact
+                    >
                         <ProductList type={'accesory'} />
                     </Route>
                     <Route path="/catalogue/:id" exact>

@@ -29,6 +29,8 @@ function Navbar() {
 
   const [search, setSearch] = useState(q || '');
   const [typeIndex, setTypeIndex] = useState(null);
+  const [type, setType] = useState()
+  const [category, setCategory] = useState()
   const [categoryIndex, setCategoryIndex] = useState(1);
   const [showCategories, setShowCategories] = useState(true);
   const [showSubcategories, setShowSubcategories] = useState(false);
@@ -41,6 +43,11 @@ function Navbar() {
   const handleLogout = (e) => {
     dispatch({ type: 'LOGOUT' });
   };
+
+  const handleHideSubcategoriesClick = () => {
+    setShowCategories(true);
+    setShowSubcategories(false)
+  }
 
   return (
     <>
@@ -60,8 +67,8 @@ function Navbar() {
             <button>🔍</button>
           </form>
         </div>
-        <div className="types">
-          <Types typeIndex={typeIndex} setTypeIndex={setTypeIndex} />
+        <div className="types" onClick={handleHideSubcategoriesClick}>
+          <Types typeIndex={typeIndex} setTypeIndex={setTypeIndex}  setType={setType} />
         </div>
         <div className="user-nav">
           {!Object.keys(user).length ? (
@@ -113,6 +120,7 @@ function Navbar() {
           {showCategories && (
             <Categories
               setCategoryIndex={setCategoryIndex}
+             setCategory={setCategory} type={type} category={category}
               hideCategories={() => setShowCategories(false)}
               showSubcategories={() => setShowSubcategories(true)}
             />
@@ -122,6 +130,8 @@ function Navbar() {
               categoryIndex={categoryIndex}
               showCategories={() => setShowCategories(true)}
               hideSubcategories={() => setShowSubcategories(false)}
+              type={type}
+              category={category}
             />
           )}
         </div>

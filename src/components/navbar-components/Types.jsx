@@ -1,6 +1,6 @@
 import {Link, useLocation} from 'react-router-dom'
 
-const Types = ({typeIndex, setTypeIndex}) =>{
+const Types = ({typeIndex, setTypeIndex, setType}) =>{
   const {pathname} = useLocation()
 
   const types = [
@@ -11,6 +11,7 @@ const Types = ({typeIndex, setTypeIndex}) =>{
 
   const handleClick = (i) => {
     setTypeIndex(i)
+    setType(types[i])
   }
 
   return( 
