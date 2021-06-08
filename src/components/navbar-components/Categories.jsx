@@ -11,7 +11,6 @@ const Categories = ({hideCategories, showSubcategories, setCategoryIndex, catego
   const handleClick = (i,c) => {
     setCategoryIndex(i + 1)
     setCategory(c)
-    console.log(type.id)
     history.push(`/catalogue/${type.id}/${c}`);
     hideCategories()
     showSubcategories()

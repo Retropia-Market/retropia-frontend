@@ -19,7 +19,7 @@ const MainBackground = () => {
 
   return (
     <div className="main-background">
-      <div class="hero">
+      <div className="hero">
         <img className="main-logo" src={logo} alt="" />
         <div class="scene">
           <div
