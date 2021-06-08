@@ -16,15 +16,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 function ProfileData({ updateField, user }) {
-  console.log(user);
 
   const dispatch = useDispatch();
 
   const [profileData, setProfileData] = useState({
-    firstName: '',
-    lastName: '',
-    birthDate: '',
-    phone: '',
+    firstname: '',
+    lastname: '',
+    birth_date: '',
+    phone_number: '',
     email: '',
     username: '',
     location: '',
@@ -48,10 +47,10 @@ function ProfileData({ updateField, user }) {
       const data = await res.json();
       dispatch({ type: 'UPDATE', data });
       setProfileData({
-        firstName: '',
-        lastName: '',
-        birthDate: '',
-        phone: '',
+        firstname: '',
+        lastname: '',
+        birth_date: '',
+        phone_number: '',
         email: '',
         username: '',
         location: '',
@@ -80,8 +79,8 @@ function ProfileData({ updateField, user }) {
         <input
           id="profile-update-name"
           type="text"
-          value={profileData.firstName}
-          name="firstName"
+          value={profileData.firstname}
+          name="firstname"
           placeholder={user.userData.firstName}
           onChange={(e) => updateField(e, setProfileData, profileData)}
         />
@@ -92,8 +91,8 @@ function ProfileData({ updateField, user }) {
         <input
           id="profile-update-last-name"
           type="text"
-          value={profileData.lastName}
-          name="lastName"
+          value={profileData.lastname}
+          name="lastname"
           placeholder={user.userData.lastName}
           onChange={(e) => updateField(e, setProfileData, profileData)}
         />
@@ -104,20 +103,20 @@ function ProfileData({ updateField, user }) {
         <input
           id="profile-update-birth"
           type="date"
-          value={profileData.birthDate}
-          name="birthDate"
+          value={profileData.birth_date}
+          name="birth_date"
           placeholder={user.userData.birthDate}
           onChange={(e) => updateField(e, setProfileData, profileData)}
         />
       </div>
-      <label htmlFor="profile-update-phone">Phone</label>
+      <label htmlFor="profile-update-phone_number">Phone</label>
       <div className="profile-update-field">
         <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
         <input
-          id="profile-update-phone"
-          type="phone"
-          value={profileData.phone}
-          name="phone"
+          id="profile-update-phone_number"
+          type="phone_number"
+          value={profileData.phoneNumber}
+          name="phone_number"
           placeholder={user.userData.phoneNumber}
           onChange={(e) => updateField(e, setProfileData, profileData)}
         />
@@ -158,10 +157,12 @@ function ProfileData({ updateField, user }) {
           onChange={e => updateField(e, setProfileData, profileData)}
           /> */}
         <LocationSelector
+          id="profile-update-location"
           name="location"
           value="profileData.location"
-          placeholder="user.userData.location"
-          onChange={(e) => updateField(e, setProfileData, profileData)}
+          placeholder={user.userData.location}
+          // onChange={(e) => updateField(e, setProfileData, profileData)}
+          onChange={(e) => console.log(e)}
         />
       </div>
       <label htmlFor="profile-update-bio">Bio</label>
