@@ -1,4 +1,5 @@
 import useFetch from '../../hooks/useFetch';
+import ImageGallery from 'react-image-gallery';
 
 const ProductScreenShots = ({ query, type }) => {
   const apiURL =
@@ -27,14 +28,8 @@ const ProductScreenShots = ({ query, type }) => {
               </span>
             </span>
             <div className="img-gallery">
-              {filteredResults[0]?.short_screenshots.map((picture) => {
-                return (
-                  <div
-                    className="screen-shots"
-                    style={{ backgroundImage: `url(${picture.image})` }}
-                  ></div>
-                );
-              })}
+               <ImageGallery items={filteredResults[0]?.short_screenshots.map(p => {
+             return {original : p.image, thumbnail: p.image}})}/> 
             </div>
           </div>
         </>

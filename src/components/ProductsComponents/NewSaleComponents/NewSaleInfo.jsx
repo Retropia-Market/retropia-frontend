@@ -33,9 +33,11 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
         fd.append('description', productDescription )
         fd.append('subcategory', productType === 'console' ? productCategory.toLowerCase() :  productType === 'videogame' ? productCategory[1].toLowerCase() : productCategory)
         fd.append('product_type', productType )
-        fd.append('images', files )
         fd.append('location', productLocation )
-        console.log(productCategory ,productDescription, productName, productLocation)
+        for (const fil of files){
+            fd.append('images', fil)
+        }
+        console.log(productCategory ,productDescription, productName, productLocation, files)
         const ret = await fetch('http://localhost:8080/catalogue/sell', {
       method: 'POST',
       headers : {
@@ -46,7 +48,6 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
     if(ret.ok){
         setRedirect(true)
     }
-    console.log(ret)
     }
     return (
         <div className="new-sale-info"><div className="sale-user-input">

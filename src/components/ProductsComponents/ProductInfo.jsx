@@ -10,6 +10,7 @@ import GiveFavComponent from '../GiveFavComponent';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import { Link } from 'react-router-dom';
 
+
 const ProductInfo = ({ data }) => {
   const [showBidModal, setShowBidModal] = useState(false);
   const {userData} = useSelector(s => s.user)
@@ -41,7 +42,8 @@ const ProductInfo = ({ data }) => {
                 ? `url(http:/\/\localhost:8080/${data.images[0]?.url})`
                 : `url(${productPlaceholder})`,
             }}
-          ></div>
+          >
+          </div>
           <div className="product-info">
             <h3>{data.name}</h3>
             <div className="seller-info">
