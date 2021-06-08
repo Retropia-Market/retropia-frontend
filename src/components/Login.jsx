@@ -17,15 +17,16 @@ function Login({ setShowLogin, setShowRegister }) {
       body: JSON.stringify({ email: username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(res);
     if (res.ok) {
       const data = await res.json();
       console.log(data)
       dispatch({ type: 'LOGIN', user: data });
       setShowLogin(false);
-    } else {
+    } else if(res.status === 401){
       setErrorMessage('Usuario o Contraseña incorrectos.');
       console.log(errorMessage);
+    } else {
+      console.log('Parece que algo fue mal')
     }
   };
 

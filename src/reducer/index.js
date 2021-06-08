@@ -60,6 +60,8 @@ const messageReducer = (state = {}, action) => {
 };
 
 const sessionStorageMiddleware = (store) => (next) => (action) => {
+  console.log(store);
+  console.log(action);
   let result = next(action);
   sessionStorage.setItem('session', JSON.stringify(store.getState()));
   return result;

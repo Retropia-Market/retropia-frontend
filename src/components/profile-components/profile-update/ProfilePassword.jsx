@@ -24,6 +24,7 @@ function ProfilePassword ({updateField, user}) {
       },
       body: JSON.stringify(profilePassword),
     });
+    console.log(res)
     if (res.ok) {
       // const data = await res.json();
       setProfilePassword({
