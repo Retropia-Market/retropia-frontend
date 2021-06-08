@@ -6,8 +6,7 @@ import {faUnlock, faLock, faUserLock } from '@fortawesome/free-solid-svg-icons';
 
 function ProfilePassword ({updateField, user}) {
 
-  // const dispatch = useDispatch()
-
+  const [errorMessage, setErrorMessage] = useState('');
   const [profilePassword, setProfilePassword] = useState({
     oldPassword: '',
     newPassword: '',
@@ -16,6 +15,7 @@ function ProfilePassword ({updateField, user}) {
 
   const handlePassword = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
     const res = await fetch(`http://localhost:8080/users/${user.userData.id}/update-password`, {
       method: 'PATCH',
       headers: { 
@@ -26,14 +26,20 @@ function ProfilePassword ({updateField, user}) {
     });
     console.log(res)
     if (res.ok) {
-      // const data = await res.json();
       setProfilePassword({
         oldPassword: '',
         newPassword: '',
         repeatedNewPassword: '',
       })
+      console.log(res)
+    } else if(res.status === 401){
+      setErrorMessage('Contraseña Incorrecta.');
+      console.log(errorMessage);
+    } else if(res.status === 400){
+      setErrorMessage('Nueva contraseña inválida');
+      console.log(errorMessage);
     } else {
-      console.error('estatus de respuesta: ', res.status, ' mensaje: ', res.statusText )
+      console.log('Parece que algo fue mal')
     }
   };
 
@@ -75,6 +81,7 @@ function ProfilePassword ({updateField, user}) {
           />
       </div>
       <button className="submit-button">Actualizar Contraseña</button>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
   </form>
 }
 
