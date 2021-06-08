@@ -54,7 +54,7 @@ const ProductInfo = ({ data }) => {
               </div>
               <div className="seller-name"><Link to={`/users/${data.seller_id}`}>{data.seller}</Link></div>
               <div className="review-average"><ReactStarsRating
-                  value={results[0]?.review_average}
+                  value={+results[0]?.review_average}
                   isEdit={false}
                   isHalf={true}
                 /></div>

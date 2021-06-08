@@ -56,7 +56,7 @@ const ProductCard = ({ data, favorites }) => {
               </span>
               <span className="product-card-info-average-rating">
                 <ReactStarsRating
-                  value={results[0]?.review_average}
+                  value={+results[0]?.review_average}
                   isEdit={false}
                   isHalf={true}
                 />
@@ -79,11 +79,11 @@ const ProductCard = ({ data, favorites }) => {
                 className="message-icon"
                 style={{ background: `url(${messageIcon}) no-repeat` }}
               ></Link>
-              <Link
+              <div
                 onClick={handleBid}
                 className="basket-icon"
                 style={{ background: `url(${basketIcon}) no-repeat` }}
-              ></Link>
+              ></div>
             </div>
           </div>
         </div>

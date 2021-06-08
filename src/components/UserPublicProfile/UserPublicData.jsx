@@ -17,7 +17,7 @@ const UserPublicData = ({uid}) => {
                 <div className="username">{results?.username}</div>
                 <div className="reviews-info">
                     <div className="review-average"><ReactStarsRating
-                  value={ratings?.review_average}
+                  value={+ratings?.review_average}
                   isEdit={false}
                   isHalf={true}
                 /></div>

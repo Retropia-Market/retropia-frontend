@@ -15,7 +15,9 @@ const RelatedProducts = ({ data }) => {
       <div className="catalogue-products">
         {results &&
           results.map((product) => {
-            return <ProductCard data={product} key={product.id} />;
+            if(data.id !== product.id){
+              return <ProductCard data={product} key={product.id} />
+            }
           })}
       </div>
     </div>
