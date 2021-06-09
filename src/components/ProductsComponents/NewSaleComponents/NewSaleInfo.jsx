@@ -29,7 +29,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
         const fd = new FormData()
         fd.append('name', productType === 'accesory' ? productName :  productName[0].name )
         fd.append('status', productStatus )
-        fd.append('price', productPrice.indexOf(',') != -1 ? Number( productPrice.replace(/,/, '.')) : +productPrice)
+        fd.append('price', productPrice.indexOf(',') !== -1 ? Number( productPrice.replace(/,/, '.')) : +productPrice)
         fd.append('description', productDescription )
         fd.append('subcategory', productType === 'console' ? productCategory.toLowerCase() :  productType === 'videogame' ? productCategory[1].toLowerCase() : productCategory)
         fd.append('product_type', productType )

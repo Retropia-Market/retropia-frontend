@@ -1,5 +1,4 @@
 import SelectSearch from "react-select-search";
-import useFetch from "../../../hooks/useFetch";
 
 const CatSelector = ({productName, setProductCategory, productType}) => {
     const getFunOp = (query) => {
