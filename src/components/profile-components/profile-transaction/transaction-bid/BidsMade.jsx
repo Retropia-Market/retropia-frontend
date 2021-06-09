@@ -34,7 +34,7 @@ function BidsMade() {
       )}
       {bidsObject &&
         bidsObject.bids?.map((b) => (
-          <BidCard data={b} user={user} update={fetchData} />
+          <BidCard data={b} user={user} update={fetchData} type="realizada" />
         ))}
     </div>
   );

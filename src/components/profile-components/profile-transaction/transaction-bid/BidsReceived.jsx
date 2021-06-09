@@ -33,9 +33,21 @@ function BidsReceived() {
         <h3>Parece que aún no has recibido ofertas.</h3>
       )}
       {bidsObject &&
-        bidsObject.bids?.map((b) => (
-          <BidCard data={b} user={user} update={fetchData} type="recibida" />
-        ))}
+        bidsObject.bids?.map((b) => {
+          if (b.bid_status === 'aceptado' || b.bid_status === 'rechazado') {
+            return console.log(b);
+          } else {
+            return (
+              <BidCard
+                className="ofertado"
+                data={b}
+                user={user}
+                update={fetchData}
+                type="recibida"
+              />
+            );
+          }
+        })}
     </div>
   );
 }
