@@ -55,11 +55,12 @@ const ProductCard = ({ data, favorites }) => {
                 <Link to={`/users/${seller_id}`}>{seller}</Link>
               </span>
               <span className="product-card-info-average-rating">
-                {results[0]?.review_average && <ReactStarsRating
-                  value={+(results[0]?.review_average)}
+                <ReactStarsRating
+                className='react-stars'
+                  value={+(results[0]?.review_average) > 0 ? +(results[0]?.review_average) : 0}
                   isEdit={false}
                   isHalf={true}
-                />}
+                />
               </span>
               <span className="product-card-info-total-ratings">
                 ({results[0]?.total_review})

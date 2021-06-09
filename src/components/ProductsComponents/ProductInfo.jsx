@@ -18,6 +18,7 @@ const ProductInfo = ({ data }) => {
   const results = useFetch(
     `http://localhost:8080/user/${data?.seller_id}/rating`
   );
+  console.log(results)
 
   if (data?.error) {
     return (
@@ -35,6 +36,7 @@ const ProductInfo = ({ data }) => {
     <>
       {data && (
         <div className="product-main-page">
+          
           <div
             className="product-img"
             style={{
@@ -45,32 +47,30 @@ const ProductInfo = ({ data }) => {
           >
           </div>
           <div className="product-info">
-            <h3>{data.name}</h3>
+            <span className='product-title'>{data.name}</span>
             <div className="seller-info">
+              <div className="icon-name">
               <div className="seller-icon">
                 <FontAwesomeIcon className="user-pic" icon={faUser}>
                   userIcon
                 </FontAwesomeIcon>
               </div>
-              <div className="seller-name"><Link to={`/users/${data.seller_id}`}>{data.seller}</Link></div>
+              <div className="seller-name"><Link to={`/users/${data.seller_id}`}>{data.seller}</Link></div></div>
+              <div className="reviews-component">
               <div className="review-average">
-                {results[0]?.review_average && <ReactStarsRating
-                  value={+(results[0]?.review_average)}
+                <ReactStarsRating
+                  value={+(results[0]?.review_average) > 0 ? +(results[0]?.review_average) : 0}
                   isEdit={false}
                   isHalf={true}
-                />}</div>
-              <div className="total-review">{results.total_review}</div>
-            </div>
+                /></div>
+             
+              <span className="total-review">({results[0]?.total_review})</span>
+            </div></div>
             <div className="status-fav-price-bar">
               <div className="fav-status">
-                <div>
-                {userData ? (
-                  <GiveFavComponent  data={data} />
-                ) : (
-                  ''
-                )}
-              </div>
-                <span className="product-card-info-status">{data.status}</span>
+               
+              <div className='status-text'>Estado:</div>
+                <div className="product-card-info-status">{data.status}</div>
               </div>
               <div className="product-card-info-price">
                 <FormattedNumber
@@ -81,7 +81,14 @@ const ProductInfo = ({ data }) => {
               </div>
             </div>
             <div className="product-description">{data.description}</div>
-            <div className="bid-message-buttons">
+            <div className="bid-message-buttons sell-button">
+               <div>
+                {userData ? (
+                  <GiveFavComponent  data={data} />
+                ) : (
+                  ''
+                )}
+              </div>
               <button className="button sell-button">
                 <FormattedMessage id="button.message" />
               </button>

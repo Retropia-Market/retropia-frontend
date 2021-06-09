@@ -1,10 +1,10 @@
 const Location = ({ place }) => {
   return (
     <div className="location">
+      <h2>{place}</h2>
       <iframe
+      className='product-location'
         title="product-map"
-        width="300"
-        height="225"
         style={{ border: 0 }}
         loading="lazy"
         allowFullScreen
