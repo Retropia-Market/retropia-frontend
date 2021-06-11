@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import GiveFavComponent from '../GiveFavComponent';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import { Link } from 'react-router-dom';
+import ImageGallery from 'react-image-gallery';
 
 
 const ProductInfo = ({ data }) => {
@@ -18,7 +19,6 @@ const ProductInfo = ({ data }) => {
   const results = useFetch(
     `http://localhost:8080/user/${data?.seller_id}/rating`
   );
-  console.log(results)
 
   if (data?.error) {
     return (
@@ -37,15 +37,8 @@ const ProductInfo = ({ data }) => {
       {data && (
         <div className="product-main-page">
           
-          <div
-            className="product-img"
-            style={{
-              backgroundImage: data.images[0]?.url
-                ? `url(http:/\/\localhost:8080/${data.images[0]?.url})`
-                : `url(${productPlaceholder})`,
-            }}
-          >
-          </div>
+         <ImageGallery items={data.images.map(p => {
+             return {original : `http:/\/\localhost:8080/${p.url}`, thumbnail: `http:/\/\localhost:8080/${p.url}`}})}/> 
           <div className="product-info">
             <span className='product-title'>{data.name}</span>
             <div className="seller-info">
