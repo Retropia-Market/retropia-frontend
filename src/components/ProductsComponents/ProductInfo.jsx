@@ -38,7 +38,7 @@ const ProductInfo = ({ data }) => {
         <div className="product-main-page">
           
          <ImageGallery items={data.images.map(p => {
-             return {original : `http:/\/\localhost:8080/${p.url}`, thumbnail: `http:/\/\localhost:8080/${p.url}`}})}/> 
+             return {original : `http:/\/\localhost:8080/${p.url}`, thumbnail: `http:/\/\localhost:8080/${p.url}` , originalHeight: 300}})}/> 
           <div className="product-info">
             <span className='product-title'>{data.name}</span>
             <div className="seller-info">

@@ -198,6 +198,14 @@
         justify-content: center;
         align-items: center;
     }
+    .product-main-page .image-gallery-content .bottom {
+        display: flex;
+        width: 25em;
+    }
+
+    .image-gallery-thumbnails-wrapper bottom {
+        height: fit-content;
+    }
 
     .icon-name {
         display: flex;
