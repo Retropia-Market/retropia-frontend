@@ -2,19 +2,23 @@ import useFetch from '../../hooks/useFetch';
 import ImageGallery from 'react-image-gallery';
 
 const ProductScreenShots = ({ query, type }) => {
+  
   const apiURL =
     type === 'videogame'
       ? `http://localhost:8080/rawg/search/${query}`
       : `http://localhost:8080/rawg/platform`;
   const [results] = useFetch(apiURL);
 
+  if (!results || !results?.count) return null
+
   let filteredResults;
 
   if (type === 'videogame' && results) {
     filteredResults = results
       ? results.results.filter((game) => game.name === query)
-      : [];
+      : [{}];
   }
+
   return (
     <div className="data-sheet">
       {filteredResults && type === 'videogame' && (
