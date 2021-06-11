@@ -28,7 +28,7 @@ const ProductScreenShots = ({ query, type }) => {
               </span>
             </span>
             <div className="img-gallery">
-               <ImageGallery items={filteredResults[0]?.short_screenshots.map(p => {
+               <ImageGallery autoPlay items={filteredResults[0]?.short_screenshots.map(p => {
              return {original : p.image, thumbnail: p.image}})}/> 
             </div>
           </div>

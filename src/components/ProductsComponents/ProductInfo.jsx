@@ -81,17 +81,18 @@ const ProductInfo = ({ data }) => {
               </div>
             </div>
             <div className="product-description">{data.description}</div>
-            <div className="bid-message-buttons sell-button">
-               <div>
+            <div className="bid-message-buttons">
+               
+              <button className="button sell-button">
+                <FormattedMessage id="button.message" />
+              </button>
+              <div>
                 {userData ? (
                   <GiveFavComponent  data={data} />
                 ) : (
                   ''
                 )}
               </div>
-              <button className="button sell-button">
-                <FormattedMessage id="button.message" />
-              </button>
               <button onClick={handleBid} className="button bid-button">
                 <FormattedMessage id="button.bid" />
               </button>

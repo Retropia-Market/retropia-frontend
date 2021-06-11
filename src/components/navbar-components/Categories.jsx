@@ -4,7 +4,7 @@ import useFetch from '../../hooks/useFetch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
-const Categories = ({hideCategories, showSubcategories, setCategoryIndex, category, setCategory, type}) => {
+const Categories = ({hideCategories, showSubcategories, setCategoryIndex, category, setCategory, type = 'consoles'}) => {
   const [allCategories] = useFetch('http://localhost:8080/categories')
   const history = useHistory()
 
