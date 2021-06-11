@@ -37,7 +37,6 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
         for (const fil of files){
             fd.append('images', fil)
         }
-        console.log(productCategory ,productDescription, productName, productLocation, files)
         const ret = await fetch('http://localhost:8080/catalogue/sell', {
       method: 'POST',
       headers : {
@@ -76,7 +75,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                     <label >
                        <FormattedMessage id='sale.productStatus'/>
                         <br />
-                        <SelectSearch options={[{value: 'Nuevo', name: 'Nuevo'} , {value: 'semi nuevo', name: 'Semi nuevo'}, {value: 'usado', name: 'Usado'}, {value: 'deteriorado', name: 'Deteriorado'}, {value: 'recambio', name: 'Recambio'}]} search
+                        <SelectSearch options={[{value: 'Nuevo', name: 'Nuevo'} , {value: 'usado como nuevo', name: 'Usado - Como nuevo'}, {value: 'usado', name: 'Usado'}, {value: 'deteriorado', name: 'Deteriorado'}, {value: 'recambio', name: 'Recambio'}]} search
         placeholder="Nombre" onChange={setProductStatus} />
                     </label>
                     
@@ -90,7 +89,7 @@ const NewSaleInfo = ({files, setProductLocation, productLocation ,productType, s
                         <br />
                         <textarea cols="30" rows="10" onChange={(e) => setProductDescription(e.target.value)}></textarea>
                     </label>
-                    <button>Crea tu venta</button>
+                    <button className='yellow-button'>Crea tu venta</button>
                 </form>
             </div></div>
     )

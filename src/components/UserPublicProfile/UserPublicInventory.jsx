@@ -17,8 +17,6 @@ const UserPublicInventory = ({uid}) => {
                 if(product.sale_status.toLowerCase() === 'en venta'){
 
                     return <ProductCard data={product}/>
-
-
                 }
             })}
             </div>
@@ -30,8 +28,6 @@ const UserPublicInventory = ({uid}) => {
                 if(product.sale_status.toLowerCase() === 'vendido'){
 
                     return <ProductCard data={product}/>
-
-
                 }
             })}
                 </div>

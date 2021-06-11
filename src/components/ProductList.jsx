@@ -13,14 +13,13 @@ const ProductList = ({ type }) => {
       <h1>
         <FormattedMessage id="catalogue.title" />
       </h1>
-      <div className="catalogue-products">
-        {results &&
-          results
+      {results && <div className={ results.length > 3 ? "catalogue-products" : results.length > 1 ? 'catalogue-products two-products' : 'catalogue-products one-products'}>
+        {results
             .filter((product) => product.product_type === type)
             .map((product) => {
               return <ProductCard data={product} key={product.id} />;
             })}
-      </div>
+      </div>}
     </div>
   );
 };

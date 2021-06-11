@@ -98,7 +98,7 @@ const NewSaleImageSelect = ({setImageAdded, files, setFiles, setProductType, ima
                 <input type="file" onChange={handleFile}/>
                 <h3><FormattedMessage id='sale.imgDescription'/></h3>
                 </label>
-                <button className="agregar-imagen" onClick={handleSubmit}>Agregar Imagen</button>
+                <button className="agregar-imagen yellow-button" onClick={handleSubmit}>Agregar Imagen</button>
                 </>}
             </div>
             <DragNDrop onDrop={onDrop} accept={"image/*"} images={images}/>
