@@ -8,8 +8,8 @@ import ReactStarsRating from "react-awesome-stars-rating";
 import GiveFavComponent from "./GiveFavComponent";
 import { useSelector } from "react-redux";
 // Animation
-import { pageAnimation } from "./animations";
 import { motion } from "framer-motion";
+import { item } from "./animations";
 
 import messageIcon from "../img/icons/message-grey-icon.svg";
 import basketIcon from "../img/icons/basket-grey-icon.svg";
@@ -36,10 +36,10 @@ const ProductCard = ({ data, favorites }) => {
   return (
     <>
       <motion.div
-        variants={pageAnimation}
+        variants={item}
+        animate="visible"
         initial="hidden"
-        animate="show"
-        exit="exit"
+        exit="hidden"
         className="product-card"
       >
         <div

@@ -18,9 +18,9 @@ function App() {
   const location = useLocation();
   return (
     <div className="App">
-      <Navbar />
-      <main className="main">
-        <AnimatePresence exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter>
+        <Navbar />
+        <main className="main">
           <Switch location={location} key={location.pathname}>
             <Route path="/catalogue/videogames" exact>
               <ProductList type={"videogame"} />
@@ -61,9 +61,9 @@ function App() {
             </Route>
             <Route path="/">Not Found</Route>
           </Switch>
-        </AnimatePresence>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </AnimatePresence>
     </div>
   );
 }
