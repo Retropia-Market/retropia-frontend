@@ -25,7 +25,7 @@ const MainBackground = () => {
       variants={pageAnimation}
       initial="hidden"
       animate="show"
-      exit="exit"
+      exit="hidden"
     >
       <div className="hero">
         <motion.img
