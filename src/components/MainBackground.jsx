@@ -1,18 +1,11 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import logo from '../img/logo.svg';
-import {motion} from 'framer-motion'
+import React from "react";
+import { useState, useEffect } from "react";
+import logo from "../img/logo.svg";
+import { motion } from "framer-motion";
+import { pageAnimation } from "./animations";
 
 const MainBackground = () => {
   const [bckPosY, setBckPosY] = useState();
-
-  const svgVariantes = {
-    hidde: {rotate : -180},
-    visible : {
-      rotate : 0,
-      transition : {duration : 1}
-    }
-  }
 
   useEffect(() => {
     var x = 0;
@@ -27,17 +20,31 @@ const MainBackground = () => {
   }, []);
 
   return (
-    <div className="main-background">
+    <motion.div
+      className="main-background"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="hero">
-        <motion.img className="main-logo" src={logo} alt="Logo principal de Retropia"  animate={{opacity: 1, transition: {duration: 2}}} initial={{opacity : 0}}/>
+        <motion.img
+          className="main-logo"
+          src={logo}
+          alt="Logo principal de Retropia"
+          variants={pageAnimation}
+          animate={{ opacity: 1, transition: { duration: 1 } }}
+          initial={{ opacity: 0 }}
+          exit="exit"
+        />
         <div className="scene">
           <div
             className="grid"
-            style={{ backgroundPositionY: bckPosY + 'px' }}
+            style={{ backgroundPositionY: bckPosY + "px" }}
           ></div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
