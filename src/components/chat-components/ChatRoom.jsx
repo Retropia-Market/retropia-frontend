@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import { useState } from "react"
+import {motion} from "framer-motion"
 
 import useChat from "../../hooks/useChat"
 import useFetchChat from '../../hooks/useFetchChat'
@@ -31,7 +32,8 @@ function ChatRoom () {
   console.log(messages)
   const avatar = useImage('http://localhost:8080', contact.avatar)
 
-  return <div className="chat-room">
+  return <div
+    className="chat-room">
     {contact &&
         <header>
           <div className="avatar" style={{ backgroundImage: `url(${avatar})`}} />

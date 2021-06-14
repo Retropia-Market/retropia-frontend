@@ -20,48 +20,48 @@ function App() {
     <div className="App">
       <Navbar />
       <main className="main">
-        {/* <AnimatePresence exitBeforeEnter> */}
-        <Switch location={location} key={location.pathname}>
-          <Route path="/catalogue/videogames" exact>
-            <ProductList type={'videogame'} />
-          </Route>
-          <Route path="/catalogue/videogames/:category/:subcategory?" exact>
-            <ProductList type={'videogame'} />
-          </Route>
-          <Route path="/catalogue/consoles" exact>
-            <ProductList type={'console'} />
-          </Route>
-          <Route path="/catalogue/consoles/:category/:subcategory?" exact>
-            <ProductList type={'console'} />
-          </Route>
-          <Route path="/catalogue/accesories" exact>
-            <ProductList type={'accesory'} />
-          </Route>
-          <Route path="/catalogue/accesories/:category/:subcategory?" exact>
-            <ProductList type={'accesory'} />
-          </Route>
-          <Route path="/catalogue/:id" exact>
-            <Product />
-          </Route>
-          <Route path="/search/:q?" exact>
-            <SearchList />
-          </Route>
-          <Route path="/sell" exact>
-            <NewSale />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/users/:uid">
-            <UserPublicProfile />
-          </Route>
-          <Route path="/" exact>
-            <MainBackground />
-            <TopProducts />
-          </Route>
-          <Route path="/">Not Found</Route>
-        </Switch>
-        {/* </AnimatePresence> */}
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.pathname}>
+            <Route path="/catalogue/videogames" exact>
+              <ProductList type={'videogame'} />
+            </Route>
+            <Route path="/catalogue/videogames/:category/:subcategory?" exact>
+              <ProductList type={'videogame'} />
+            </Route>
+            <Route path="/catalogue/consoles" exact>
+              <ProductList type={'console'} />
+            </Route>
+            <Route path="/catalogue/consoles/:category/:subcategory?" exact>
+              <ProductList type={'console'} />
+            </Route>
+            <Route path="/catalogue/accesories" exact>
+              <ProductList type={'accesory'} />
+            </Route>
+            <Route path="/catalogue/accesories/:category/:subcategory?" exact>
+              <ProductList type={'accesory'} />
+            </Route>
+            <Route path="/catalogue/:id" exact>
+              <Product />
+            </Route>
+            <Route path="/search/:q?" exact>
+              <SearchList />
+            </Route>
+            <Route path="/sell" exact>
+              <NewSale />
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+            <Route path="/users/:uid">
+              <UserPublicProfile />
+            </Route>
+            <Route path="/" exact>
+              <MainBackground />
+              <TopProducts />
+            </Route>
+            <Route path="/">Not Found</Route>
+          </Switch>
+        </AnimatePresence>
       </main>
       <Footer />
     </div>
