@@ -51,35 +51,35 @@ const NewSaleImageSelect = ({
     };
 
     const handleTypeData = (visionData) => {
-        // const wordsArray = visionData.map(data => data.name.toLowerCase().split(' ')).flatMap(v => v)
+        const wordsArray = visionData
+            .map((data) => data.name.toLowerCase().split(' '))
+            .flatMap((v) => v);
 
-        // for (let word of wordsArray){
-        //    if(word === 'console'){
-        //        return 'console'
-        //    }
-        //    else if(word === 'controller'){
-        //        return 'accesory'
-        //    }
-        // }
-        // return 'videogame';
+        for (let word of wordsArray) {
+            if (word === 'console') {
+                return 'console';
+            } else if (word === 'controller') {
+                return 'accesory';
+            }
+        }
         return 'videogame';
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (files.length < 1) return;
-        //     const fd = new FormData()
-        //     fd.append('image', files )
-        //     const ret = await fetch('http://localhost:8080/sell/vision/', {
-        //   method: 'POST',
-        //   headers : {
-        //       'Authorization' : 'Bearer ' + user.token,
-        //   },
-        //   body: fd
-        // })
+        // const fd = new FormData();
+        // fd.append('image', files[0]);
+        // const ret = await fetch('http://localhost:8080/sell/vision/', {
+        //     method: 'POST',
+        //     headers: {
+        //         Authorization: 'Bearer ' + user.token,
+        //     },
+        //     body: fd,
+        // });
         if (true) {
-            // const response = await ret.json()
-            // setProductType(handleTypeData(response))
+            // const response = await ret.json();
+            // setProductType(handleTypeData(response));
             setImageAdded(true);
         }
     };
