@@ -5,17 +5,17 @@ import { IntlProvider } from 'react-intl';
 import { useSelector } from 'react-redux';
 const allMessages = { es, en, it };
 
-// const LanguageSwitcher = ({ children }) => {
-//     const locale = useSelector((s) => s.language);
-//     return (
-//         <IntlProvider
-//             messages={allMessages[locale]}
-//             locale={locale}
-//             defaultLocale="es"
-//         >
-//             {children}
-//         </IntlProvider>
-//     );
-// };
+const LanguageSwitcher = ({ children }) => {
+    const { language } = useSelector((s) => s.language);
+    return (
+        <IntlProvider
+            messages={allMessages[language]}
+            locale={language}
+            defaultLocale="es"
+        >
+            {children}
+        </IntlProvider>
+    );
+};
 
-// export default LanguageSwitcher;
+export default LanguageSwitcher;

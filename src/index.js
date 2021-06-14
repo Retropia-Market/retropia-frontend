@@ -3,19 +3,18 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { IntlProvider } from 'react-intl';
-import es from './locale/es.json';
 
 import { Provider } from 'react-redux';
 import store from './reducer';
+import LanguageSwitcher from './components/intlComponents/LanguageSwitcher';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Provider store={store}>
-                <IntlProvider messages={es} locale="es" defaultLocale="es">
+                <LanguageSwitcher>
                     <App />
-                </IntlProvider>
+                </LanguageSwitcher>
             </Provider>
         </Router>
     </React.StrictMode>,

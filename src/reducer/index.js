@@ -58,13 +58,13 @@ const messageReducer = (state = {}, action) => {
     }
 };
 
-const lenguageReducer = (
-    state = { lenguage: navigator.lenguage.split('-')[0] },
+const languageReducer = (
+    state = { language: navigator.language.split('-')[0] },
     action
 ) => {
     switch (action.type) {
         case 'UPDATE':
-            return action.lenguage;
+            return action.language;
         default:
             return state;
     }
@@ -81,7 +81,7 @@ const store = createStore(
         user: userReducer,
         contacts: contactReducer,
         messages: messageReducer,
-        lenguage: lenguageReducer,
+        language: languageReducer,
     }),
     JSON.parse(sessionStorage.getItem('session')) || {},
     applyMiddleware(sessionStorageMiddleware)
