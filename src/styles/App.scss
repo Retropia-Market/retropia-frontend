@@ -1,100 +1,99 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-  padding: 10vh 0 0 0;
-  box-sizing: border-box;
-  margin: 0;
-  @media screen and (max-width: 1400px) {
-    font-size: 0.8rem;
-  }
-  //   background: url('https://www.toptal.com/designers/subtlepatterns/patterns/confectionary.png');
-  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png");
+    padding: 10vh 0 0 0;
+    box-sizing: border-box;
+    margin: 0;
+    @media screen and (max-width: 1400px) {
+        font-size: 0.8rem;
+    }
+    //   background: url('https://www.toptal.com/designers/subtlepatterns/patterns/confectionary.png');
+    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png');
 }
 
 * {
-  max-width: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 *:focus {
-  outline: none;
+    outline: none;
 }
 
 .main {
-  box-sizing: border-box;
-  min-height: 69vh;
+    box-sizing: border-box;
+    min-height: 69vh;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 $main-gradient: linear-gradient(
-  0deg,
-  rgba(147, 38, 131, 1) 0%,
-  rgba(45, 19, 66, 1) 30%,
-  rgba(24, 15, 53, 1) 100%
+    0deg,
+    rgba(147, 38, 131, 1) 0%,
+    rgba(45, 19, 66, 1) 30%,
+    rgba(24, 15, 53, 1) 100%
 );
 
 $reversed-gradient: linear-gradient(
-  0deg,
-  rgba(24, 15, 53, 1) 0%,
-  rgba(45, 19, 66, 1) 30%,
-  rgba(147, 38, 131, 1) 100%
+    0deg,
+    rgba(24, 15, 53, 1) 0%,
+    rgba(45, 19, 66, 1) 30%,
+    rgba(147, 38, 131, 1) 100%
 );
 
 $primary-color: #88236b;
 
 @keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
 
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
 
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
 
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 .error-message {
-  color: red;
-  margin-top: 2rem;
+    color: red;
+    margin-top: 2rem;
 }
 
 .error-message {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
-@import "./MainBackground";
-@import "./Navbar";
-@import "./Login";
-@import "./Products";
-@import "./Register";
-@import "./Bid";
-@import "./Select";
-@import "./ProfileNavbar";
-@import "./ProfileInfo";
-@import "./Transactions";
-@import "./PublicProfile";
-@import "./Chat";
-@import "./Footer";
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import './MainBackground';
+@import './Navbar';
+@import './Login';
+@import './Products/Products';
+@import './Register';
+@import './Bid';
+@import './Select';
+@import './ProfileNavbar';
+@import './ProfileInfo';
+@import './Transactions';
+@import './PublicProfile';
+@import './Chat';
+@import './Footer';
+@import '~react-image-gallery/styles/scss/image-gallery.scss';

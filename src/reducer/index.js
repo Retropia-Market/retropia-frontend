@@ -58,6 +58,18 @@ const messageReducer = (state = {}, action) => {
     }
 };
 
+const languageReducer = (
+    state = { language: navigator.language.split('-')[0] },
+    action
+) => {
+    switch (action.type) {
+        case 'UPDATE':
+            return action.language;
+        default:
+            return state;
+    }
+};
+
 const sessionStorageMiddleware = (store) => (next) => (action) => {
     let result = next(action);
     sessionStorage.setItem('session', JSON.stringify(store.getState()));
@@ -69,6 +81,7 @@ const store = createStore(
         user: userReducer,
         contacts: contactReducer,
         messages: messageReducer,
+        language: languageReducer,
     }),
     JSON.parse(sessionStorage.getItem('session')) || {},
     applyMiddleware(sessionStorageMiddleware)

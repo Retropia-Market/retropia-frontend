@@ -9,19 +9,26 @@ const RelatedProducts = ({ data }) => {
 
     return (
         <div className="catalogue">
-            <h1>
-                <FormattedMessage id="prod.related" />
-            </h1>
-            <div className="catalogue-products">
-                {results_data &&
-                    results_data.map((product) => {
-                        if (data.id !== product.id) {
-                            return (
-                                <ProductCard data={product} key={product.id} />
-                            );
-                        }
-                    })}
-            </div>
+            {results_data?.length > 1 && (
+                <>
+                    {' '}
+                    <h1>
+                        <FormattedMessage id="prod.related" />
+                    </h1>
+                    <div className="catalogue-products">
+                        {results_data.map((product) => {
+                            if (data.id !== product.id) {
+                                return (
+                                    <ProductCard
+                                        data={product}
+                                        key={product.id}
+                                    />
+                                );
+                            }
+                        })}
+                    </div>
+                </>
+            )}
         </div>
     );
 };
