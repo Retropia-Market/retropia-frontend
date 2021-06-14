@@ -14,6 +14,7 @@ export default function useChat() {
     ws.onmessage = e => {
       console.log(e)
       const message = JSON.parse(e.data)
+      console.log('message:', message)
       dispatch({ type: 'ws/message', message, me: user.userData.id })
     }
     return () => {

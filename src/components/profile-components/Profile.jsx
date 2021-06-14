@@ -60,7 +60,7 @@ function Profile() {
         </NavLink>
       </ul>
       <div className="user-private-content">
-        <AnimatePresence>
+        {/* <AnimatePresence> */}
           <Switch location={location} key={location.pathname}>
             <Route path="/profile" exact>
               <ProfileUpdate user={user} />
@@ -79,7 +79,7 @@ function Profile() {
             </Route>
             <Route path="/profile">Not Found</Route>
           </Switch>
-        </AnimatePresence>
+        {/* </AnimatePresence> */}
       </div>
     </div>
   );

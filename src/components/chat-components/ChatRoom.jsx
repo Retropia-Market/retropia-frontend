@@ -28,6 +28,7 @@ function ChatRoom () {
 
   const contact = useSelector(s => s.contacts[id])
   const messages = useSelector(s => s.messages[id]) || []
+  console.log(messages)
   const avatar = useImage('http://localhost:8080', contact.avatar)
 
   return <div className="chat-room">
@@ -38,7 +39,7 @@ function ChatRoom () {
         </header>
     }
     <div className="messages">
-        {messages.reverse().map(m =>
+        {messages.map(m =>
           <div className={'message ' + (m.dst_id === parseInt(id) ? 'own' : 'remote')} key={m.id}>
             {m.message}
           </div>
