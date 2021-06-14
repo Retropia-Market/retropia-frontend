@@ -22,7 +22,7 @@ const Categories = ({hideCategories, showSubcategories, setCategoryIndex, catego
         acc.includes(c.categoria) ? acc : [...acc, c.categoria]  ,[]).map((c,i) =>
           <li className="category" key={i} onClick={() => handleClick(i, c)}>
             <div className="category-name">{c}</div>
-            <FontAwesomeIcon className="category-select" icon={faChevronRight} ></FontAwesomeIcon>
+            {/* <FontAwesomeIcon className="category-select" icon={faChevronRight} ></FontAwesomeIcon> */}
           </li> )}
     </>
 }
