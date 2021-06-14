@@ -37,16 +37,7 @@ const ProductList = ({ type }) => {
             {results
               .filter((product) => product.product_type === type)
               .map((product) => {
-                return (
-                  <ProductCard
-                    variants={item}
-                    animate="visible"
-                    initial="hidden"
-                    exit="hidden"
-                    data={product}
-                    key={product.id}
-                  />
-                );
+                return <ProductCard data={product} key={product.id} />;
               })}
           </motion.div>
         )}

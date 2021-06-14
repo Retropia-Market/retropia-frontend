@@ -13,6 +13,21 @@ export const pageAnimation = {
   exit: { opacity: 0, y: -20 },
 };
 
+export const logoAnimation = {
+  hidden: {
+    opacity: 0.1,
+    y: -20,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  exit: { opacity: 0, y: -20 },
+};
+
 export const container = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -31,4 +46,5 @@ export const item = {
     y: 0,
     opacity: 1,
   },
+  exit: { opacity: 0, y: -20 },
 };

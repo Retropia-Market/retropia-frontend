@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import logo from "../img/logo.svg";
 import { motion } from "framer-motion";
-import { pageAnimation } from "./animations";
+import { pageAnimation, logoAnimation } from "./animations";
 
 const MainBackground = () => {
   const [bckPosY, setBckPosY] = useState();
@@ -25,18 +25,19 @@ const MainBackground = () => {
       variants={pageAnimation}
       initial="hidden"
       animate="show"
-      exit="hidden"
+      exit="exit"
     >
       <div className="hero">
         <motion.img
           className="main-logo"
           src={logo}
           alt="Logo principal de Retropia"
-          variants={pageAnimation}
-          animate={{ opacity: 1, transition: { duration: 1 } }}
-          initial={{ opacity: 0 }}
+          variants={logoAnimation}
+          animate="show"
+          initial="hidden"
           exit="exit"
         />
+        <div className="slogan"></div>
         <div className="scene">
           <div
             className="grid"

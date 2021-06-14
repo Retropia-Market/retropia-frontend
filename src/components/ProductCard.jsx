@@ -13,7 +13,6 @@ import { item } from "./animations";
 
 import messageIcon from "../img/icons/message-grey-icon.svg";
 import basketIcon from "../img/icons/basket-grey-icon.svg";
-import { initial } from "lodash";
 
 const ProductCard = ({ data, favorites }) => {
   const [showBidModal, setShowBidModal] = useState(false);
@@ -35,13 +34,7 @@ const ProductCard = ({ data, favorites }) => {
 
   return (
     <>
-      <motion.div
-        variants={item}
-        animate="visible"
-        initial="hidden"
-        exit="hidden"
-        className="product-card"
-      >
+      <div className="product-card">
         <div
           className="product-card-img"
           onClick={handleOnClick}
@@ -106,7 +99,7 @@ const ProductCard = ({ data, favorites }) => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
       {showBidModal && (
         <NewBid
           id={id}
