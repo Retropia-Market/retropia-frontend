@@ -51,7 +51,6 @@ const NewSaleInfo = ({
         );
         fd.append('product_type', productType);
         fd.append('location', productLocation);
-        console.log(productName);
         for (const fil of files) {
             fd.append('images', fil);
         }
