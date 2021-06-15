@@ -5,7 +5,7 @@ function useImage(serverURL, imageURL){
   const [image, setImage] = useState(defaultImg);
 
   useEffect(() => {
-    imageURL ? setImage(serverURL + imageURL.slice(6))
+    imageURL ? setImage(serverURL + imageURL.slice(11))
     : setImage(defaultImg)
   }, [serverURL, imageURL])
 

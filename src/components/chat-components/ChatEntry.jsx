@@ -18,7 +18,7 @@ function DateViewer({ value }) {
 }
 
 function ChatEntry({ contact }) {
-    const avatar = useImage('http://localhost:8080', contact.avatar);
+    const avatar = useImage('http://localhost:8080/', contact.avatar);
 
     return (
         <Link className="chat-entry" to={`/profile/chat/${contact.id}`}>
