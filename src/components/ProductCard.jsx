@@ -6,7 +6,7 @@ import NewBid from "../components/NewBid";
 import { useState } from "react";
 import ReactStarsRating from "react-awesome-stars-rating";
 import GiveFavComponent from "./GiveFavComponent";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // Animation
 import { motion } from "framer-motion";
 import { item } from "./animations";
@@ -18,10 +18,11 @@ import { initial } from "lodash";
 const ProductCard = ({ data, favorites }) => {
   const [showBidModal, setShowBidModal] = useState(false);
   const history = useHistory();
-
   const { seller, name, status, price, images, seller_id, id } = data;
   const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
-  const { userData } = useSelector((s) => s.user);
+  const { userData, token } = useSelector((s) => s.user);
+  const contacts = useSelector(s => s.contacts)
+  const dispatch = useDispatch()
 
   const handleBid = () => {
     setShowBidModal(!showBidModal);
@@ -30,6 +31,27 @@ const ProductCard = ({ data, favorites }) => {
   const handleOnClick = (e) => {
     history.replace("/catalogue/" + data.id);
   };
+
+  const chatClickHandler = async e => {
+    if(!contacts[seller_id]) {
+      const res = await fetch(`http://localhost:8080/chats/${userData.id}/add-contact/${seller_id}`, {
+        method: 'POST',
+        headers: {
+          "Authorization": "Bearer " + token
+        }
+      })
+      console.log(res)
+      if(res.ok){
+        const data = await res.json();
+        console.log(data)
+        dispatch({type: 'ADD-CONTACT', data: data.contact})
+      }else{
+        // TODO: configurar errores
+        console.error('error inesperado')
+      }
+    }
+    history.push(`/profile/chat/${seller_id}`)
+  }
 
   if (!data) return;
 
@@ -90,13 +112,14 @@ const ProductCard = ({ data, favorites }) => {
               </div>
 
               {userData && userData.id !== seller_id && (
-                <Link
-                  to="/"
+                <div
+                  onClick={chatClickHandler}
                   className="message-icon"
                   style={{
                     background: `url(${messageIcon}) no-repeat`,
+                    cursor: 'pointer',
                   }}
-                ></Link>
+                ></div>
               )}
               {userData && userData.id !== seller_id && (
                 <div

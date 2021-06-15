@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 function ProfileImg({user}) {
   const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg'
   const {userData} = user
-  const userImg = userData.image ? 'http://localhost:8080/' + userData.image.slice(6) : null
+  const userImg = userData.image ? 'http://localhost:8080/' + userData.image.slice(11) : null
 
   const dispatch = useDispatch()
   const [file, setFile] = useState()

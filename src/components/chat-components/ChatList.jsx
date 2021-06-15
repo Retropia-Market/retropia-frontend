@@ -7,7 +7,6 @@ function ChatList() {
   const {userData} = useSelector(s=>s.user)
   useFetchChat(`http://localhost:8080/chats/${userData.id}/get-contacts`, 'fetch/contacts')
   const contactsObj = useSelector( s => s.contacts)
-  console.log(contactsObj)
   const contacts = Object.values(contactsObj)
 
   return <aside className="chat-list">
