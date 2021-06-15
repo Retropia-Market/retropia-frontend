@@ -1,20 +1,21 @@
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from 'react-router-dom';
 
-import Footer from "./components/Footer";
-import ProductList from "./components/ProductList";
-import Product from "./components/ProductsComponents/Product";
-import SearchList from "./components/ProductsComponents/SearchList";
-import TopProducts from "./components/ProductsComponents/TopProducts";
-import Navbar from "./components/Navbar";
-import MainBackground from "./components/MainBackground";
-import { AnimatePresence } from "framer-motion";
-import NewSale from "./components/ProductsComponents/NewSaleComponents/NewSale";
-import Profile from "./components/profile-components/Profile";
+import Footer from './components/Footer';
+import ProductList from './components/ProductList';
+import Product from './components/ProductsComponents/Product';
+import SearchList from './components/ProductsComponents/SearchList';
+import TopProducts from './components/ProductsComponents/TopProducts';
+import Navbar from './components/Navbar';
+import MainBackground from './components/MainBackground';
+import { AnimatePresence } from 'framer-motion';
+import NewSale from './components/ProductsComponents/NewSaleComponents/NewSale';
+import Profile from './components/profile-components/Profile';
 
-import "./styles/App.scss";
-import UserPublicProfile from "./components/UserPublicProfile/UserPublicProfile";
+import './styles/App.scss';
+import UserPublicProfile from './components/UserPublicProfile/UserPublicProfile';
 
 function App() {
+  require('dotenv').config();
   const location = useLocation();
   return (
     <div className="App">
@@ -23,22 +24,22 @@ function App() {
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route path="/catalogue/videogames" exact>
-              <ProductList type={"videogame"} />
+              <ProductList type={'videogame'} />
             </Route>
             <Route path="/catalogue/videogames/:category/:subcategory?" exact>
-              <ProductList type={"videogame"} />
+              <ProductList type={'videogame'} />
             </Route>
             <Route path="/catalogue/consoles" exact>
-              <ProductList type={"console"} />
+              <ProductList type={'console'} />
             </Route>
             <Route path="/catalogue/consoles/:category/:subcategory?" exact>
-              <ProductList type={"console"} />
+              <ProductList type={'console'} />
             </Route>
             <Route path="/catalogue/accesories" exact>
-              <ProductList type={"accesory"} />
+              <ProductList type={'accesory'} />
             </Route>
             <Route path="/catalogue/accesories/:category/:subcategory?" exact>
-              <ProductList type={"accesory"} />
+              <ProductList type={'accesory'} />
             </Route>
             <Route path="/catalogue/:id" exact>
               <Product />
