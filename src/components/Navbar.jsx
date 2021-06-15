@@ -76,6 +76,7 @@ function Navbar() {
                     />
                 </div>
                 <div className="user-nav">
+                    <LanguageSelector />
                     {!Object.keys(user).length ? (
                         <>
                             <button onClick={() => setShowLogin(true)}>
@@ -121,9 +122,6 @@ function Navbar() {
                                     </FontAwesomeIcon>
                                     {showSettings && (
                                         <div className="user-settings">
-                                            <li>
-                                                <LanguageSelector />
-                                            </li>
                                             <li>
                                                 <Link
                                                     onClick={handleLogout}
