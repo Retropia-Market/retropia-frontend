@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import GoogleLogin from 'react-google-login'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
@@ -30,10 +32,26 @@ function Login({ setShowLogin, setShowRegister }) {
         }
     };
 
-    const handleClick = () => {
-        setShowLogin(false);
-        setShowRegister(true);
-    };
+  const handleGoogleLogin = async googleData => {
+    const res = await fetch("http://localhost:8080/users/login-google", {
+      method: 'POST',
+      body: JSON.stringify({
+        token: googleData.tokenId
+      }),
+      headers: {
+        "content-type": "application/json"
+      }
+    }); if (res.ok){
+      const data = await res.json()
+      dispatch({ type: 'LOGIN', user: data });
+      setShowLogin(false);
+    }
+  }
+
+  const handleClick = () => {
+    setShowLogin(false);
+    setShowRegister(true);
+  };
 
     const closeModalHandler = (e) => {
         setShowLogin(false);
@@ -95,6 +113,14 @@ function Login({ setShowLogin, setShowRegister }) {
                 {errorMessage && (
                     <div className="error-message">{errorMessage}</div>
                 )}
+
+                <GoogleLogin 
+                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} 
+                  // buttonText="Log in" 
+                  onSuccess={handleGoogleLogin} 
+                  onFailure={handleGoogleLogin} 
+                  cookiePolicy={'single_host_origin'} 
+                />
             </form>
 
             <FontAwesomeIcon

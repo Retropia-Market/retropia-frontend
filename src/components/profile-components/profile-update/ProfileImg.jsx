@@ -2,12 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import useImage from '../../../hooks/useImage';
 
 function ProfileImg({user}) {
   const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg'
+  let userImg = null
   const {userData} = user
-  const userImg = userData.image ? 'http://localhost:8080/' + userData.image.slice(11) : null
+  
+  if(userData.image){
+    userData.image.includes('google') ? userImg = userData.image 
+    : userImg = 'http://localhost:8080/' + userData.image.slice(11)
+  }
 
   const dispatch = useDispatch()
   const [file, setFile] = useState()
