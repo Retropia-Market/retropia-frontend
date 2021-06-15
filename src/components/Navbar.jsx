@@ -7,6 +7,7 @@ import Register from './Register';
 import Types from './navbar-components/Types';
 import Categories from './navbar-components/Categories';
 import Subcategories from './navbar-components/Subcategories';
+import { FormattedMessage } from 'react-intl';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../img/logo.svg';
@@ -80,16 +81,16 @@ function Navbar() {
                     {!Object.keys(user).length ? (
                         <>
                             <button onClick={() => setShowLogin(true)}>
-                                Log in
+                                <FormattedMessage id="navbar.login" />
                             </button>
                             <button onClick={() => setShowRegister(true)}>
-                                Register
+                                <FormattedMessage id="navbar.register" />
                             </button>
                         </>
                     ) : (
                         <div className="user-nav">
                             <Link className="sell-button" to="/sell">
-                                VENDER +
+                                <FormattedMessage id="navbar.sell" />
                             </Link>
                             <FontAwesomeIcon
                                 className="messages"
@@ -127,12 +128,12 @@ function Navbar() {
                                                     onClick={handleLogout}
                                                     to="/"
                                                 >
-                                                    Logout
+                                                    <FormattedMessage id="navbar.logout" />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/profile">
-                                                    Perfil
+                                                    <FormattedMessage id="navbar.profile" />
                                                 </Link>
                                             </li>
                                         </div>

@@ -162,7 +162,9 @@ const NewSaleInfo = ({
                             }
                         ></textarea>
                     </label>
-                    <button className="yellow-button">Crea tu venta</button>
+                    <button className="yellow-button">
+                        <FormattedMessage id="sale.createnew" />
+                    </button>
                 </form>
             </div>
         </div>
