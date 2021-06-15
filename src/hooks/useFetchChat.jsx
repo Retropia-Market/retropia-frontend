@@ -15,7 +15,6 @@ function useFetch(url, actionType) {
       .then(res => res.json())
       .then(data => {
         setData(data)
-        console.log(data)
         if (actionType) dispatch({ type: actionType, data })
       })
   }, [url, user, actionType, dispatch])
