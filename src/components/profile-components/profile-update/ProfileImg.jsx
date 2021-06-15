@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import useImage from '../../../hooks/useImage';
 
 function ProfileImg({user}) {
   const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg'
