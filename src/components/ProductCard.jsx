@@ -13,6 +13,7 @@ import { item } from './animations';
 
 import messageIcon from '../img/icons/message-grey-icon.svg';
 import basketIcon from '../img/icons/basket-grey-icon.svg';
+import DeleteProduct from './profile-components/profile-transaction/transaction-sell/DeleteProduct';
 
 const ProductCard = ({ data, favorites }) => {
     const [showBidModal, setShowBidModal] = useState(false);

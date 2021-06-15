@@ -6,6 +6,7 @@ const UserPublicInventory = ({ uid }) => {
     const apiURL = `http://localhost:8080/users/${uid}/catalogue`;
 
     const [results] = useFetch(apiURL);
+    console.log(results);
 
     return (
         <div className="user-public-inventory">

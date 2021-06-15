@@ -105,12 +105,14 @@ function Navbar() {
                                 ICON
                             </FontAwesomeIcon>
                             <div className="user">
-                                <FontAwesomeIcon
-                                    className="user-pic"
-                                    icon={faUser}
-                                >
-                                    Photo
-                                </FontAwesomeIcon>
+                                <Link to={`/users/${user.userData.id}`}>
+                                    <FontAwesomeIcon
+                                        className="user-pic"
+                                        icon={faUser}
+                                    >
+                                        Photo
+                                    </FontAwesomeIcon>
+                                </Link>
                                 <div className="user-settings">
                                     <FontAwesomeIcon
                                         className="user-options"
