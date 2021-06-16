@@ -2,7 +2,15 @@ import React, { useEffect, useState, useCallback } from 'react';
 import ProductCard from '../../../ProductCard';
 import useFetch from '../../../../hooks/useFetch';
 
-function BidCard({ data, user, update, type, className }) {
+function BidCard({
+  data,
+  user,
+  update,
+  type,
+  className,
+  showReviewModal,
+  setShowReviewModal,
+}) {
   const [product, setProduct] = useState({});
   const [bidder, setBidder] = useState({});
 
@@ -86,6 +94,10 @@ function BidCard({ data, user, update, type, className }) {
     }
   };
 
+  const handleReview = async () => {
+    setShowReviewModal(true);
+  };
+
   return (
     <div className={`bid ${className}`}>
       {product.id && <ProductCard data={product} />}
@@ -102,6 +114,9 @@ function BidCard({ data, user, update, type, className }) {
             <button onClick={handleAccept}>Aceptar Oferta</button>
           )}
           {type === 'realizada' && <button onClick={handleDelete}>X</button>}
+          {type === 'completada' && (
+            <button onClick={handleReview}>Valorar Compra</button>
+          )}
         </div>
       </div>
     </div>

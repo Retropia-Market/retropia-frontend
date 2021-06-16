@@ -35,7 +35,7 @@ function BidsReceived() {
       {bidsObject &&
         bidsObject.bids?.map((b) => {
           if (b.bid_status === 'aceptado' || b.bid_status === 'rechazado') {
-            return console.log(b);
+            return null;
           } else {
             return (
               <BidCard
