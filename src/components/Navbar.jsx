@@ -29,18 +29,18 @@ function Navbar() {
     const [showRegister, setShowRegister] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
 
-    const [search, setSearch] = useState(q || '');
-    const [typeIndex, setTypeIndex] = useState(null);
-    const [type, setType] = useState();
-    const [category, setCategory] = useState();
-    const [categoryIndex, setCategoryIndex] = useState(1);
-    const [showCategories, setShowCategories] = useState(true);
-    const [showSubcategories, setShowSubcategories] = useState(false);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        history.push('/search/' + search);
-    };
+  const [search, setSearch] = useState(q || '');
+  const [typeIndex, setTypeIndex] = useState(null);
+  const [type, setType] = useState()
+  const [category, setCategory] = useState()
+  const [categoryIndex, setCategoryIndex] = useState(1);
+  const [showCategories, setShowCategories] = useState(true);
+  const [showSubcategories, setShowSubcategories] = useState(false);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push('/search/' + search);
+  };
 
     const handleLogout = (e) => {
         dispatch({ type: 'LOGOUT' });
