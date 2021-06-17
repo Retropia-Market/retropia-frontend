@@ -4,8 +4,10 @@ import GoogleLogin from 'react-google-login'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { PassRecovery } from './PassRecovery';
 
 function Login({ setShowLogin, setShowRegister }) {
+  const [showPassRec, setShowPassRec] = useState(false)
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -20,9 +22,13 @@ function Login({ setShowLogin, setShowRegister }) {
       headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
-      const data = await res.json();
-      dispatch({ type: 'LOGIN', user: data });
-      setShowLogin(false);
+      const user = await res.json();
+      if(user.userData.verified){
+        dispatch({ type: 'LOGIN', user });
+        setShowLogin(false);
+      }else {
+        setErrorMessage('Este email no esta verificado. Por favor revisa tu bandeja de correo')
+      }
     } else if(res.status === 401){
       setErrorMessage('Usuario o Contraseña incorrectos.');
       console.log(errorMessage);
@@ -47,10 +53,13 @@ function Login({ setShowLogin, setShowRegister }) {
     }
   }
 
-  const handleClick = () => {
+  const handleRegister = () => {
     setShowLogin(false);
     setShowRegister(true);
   };
+  const handleRecovery = () => {
+    setShowPassRec(true)
+  }
 
   const closeModalHandler = (e) => {
     setShowLogin(false);
@@ -58,57 +67,79 @@ function Login({ setShowLogin, setShowRegister }) {
 
   return (
     <div className="login-bg" onClick={closeModalHandler}>
-      <form
+      <div 
         className="login-fg"
-        onSubmit={handleSubmit}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="login-title">Login</h2>
-        <div className="login-inputs">
-          <label htmlFor="username-login">User</label>
-          <div className="login-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-            <input
-              id="username-login"
-              type="text"
-              placeholder="email..."
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+        {!showPassRec &&
+        <form
+          // className="login-fg"
+          onSubmit={handleSubmit}
+          // onClick={(e) => e.stopPropagation()}
+        >
+          <h2 className="login-title">Login</h2>
+          <div className="login-inputs">
+            <label htmlFor="username-login">User</label>
+            <div className="login-field">
+              <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+              <input
+                id="username-login"
+                type="email"
+                placeholder="email..."
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <label htmlFor="password-login">Password</label>
+            <div className="login-field">
+              <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+              <input
+                id="password-login"
+                type="password"
+                placeholder="************"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
-          <label htmlFor="password-login">Password</label>
-          <div className="login-field">
-            <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-            <input
-              id="password-login"
-              type="password"
-              placeholder="************"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+
+          <div className="login-options">
+            <button 
+              type="button" 
+              className="login-options" 
+              onClick={handleRegister}
+            >
+                ¿No tienes cuenta?
+            </button>
+            <button 
+              type="button" 
+              className="login-options"
+              onClick={handleRecovery}
+            >
+                ¿Olvidaste tu clave?
+            </button>
           </div>
-        </div>
 
-        <div className="login-options">
-          <button type="button" className="login-options" onClick={handleClick}>
-            ¿No tienes cuenta?
-          </button>
-          <button type="button" className="login-options">
-            ¿Olvidaste tu clave?
-          </button>
-        </div>
+          <button className="login-button">LOG IN</button>
+          <GoogleLogin 
+            className="login-button"
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} 
+            // buttonText="Log in" 
+            onSuccess={handleGoogleLogin} 
+            onFailure={handleGoogleLogin} 
+            cookiePolicy={'single_host_origin'} 
+            />
+        </form>}
 
-        <button className="login-button">LOG IN</button>
+        {showPassRec && 
+          <PassRecovery 
+          setShow={setShowPassRec} 
+          setErrorMessage={setErrorMessage}
+          />
+        }
+
         {errorMessage && <div className="error-message">{errorMessage}</div>}
-        <GoogleLogin 
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} 
-          // buttonText="Log in" 
-          onSuccess={handleGoogleLogin} 
-          onFailure={handleGoogleLogin} 
-          cookiePolicy={'single_host_origin'} 
-        />
-      </form>
-
+      </div>
 
       <FontAwesomeIcon
         className="login-exit"

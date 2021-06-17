@@ -13,6 +13,7 @@ import Profile from './components/profile-components/Profile';
 
 import './styles/App.scss';
 import UserPublicProfile from './components/UserPublicProfile/UserPublicProfile';
+import { AccountVerification } from './components/AccountVerification';
 
 function App() {
   require('dotenv').config();
@@ -55,6 +56,9 @@ function App() {
             </Route>
             <Route path="/users/:uid">
               <UserPublicProfile />
+            </Route>
+            <Route path="/verify-email/:emailCode">
+              <AccountVerification />
             </Route>
             <Route path="/" exact>
               <MainBackground />

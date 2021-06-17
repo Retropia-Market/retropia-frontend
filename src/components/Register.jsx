@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCalendarAlt,
   faChevronUp,
   faEnvelope,
   faLock,
@@ -20,10 +18,9 @@ function Register({ setShowRegister, setShowLogin }) {
     email: '',
     password: '',
     repeatedPassword: '',
-    birthDate: '',
   });
   const [error, setError] = useState('');
-  const dispatch = useDispatch();
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,14 +31,9 @@ function Register({ setShowRegister, setShowLogin }) {
       headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
-      const data = await res.json();
-      dispatch({ type: 'LOGIN', user: data });
-      console.log(data);
-
-      setShowRegister(false);
+      setSubmitted(true)
     } else {
       const data = await res.json();
-      console.log(data.error);
       setError(errorHandler(data.error));
       console.log(error);
     }
@@ -49,6 +41,7 @@ function Register({ setShowRegister, setShowLogin }) {
 
   const handleClick = () => {
     setShowRegister(false);
+    setSubmitted(false)
     setShowLogin(true);
   };
 
@@ -94,7 +87,7 @@ function Register({ setShowRegister, setShowLogin }) {
                 onChange={updateField}
               />
             </div>
-            <label htmlFor="birth-date-register">Birth Date</label>
+            {/* <label htmlFor="birth-date-register">Birth Date</label>
             <div className="register-field">
               <FontAwesomeIcon icon={faCalendarAlt}></FontAwesomeIcon>
               <input
@@ -104,9 +97,9 @@ function Register({ setShowRegister, setShowLogin }) {
                 name="birthDate"
                 onChange={updateField}
               />
-            </div>
+            </div> */}
           </div>
-          <div className="register-inputs-2">
+          <div className="register-inputs-1">
             <label htmlFor="username-register">Username</label>
             <div className="register-field">
               <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
@@ -161,6 +154,9 @@ function Register({ setShowRegister, setShowLogin }) {
           Ya tienes cuenta?
         </button>
         <button className="register-button">SIGN UP</button>
+        {submitted && <p className="registration-submitted">
+          Please check your email inbox to verify your account
+        </p> }
         {error && (
           <div className="error-message">
             <FormattedMessage id={error} />

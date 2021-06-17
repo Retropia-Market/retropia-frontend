@@ -34,7 +34,7 @@ function Navbar() {
   const [categoryIndex, setCategoryIndex] = useState(1);
   const [showCategories, setShowCategories] = useState(true);
   const [showSubcategories, setShowSubcategories] = useState(false);
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push('/search/' + search);
