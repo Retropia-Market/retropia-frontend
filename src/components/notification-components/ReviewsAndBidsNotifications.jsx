@@ -12,6 +12,7 @@ const ReviewsAndBidsNotifications = () => {
 
     const results_bids = useNotifications('noti/bids');
     const results_reviews = useNotifications('noti/reviews');
+    console.log(notifications);
 
     return (
         <div className="notifications">
@@ -20,7 +21,8 @@ const ReviewsAndBidsNotifications = () => {
                     results_reviews &&
                     (results_bids.length !== 0 ||
                         results_reviews.length !== 0) &&
-                    (notifications.bids !== 0 && notifications.reviews !== 0)(
+                    (notifications.bids !== 0 ||
+                        notifications.reviews !== 0) && (
                         <div className="bubble">
                             <div>
                                 {Number(notifications.bids) +
