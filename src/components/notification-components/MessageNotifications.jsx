@@ -12,19 +12,24 @@ const MessageNotifications = () => {
     const results_messages = useNotifications('noti/messages');
 
     return (
-        <div className="notifications">
-            <div className="icon-bubble">
-                {results_messages &&
-                    results_messages.length > 0 &&
-                    messages !== 0 && (
-                        <div className="bubble">
-                            <div>{messages}</div>
-                        </div>
-                    )}
-                <div className="icon" onClick={() => setHide(!hide)}>
-                    <FontAwesomeIcon className="messages" icon={faCommentDots}>
-                        ICON
-                    </FontAwesomeIcon>
+        <div className="notifications-container">
+            <div className="notifications">
+                <div className="icon-bubble">
+                    {results_messages &&
+                        results_messages.length > 0 &&
+                        messages !== 0 && (
+                            <div className="bubble">
+                                <div>{messages}</div>
+                            </div>
+                        )}
+                    <div className="icon" onClick={() => setHide(!hide)}>
+                        <FontAwesomeIcon
+                            className="messages"
+                            icon={faCommentDots}
+                        >
+                            ICON
+                        </FontAwesomeIcon>
+                    </div>
                 </div>
             </div>
             {hide && messages > 0 && (
