@@ -7,7 +7,6 @@ import useFetch from '../../hooks/useFetch';
 const MessageNotifications = () => {
     const user = useSelector((s) => s.user);
     const [hide, setHide] = useState(false);
-    const [notifications, setNotifications] = useState(0);
 
     const [results_messages] = useFetch(
         'http://localhost:8080/api/notifications/messages',
@@ -16,13 +15,11 @@ const MessageNotifications = () => {
     return (
         <div className="notifications">
             <div className="icon-bubble">
-                <div className="bubble">
-                    {results_messages && results_messages.length > 0 ? (
+                {results_messages && results_messages.length > 0 && (
+                    <div className="bubble">
                         <div>{results_messages.length}</div>
-                    ) : (
-                        ''
-                    )}
-                </div>
+                    </div>
+                )}
                 <div className="icon" onClick={() => setHide(!hide)}>
                     <FontAwesomeIcon className="messages" icon={faCommentDots}>
                         ICON
