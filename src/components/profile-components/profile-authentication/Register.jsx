@@ -8,7 +8,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
-import errorHandler from '../utils';
+import errorHandler from '../../../utils';
 
 function Register({ setShowRegister, setShowLogin }) {
   const [userData, setUserData] = useState({
@@ -58,6 +58,7 @@ function Register({ setShowRegister, setShowLogin }) {
     <div className="modal-bg" onClick={closeModalHandler}>
       <div 
         className="modal-fg"
+        id="register-modal"
         onClick={(e) => e.stopPropagation()}
       >
 

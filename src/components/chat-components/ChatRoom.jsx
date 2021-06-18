@@ -35,9 +35,15 @@ function ChatRoom() {
         );
     };
 
+<<<<<<< HEAD
     const contact = useSelector((s) => s.contacts[id]);
     const messages = useSelector((s) => s.messages[id]) || [];
     const avatar = useImage('http://localhost:8080', contact?.avatar);
+=======
+  const contact = useSelector(s => s.contacts[id])
+  const messages = useSelector(s => s.messages[id]) || []
+  const avatar = useImage('http://localhost:8080', contact?.avatar)
+>>>>>>> german
 
     return (
         <div className="chat-room">

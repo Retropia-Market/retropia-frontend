@@ -12,16 +12,17 @@ export function AccountVerification() {
 
   if(user){
     dispatch({type: 'LOGIN', user})
-    console.log(user)
-    history.push('/')
+    setTimeout(() => {
+        history.push('/')
+      }, 1000);
   }
 
   return <>
     {!user && 
-      <p>cargando...</p>
+      <h2>cargando...</h2>
     }
     {user && 
-      <p>Account verified</p>
+      <h2>Account verified</h2>
     }
   </>
 }
