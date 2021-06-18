@@ -1,6 +1,6 @@
 .user-private-page {
   display: grid;
-  height: 90vh;
+  height: calc(90vh - 100px);
 
   @media screen and (min-width: 1000px) {
     grid-template-areas: 's c c c';
