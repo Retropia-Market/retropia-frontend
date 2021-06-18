@@ -1,8 +1,8 @@
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import useFetch from '../../hooks/useFetch';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import useNotifications from '../../hooks/useNotifications';
 
 const MessageNotifications = () => {
@@ -14,18 +14,20 @@ const MessageNotifications = () => {
     return (
         <div className="notifications">
             <div className="icon-bubble">
-                {results_messages && results_messages.length > 0 && (
-                    <div className="bubble">
-                        <div>{messages}</div>
-                    </div>
-                )}
+                {results_messages &&
+                    results_messages.length > 0 &&
+                    messages !== 0 && (
+                        <div className="bubble">
+                            <div>{messages}</div>
+                        </div>
+                    )}
                 <div className="icon" onClick={() => setHide(!hide)}>
                     <FontAwesomeIcon className="messages" icon={faCommentDots}>
                         ICON
                     </FontAwesomeIcon>
                 </div>
             </div>
-            {hide && (
+            {hide && messages > 0 && (
                 <div className="pop-up">
                     {results_messages &&
                         results_messages
@@ -47,10 +49,12 @@ const MessageNotifications = () => {
                             }, [])
                             .map((message) => {
                                 return (
-                                    <span>
-                                        Tienes {message.notifications} mensajes
-                                        de {message.username}
-                                    </span>
+                                    <Link to={`/profile/chat/${message.id}`}>
+                                        <span>
+                                            Tienes {message.notifications}{' '}
+                                            mensajes de {message.username}
+                                        </span>
+                                    </Link>
                                 );
                             })}
                 </div>
