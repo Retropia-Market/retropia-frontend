@@ -18,7 +18,7 @@ const LanguageSelector = () => {
                             <li
                                 onClick={() =>
                                     dispatch({
-                                        type: 'UPDATE',
+                                        type: 'UPDATE/LANGUAGE',
                                         language: { language: lang },
                                     })
                                 }

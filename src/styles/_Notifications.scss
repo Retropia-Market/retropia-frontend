@@ -1,0 +1,18 @@
+.notifications {
+    .icon-bubble {
+        position: relative;
+    }
+    .icon {
+        font-size: 1.5em;
+    }
+    .bubble {
+        position: absolute;
+        left: 20px;
+        background-color: red;
+        color: white;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        z-index: 10;
+    }
+}
