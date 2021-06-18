@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Login from './Login';
-import Register from './Register';
+import Login from './profile-components/profile-authentication/Login';
+import Register from './profile-components/profile-authentication/Register';
 import Types from './navbar-components/Types';
 import Categories from './navbar-components/Categories';
 import Subcategories from './navbar-components/Subcategories';
