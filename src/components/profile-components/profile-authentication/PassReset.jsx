@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import {useHistory } from 'react-router-dom'
 
+import LanguageSelector from "../../intlComponents/LanguageSelector";
+import { FormattedMessage } from "react-intl";
 import errorHandler from "../../../utils";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +15,7 @@ export function PassReset() {
   const [errorMessage, setErrorMessage] = useState('')
   const [resetMessage, showResetMessage] = useState(false)
   const {token} = useParams()
+  console.log(token)
   const history = useHistory()
 
   const handleSubmit = async (e) => {
@@ -20,8 +23,9 @@ export function PassReset() {
     const res = await fetch(`http://localhost:8080/users/password-reset/${token}`, {
       method: 'POST',
       body: JSON.stringify({
-        newPassword: newPassword,
-        newRepPassword: newRepPassword,
+        password: newPassword,
+        repeatedPassword: newRepPassword,
+        token: token,
       }),
       headers: {'Content-Type': 'application/Json'}
     })
@@ -32,7 +36,9 @@ export function PassReset() {
       }, 1000);
     }else{
       const data = await res.json();
+      console.log(data.error)
       setErrorMessage(errorHandler(data.error))
+      console.log(errorMessage)
     }
   }
 
@@ -70,9 +76,15 @@ export function PassReset() {
             <button className="modal-button">RESET PASSWORD</button>
         </form>
 
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+        {errorMessage && <div className="error-message">
+          <FormattedMessage id={errorMessage} />
+          </div>}
+
       </div>
     </div>}
-    {resetMessage && <p className="modal-submitted">password reset succesfully</p>}
+    {resetMessage && <FormattedMessage 
+      className="error-message" 
+      id={errorMessage}
+    />}
   </>
 }

@@ -9,6 +9,9 @@ function errorHandler(error) {
     case `"password" length must be at least 8 characters long`:
       return 'error.password.minumun.lenght';
 
+    case 'Las contraseñas deben ser iguales':
+      return 'error.password.mismatch';
+
     case `"repeatedPassword" is not allowed to be empty`:
       return 'error.repeated.password.empty';
 
