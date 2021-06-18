@@ -76,7 +76,7 @@ const languageReducer = (
     action
 ) => {
     switch (action.type) {
-        case 'UPDATE':
+        case 'UPDATE/LANGUAGE':
             return action.language;
         default:
             return state;
@@ -107,7 +107,6 @@ const store = createStore(
         contacts: contactReducer,
         messages: messageReducer,
         language: languageReducer,
-        notification: notificationReducer,
     }),
     JSON.parse(sessionStorage.getItem('session')) || {},
     applyMiddleware(sessionStorageMiddleware)
