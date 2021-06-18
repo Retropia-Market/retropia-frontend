@@ -32,9 +32,6 @@ function TransactionBuy() {
 
   return (
     <div className="bids-active">
-      {showReviewModal && (
-        <ReviewModal setShowReviewModal={setShowReviewModal} />
-      )}
       {!Object.keys(bidsObject).length && <h3>Cargando...</h3>}
 
       {bidsObject.bids?.length === 0 && (
@@ -43,15 +40,21 @@ function TransactionBuy() {
       {bidsObject &&
         bidsObject.bids?.map((b) => {
           return (
-            <BidCard
-              className="completada"
-              data={b}
-              user={user}
-              update={fetchData}
-              showReviewModal={showReviewModal}
-              setShowReviewModal={setShowReviewModal}
-              type="completada"
-            />
+            <>
+              {' '}
+              {showReviewModal && (
+                <ReviewModal data={b} setShowReviewModal={setShowReviewModal} />
+              )}
+              <BidCard
+                className="completada"
+                data={b}
+                user={user}
+                update={fetchData}
+                showReviewModal={showReviewModal}
+                setShowReviewModal={setShowReviewModal}
+                type="completada"
+              />
+            </>
           );
         })}
     </div>

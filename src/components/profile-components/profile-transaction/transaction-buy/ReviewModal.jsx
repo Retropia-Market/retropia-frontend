@@ -1,27 +1,38 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
+import ReactStarsRating from 'react-awesome-stars-rating';
 
-function ReviewModal({ setShowReviewModal }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function ReviewModal({ setShowReviewModal, data }) {
+  const [reviewRating, setReviewRating] = useState(0);
+  const [reviewText, setReviewText] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
+  const user = useSelector((s) => s.user);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    const res = await fetch('http://localhost:8080/users/login', {
-      method: 'POST',
-      body: JSON.stringify({ email: username, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const res = await fetch(
+      `http://localhost:8080/catalogue/${data.id}/review/create`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          review_rating: reviewRating,
+          review_text: reviewText,
+        }),
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     if (res.ok) {
       const data = await res.json();
-      dispatch({ type: 'LOGIN', user: data });
+      dispatch({ type: 'modal', user: data });
     } else if (res.status === 401) {
       setErrorMessage('Usuario o Contraseña incorrectos.');
       console.log(errorMessage);
@@ -30,54 +41,55 @@ function ReviewModal({ setShowReviewModal }) {
     }
   };
 
-  const handleClick = () => {
-    setShowReviewModal(true);
-  };
-
-  const closeModalHandler = (e) => {
-    setShowReviewModal(false);
-  };
-
   return (
-    <div className="login-bg" onClick={closeModalHandler}>
+    <div
+      className="modal-bg"
+      onClick={(e) => {
+        setShowReviewModal(false);
+      }}
+    >
       <form
-        className="login-fg"
+        className="modal-fg"
         onSubmit={handleSubmit}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="login-title">
+        <h2 className="modal-title">
           <FormattedMessage id="review.modal.title" />
         </h2>
-        <div className="login-inputs">
-          <label htmlFor="username-login">
-            <FormattedMessage id="review.modal.note" />
+        <div className="modal-inputs">
+          <label htmlFor="username-modal">
+            <FormattedMessage id="review.note" />
           </label>
-          <div className="login-field">
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-            <input id="username-login" type="text" />
-          </div>
-          <label htmlFor="password-login">
-            <FormattedMessage id="login.password" />
+          <ReactStarsRating
+            isHalf="true"
+            isEdit="true"
+            value={reviewRating}
+            onChange={setReviewRating}
+          />
+          {console.log(reviewRating)}
+
+          <label htmlFor="review-text">
+            <FormattedMessage id="review.text" />
           </label>
-          <div className="login-field">
-            <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+          <div className="modal-field">
             <input
-              id="password-login"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              id="review-text"
+              type="textarea"
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
             />
+            {console.log(data)}
           </div>
         </div>
 
-        <button className="login-button">
-          <FormattedMessage id="review.modal.send" />
+        <button className="modal-button">
+          <FormattedMessage id="review.modal.send" onClick={handleSubmit} />
         </button>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
       </form>
 
       <FontAwesomeIcon
-        className="login-exit"
+        className="modal-exit"
         icon={faChevronUp}
         size="2x"
       ></FontAwesomeIcon>
