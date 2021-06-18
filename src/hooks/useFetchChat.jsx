@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function useFetch(url, actionType) {
-  const [data, setData] = useState(null)
-  const user = useSelector(s => s.user)
-  const dispatch = useDispatch()
+    const [data, setData] = useState(null);
+    const user = useSelector((s) => s.user);
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    const opts = {}
-    if (user && user.token) {
-      opts.headers = { 'Authorization': 'Bearer ' + user.token }
-    }
-    fetch(url, opts)
-      .then(res => res.json())
-      .then(data => {
-        setData(data)
-        if (actionType) dispatch({ type: actionType, data })
-      })
-  }, [url, user, actionType, dispatch])
+    useEffect(() => {
+        const opts = {};
+        if (user && user.token) {
+            opts.headers = { Authorization: 'Bearer ' + user.token };
+        }
+        fetch(url, opts)
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data);
+                if (actionType) dispatch({ type: actionType, data });
+                dispatch({ type: 'noti/messages', 'noti/messages': 0 });
+            });
+    }, [url, user, actionType, dispatch]);
 
-  return data
+    return data;
 }
 
-export default useFetch
+export default useFetch;

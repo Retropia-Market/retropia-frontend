@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Login from './Login';
-import Register from './Register';
+import Login from './profile-components/profile-authentication/Login';
+import Register from './profile-components/profile-authentication/Register';
 import Types from './navbar-components/Types';
 import Categories from './navbar-components/Categories';
 import Subcategories from './navbar-components/Subcategories';
@@ -18,6 +18,8 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import LanguageSelector from './intlComponents/LanguageSelector';
+import MessageNotifications from './notification-components/MessageNotifications';
+import ReviewsAndBidsNotifications from './notification-components/ReviewsAndBidsNotifications';
 
 function Navbar() {
     const { q } = useParams();
@@ -92,18 +94,9 @@ function Navbar() {
                             <Link className="sell-button" to="/sell">
                                 <FormattedMessage id="navbar.sell" />
                             </Link>
-                            <FontAwesomeIcon
-                                className="messages"
-                                icon={faCommentDots}
-                            >
-                                ICON
-                            </FontAwesomeIcon>
-                            <FontAwesomeIcon
-                                className="notifications"
-                                icon={faBell}
-                            >
-                                ICON
-                            </FontAwesomeIcon>
+                            <MessageNotifications />
+                            <ReviewsAndBidsNotifications />
+
                             <div className="user">
                                 <Link to={`/users/${user.userData.id}`}>
                                     <FontAwesomeIcon

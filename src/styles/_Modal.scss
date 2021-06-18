@@ -24,6 +24,11 @@
   text-align: center;
   height: 700px;
   max-width: 350px;
+
+  #register-modal {
+    width: 600px;
+    max-width: 600px;
+  }
 }
 
 .modal-fg .modal-title {
@@ -111,7 +116,3 @@
   color: rgb(147, 38, 131);
   cursor: pointer;
 }
-
-// .error-message {
-//   word-wrap: break-word;
-// }
