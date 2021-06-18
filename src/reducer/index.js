@@ -87,9 +87,21 @@ const notificationReducer = (
     state = { messages: 0, bids: 0, reviews: 0 },
     action
 ) => {
+    let newState = {};
+    console.log(action);
     switch (action.type) {
-        case 'UPDATE':
-            return action.language;
+        case 'noti/messages':
+            newState = { ...state };
+            newState['messages'] = action['noti/messages'];
+            return newState;
+        case 'noti/bids':
+            newState = { ...state };
+            newState['bids'] = action['noti/bids'];
+            return newState;
+        case 'noti/reviews':
+            newState = { ...state };
+            newState['reviews'] = action['noti/reviews'];
+            return newState;
         default:
             return state;
     }
@@ -107,6 +119,7 @@ const store = createStore(
         contacts: contactReducer,
         messages: messageReducer,
         language: languageReducer,
+        notifications: notificationReducer,
     }),
     JSON.parse(sessionStorage.getItem('session')) || {},
     applyMiddleware(sessionStorageMiddleware)

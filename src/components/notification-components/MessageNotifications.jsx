@@ -1,23 +1,22 @@
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
+import useNotifications from '../../hooks/useNotifications';
 
 const MessageNotifications = () => {
-    const user = useSelector((s) => s.user);
     const [hide, setHide] = useState(false);
+    const { messages } = useSelector((s) => s.notifications);
 
-    const [results_messages] = useFetch(
-        'http://localhost:8080/api/notifications/messages',
-        user
-    );
+    const results_messages = useNotifications('noti/messages');
+
     return (
         <div className="notifications">
             <div className="icon-bubble">
                 {results_messages && results_messages.length > 0 && (
                     <div className="bubble">
-                        <div>{results_messages.length}</div>
+                        <div>{messages}</div>
                     </div>
                 )}
                 <div className="icon" onClick={() => setHide(!hide)}>
