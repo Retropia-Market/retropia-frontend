@@ -67,21 +67,17 @@ function Login({ setShowLogin, setShowRegister }) {
     };
 
   return (
-    <div className="login-bg" onClick={closeModalHandler}>
+    <div className="modal-bg" onClick={closeModalHandler}>
       <div 
-        className="login-fg"
+        className="modal-fg"
         onClick={(e) => e.stopPropagation()}
       >
         {!showPassRec &&
-        <form
-          // className="login-fg"
-          onSubmit={handleSubmit}
-          // onClick={(e) => e.stopPropagation()}
-        >
-          <h2 className="login-title">Login</h2>
-          <div className="login-inputs">
+        <form onSubmit={handleSubmit}>
+          <h2 className="modal-title">Login</h2>
+          <div className="modal-inputs">
             <label htmlFor="username-login">User</label>
-            <div className="login-field">
+            <div className="modal-field">
               <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
               <input
                 id="username-login"
@@ -92,7 +88,7 @@ function Login({ setShowLogin, setShowRegister }) {
               />
             </div>
             <label htmlFor="password-login">Password</label>
-            <div className="login-field">
+            <div className="modal-field">
               <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
               <input
                 id="password-login"
@@ -104,26 +100,26 @@ function Login({ setShowLogin, setShowRegister }) {
             </div>
           </div>
 
-          <div className="login-options">
+          <div className="modal-options-container">
             <button 
               type="button" 
-              className="login-options" 
+              className="modal-options" 
               onClick={handleRegister}
             >
                 ¿No tienes cuenta?
             </button>
             <button 
               type="button" 
-              className="login-options"
+              className="modal-options"
               onClick={handleRecovery}
             >
                 ¿Olvidaste tu clave?
             </button>
           </div>
 
-          <button className="login-button">LOG IN</button>
+          <button className="modal-button">LOG IN</button>
           <GoogleLogin 
-            className="login-button"
+            className="modal-button"
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} 
             // buttonText="Log in" 
             onSuccess={handleGoogleLogin} 

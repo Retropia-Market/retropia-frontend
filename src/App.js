@@ -13,7 +13,8 @@ import Profile from './components/profile-components/Profile';
 
 import './styles/App.scss';
 import UserPublicProfile from './components/UserPublicProfile/UserPublicProfile';
-import { AccountVerification } from './components/AccountVerification';
+import { PassReset } from './components/profile-components/profile-authentication/PassReset';
+import { AccountVerification } from './components/profile-components/profile-authentication/AccountVerification';
 
 function App() {
   require('dotenv').config();
@@ -59,6 +60,11 @@ function App() {
             </Route>
             <Route path="/verify-email/:emailCode">
               <AccountVerification />
+              <MainBackground />
+            </Route>
+            <Route path="/reset-password/:token">
+              <PassReset />
+              <MainBackground />
             </Route>
             <Route path="/" exact>
               <MainBackground />
