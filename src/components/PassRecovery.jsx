@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 
 export function PassRecovery({setShow, setErrorMessage}) {
@@ -28,20 +28,25 @@ export function PassRecovery({setShow, setErrorMessage}) {
       onSubmit={handleSubmit}
       onClick={e => e.stopPropagation()}
       >
-        <FontAwesomeIcon 
-          className="button"
-          onClick={() => setShow(false)}
-          icon={faChevronLeft}></FontAwesomeIcon>
         <h2>PASSWORD RECOVERY</h2>
         <p>Introduce the email for which you would like the password to be recovered</p>
-        <label htmlFor="email"></label>
-        <input 
-          type="email"
-          placeholder="email..."
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <button className="form-button">Send email</button>
+        <div className="modal-inputs">
+          <label htmlFor="email">Account Email</label>
+          <div className="modal-field">
+            <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+            <input 
+              type="email"
+              placeholder="email..."
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+        <button className="modal-button">Send email</button>
+        <FontAwesomeIcon  
+          className="modal-go-back"
+          onClick={() => setShow(false)}
+          icon={faChevronLeft}></FontAwesomeIcon>
         {submitted && <p className="registration-submitted">
           If there is a user with address, an email will be sent for password recovery
         </p> }

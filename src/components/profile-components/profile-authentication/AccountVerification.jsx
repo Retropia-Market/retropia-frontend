@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
-import useFetch from "../hooks/useFetchChat";
+import useFetch from "../../../hooks/useFetch";
 
 export function AccountVerification() {
   const {emailCode} = useParams()

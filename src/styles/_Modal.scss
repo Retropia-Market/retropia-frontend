@@ -1,4 +1,4 @@
-.login-bg {
+.modal-bg {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -12,7 +12,7 @@
   z-index: 5;
 }
 
-.login-fg {
+.modal-fg {
   position: fixed;
   padding: 5rem 3rem 1rem 3rem;
   margin: 5rem;
@@ -22,11 +22,11 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 350px;
   height: 700px;
+  max-width: 350px;
 }
 
-.login-fg .login-title {
+.modal-fg .modal-title {
   position: absolute;
   top: 1.5rem;
   left: 2.5rem;
@@ -34,47 +34,53 @@
   letter-spacing: 0.1rem;
 }
 
-.login-fg .login-inputs {
+.modal-fg .modal-inputs-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-fg .modal-inputs {
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
-.login-fg .login-inputs label {
+.modal-fg .modal-inputs label {
   align-self: flex-start;
   font-weight: 500;
   margin-bottom: 0.5rem;
   margin-top: 2.5rem;
 }
 
-.login-fg .login-inputs .login-field {
+.modal-fg .modal-inputs > .modal-field {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 0 0.5rem 1rem;
+  padding: 0 0 0 1rem;
+  margin-left: 0.5rem;
   border-bottom: 1px solid black;
 }
 
-.login-fg input {
+.modal-fg input {
   border-style: hidden;
   background-color: white;
   padding: 3px 1rem;
 }
 
-.login-fg .login-options {
+.modal-fg .modal-options-container {
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
 }
-.login-fg .login-options {
+.modal-fg .modal-options {
   cursor: pointer;
   border: none;
   background: none;
 }
-.login-fg .login-options:hover {
+.modal-fg .modal-options:hover {
   font-weight: bolder;
 }
 
-.login-fg .login-button {
+.modal-fg .modal-button {
   cursor: pointer;
   margin-top: 2rem;
   padding: 0.5rem;
@@ -105,3 +111,7 @@
   color: rgb(147, 38, 131);
   cursor: pointer;
 }
+
+// .error-message {
+//   word-wrap: break-word;
+// }
