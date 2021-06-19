@@ -29,9 +29,11 @@ const ReviewsAndBidsNotifications = () => {
                             notifications.sales !== 0) && (
                             <div className="bubble">
                                 <div>
-                                    {Number(notifications.bids) +
-                                        Number(notifications.reviews) +
-                                        Number(notifications.sales)}
+                                    <span>
+                                        {Number(notifications.bids) +
+                                            Number(notifications.reviews) +
+                                            Number(notifications.sales)}
+                                    </span>
                                 </div>
                             </div>
                         )}

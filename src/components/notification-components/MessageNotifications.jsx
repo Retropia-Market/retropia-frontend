@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useNotifications from '../../hooks/useNotifications';
 
+import { motion } from 'framer-motion';
+import { FormattedMessage } from 'react-intl';
+
 const MessageNotifications = () => {
     const [hide, setHide] = useState(false);
     const { messages } = useSelector((s) => s.notifications);
@@ -14,12 +17,14 @@ const MessageNotifications = () => {
     return (
         <div className="notifications-container">
             <div className="notifications">
-                <div className="icon-bubble">
+                <motion.div className="icon-bubble">
                     {results_messages &&
                         results_messages.length > 0 &&
                         messages !== 0 && (
                             <div className="bubble">
-                                <div>{messages}</div>
+                                <div>
+                                    <span>{messages}</span>
+                                </div>
                             </div>
                         )}
                     <div className="icon" onClick={() => setHide(!hide)}>
@@ -30,7 +35,7 @@ const MessageNotifications = () => {
                             ICON
                         </FontAwesomeIcon>
                     </div>
-                </div>
+                </motion.div>
             </div>
             {hide && messages > 0 && (
                 <div className="pop-up">
@@ -56,8 +61,14 @@ const MessageNotifications = () => {
                                 return (
                                     <Link to={`/profile/chat/${message.id}`}>
                                         <span>
-                                            Tienes {message.notifications}{' '}
-                                            mensajes de {message.username}
+                                            <FormattedMessage
+                                                id="notifications.message"
+                                                values={{
+                                                    notifications:
+                                                        message.notifications,
+                                                    username: message.username,
+                                                }}
+                                            />
                                         </span>
                                     </Link>
                                 );

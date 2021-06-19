@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
+import { languageDropdownAni } from '../animations';
 
 const LanguageSelector = () => {
     const { language } = useSelector((s) => s.language);
@@ -8,7 +10,13 @@ const LanguageSelector = () => {
     return (
         <div className="lang">
             <div className={language}></div>
-            <ul className="dropdown">
+            <motion.ul
+                variants={languageDropdownAni}
+                animate="visible"
+                initial="hidden"
+                exit="hidden"
+                className="dropdown"
+            >
                 {options
                     .sort((a, b) =>
                         a === language ? -1 : b === language ? 1 : 0
@@ -27,7 +35,7 @@ const LanguageSelector = () => {
                             </li>
                         );
                     })}
-            </ul>
+            </motion.ul>
         </div>
     );
 };
