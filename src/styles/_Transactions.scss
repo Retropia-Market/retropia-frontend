@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0;
 
+  ul {
+    list-style: none;
+  }
+
   a {
     h2 {
       font-size: 1.2rem;
@@ -26,16 +30,15 @@
   .transactions-navbar {
     position: sticky;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0;
     margin: 0;
-    width: 100%;
   }
   .transactions-navbar .transactions-navbar-item {
     height: 3rem;
     grid-column: 2 / 5;
-    padding: 0.2em 4em;
+    padding-top: 0.2em;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,8 +63,21 @@
 }
 
 .transactions-subnav {
-  ul {
+  .transactions-bids-navbar {
+    a {
+      width: 30vw;
+    }
     display: flex;
+  }
+  display: flex;
+  flex-direction: column;
+  ul {
+    :first-child {
+      border-bottom-left-radius: 0.5rem;
+    }
+    :last-child {
+      border-bottom-right-radius: 0.5rem;
+    }
     align-items: center;
     justify-content: center;
     padding: 0;

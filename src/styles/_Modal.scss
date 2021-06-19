@@ -8,14 +8,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   z-index: 5;
 }
-
 .modal-fg {
   position: fixed;
   padding: 5rem 3rem 1rem 3rem;
-  margin: 5rem;
+  margin: 5rem 5rem 5rem 5rem;
   background-color: white;
   border-radius: 30px;
   box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.4);
@@ -24,7 +23,10 @@
   text-align: center;
   height: 700px;
   max-width: 350px;
-
+  #review-fg {
+    width: 800px;
+    max-width: 1000px;
+  }
   #register-modal {
     width: 600px;
     max-width: 600px;
