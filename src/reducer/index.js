@@ -84,11 +84,10 @@ const languageReducer = (
 };
 
 const notificationReducer = (
-    state = { messages: 0, bids: 0, reviews: 0 },
+    state = { messages: 0, bids: 0, reviews: 0, sales: 0 },
     action
 ) => {
     let newState = {};
-    console.log(action);
     switch (action.type) {
         case 'noti/messages':
             newState = { ...state };
@@ -97,10 +96,16 @@ const notificationReducer = (
         case 'noti/bids':
             newState = { ...state };
             newState['bids'] = action['noti/bids'];
+            console.log('bids', newState);
             return newState;
         case 'noti/reviews':
             newState = { ...state };
             newState['reviews'] = action['noti/reviews'];
+            console.log('reviews', newState);
+            return newState;
+        case 'noti/sales':
+            newState = { ...state };
+            newState['sales'] = action['noti/sales'];
             return newState;
         default:
             return state;
