@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { act } from 'react-dom/test-utils';
 import { useDispatch, useSelector } from 'react-redux';
 
 function useNotifications(actionType) {
@@ -12,6 +13,8 @@ function useNotifications(actionType) {
             ? 'http://localhost:8080/api/notifications/bids'
             : actionType === 'noti/reviews'
             ? 'http://localhost:8080/api/notifications/reviews'
+            : actionType === 'noti/sales'
+            ? 'http://localhost:8080/api/notifications/sales'
             : null;
 
     useEffect(() => {
@@ -23,8 +26,9 @@ function useNotifications(actionType) {
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
+                console.log(actionType, data);
                 if (data?.length !== 0) {
-                    let dispatchObject = { type: actionType };
+                    const dispatchObject = { type: actionType };
                     dispatchObject[actionType] = data.length;
                     dispatch(dispatchObject);
                 }

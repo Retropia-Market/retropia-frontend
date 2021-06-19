@@ -1,15 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useFetch from '../../../hooks/useFetch';
 // import ProductCard from "../../ProductCard";
 
 function ReceivedReviews() {
     const user = useSelector((s) => s.user);
+    const dispatch = useDispatch();
     const [reviews] = useFetch(
         `http://localhost:8080/users/${user.userData.id}/review/reviews-received`,
         user
     );
-    console.log(reviews);
     const receivedReviews = reviews?.receivedReviews;
+    dispatch({ type: 'noti/reviews', 'noti/reviews': 0 });
 
     if (!receivedReviews) {
         return <div>cargando...</div>;
