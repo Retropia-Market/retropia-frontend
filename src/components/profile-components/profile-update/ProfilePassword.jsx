@@ -24,14 +24,12 @@ function ProfilePassword ({updateField, user}) {
       },
       body: JSON.stringify(profilePassword),
     });
-    console.log(res)
     if (res.ok) {
       setProfilePassword({
         oldPassword: '',
         newPassword: '',
         repeatedNewPassword: '',
       })
-      console.log(res)
     } else if(res.status === 401){
       setErrorMessage('Contraseña Incorrecta.');
       console.log(errorMessage);
