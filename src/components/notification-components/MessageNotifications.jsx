@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import useNotifications from '../../hooks/useNotifications';
 
 const MessageNotifications = () => {
@@ -55,10 +56,7 @@ const MessageNotifications = () => {
                             .map((message) => {
                                 return (
                                     <Link to={`/profile/chat/${message.id}`}>
-                                        <span>
-                                            Tienes {message.notifications}{' '}
-                                            mensajes de {message.username}
-                                        </span>
+<FormattedMessage id='new.messages.notification' count={message.notifications} user={message.username} />
                                     </Link>
                                 );
                             })}

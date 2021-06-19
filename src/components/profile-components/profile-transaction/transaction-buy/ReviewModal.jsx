@@ -50,6 +50,7 @@ function ReviewModal({ setShowReviewModal, data }) {
     >
       <form
         className="modal-fg"
+        id="review-fg"
         onSubmit={handleSubmit}
         onClick={(e) => e.stopPropagation()}
       >

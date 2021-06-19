@@ -63,5 +63,6 @@
   "update.title": "Actualiza tu producto",
   "review.modal.title": "Review",
   "review.modal.note": "Nota",
-  "review.modal.send": "Envia Review"
+  "review.modal.send": "Envia Review",
+      "new.messages.notification": "{count, plural, =0 {cero mensajes} one {# mensaje} other {# mensajes}}"
 }
