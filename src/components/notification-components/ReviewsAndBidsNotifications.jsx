@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import useNotifications from '../../hooks/useNotifications';
+import { Link } from 'react-router-dom';
 
 const ReviewsAndBidsNotifications = () => {
     const [hide, setHide] = useState(false);
@@ -43,16 +44,20 @@ const ReviewsAndBidsNotifications = () => {
             {hide && (notifications.bids !== 0 || notifications.reviews) && (
                 <div className="pop-up">
                     {notifications.bids !== 0 && (
-                        <span>
-                            {' '}
-                            Tienes {notifications.bids} ofertas nuevas.
-                        </span>
+                        <Link to="/profile/transactions/bids/received">
+                            <span>
+                                {' '}
+                                Tienes {notifications.bids} ofertas nuevas.
+                            </span>
+                        </Link>
                     )}
                     {notifications.reviews !== 0 && (
-                        <span>
-                            {' '}
-                            Tienes {notifications.reviews} reviews nuevas.
-                        </span>
+                        <Link to="/profile/ratings">
+                            <span>
+                                {' '}
+                                Tienes {notifications.reviews} reviews nuevas.
+                            </span>
+                        </Link>
                     )}
                 </div>
             )}
