@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import BidCard from '../transaction-bid/BidCard';
 import ReviewModal from './ReviewModal';
@@ -10,6 +10,7 @@ function TransactionBuy() {
     const user = useSelector((s) => s.user);
     const [bidsObject, setBidsObject] = useState({});
     const [showReviewModal, setShowReviewModal] = useState(false);
+    const dispatch = useDispatch();
 
     const fetchData = useCallback(async () => {
         const res = await fetch(
@@ -27,8 +28,9 @@ function TransactionBuy() {
 
     useEffect(() => {
         fetchData();
+        dispatch({ type: 'noti/sales', 'noti/sales': 0 });
         return () => {};
-    }, [fetchData]);
+    }, [fetchData, dispatch]);
 
     return (
         <div className="bids-active">
