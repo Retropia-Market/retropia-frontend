@@ -2,6 +2,7 @@ import useFetch from '../../hooks/useFetch';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
+import Location from '../Location';
 
 const UserPublicData = ({ uid }) => {
     const user = useSelector((s) => s.user);
@@ -99,6 +100,11 @@ const UserPublicData = ({ uid }) => {
                                 <FormattedMessage id="publicprofile.notbio" />
                             )}
                         </div>
+
+                        <Location
+                            place={results?.location}
+                            className="user-location"
+                        />
                     </div>
                 </div>
             )}
