@@ -26,7 +26,6 @@ function useNotifications(actionType) {
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
-                console.log(actionType, data);
                 if (data?.length !== 0) {
                     const dispatchObject = { type: actionType };
                     dispatchObject[actionType] = data.length;

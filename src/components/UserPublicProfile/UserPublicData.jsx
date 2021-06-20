@@ -14,10 +14,10 @@ const UserPublicData = ({ uid }) => {
     const [ratings] = useFetch(`http://localhost:8080/user/${uid}/rating`);
 
     const bannerUser = `http:\/\/localhost:8080${user?.userData?.banner}`;
-    const userImg = results?.image?.indexOf('google')
-        ? results?.image
-        : `http:\/\/localhost:8080/${results?.image}`;
-    console.log(results?.image);
+    const userImg =
+        results?.image?.indexOf('google') !== -1
+            ? results?.image
+            : `http:\/\/localhost:8080/${results?.image.slice(11)}`;
 
     const handleClick = async (e) => {
         const fd = new FormData();
@@ -35,7 +35,7 @@ const UserPublicData = ({ uid }) => {
             dispatch({ type: 'UPDATE', data: { banner: data?.url } });
         } else {
             const data = await res.json();
-            alert('Error');
+            alert(data);
         }
     };
 
@@ -88,12 +88,6 @@ const UserPublicData = ({ uid }) => {
                                     ({ratings?.total_review ?? '0'})
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="location">
-                            {results?.location ?? (
-                                <FormattedMessage id="publicprofile.notlocation" />
-                            )}
                         </div>
                         <div className="bio">
                             {results?.bio ?? (

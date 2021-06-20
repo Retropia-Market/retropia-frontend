@@ -29,9 +29,12 @@ function ProfileData({ updateField, user }) {
         location: '',
         bio: '',
     });
+    const [location, setLocation] = useState();
 
     const handleData = async (e) => {
         e.preventDefault();
+        setProfileData({ ...profileData, location: location });
+        console.log(profileData);
         const res = await fetch(
             `http://localhost:8080/users/${user.userData.id}/update-profile`,
             {
@@ -189,8 +192,7 @@ function ProfileData({ updateField, user }) {
                     name="location"
                     value="profileData.location"
                     placeholder={user.userData.location}
-                    // onChange={(e) => updateField(e, setProfileData, profileData)}
-                    onChange={(e) => console.log(e)}
+                    setProductLocation={setLocation}
                 />
             </div>
             <label htmlFor="profile-update-bio">Bio</label>
