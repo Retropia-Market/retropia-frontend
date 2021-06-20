@@ -1,71 +1,71 @@
 .navbar-container {
-  position: sticky;
-  color: white;
-  height: 6rem;
-  background: rgb(147, 38, 131);
-  background: linear-gradient(
-    0deg,
-    rgba(147, 38, 131, 1) 0%,
-    rgba(45, 19, 66, 1) 30%,
-    rgba(24, 15, 53, 1) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    position: sticky;
+    color: white;
+    height: 6rem;
+    background: rgb(147, 38, 131);
+    background: linear-gradient(
+        0deg,
+        rgba(147, 38, 131, 1) 0%,
+        rgba(45, 19, 66, 1) 30%,
+        rgba(24, 15, 53, 1) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-  min-width: 7rem;
-  padding: 0 2rem;
+    min-width: 7rem;
+    padding: 0 2rem;
 }
 .logo .logo-img {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .right-navbar .upper {
-  display: flex;
-  height: 4rem;
-  width: 90vw;
-  justify-content: space-between;
-  align-items: stretch;
+    display: flex;
+    height: 4rem;
+    width: 90vw;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
 .search-bar {
-  margin-right: 1rem;
-  background: white;
-  border-radius: 1rem;
+    margin-right: 1rem;
+    background: white;
+    border-radius: 1rem;
 }
 .search-bar input {
-  height: 2rem;
-  min-width: 15rem;
-  padding-left: 2rem;
-  border-style: none;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+    height: 2rem;
+    min-width: 15rem;
+    padding-left: 2rem;
+    border-style: none;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 .search-bar button {
-  height: 2.13rem;
-  background-color: white;
-  border-style: none;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  cursor: pointer;
+    height: 2.13rem;
+    background-color: white;
+    border-style: none;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    cursor: pointer;
 }
 
 input:focus {
-  outline: none;
+    outline: none;
 }
 
 .right-navbar .lower {
-  background: rgb(147, 38, 131);
-  background: linear-gradient(
-    0deg,
-    rgba(45, 19, 66, 0.5) 1%,
-    rgba(147, 38, 131, 1) 100%
-  );
-  height: 2rem;
-  border-top-left-radius: 1rem;
-  padding: 1;
+    background: rgb(147, 38, 131);
+    background: linear-gradient(
+        0deg,
+        rgba(45, 19, 66, 0.5) 1%,
+        rgba(147, 38, 131, 1) 100%
+    );
+    height: 2rem;
+    border-top-left-radius: 1rem;
+    padding: 1;
 }
 
 .search,
@@ -73,79 +73,79 @@ input:focus {
 .types,
 .user-nav,
 .user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-nav {
-  width: 20%;
-  gap: 2rem;
+    width: 20%;
+    gap: 2rem;
 }
 
 .sell-button {
-  padding: 0 1rem;
-  background-color: rgb(236, 181, 0);
-  color: black;
-  border-radius: 1rem;
+    padding: 0 1rem;
+    background-color: rgb(236, 181, 0);
+    color: black;
+    border-radius: 1rem;
 }
 
 .types {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 2rem;
-  height: 100%;
-  gap: 0rem;
-  color: #fff;
-  font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    height: 100%;
+    gap: 0rem;
+    color: #fff;
+    font-size: 0.8rem;
 }
 
 .types > * {
-  padding: 0 2rem;
+    padding: 0 2rem;
 }
 
 .types-names {
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  font-weight: 600;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .types.selected {
-  background: rgb(147, 38, 131);
-  background: linear-gradient(
-    0deg,
-    rgba(45, 19, 66, 0.5) 1%,
-    rgba(147, 38, 131, 1) 100%
-  );
+    background: rgb(147, 38, 131);
+    background: linear-gradient(
+        0deg,
+        rgba(45, 19, 66, 0.5) 1%,
+        rgba(147, 38, 131, 1) 100%
+    );
 }
 
 .types:hover {
-  background: rgb(147, 38, 131);
-  background: linear-gradient(
-    0deg,
-    rgba(45, 19, 66, 0.5) 1%,
-    rgba(147, 38, 131, 1) 100%
-  );
+    background: rgb(147, 38, 131);
+    background: linear-gradient(
+        0deg,
+        rgba(45, 19, 66, 0.5) 1%,
+        rgba(147, 38, 131, 1) 100%
+    );
 }
 
 .upper button {
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-weight: 600;
-  font-size: 1rem;
-  color: white;
-  text-transform: capitalize;
-  padding-bottom: 0.25rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    text-transform: capitalize;
+    padding-bottom: 0.25rem;
 }
 
 .upper button:hover {
-  border-bottom: 1px solid rgb(147, 38, 131);
-  color: rgb(147, 38, 131);
-  font-size: 1.25rem;
+    border-bottom: 1px solid rgb(147, 38, 131);
+    color: rgb(147, 38, 131);
+    font-size: 1.25rem;
 }
 
 /*
@@ -155,53 +155,53 @@ Logged user navbar
 */
 
 .user-nav .sell-button {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .user-nav .user-pic {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  width: 1rem;
-  height: 1rem;
-  background: lightgray;
-  border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 1rem;
+    height: 1rem;
+    background: lightgray;
+    border-radius: 100%;
 }
 
 .user-nav .user-settings {
-  position: absolute;
-  top: 60px;
-  right: 0.5rem;
-  width: 8rem;
-  display: flex;
-  flex-direction: column;
-  align-content: stretch;
-  background: white;
-  color: rgb(147, 38, 131);
-  border-radius: 10px;
-  list-style-type: none;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
-  overflow: hidden;
+    position: absolute;
+    top: 60px;
+    right: 0.5rem;
+    width: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    background: white;
+    color: rgb(147, 38, 131);
+    border-radius: 10px;
+    list-style-type: none;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
 }
 
 .user-nav .user-settings li {
-  font-weight: 500;
-  padding-bottom: 0.25rem;
-  padding-top: 0.5rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    padding-top: 0.5rem;
 }
 
 .user-nav .user-settings li:hover {
-  color: white;
-  background: rgb(147, 38, 131);
-  background: linear-gradient(
-    0deg,
-    rgba(45, 19, 66, 0.5) 1%,
-    rgba(147, 38, 131, 1) 100%
-  );
-  font-weight: 700;
-  font-size: larger;
+    color: white;
+    background: rgb(147, 38, 131);
+    background: linear-gradient(
+        0deg,
+        rgba(45, 19, 66, 0.5) 1%,
+        rgba(147, 38, 131, 1) 100%
+    );
+    font-weight: 700;
+    font-size: larger;
 }
 
 /*
@@ -211,25 +211,25 @@ barra de categorias - subcategorias
 */
 
 .lower {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style-type: none;
 }
 
 .lower .category-name {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 .lower .category-name:hover {
-  color: rgba(45, 19, 66, 1);
-  font-weight: bold;
+    color: rgba(45, 19, 66, 1);
+    font-weight: bold;
 }
 
 .lower .category-select {
-  padding-left: 0.5rem;
-  cursor: pointer;
+    padding-left: 0.5rem;
+    cursor: pointer;
 }
 .lower .category-select:hover {
-  color: rgba(45, 19, 66, 1);
+    color: rgba(45, 19, 66, 1);
 }
