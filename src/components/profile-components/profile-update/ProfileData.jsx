@@ -33,8 +33,7 @@ function ProfileData({ updateField, user }) {
 
     const handleData = async (e) => {
         e.preventDefault();
-        setProfileData({ ...profileData, location: location });
-        console.log(profileData);
+        setProfileData((profile) => (profile['location'] = location));
         const res = await fetch(
             `http://localhost:8080/users/${user.userData.id}/update-profile`,
             {
