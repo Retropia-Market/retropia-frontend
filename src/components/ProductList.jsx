@@ -64,7 +64,7 @@ const ProductList = ({ type }) => {
                             exit="hidden"
                             className="no-products"
                         >
-                            🙈 Oops! Por acá no hay nada.
+                            <FormattedMessage id="catalogue.notfound" />
                         </motion.div>
                     </div>
                 )}

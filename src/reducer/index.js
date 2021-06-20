@@ -72,7 +72,11 @@ const messageReducer = (state = {}, action) => {
 };
 
 const languageReducer = (
-    state = { language: navigator.language.split('-')[0] },
+    state = {
+        language:
+            JSON.parse(sessionStorage.getItem('session'))?.language?.language ??
+            navigator.language.split('-')[0],
+    },
     action
 ) => {
     switch (action.type) {

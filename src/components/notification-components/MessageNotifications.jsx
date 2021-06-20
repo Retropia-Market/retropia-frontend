@@ -5,65 +5,71 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import useNotifications from '../../hooks/useNotifications';
+import { motion } from 'framer-motion';
 
 const MessageNotifications = () => {
-    const [hide, setHide] = useState(false);
-    const { messages } = useSelector((s) => s.notifications);
+  const [hide, setHide] = useState(false);
+  const { messages } = useSelector((s) => s.notifications);
 
-    const results_messages = useNotifications('noti/messages');
+  const results_messages = useNotifications('noti/messages');
 
-    return (
-        <div className="notifications-container">
-            <div className="notifications">
-                <div className="icon-bubble">
-                    {results_messages &&
-                        results_messages.length > 0 &&
-                        messages !== 0 && (
-                            <div className="bubble">
-                                <div>{messages}</div>
-                            </div>
-                        )}
-                    <div className="icon" onClick={() => setHide(!hide)}>
-                        <FontAwesomeIcon
-                            className="messages"
-                            icon={faCommentDots}
-                        >
-                            ICON
-                        </FontAwesomeIcon>
-                    </div>
-                </div>
+  return (
+    <div className="notifications-container">
+      <div className="notifications">
+        <motion.div className="icon-bubble">
+          {results_messages && results_messages.length > 0 && messages !== 0 && (
+            <div className="bubble">
+              <div>
+                <span>{messages}</span>
+              </div>
             </div>
-            {hide && messages > 0 && (
-                <div className="pop-up">
-                    {results_messages &&
-                        results_messages
-                            .reduce((acc, product) => {
-                                if (acc.length !== 0) {
-                                    for (let p of acc) {
-                                        if (p.username === product.username) {
-                                            p['notifications']++;
-                                            return acc;
-                                        }
-                                    }
-                                }
-                                acc.push({
-                                    id: product.user_id,
-                                    username: product.username,
-                                    notifications: 1,
-                                });
-                                return acc;
-                            }, [])
-                            .map((message) => {
-                                return (
-                                    <Link to={`/profile/chat/${message.id}`}>
-<FormattedMessage id='new.messages.notification' count={message.notifications} user={message.username} />
-                                    </Link>
-                                );
-                            })}
-                </div>
-            )}
+          )}
+          <div className="icon" onClick={() => setHide(!hide)}>
+            <FontAwesomeIcon className="messages" icon={faCommentDots}>
+              ICON
+            </FontAwesomeIcon>
+          </div>
+        </motion.div>
+      </div>
+      {hide && messages > 0 && (
+        <div className="pop-up">
+          {results_messages &&
+            results_messages
+              .reduce((acc, product) => {
+                if (acc.length !== 0) {
+                  for (let p of acc) {
+                    if (p.username === product.username) {
+                      p['notifications']++;
+                      return acc;
+                    }
+                  }
+                }
+                acc.push({
+                  id: product.user_id,
+                  username: product.username,
+                  notifications: 1,
+                });
+                return acc;
+              }, [])
+              .map((message) => {
+                return (
+                  <Link to={`/profile/chat/${message.id}`}>
+                    <span>
+                      <FormattedMessage
+                        id="notifications.message"
+                        values={{
+                          notifications: message.notifications,
+                          username: message.username,
+                        }}
+                      />
+                    </span>
+                  </Link>
+                );
+              })}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default MessageNotifications;

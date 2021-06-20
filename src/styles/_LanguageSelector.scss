@@ -1,0 +1,68 @@
+.lang {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-left: 1em;
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 50%;
+    .dropdown {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        margin: 0;
+        padding: 1px 0;
+        list-style: none;
+        background-color: white;
+        padding: 0.2rem;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .en {
+        background-image: url(../img/icons/reino-unido.svg);
+        width: 20px;
+        height: 20px;
+    }
+    .es {
+        background-image: url(../img/icons/espana.svg);
+        width: 20px;
+        height: 20px;
+    }
+    .it {
+        background-image: url(../img/icons/italia.svg);
+        width: 20px;
+        height: 20px;
+    }
+
+    .gl {
+        background-image: url(../img/icons/galicia.svg);
+        width: 20px;
+        height: 20px;
+        border: 0.5px solid rgba(0, 0, 0, 0.363);
+        border-radius: 50%;
+    }
+}
+
+.lang:hover {
+    margin-left: 1em;
+    transition: 1s all ease-in;
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100px;
+        li {
+            margin: 0;
+            display: block;
+            div:hover {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

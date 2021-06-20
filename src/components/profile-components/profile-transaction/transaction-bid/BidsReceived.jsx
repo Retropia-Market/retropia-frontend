@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import BidCard from './BidCard';
 
@@ -32,7 +33,9 @@ function BidsReceived() {
             {!Object.keys(bidsObject).length && <h3>Cargando...</h3>}
 
             {bidsObject.bids?.length === 0 && (
-                <h3>Parece que aún no has recibido ofertas.</h3>
+                <h3>
+                    <FormattedMessage id="profile.bids.notyet" />
+                </h3>
             )}
             {bidsObject &&
                 bidsObject.bids?.map((b) => {

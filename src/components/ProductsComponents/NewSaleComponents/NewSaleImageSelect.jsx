@@ -12,7 +12,9 @@ const NewSaleImageSelect = ({
 }) => {
     const [previews, setPreviews] = useState([]);
     const [images, setImages] = useState([]);
+    const [vision, setVision] = useState(false);
     const user = useSelector((s) => s.user);
+    console.log(vision);
 
     const onDrop = useCallback(
         (acceptedFiles) => {
@@ -54,6 +56,7 @@ const NewSaleImageSelect = ({
         const wordsArray = visionData
             .map((data) => data.name.toLowerCase().split(' '))
             .flatMap((v) => v);
+        console.table(wordsArray);
 
         for (let word of wordsArray) {
             if (word === 'console') {
@@ -68,18 +71,23 @@ const NewSaleImageSelect = ({
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (files.length < 1) return;
-        // const fd = new FormData();
-        // fd.append('image', files[0]);
-        // const ret = await fetch('http://localhost:8080/sell/vision/', {
-        //     method: 'POST',
-        //     headers: {
-        //         Authorization: 'Bearer ' + user.token,
-        //     },
-        //     body: fd,
-        // });
-        if (true) {
-            // const response = await ret.json();
-            // setProductType(handleTypeData(response));
+        let ret;
+        if (vision) {
+            const fd = new FormData();
+            fd.append('image', files[0]);
+            ret = await fetch('http://localhost:8080/sell/vision/', {
+                method: 'POST',
+                headers: {
+                    Authorization: 'Bearer ' + user.token,
+                },
+                body: fd,
+            });
+        }
+        if (vision && ret.ok) {
+            const response = await ret.json();
+            setProductType(handleTypeData(response));
+            setImageAdded(true);
+        } else {
             setImageAdded(true);
         }
     };
@@ -104,12 +112,22 @@ const NewSaleImageSelect = ({
                         <h3>
                             <FormattedMessage id="sale.imgDescription" />
                         </h3>
-                        <button
-                            className="agregar-imagen yellow-button"
-                            onClick={handleSubmit}
-                        >
-                            Agregar Imagen
-                        </button>
+                        <div className="button-vision">
+                            <button
+                                className="agregar-imagen yellow-button"
+                                onClick={handleSubmit}
+                            >
+                                <FormattedMessage id="sale.continue" />
+                            </button>
+                            <br />
+                            <label>
+                                Vision
+                                <input
+                                    type="checkbox"
+                                    onChange={() => setVision(!vision)}
+                                />
+                            </label>
+                        </div>
                     </>
                 )}
             </div>

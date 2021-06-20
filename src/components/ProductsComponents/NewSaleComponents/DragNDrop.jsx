@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
+import { FormattedMessage } from 'react-intl';
 import ImageList from './ImageList';
 
 const DragNDrop = ({ onDrop, accept, images }) => {
@@ -21,12 +22,11 @@ const DragNDrop = ({ onDrop, accept, images }) => {
             <div className="text-center">
                 {isDragActive ? (
                     <p className="dropzone-content">
-                        Suelta aqui los archivos.
+                        <FormattedMessage id="sale.drop" />
                     </p>
                 ) : (
                     <p className="dropzone-content">
-                        Arrastra los archivos que desees subir, o seleccionalos
-                        clickando.
+                        <FormattedMessage id="sale.drag" />
                     </p>
                 )}
 

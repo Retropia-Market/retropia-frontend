@@ -8,7 +8,7 @@ const TopProducts = () => {
     const [results] = useFetch(apiURL);
 
     return (
-        <div className="catalogue">
+        <div className="catalogue most-viewed">
             <h1>
                 <FormattedMessage id="top.new" />
             </h1>

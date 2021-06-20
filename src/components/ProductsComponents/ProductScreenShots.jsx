@@ -1,5 +1,6 @@
 import useFetch from '../../hooks/useFetch';
 import ImageGallery from 'react-image-gallery';
+import { FormattedMessage } from 'react-intl';
 
 const ProductScreenShots = ({ query, type }) => {
     const apiURL = `http://localhost:8080/rawg/search/${query}`;
@@ -14,7 +15,9 @@ const ProductScreenShots = ({ query, type }) => {
         <div className="data-sheet">
             {filteredResults && type === 'videogame' && (
                 <>
-                    <h3>Ficha técnica del producto</h3>
+                    <h3>
+                        <FormattedMessage id="sale.productTechnical" />
+                    </h3>
                     <div className="data-sheet-inf">
                         <span>
                             Metacritic :{' '}

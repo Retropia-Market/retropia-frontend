@@ -11,11 +11,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../img/logo.svg';
-import {
-    faUser,
-    faCommentDots,
-    faBell,
-} from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import LanguageSelector from './intlComponents/LanguageSelector';
 import MessageNotifications from './notification-components/MessageNotifications';
@@ -31,18 +27,18 @@ function Navbar() {
     const [showRegister, setShowRegister] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
 
-  const [search, setSearch] = useState(q || '');
-  const [typeIndex, setTypeIndex] = useState(null);
-  const [type, setType] = useState()
-  const [category, setCategory] = useState()
-  const [categoryIndex, setCategoryIndex] = useState(1);
-  const [showCategories, setShowCategories] = useState(true);
-  const [showSubcategories, setShowSubcategories] = useState(false);
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history.push('/search/' + search);
-  };
+    const [search, setSearch] = useState(q || '');
+    const [typeIndex, setTypeIndex] = useState(null);
+    const [type, setType] = useState();
+    const [category, setCategory] = useState();
+    const [categoryIndex, setCategoryIndex] = useState(1);
+    const [showCategories, setShowCategories] = useState(true);
+    const [showSubcategories, setShowSubcategories] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        history.push('/search/' + search);
+    };
 
     const handleLogout = (e) => {
         dispatch({ type: 'LOGOUT' });

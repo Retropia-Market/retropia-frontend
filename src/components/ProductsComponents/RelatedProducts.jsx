@@ -8,7 +8,7 @@ const RelatedProducts = ({ data }) => {
     const [results_data] = useFetch(apiURL);
 
     return (
-        <div className="catalogue">
+        <div className="catalogue ">
             {results_data?.length > 1 && (
                 <>
                     {' '}
