@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import useNotifications from '../../hooks/useNotifications';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 const ReviewsAndBidsNotifications = () => {
     const [hide, setHide] = useState(false);
@@ -55,26 +56,37 @@ const ReviewsAndBidsNotifications = () => {
                         {notifications.bids !== 0 && (
                             <Link to="/profile/transactions/bids/received">
                                 <span>
-                                    {' '}
-                                    Tienes {notifications.bids} ofertas nuevas.
+                                    <FormattedMessage
+                                        id="notifications.bids"
+                                        values={{
+                                            notifications: notifications.bids,
+                                        }}
+                                    />
                                 </span>
                             </Link>
                         )}
                         {notifications.reviews !== 0 && (
                             <Link to="/profile/ratings">
                                 <span>
-                                    {' '}
-                                    Tienes {notifications.reviews} reviews
-                                    nuevas.
+                                    <FormattedMessage
+                                        id="notifications.reviews"
+                                        values={{
+                                            notifications:
+                                                notifications.reviews,
+                                        }}
+                                    />
                                 </span>
                             </Link>
                         )}
                         {notifications.sales !== 0 && (
                             <Link to="/profile/transactions/buy">
                                 <span>
-                                    {' '}
-                                    Has comprado {notifications.sales}{' '}
-                                    productos!
+                                    <FormattedMessage
+                                        id="notifications.sales"
+                                        values={{
+                                            notifications: notifications.sales,
+                                        }}
+                                    />
                                 </span>
                             </Link>
                         )}
