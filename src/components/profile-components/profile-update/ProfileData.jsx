@@ -85,9 +85,9 @@ function ProfileData({ updateField, user }) {
                 <input
                     id="profile-update-name"
                     type="text"
-                    value={profileData.firstname}
+                    value={profileData?.firstname}
                     name="firstname"
-                    placeholder={user.userData.firstName}
+                    placeholder={user?.userData?.firstName}
                     onChange={(e) =>
                         updateField(e, setProfileData, profileData)
                     }
@@ -101,9 +101,9 @@ function ProfileData({ updateField, user }) {
                 <input
                     id="profile-update-last-name"
                     type="text"
-                    value={profileData.lastname}
+                    value={profileData?.lastname}
                     name="lastname"
-                    placeholder={user.userData.lastName}
+                    placeholder={user?.userData?.lastName}
                     onChange={(e) =>
                         updateField(e, setProfileData, profileData)
                     }
@@ -117,9 +117,9 @@ function ProfileData({ updateField, user }) {
                 <input
                     id="profile-update-birth"
                     type="date"
-                    value={profileData.birth_date}
+                    value={profileData?.birth_date}
                     name="birth_date"
-                    placeholder={user.userData.birthDate}
+                    placeholder={user?.userData?.birthDate}
                     onChange={(e) =>
                         updateField(e, setProfileData, profileData)
                     }
@@ -133,9 +133,9 @@ function ProfileData({ updateField, user }) {
                 <input
                     id="profile-update-phone_number"
                     type="phone_number"
-                    value={profileData.phoneNumber}
+                    value={profileData?.phoneNumber}
                     name="phone_number"
-                    placeholder={user.userData.phoneNumber}
+                    placeholder={user?.userData?.phoneNumber}
                     onChange={(e) =>
                         updateField(e, setProfileData, profileData)
                     }
@@ -149,7 +149,7 @@ function ProfileData({ updateField, user }) {
                 <input
                     id="profile-update-email"
                     type="email"
-                    value={profileData.email}
+                    value={profileData?.email}
                     name="email"
                     placeholder={user?.userData.email}
                     onChange={(e) =>
@@ -165,7 +165,7 @@ function ProfileData({ updateField, user }) {
                 <input
                     id="profile-update-username"
                     type="text"
-                    value={profileData.username}
+                    value={profileData?.username}
                     name="username"
                     placeholder={user.userData.username}
                     onChange={(e) =>
@@ -190,7 +190,7 @@ function ProfileData({ updateField, user }) {
                     id="profile-update-location"
                     name="location"
                     value="profileData.location"
-                    placeholder={user.userData.location}
+                    placeholder={user?.userData?.location}
                     setProductLocation={setLocation}
                 />
             </div>
@@ -202,9 +202,9 @@ function ProfileData({ updateField, user }) {
                     cols="50"
                     id="profile-update-bio"
                     type="textarea"
-                    value={profileData.bio}
+                    value={profileData?.bio}
                     name="bio"
-                    placeholder={user.userData.bio}
+                    placeholder={user?.userData?.bio}
                     onChange={(e) =>
                         updateField(e, setProfileData, profileData)
                     }
