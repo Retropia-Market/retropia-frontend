@@ -25,9 +25,11 @@ body {
 
 .main {
     box-sizing: border-box;
-    height: calc(90vh - 100px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10rem;
 }
-
 .App {
     text-align: center;
 }
