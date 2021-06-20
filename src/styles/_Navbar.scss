@@ -18,7 +18,7 @@
     grid-template-rows: 1fr;
   }
   width: 100%;
-  height: 100px;
+  height: 10vh;
   min-height: 43px;
   margin: -10vh 0 0;
   background: linear-gradient(
@@ -162,6 +162,7 @@
     border-radius: 1rem;
     background-color: rgb(255, 217, 0);
     margin-right: 2rem;
+    text-decoration: none;
   }
 
   .lower {
@@ -182,30 +183,20 @@
     :hover {
       cursor: pointer;
       opacity: 80%;
-
-      .sell-button {
-        padding: 0.2rem 1rem;
-        color: rgb(0, 0, 0);
-        font-weight: 700;
-        border-radius: 1rem;
-        background-color: rgb(255, 217, 0);
-        margin-right: 2rem;
+    }
+    .category {
+      display: flex;
+      font-weight: 300;
+      height: 100%;
+      gap: 0.4rem;
+      padding: 0 2rem;
+      transition: 0.2s ease-in-out;
+      justify-content: flex-start;
+      align-items: center;
+      .category-name {
+        text-transform: capitalize;
         text-decoration: none;
-      }
-      .category {
-        display: flex;
-        font-weight: 300;
-        height: 100%;
-        gap: 0.4rem;
-        padding: 0 2rem;
-        transition: 0.2s ease-in-out;
-        justify-content: flex-start;
-        align-items: center;
-        .category-name {
-          text-transform: capitalize;
-          text-decoration: none;
-          color: #fff;
-        }
+        color: #fff;
       }
     }
   }

@@ -1,7 +1,7 @@
 .catalogue {
   padding: 0 2rem;
   overflow-y: hidden;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 
   .error-container {
@@ -32,63 +32,66 @@
   display: flex;
 }
 .catalogue-products {
-  overflow-y: hidden;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
-
-  @media screen and (min-width: 900px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: start;
-  }
-  .catalogue-products {
-    display: grid;
-    padding: 1rem 2rem;
-    grid-gap: 2rem;
-    overflow-y: hidden;
-
-    @media screen and (min-width: 900px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      justify-content: start;
-    }
-
-    grid-template-rows: repeat(1, auto);
+  .product-item {
+    display: flex;
+    padding: 0 1rem 3rem 1rem;
+    width: 25%;
     .product-card {
+      background-color: white;
+      border-radius: 0.5rem;
       box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      padding: 1rem;
-
-      background-color: #fff;
-      box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
-      border-radius: 1rem;
-      transition: 0.2s ease-in-out;
+      width: 100%;
       .product-card-info {
-        flex-grow: 1;
+        .product-card-info-user {
+          .product-card-info-average-rating {
+            .react-stars {
+              .star {
+                svg {
+                  width: 15px;
+                }
+              }
+            }
+          }
+          a:link,
+          a:visited,
+          a:active {
+            text-decoration: none;
+          }
+          .product-card-info-seller {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: rgb(68, 68, 68);
+          }
+        }
+        height: 50%;
+        padding: 1rem;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
-        gap: 0rem;
-        padding: 1rem 2rem;
+        align-items: space-between;
+        justify-content: space-between;
       }
     }
-    @media (min-width: 40rem) {
-      .product-card {
-        width: 50%;
-      }
+  }
+  @media (min-width: 40rem) {
+    .product-card {
+      width: 50%;
     }
-
-    @media (min-width: 56rem) {
-      .product-card {
-        width: 33.3333%;
-      }
+  }
+  @media (min-width: 56rem) {
+    .product-card {
+      width: 33.3333%;
     }
-    .product-card:hover {
-      background-color: rgb(241, 241, 241);
-    }
+  }
+  .product-card:hover {
+    background-color: rgb(241, 241, 241);
   }
 }
 ///////
