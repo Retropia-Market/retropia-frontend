@@ -40,7 +40,7 @@ function BidFinished() {
                         </h1>
                     </Route>
                     <Route path="/profile/transactions/bids/active">
-                        Not Found
+                        <FormattedMessage id="notfound" />
                     </Route>
                 </Switch>
             </div>
