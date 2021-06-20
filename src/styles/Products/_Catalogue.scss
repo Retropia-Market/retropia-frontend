@@ -1,7 +1,8 @@
 .catalogue {
-  padding: 0 2rem;
   overflow-y: hidden;
+  overflow-x: hidden;
   max-width: 1600px;
+  padding: 0 1rem;
   margin: 0 auto;
 
   .error-container {
@@ -37,61 +38,5 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  .product-item {
-    display: flex;
-    padding: 0 1rem 3rem 1rem;
-    width: 25%;
-    .product-card {
-      background-color: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      width: 100%;
-      .product-card-info {
-        .product-card-info-user {
-          .product-card-info-average-rating {
-            .react-stars {
-              .star {
-                svg {
-                  width: 15px;
-                }
-              }
-            }
-          }
-          a:link,
-          a:visited,
-          a:active {
-            text-decoration: none;
-          }
-          .product-card-info-seller {
-            font-style: italic;
-            font-size: 0.9rem;
-            color: rgb(68, 68, 68);
-          }
-        }
-        height: 50%;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: space-between;
-        justify-content: space-between;
-      }
-    }
-  }
-  @media (min-width: 40rem) {
-    .product-card {
-      width: 50%;
-    }
-  }
-  @media (min-width: 56rem) {
-    .product-card {
-      width: 33.3333%;
-    }
-  }
-  .product-card:hover {
-    background-color: rgb(241, 241, 241);
-  }
 }
 ///////

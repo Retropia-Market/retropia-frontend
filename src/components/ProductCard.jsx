@@ -119,23 +119,27 @@ const ProductCard = ({ data, favorites }) => {
                 </div>
 
                 {userData && userData.id !== seller_id && (
-                  <div
-                    onClick={chatClickHandler}
-                    className="message-icon"
-                    style={{
-                      background: `url(${messageIcon}) no-repeat`,
-                      cursor: 'pointer',
-                    }}
-                  ></div>
+                  <div>
+                    <div
+                      onClick={chatClickHandler}
+                      className="message-icon"
+                      style={{
+                        background: `url(${messageIcon}) no-repeat`,
+                        cursor: 'pointer',
+                      }}
+                    ></div>
+                  </div>
                 )}
                 {userData && userData.id !== seller_id && (
-                  <div
-                    onClick={handleBid}
-                    className="basket-icon"
-                    style={{
-                      background: `url(${basketIcon}) no-repeat`,
-                    }}
-                  ></div>
+                  <div>
+                    <div
+                      onClick={handleBid}
+                      className="basket-icon"
+                      style={{
+                        background: `url(${basketIcon}) no-repeat`,
+                      }}
+                    ></div>
+                  </div>
                 )}
               </div>
             </div>

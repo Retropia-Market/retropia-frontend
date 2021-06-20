@@ -19,7 +19,7 @@ const ProductList = ({ type }) => {
       <h1>
         <FormattedMessage id="catalogue.title" />
       </h1>
-      <div className="catalogue">
+      <div className="catalogue-inside">
         {results && (
           <motion.ul
             variants={container}
