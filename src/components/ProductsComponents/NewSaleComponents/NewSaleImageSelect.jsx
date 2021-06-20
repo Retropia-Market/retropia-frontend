@@ -108,7 +108,7 @@ const NewSaleImageSelect = ({
                             className="agregar-imagen yellow-button"
                             onClick={handleSubmit}
                         >
-                            Agregar Imagen
+                            <FormattedMessage id="sale.continue" />
                         </button>
                     </>
                 )}

@@ -21,6 +21,7 @@
     "register.username": "Nombre de usuario",
     "register.repeatpassword": "Repite tu contraseña",
     "register.alreadyaccount": "¿Ya tienes cuenta?",
+    "register.checkemail": "Por favor comprueba tu correo para verificar tu cuenta.",
     "register.registernow": "Registrarse",
     "publicprofile.notlocation": "No ha específicado localización",
     "publicprofile.notbio": "Aún no ha completado su biografía",
@@ -42,7 +43,11 @@
     "sale.productLoc": "Localización",
     "sale.productPrice": "Precio",
     "sale.createnew": "Crea tu venta",
+    "sale.continue": "Continuar con la venta.",
     "sale.productDescrip": "Descripcion del producto",
+    "sale.productTechnical": "Ficha técnica del producto",
+    "sale.drop": "Suelta aquí los archivos",
+    "sale.drag": "Arrastra los archivos que desees subir, o seleccionalos clickando.",
     "bid.new": "Nueva oferta",
     "bid.message": "Mensaje al vendedor",
     "bid.price": "Monto a ofertar",
@@ -114,5 +119,9 @@
     "profile.update.establishpassword": "Establece tu contraseña",
     "product.sell.lookpage": "Ver página del producto",
     "account.verified": "Cuenta verificada con éxito!",
-    "loading": "Cargando, espera un momento."
+    "loading": "Cargando, espera un momento.",
+    "password.recovery.title": "Recupera tu contraseña",
+    "password.recovery.subtitle": "Introduce el correo para el que deseas recuperar tu contraseña.",
+    "password.recovery.button": "Enviar correo",
+    "password.recovery.aftersent": "Listo, comprueba tu correo!"
 }
