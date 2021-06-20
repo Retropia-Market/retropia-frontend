@@ -5,13 +5,13 @@ function useImage(imageURL) {
     const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
     const [image, setImage] = useState(defaultImg);
 
-    if (imageURL?.includes('google')) {
-        imageURL = 'src/static/users-img/' + imageURL;
-    }
+    console.log(imageURL)
 
     useEffect(() => {
         imageURL
-            ? setImage(serverURL + imageURL.slice(11))
+            ? imageURL?.includes('google')
+                ? setImage(imageURL)
+                : setImage(serverURL + imageURL.slice(11))
             : setImage(defaultImg);
     }, [serverURL, imageURL]);
 
