@@ -37,6 +37,14 @@
         width: 20px;
         height: 20px;
     }
+
+    .gl {
+        background-image: url(../img/icons/galicia.svg);
+        width: 20px;
+        height: 20px;
+        border: 0.5px solid rgba(0, 0, 0, 0.363);
+        border-radius: 50%;
+    }
 }
 
 .lang:hover {
@@ -47,7 +55,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 8vh;
+        height: 100px;
         li {
             margin: 0;
             display: block;

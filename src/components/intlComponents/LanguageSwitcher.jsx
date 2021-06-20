@@ -1,9 +1,10 @@
 import es from '../../locale/es.json';
 import en from '../../locale/en.json';
 import it from '../../locale/en.json';
+import gl from '../../locale/gl.json';
 import { IntlProvider } from 'react-intl';
 import { useSelector } from 'react-redux';
-const allMessages = { es, en, it };
+const allMessages = { es, en, gl, it };
 
 const LanguageSwitcher = ({ children }) => {
     const { language } = useSelector((s) => s.language);

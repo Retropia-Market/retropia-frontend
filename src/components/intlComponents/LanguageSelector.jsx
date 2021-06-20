@@ -5,7 +5,7 @@ import { languageDropdownAni } from '../animations';
 const LanguageSelector = () => {
     const { language } = useSelector((s) => s.language);
     const dispatch = useDispatch();
-    const options = ['en', 'es', 'it'];
+    const options = ['es', 'en', 'gl', 'it'];
 
     return (
         <div className="lang">
