@@ -65,11 +65,12 @@
 
 .select-search__option.is-highlighted,
 .select-search__option:not(.is-selected):hover {
-    background: rgba(47, 204, 139, 0.1);
+    background: #6c39678a;
+    color: white;
 }
 
 .select-search__option.is-highlighted.is-selected,
 .select-search__option.is-selected:hover {
-    background: #2eb378;
+    background: #6c3967c0;
     color: #fff;
 }

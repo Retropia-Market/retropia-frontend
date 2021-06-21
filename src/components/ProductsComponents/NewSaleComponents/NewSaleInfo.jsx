@@ -70,7 +70,7 @@ const NewSaleInfo = ({
             <div className="sale-user-input">
                 {redirect && <Redirect to="/" />}
                 <span className="new-sale-title product-title">
-                    Datos del producto
+                    <FormattedMessage id="sale.productdatatitle" />
                 </span>
                 <form onSubmit={handleSubmit} className="new-sale-form">
                     <div className="info-part info-part-1">
@@ -126,6 +126,7 @@ const NewSaleInfo = ({
                                     setProductPrice(e.target.value)
                                 }
                                 className="normal-input"
+                                pattern="^\d+(,\d{1,2})?$"
                                 placeholder="Precio de tu producto"
                             />
                         </label>
@@ -179,7 +180,8 @@ const NewSaleInfo = ({
                             <textarea
                                 className="textarea-input"
                                 cols="30"
-                                rows="10"
+                                rows="8"
+                                res
                                 onChange={(e) =>
                                     setProductDescription(e.target.value)
                                 }

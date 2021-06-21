@@ -31,7 +31,8 @@
     .new-sale-title {
         border-bottom: 2px solid rgba(0, 0, 0, 0.267);
         color: rgba(147, 38, 131, 1);
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
+        padding-bottom: 0.2em;
         margin-bottom: 0.5rem;
     }
 
@@ -61,9 +62,9 @@
     }
 
     .visioned {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
+        width: 15vw;
+        height: 20vh;
+        border-radius: 10px;
     }
 
     .file-list {
@@ -76,7 +77,7 @@
         margin-left: 2rem;
 
         .sale-user-input {
-            height: 100%;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -112,7 +113,7 @@
                 font-size: 1.2em;
                 justify-content: start;
                 align-items: flex-start;
-                font-weight: bold;
+                font-weight: 400;
 
                 .product-type-title {
                     flex-grow: 4;
@@ -122,8 +123,18 @@
                 }
 
                 .select-search__input {
-                    width: 60%;
-                    font-weight: bold;
+                    width: 10vw;
+                    font-weight: 300;
+                }
+                .select-search__options {
+                    padding-inline-start: 0;
+                    width: 100%;
+                    .select-search__row {
+                        width: 10vw;
+                        button {
+                            padding: 0 5px;
+                        }
+                    }
                 }
             }
         }
@@ -136,10 +147,37 @@
 
         .select-search__options {
             padding-inline-start: 0;
+            width: 20vw;
+        }
+        .select-search__row {
+            width: 20vw;
+            button {
+                padding: 0 5px;
+            }
         }
 
         .textarea-input {
             width: 20vw;
+            margin-top: 10px;
+            resize: none;
+            background: none repeat scroll 0 0 #e9e9dc1c;
+            border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
+            border-image: none;
+            border-radius: 6px 6px 6px 6px;
+            border-style: none solid solid none;
+            border-width: medium 1px 1px medium;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+            color: #555555;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1em;
+            line-height: 1.4em;
+            padding: 5px 8px;
+            transition: background-color 0.2s ease 0s;
+        }
+
+        textarea:focus {
+            background: none repeat scroll 0 0 #ffffff;
+            outline-width: 0;
         }
     }
 
@@ -193,9 +231,10 @@
         }
     }
     .yellow-button {
-        padding: 0.2rem 1rem;
+        padding: 0.5rem 1rem;
         color: rgb(0, 0, 0);
         font-weight: 700;
+        border: 2px solid rgba(0, 0, 0, 0.404);
         border-radius: 1rem;
         background-color: rgb(255, 217, 0);
     }

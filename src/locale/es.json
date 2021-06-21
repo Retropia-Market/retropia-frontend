@@ -126,5 +126,6 @@
     "password.recovery.aftersent": "Listo, comprueba tu correo!",
     "delete.title": "¿Estas seguro?",
     "delete.button.yes": "Si",
-    "delete.button.no": "No"
+    "delete.button.no": "No",
+    "sale.productdatatitle": "Datos del producto"
 }
