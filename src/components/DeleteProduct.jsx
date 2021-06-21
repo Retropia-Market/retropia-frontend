@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
-import binIcon from '../img/icons/delete.svg';
+import binIcon from '../img/icons/iconmonstr-trash-can-thin.svg';
 
 const DeleteProduct = ({ productId, setHide }) => {
     const user = useSelector((s) => s.user);
@@ -28,9 +28,7 @@ const DeleteProduct = ({ productId, setHide }) => {
                 style={{
                     background: `url(${binIcon}) no-repeat`,
                 }}
-            >
-                D
-            </div>
+            ></div>
             {showAlert && (
                 <div className="update-modal">
                     <div
@@ -38,7 +36,7 @@ const DeleteProduct = ({ productId, setHide }) => {
                         onClick={() => setShowAlert(false)}
                     >
                         <div
-                            className="modal-fg"
+                            className="modal-fg delete-modal"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <h3 className="update-title">

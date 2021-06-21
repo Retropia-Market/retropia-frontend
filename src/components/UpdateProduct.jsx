@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import SelectSearch from 'react-select-search';
 import LocationSelector from './ProductsComponents/NewSaleComponents/LocationSelector';
-import editIcon from '../img/icons/editar.svg';
+import editIcon from '../img/icons/iconmonstr-edit-9.svg';
 import { useHistory } from 'react-router';
 
 const UpdateProduct = ({ productId }) => {
@@ -50,7 +50,7 @@ const UpdateProduct = ({ productId }) => {
                     background: `url(${editIcon}) no-repeat`,
                 }}
             >
-                U
+                <editIcon />
             </div>
             {showUpdate && (
                 <div className="update-modal">
