@@ -16,6 +16,7 @@ const NewSale = () => {
     if (!isLoggedIn) return <Redirect to="/" />;
     return (
         <div className="new-sale">
+            <h1 className="new-sale-title main-title">Vende tu producto</h1>
             <div className="new-sale-main">
                 <div className="new-sale-first-step">
                     <NewSaleImageSelect
@@ -37,7 +38,6 @@ const NewSale = () => {
                     />
                 )}
             </div>
-            {productLocation && <Location place={productLocation} />}
         </div>
     );
 };
