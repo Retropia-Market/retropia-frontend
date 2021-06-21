@@ -5,8 +5,6 @@ function useImage(imageURL) {
     const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
     const [image, setImage] = useState(defaultImg);
 
-    console.log(imageURL)
-
     useEffect(() => {
         imageURL
             ? imageURL?.includes('google')
