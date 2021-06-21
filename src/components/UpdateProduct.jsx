@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import SelectSearch from 'react-select-search';
-import LocationSelector from '../../../ProductsComponents/NewSaleComponents/LocationSelector';
+import LocationSelector from './ProductsComponents/NewSaleComponents/LocationSelector';
+import editIcon from '../img/icons/editar.svg';
+import { useHistory } from 'react-router';
 
 const UpdateProduct = ({ productId }) => {
     const [showUpdate, setShowUpdate] = useState(false);
@@ -11,6 +13,7 @@ const UpdateProduct = ({ productId }) => {
     const [location, setLocation] = useState();
     const [description, setDescription] = useState();
     const user = useSelector((s) => s.user);
+    const history = useHistory();
 
     const handleSubmit = async (e, productId) => {
         e.preventDefault();
@@ -19,7 +22,7 @@ const UpdateProduct = ({ productId }) => {
         if (price) productInfo['price'] = price;
         if (location) productInfo['location'] = location;
         if (description) productInfo['description'] = description;
-        console.log(productInfo);
+        console.log(status);
 
         const ret = await fetch(
             `http://localhost:8080/catalogue/${productId}/update`,
@@ -32,22 +35,31 @@ const UpdateProduct = ({ productId }) => {
                 },
             }
         );
-        if (ret.status === 200) setShowUpdate(false);
+        if (ret.status === 200) {
+            setShowUpdate(false);
+            history.push('/catalogue/' + productId);
+        }
     };
 
     return (
         <div className="update-product">
-            <button onClick={() => setShowUpdate(true)}>
-                <FormattedMessage id="update.update" />
-            </button>
+            <div
+                onClick={() => setShowUpdate(!showUpdate)}
+                className="update-icon"
+                style={{
+                    background: `url(${editIcon}) no-repeat`,
+                }}
+            >
+                U
+            </div>
             {showUpdate && (
                 <div className="update-modal">
                     <div
-                        className="login-bg"
+                        className="modal-bg"
                         onClick={() => setShowUpdate(false)}
                     >
                         <form
-                            className="login-fg"
+                            className="modal-fg"
                             onSubmit={(e) => handleSubmit(e, productId)}
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -58,7 +70,7 @@ const UpdateProduct = ({ productId }) => {
                                 <label>
                                     <FormattedMessage id="sale.productPrice" />
                                     <input
-                                        type="number"
+                                        type="text"
                                         value={price}
                                         onChange={(e) =>
                                             setPrice(e.target.value)

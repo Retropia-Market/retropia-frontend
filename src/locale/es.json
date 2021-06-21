@@ -123,5 +123,8 @@
     "password.recovery.title": "Recupera tu contraseña",
     "password.recovery.subtitle": "Introduce el correo para el que deseas recuperar tu contraseña.",
     "password.recovery.button": "Enviar correo",
-    "password.recovery.aftersent": "Listo, comprueba tu correo!"
+    "password.recovery.aftersent": "Listo, comprueba tu correo!",
+    "delete.title": "¿Estas seguro?",
+    "delete.button.yes": "Si",
+    "delete.button.no": "No"
 }

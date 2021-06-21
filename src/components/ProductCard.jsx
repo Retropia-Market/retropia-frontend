@@ -13,7 +13,10 @@ import { item } from './animations';
 
 import messageIcon from '../img/icons/message-grey-icon.svg';
 import basketIcon from '../img/icons/basket-grey-icon.svg';
+
 import { useEffect } from 'react';
+import DeleteProduct from './DeleteProduct';
+import UpdateProduct from './UpdateProduct';
 
 const ProductCard = ({ data, favorites }) => {
     const [showBidModal, setShowBidModal] = useState(false);
@@ -25,6 +28,7 @@ const ProductCard = ({ data, favorites }) => {
     const contacts = useSelector((s) => s.contacts);
     const dispatch = useDispatch();
     const [doneBid, setDoneBid] = useState(false);
+    const [hide, setHide] = useState(false);
 
     useEffect(() => {
         getBids?.bids
@@ -72,107 +76,125 @@ const ProductCard = ({ data, favorites }) => {
 
     return (
         <>
-            <motion.li
-                variants={item}
-                animate="visible"
-                initial="hidden"
-                exit="hidden"
-                className="product-item"
-            >
-                <div className="product-card">
-                    <div
-                        className="product-card-img"
-                        onClick={handleOnClick}
-                        style={{
-                            backgroundImage: images[0]?.url
-                                ? `url(http:/\/\localhost:8080/${data.images[0]?.url})`
-                                : `url(${productPlaceholder})`,
-                        }}
-                    ></div>
-                    <div className="product-card-info">
-                        <div className="product-card-info-name-price">
-                            <span className="product-card-info-name">
-                                {name}
-                            </span>
-                            <span className="product-card-info-price">
-                                <span className="product-card-info-status">
-                                    {status}
+            {!hide && (
+                <motion.li
+                    variants={item}
+                    animate="visible"
+                    initial="hidden"
+                    exit="hidden"
+                    className="product-item"
+                >
+                    <div className="product-card">
+                        <div
+                            className="product-card-img"
+                            onClick={handleOnClick}
+                            style={{
+                                backgroundImage: images[0]?.url
+                                    ? `url(http:/\/\localhost:8080/${data.images[0]?.url})`
+                                    : `url(${productPlaceholder})`,
+                            }}
+                        ></div>
+                        <div className="product-card-info">
+                            <div className="product-card-info-name-price">
+                                <span className="product-card-info-name">
+                                    {name}
                                 </span>
-                                <FormattedNumber
-                                    style="currency"
-                                    value={price}
-                                    currency="EUR"
-                                />
-                            </span>
-                        </div>
-                        <div className="product-card-info-user-icons">
-                            <div className="product-card-info-user">
-                                <span className="product-card-info-seller">
-                                    <Link to={`/users/${seller_id}`}>
-                                        {seller}
-                                    </Link>
-                                </span>
-                                <span className="product-card-info-average-rating">
-                                    <ReactStarsRating
-                                        className="react-stars"
-                                        value={
-                                            +results[0]?.review_average > 0
-                                                ? +results[0]?.review_average
-                                                : 0
-                                        }
-                                        isEdit={false}
-                                        isHalf={true}
+                                <span className="product-card-info-price">
+                                    <span className="product-card-info-status">
+                                        {status}
+                                    </span>
+                                    <FormattedNumber
+                                        style="currency"
+                                        value={price}
+                                        currency="EUR"
                                     />
                                 </span>
-                                <span className="product-card-info-total-ratings">
-                                    ({results[0]?.total_review})
-                                </span>
                             </div>
-                            <div className="product-card-general-icons">
-                                <div className="product-card-info-icons">
-                                    <div>
-                                        {user?.userData ? (
-                                            <GiveFavComponent
-                                                favorites={favorites}
-                                                data={data}
-                                            />
-                                        ) : (
-                                            ''
-                                        )}
+                            <div className="product-card-info-user-icons">
+                                <div className="product-card-info-user">
+                                    <span className="product-card-info-seller">
+                                        <Link to={`/users/${seller_id}`}>
+                                            {seller}
+                                        </Link>
+                                    </span>
+                                    <span className="product-card-info-average-rating">
+                                        <ReactStarsRating
+                                            className="react-stars"
+                                            value={
+                                                +results[0]?.review_average > 0
+                                                    ? +results[0]
+                                                          ?.review_average
+                                                    : 0
+                                            }
+                                            isEdit={false}
+                                            isHalf={true}
+                                        />
+                                    </span>
+                                    <span className="product-card-info-total-ratings">
+                                        ({results[0]?.total_review})
+                                    </span>
+                                </div>
+                                <div className="product-card-general-icons">
+                                    <div className="product-card-owner-icons">
+                                        {user.userData &&
+                                            user.userData.id === seller_id && (
+                                                <UpdateProduct productId={id} />
+                                            )}
+                                        {user.userData &&
+                                            user.userData.id === seller_id && (
+                                                <DeleteProduct
+                                                    productId={id}
+                                                    setHide={setHide}
+                                                />
+                                            )}
                                     </div>
+                                    <div className="product-card-info-icons">
+                                        <div>
+                                            {user?.userData ? (
+                                                <GiveFavComponent
+                                                    favorites={favorites}
+                                                    data={data}
+                                                />
+                                            ) : (
+                                                ''
+                                            )}
+                                        </div>
 
-                                    {user.userData &&
-                                        user.userData.id !== seller_id && (
-                                            <div>
-                                                <div
-                                                    onClick={chatClickHandler}
-                                                    className="message-icon"
-                                                    style={{
-                                                        background: `url(${messageIcon}) no-repeat`,
-                                                        cursor: 'pointer',
-                                                    }}
-                                                ></div>
-                                            </div>
-                                        )}
-                                    {user.userData &&
-                                        user.userData.id !== seller_id &&
-                                        !doneBid && (
-                                            <div>
-                                                <div
-                                                    onClick={handleBid}
-                                                    className="basket-icon"
-                                                    style={{
-                                                        background: `url(${basketIcon}) no-repeat`,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                        )}
+                                        {user.userData &&
+                                            user.userData.id !== seller_id && (
+                                                <div>
+                                                    <div
+                                                        onClick={
+                                                            chatClickHandler
+                                                        }
+                                                        className="message-icon"
+                                                        style={{
+                                                            background: `url(${messageIcon}) no-repeat`,
+                                                            cursor: 'pointer',
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                            )}
+                                        {user.userData &&
+                                            user.userData.id !== seller_id &&
+                                            !doneBid && (
+                                                <div>
+                                                    <div
+                                                        onClick={handleBid}
+                                                        className="basket-icon"
+                                                        style={{
+                                                            background: `url(${basketIcon}) no-repeat`,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                            )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </motion.li>
+                </motion.li>
+            )}
             {showBidModal && (
                 <NewBid
                     id={id}
