@@ -52,6 +52,7 @@ function BidsReceived() {
                                 user={user}
                                 update={fetchData}
                                 type="recibida"
+                                key={b.id}
                             />
                         );
                     }

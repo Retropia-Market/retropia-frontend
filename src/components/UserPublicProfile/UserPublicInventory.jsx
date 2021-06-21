@@ -53,9 +53,11 @@ const UserPublicInventory = ({ uid }) => {
                                             return (
                                                 <ProductCard
                                                     data={product}
-                                                    key={product?.id}
+                                                    key={product}
                                                 />
                                             );
+                                        } else {
+                                            return null;
                                         }
                                     })}
                             </div>
