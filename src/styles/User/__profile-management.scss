@@ -1,0 +1,125 @@
+.profile-update {
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+  grid-template-rows: auto auto auto;
+  padding: 0 2rem 2rem 2rem;
+
+  .profile-update-title {
+    grid-column: 1 / 4;
+    margin: 0;
+    padding: 1.5rem 0 0.25rem 0;
+    text-align: start;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    color: rgb(147, 38, 131);
+    border-bottom: 1px solid lightgray;
+  }
+
+  .profile-update-section-title {
+    margin: 0;
+    width: 20rem;
+    padding: 0;
+    padding-bottom: 0.25rem;
+    text-align: start;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    color: rgb(147, 38, 131);
+    border-bottom: 1px solid lightgray;
+  }
+  .profile-form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    .profile-update-fields {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: start;
+    }
+
+    .profile-update-field {
+      padding-top: 0.5rem;
+
+      .profile-update-field-label {
+        display: block;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 0.75rem;
+        text-align: start;
+        color: gray;
+
+        span {
+          padding-right: 0.5rem;
+        }
+      }
+
+      .profile-update-input {
+        display: flex;
+        color: gray;
+        background: transparent;
+        text-align: start;
+        padding: 0.25rem;
+        width: 15rem;
+        border-bottom: 1px solid lightgray;
+
+        input {
+          flex-grow: 1;
+          background: transparent;
+          border-style: hidden;
+          padding-left: 0.5rem;
+        }
+        textarea {
+          border-style: hidden;
+          padding-left: 0.5rem;
+          border-bottom: none;
+        }
+        #profile-update-location {
+          .select-search__select {
+            position: absolute;
+          }
+        }
+      }
+
+      #bio-input {
+        border: none;
+      }
+    }
+  }
+
+  .profile-data {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+
+  .profile-password {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  .profile-img {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    .profile-update-image {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      .avatar {
+        margin-top: 1rem;
+        border-radius: 100%;
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        border: solid 1px black;
+        cursor: pointer;
+      }
+      input[type='file'] {
+        display: none;
+      }
+    }
+  }
+}

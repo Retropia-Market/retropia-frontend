@@ -20,7 +20,7 @@ function ProfileUpdate({ user }) {
 
     return (
         <div className="profile-update">
-            <h2>
+            <h2 className="profile-update-title">
                 <FormattedMessage id="profile.update.updateprofile" />
             </h2>
             <ProfileImg user={user} />

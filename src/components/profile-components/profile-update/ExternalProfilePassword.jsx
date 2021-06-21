@@ -46,37 +46,50 @@ export function ExternalProfilePassword({ updateField, user }) {
             <h3 className="profile-update-section-title">
                 <FormattedMessage id="profile.update.establishpassword" />
             </h3>
-            <label htmlFor="new-password">
-                <FormattedMessage id="profile.update.newpassword" />
-            </label>
-            <div className="new-password">
-                <FontAwesomeIcon icon={faUnlock}></FontAwesomeIcon>
-                <input
-                    id="new-password"
-                    type="password"
-                    value={profilePassword.newPassword}
-                    name="newPassword"
-                    onChange={(e) =>
-                        updateField(e, setProfilePassword, profilePassword)
-                    }
-                />
+
+            <div className="profile-update-fields">
+                <div className="profile-update-field">
+                    <label 
+                        className="profile-update-field-label" 
+                        htmlFor="new-password"
+                    >
+                        <FormattedMessage id="profile.update.newpassword" />
+                    </label>
+                    <div className="profile-update-input">
+                        <FontAwesomeIcon icon={faUnlock}></FontAwesomeIcon>
+                        <input
+                            id="new-password"
+                            type="password"
+                            value={profilePassword.newPassword}
+                            name="newPassword"
+                            onChange={(e) =>
+                                updateField(e, setProfilePassword, profilePassword)
+                            }
+                        />
+                    </div>
+                </div>
+                <div className="profile-update-field">
+                    <label 
+                        className="profile-update-field-label" 
+                        htmlFor="confirmed-new-password"
+                    >
+                        <FormattedMessage id="profile.update.confirmpassword" />
+                    </label>
+                    <div className="profile-update-input">
+                        <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+                        <input
+                            id="confirmed-new-password"
+                            type="password"
+                            value={profilePassword.repeatedNewPassword}
+                            name="repeatedNewPassword"
+                            onChange={(e) =>
+                                updateField(e, setProfilePassword, profilePassword)
+                            }
+                        />
+                    </div>
+                </div>
             </div>
-            <label htmlFor="confirmed-new-password">
-                <FormattedMessage id="profile.update.confirmpassword" />
-            </label>
-            <div className="confirmed-new-password">
-                <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-                <input
-                    id="confirmed-new-password"
-                    type="password"
-                    value={profilePassword.repeatedNewPassword}
-                    name="repeatedNewPassword"
-                    onChange={(e) =>
-                        updateField(e, setProfilePassword, profilePassword)
-                    }
-                />
-            </div>
-            <button className="submit-button">
+            <button className="submit-button-1 profile-update-button">
                 <FormattedMessage id="profile.update.updatepassword" />
             </button>
             {errorMessage && (

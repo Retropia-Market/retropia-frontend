@@ -57,53 +57,73 @@ function ProfilePassword({ updateField, user }) {
                 <FormattedMessage id="profile.update.password" />
             </h3>
 
-            <label htmlFor="old-password">
-                <FormattedMessage id="profile.update.actualpassword" />
-            </label>
-            <div className="old-password">
-                <FontAwesomeIcon icon={faUserLock}></FontAwesomeIcon>
-                <input
-                    id="old-password"
-                    type="password"
-                    value={profilePassword.oldPassword}
-                    name="oldPassword"
-                    placeholder="***********"
-                    onChange={(e) =>
-                        updateField(e, setProfilePassword, profilePassword)
-                    }
-                />
+            <div className="profile-update-fields">
+                <div className="profile-update-field">
+                    <label 
+                        className="profile-update-field-label" 
+                        htmlFor="old-password"
+                    >
+                        <FormattedMessage id="profile.update.actualpassword" />
+                    </label>
+                    <div className="profile-update-input">
+                        <FontAwesomeIcon icon={faUserLock}></FontAwesomeIcon>
+                        <input
+                            id="old-password"
+                            type="password"
+                            value={profilePassword.oldPassword}
+                            name="oldPassword"
+                            placeholder="***********"
+                            onChange={(e) =>
+                                updateField(e, setProfilePassword, profilePassword)
+                            }
+                        />
+                    </div>
+                </div>
+                
+                <div className="profile-update-field">
+                    <label 
+                        className="profile-update-field-label" 
+                        htmlFor="new-password"
+                    >
+                        <FormattedMessage id="profile.update.newpassword" />
+                    </label>
+                    <div className="profile-update-input">
+                        <FontAwesomeIcon icon={faUnlock}></FontAwesomeIcon>
+                        <input
+                            id="new-password"
+                            type="password"
+                            value={profilePassword.newPassword}
+                            name="newPassword"
+                            onChange={(e) =>
+                                updateField(e, setProfilePassword, profilePassword)
+                            }
+                        />
+                    </div>
+                </div>
+
+                <div className="profile-update-field">
+                    <label 
+                        className="profile-update-field-label" 
+                        htmlFor="confirmed-new-password"
+                    >
+                        <FormattedMessage id="profile.update.confirmpassword" />
+                    </label>
+                    <div className="profile-update-info">
+                        <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+                        <input
+                            id="confirmed-new-password"
+                            type="password"
+                            value={profilePassword.repeatedNewPassword}
+                            name="repeatedNewPassword"
+                            onChange={(e) =>
+                                updateField(e, setProfilePassword, profilePassword)
+                            }
+                        />
+                    </div>
+                </div>
             </div>
-            <label htmlFor="new-password">
-                <FormattedMessage id="profile.update.newpassword" />
-            </label>
-            <div className="new-password">
-                <FontAwesomeIcon icon={faUnlock}></FontAwesomeIcon>
-                <input
-                    id="new-password"
-                    type="password"
-                    value={profilePassword.newPassword}
-                    name="newPassword"
-                    onChange={(e) =>
-                        updateField(e, setProfilePassword, profilePassword)
-                    }
-                />
-            </div>
-            <label htmlFor="confirmed-new-password">
-                <FormattedMessage id="profile.update.confirmpassword" />
-            </label>
-            <div className="confirmed-new-password">
-                <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-                <input
-                    id="confirmed-new-password"
-                    type="password"
-                    value={profilePassword.repeatedNewPassword}
-                    name="repeatedNewPassword"
-                    onChange={(e) =>
-                        updateField(e, setProfilePassword, profilePassword)
-                    }
-                />
-            </div>
-            <button className="submit-button">
+
+            <button className="submit-button-1 profile-update-button">
                 <FormattedMessage id="profile.update.updatepassword" />
             </button>
             {errorMessage && (

@@ -89,6 +89,23 @@ $primary-color: #88236b;
   perspective: 1000px;
 }
 
+.submit-button-1 {
+  cursor: pointer;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  background: rgb(147, 38, 131);
+  background: linear-gradient(
+    90deg,
+    rgba(45, 19, 66, 0.9) 30%,
+    rgba(147, 38, 131, 1) 70%
+  );
+}
+
 @import './MainBackground';
 @import './Modal';
 @import './Navbar';
@@ -96,8 +113,6 @@ $primary-color: #88236b;
 @import './Register';
 @import './Bid';
 @import './Select';
-@import './ProfileNavbar';
-@import './ProfileInfo';
 @import './Transactions';
 @import './PublicProfile';
 @import './Chat';
@@ -105,4 +120,9 @@ $primary-color: #88236b;
 @import './Footer';
 @import './LanguageSelector';
 
+// PROFILE
+@import './User/_user-private-page';
+@import './User/_profile-management';
+// @import './ProfileNavbar';
+// @import './ProfileInfo';
 @import '~react-image-gallery/styles/scss/image-gallery.scss';
