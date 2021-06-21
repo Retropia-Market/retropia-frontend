@@ -14,18 +14,21 @@ function ProfileFavs({ user }) {
     }
 
     return (
-        <div className="profile-favs">
+        <div className="catalogue">
             <h2>
                 <FormattedMessage id="fav.title" />
             </h2>
+
             {!favs && <h3>Cargando...</h3>}
-            {favs &&
-                favs.length &&
-                favs.map((f) => (
-                    <>
-                        <ProductCard data={f} />
-                    </>
-                ))}
+            <div className="catalogue-products">
+                {favs &&
+                    favs.length &&
+                    favs.map((f) => (
+                        <>
+                            <ProductCard data={f} />
+                        </>
+                    ))}
+            </div>
         </div>
     );
 }
