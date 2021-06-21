@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
+import { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 
-const Categories = ({hideCategories, showSubcategories, setCategoryIndex, category, setCategory, type = {id :'consoles'}}) => {
+const Categories = ({hideCategories, showSubcategories, setCategoryIndex, setCategory, type = {id :'consoles'}}) => {
   const [allCategories] = useFetch('http://localhost:8080/categories')
   const history = useHistory()
 
@@ -12,8 +14,9 @@ const Categories = ({hideCategories, showSubcategories, setCategoryIndex, catego
     hideCategories()
     showSubcategories()
   }
+
   return <>
-      {!allCategories && <li>cargando...</li>} 
+      {!allCategories && <li className="category">cargando...</li>} 
       
       {allCategories?.reduce((acc, c) => 
         acc.includes(c.categoria) ? acc : [...acc, c.categoria]  ,[]).map((c,i) =>
