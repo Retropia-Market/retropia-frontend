@@ -20,7 +20,7 @@ const ProductCard = ({ data, favorites }) => {
     const history = useHistory();
     const { seller, name, status, price, images, seller_id, id } = data;
     const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
-    const { userData, token } = useSelector((s) => s.user);
+    const user = useSelector((s) => s.user);
     const [getBids] = useFetch(`http://localhost:8080/products/${id}/bid`);
     const contacts = useSelector((s) => s.contacts);
     const dispatch = useDispatch();
@@ -30,11 +30,11 @@ const ProductCard = ({ data, favorites }) => {
         getBids?.bids
             ? setDoneBid(
                   getBids.bids.some(
-                      (product) => (product.user_id = userData.id)
+                      (product) => (product.user_id = user?.userData?.id)
                   )
               )
             : setDoneBid(false);
-    }, [setDoneBid, getBids, userData.id]);
+    }, [setDoneBid, getBids, user?.userData?.id]);
 
     const handleBid = () => {
         setShowBidModal(!showBidModal);
@@ -47,11 +47,11 @@ const ProductCard = ({ data, favorites }) => {
     const chatClickHandler = async (e) => {
         if (!contacts[seller_id]) {
             const res = await fetch(
-                `http://localhost:8080/chats/${userData.id}/add-contact/${seller_id}`,
+                `http://localhost:8080/chats/${user.userData.id}/add-contact/${seller_id}`,
                 {
                     method: 'POST',
                     headers: {
-                        Authorization: 'Bearer ' + token,
+                        Authorization: 'Bearer ' + user.token,
                     },
                 }
             );
@@ -128,43 +128,46 @@ const ProductCard = ({ data, favorites }) => {
                                     ({results[0]?.total_review})
                                 </span>
                             </div>
-                            <div className="product-card-info-icons">
-                                <div>
-                                    {userData ? (
-                                        <GiveFavComponent
-                                            favorites={favorites}
-                                            data={data}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
-                                </div>
-
-                                {userData && userData.id !== seller_id && (
+                            <div className="product-card-general-icons">
+                                <div className="product-card-info-icons">
                                     <div>
-                                        <div
-                                            onClick={chatClickHandler}
-                                            className="message-icon"
-                                            style={{
-                                                background: `url(${messageIcon}) no-repeat`,
-                                                cursor: 'pointer',
-                                            }}
-                                        ></div>
+                                        {user?.userData ? (
+                                            <GiveFavComponent
+                                                favorites={favorites}
+                                                data={data}
+                                            />
+                                        ) : (
+                                            ''
+                                        )}
                                     </div>
-                                )}
-                                {userData &&
-                                    userData.id !== seller_id &&
-                                    !doneBid && (
-                                        <div>
-                                            <div
-                                                onClick={handleBid}
-                                                className="basket-icon"
-                                                style={{
-                                                    background: `url(${basketIcon}) no-repeat`,
-                                                }}
-                                            ></div>
-                                        </div>
-                                    )}
+
+                                    {user.userData &&
+                                        user.userData.id !== seller_id && (
+                                            <div>
+                                                <div
+                                                    onClick={chatClickHandler}
+                                                    className="message-icon"
+                                                    style={{
+                                                        background: `url(${messageIcon}) no-repeat`,
+                                                        cursor: 'pointer',
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        )}
+                                    {user.userData &&
+                                        user.userData.id !== seller_id &&
+                                        !doneBid && (
+                                            <div>
+                                                <div
+                                                    onClick={handleBid}
+                                                    className="basket-icon"
+                                                    style={{
+                                                        background: `url(${basketIcon}) no-repeat`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        )}
+                                </div>
                             </div>
                         </div>
                     </div>
