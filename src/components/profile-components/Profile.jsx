@@ -33,27 +33,27 @@ function Profile() {
   return (
     <div className="user-private-page">
       <ul className="user-private-sidebar">
-        <NavLink to="/profile">
+        <NavLink className="user-sidebar-section" to="/profile">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faUser} size="3x"></FontAwesomeIcon>
           </li>
         </NavLink>
-        <NavLink to="/profile/chat">
+        <NavLink className="user-sidebar-section" to="/profile/chat">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faCommentDots} size="3x"></FontAwesomeIcon>
           </li>
         </NavLink>
-        <NavLink to="/profile/favourites">
+        <NavLink className="user-sidebar-section" to="/profile/favourites">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faHeart} size="3x"></FontAwesomeIcon>
           </li>
         </NavLink>
-        <NavLink to="/profile/ratings">
+        <NavLink className="user-sidebar-section" to="/profile/ratings">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faStar} size="3x"></FontAwesomeIcon>
           </li>
         </NavLink>
-        <NavLink to="/profile/transactions/bids/made">
+        <NavLink className="user-sidebar-section" to="/profile/transactions/bids/made">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faHandshake} size="3x"></FontAwesomeIcon>
           </li>
