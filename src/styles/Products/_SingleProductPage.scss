@@ -72,6 +72,12 @@
     width: 25em;
   }
 
+  button {
+    z-index: 0;
+  }
+  .image-gallery-image {
+    z-index: -5;
+  }
   .image-gallery-thumbnails-wrapper bottom {
     height: fit-content;
   }
