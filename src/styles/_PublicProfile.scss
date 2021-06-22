@@ -103,6 +103,12 @@
         filter: grayscale(70%);
     }
 
+    .catalogue {
+        .product-item {
+            width: fit-content;
+        }
+    }
+
     .product-card {
         display: flex;
         flex-direction: column;

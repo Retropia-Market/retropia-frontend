@@ -8,10 +8,9 @@ const RelatedProducts = ({ data }) => {
     const [results_data] = useFetch(apiURL);
 
     return (
-        <div className="catalogue ">
+        <div>
             {results_data?.length > 1 && (
-                <>
-                    {' '}
+                <div className="catalogue">
                     <h1>
                         <FormattedMessage id="prod.related" />
                     </h1>
@@ -27,7 +26,7 @@ const RelatedProducts = ({ data }) => {
                             }
                         })}
                     </div>
-                </>
+                </div>
             )}
         </div>
     );

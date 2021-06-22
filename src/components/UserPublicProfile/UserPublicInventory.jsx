@@ -14,11 +14,11 @@ const UserPublicInventory = ({ uid }) => {
                     results.some(
                         (p) => p.sale_status.toLowerCase() === 'en venta'
                     ) && (
-                        <>
+                        <div className="catalogue">
                             <h1>
                                 <FormattedMessage id="publicprofile.onsale" />
                             </h1>
-                            <div className="inventory-products">
+                            <div className="catalogue-products">
                                 {results &&
                                     results
                                         .filter(
@@ -33,7 +33,7 @@ const UserPublicInventory = ({ uid }) => {
                                             />
                                         ))}
                             </div>
-                        </>
+                        </div>
                     )}
             </div>
             <div className="inventory">
@@ -41,11 +41,11 @@ const UserPublicInventory = ({ uid }) => {
                     results.some(
                         (p) => p.sale_status.toLowerCase() === 'vendido'
                     ) && (
-                        <>
+                        <div className="catalogue">
                             <h1>
                                 <FormattedMessage id="publicprofile.sold" />
                             </h1>
-                            <div className="inventory-products sold">
+                            <div className="catalogue-products sold">
                                 {results &&
                                     results
                                         .filter(
@@ -60,7 +60,7 @@ const UserPublicInventory = ({ uid }) => {
                                             />
                                         ))}
                             </div>
-                        </>
+                        </div>
                     )}
             </div>
         </div>
