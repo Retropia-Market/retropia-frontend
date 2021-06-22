@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import useImage from '../../hooks/useImage';
 
@@ -19,11 +19,14 @@ function DateViewer({ value }) {
 }
 
 
-function ChatEntry({ contact }) {
+function ChatEntry({ contact, contactId }) {
     const avatar = useImage(contact?.avatar)
+    const {id} = useParams()
+    console.log(id)
+    console.log(contactId)
 
     return (
-        <Link className="chat-entry" to={`/profile/chat/${contact.id}`}>
+        <Link className={`chat-entry ${contactId === contact?.id && "active"}`} to={`/profile/chat/${contact.id}`}>
             <div
                 className="avatar"
                 style={{ backgroundImage: `url(${avatar})` }}

@@ -76,9 +76,29 @@
           padding-left: 0.5rem;
           border-bottom: none;
         }
-        #profile-update-location {
-          .select-search__select {
-            position: absolute;
+        .new-sale-selector {
+          width: 100%;
+          .select-search {
+            position: relative;
+            width: 100%;
+            .select-search__value {
+              .select-search__input {
+                border-style: hidden;
+                padding: 0;
+                box-shadow: none;
+              }
+            }
+            .select-search__select {
+              position: absolute;
+              width: 100%;
+              width: 100%;
+              padding: 1rem;
+              margin: 0;
+              border-radius: 10px;
+              box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.4);
+              display: flex;
+              align-items: center;
+            }
           }
         }
       }
@@ -110,8 +130,10 @@
       .avatar {
         margin-top: 1rem;
         border-radius: 100%;
-        width: 150px;
-        height: 150px;
+        width: 10vw;
+        min-width: 135px;
+        height: 10vw;
+        min-height: 135px;
         background-size: cover;
         background-position: center;
         border: solid 1px black;

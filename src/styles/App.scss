@@ -114,7 +114,6 @@ $primary-color: #88236b;
 @import './Select';
 @import './Transactions';
 @import './PublicProfile';
-@import './Chat';
 @import './Notifications';
 @import './Footer';
 @import './LanguageSelector';
@@ -122,6 +121,8 @@ $primary-color: #88236b;
 // PROFILE
 @import './User/_user-private-page';
 @import './User/_profile-management';
+@import './User/_profile-chat';
 // @import './ProfileNavbar';
 // @import './ProfileInfo';
+// @import './Chat';
 @import '~react-image-gallery/styles/scss/image-gallery.scss';
