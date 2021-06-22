@@ -6,9 +6,13 @@ import useChat from '../../hooks/useChat';
 import useFetchChat from '../../hooks/useFetchChat';
 import useImage from '../../hooks/useImage';
 
-function ChatRoom() {
+function ChatRoom({setContactId}) {
   useChat();
+
   const { id } = useParams();
+  console.log(id)
+  setContactId(id)
+
   const user = useSelector((s) => s.user);
   useFetchChat(
     `http://localhost:8080/chats/${user.userData.id}/get-messages/${id}`,
@@ -34,19 +38,19 @@ function ChatRoom() {
 
   const contact = useSelector((s) => s.contacts[id]);
   const messages = useSelector((s) => s.messages[id]) || [];
-  const avatar = useImage('http://localhost:8080', contact?.avatar);
+  const avatar = useImage(contact?.avatar);
 
   return (
     <div className="chat-room">
-      {contact && (
-        <header>
+      {/* {contact && (
+        <header className="chat-header">
           <div
             className="avatar"
             style={{ backgroundImage: `url(${avatar})` }}
           />
           <div className="username">{contact.username}</div>
         </header>
-      )}
+      )} */}
       <div className="messages">
         {messages.map((m) => (
           <div
