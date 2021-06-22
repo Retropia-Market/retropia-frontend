@@ -131,7 +131,9 @@ const NewSaleImageSelect = ({
                     </>
                 )}
             </div>
-            <DragNDrop onDrop={onDrop} accept={'image/*'} images={images} />
+            {imageAdded && (
+                <DragNDrop onDrop={onDrop} accept={'image/*'} images={images} />
+            )}
         </div>
     );
 };

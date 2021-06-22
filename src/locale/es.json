@@ -35,10 +35,11 @@
   "button.bid": "Oferta",
   "prod.related": "Relacionados",
   "sale.imgTitle": "Agrega una imagen",
+  "sale.maintitle": "Vende tu producto",
   "sale.imgDescription": "Agrega una imagen del producto que quieras vender, en la que se vea claramente.",
   "sale.productName": "Nombre del producto",
   "sale.productStatus": "Estado del producto",
-  "sale.productType": "Tipo de producto",
+  "sale.productType": "Estoy vendiendo ",
   "sale.productCat": "Categoria",
   "sale.productLoc": "Localización",
   "sale.productPrice": "Precio",
@@ -50,7 +51,7 @@
   "sale.drag": "Arrastra los archivos que desees subir, o seleccionalos clickando.",
   "bid.new": "Nueva oferta",
   "bid.message": "Mensaje al vendedor",
-  "bid.price": "Monto a ofertar",
+  "bid.price": "Cantidad a ofertar",
   "bid.button": "Hacer Oferta",
   "error.user.empty": "El Usuario no puede estar vacío",
   "error.password.empty": "La contraseña no puede estar vacía",
@@ -123,5 +124,9 @@
   "password.recovery.title": "Recupera tu contraseña",
   "password.recovery.subtitle": "Introduce el correo para el que deseas recuperar tu contraseña.",
   "password.recovery.button": "Enviar correo",
-  "password.recovery.aftersent": "Listo, comprueba tu correo!"
+  "password.recovery.aftersent": "Listo, comprueba tu correo!",
+  "delete.title": "¿Estas seguro?",
+  "delete.button.yes": "Si",
+  "delete.button.no": "No",
+  "sale.productdatatitle": "Datos del producto"
 }

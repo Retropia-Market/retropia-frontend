@@ -69,101 +69,130 @@ const NewSaleInfo = ({
         <div className="new-sale-info">
             <div className="sale-user-input">
                 {redirect && <Redirect to="/" />}
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        <h2>
-                            <FormattedMessage id="sale.productType" />
-                        </h2>
-                        <SelectSearch
-                            options={[
-                                { value: 'console', name: 'Consola' },
-                                { value: 'videogame', name: 'Videojuego' },
-                                { value: 'accesory', name: 'Accesorio' },
-                            ]}
-                            search
-                            placeholder="Nombre"
-                            onChange={setProductType}
-                            value={productType}
-                        />
-                    </label>
-                    <label>
-                        <FormattedMessage id="sale.productName" />
-                        <br />
-                        {productType === 'console' ? (
-                            <NameConsoleSelector
-                                setProductName={setProductName}
-                                productType={productType}
+                <span className="new-sale-title product-title">
+                    <FormattedMessage id="sale.productdatatitle" />
+                </span>
+                <form onSubmit={handleSubmit} className="new-sale-form">
+                    <div className="info-part info-part-1">
+                        <label className="product-type">
+                            <span className="product-type-title">
+                                <FormattedMessage id="sale.productType" />
+                                {productType === 'console' ? 'una' : 'un'}
+                            </span>
+                            <SelectSearch
+                                options={[
+                                    { value: 'console', name: 'Consola' },
+                                    { value: 'videogame', name: 'Videojuego' },
+                                    { value: 'accesory', name: 'Accesorio' },
+                                ]}
+                                search
+                                placeholder="Nombre"
+                                onChange={setProductType}
+                                value={productType}
                             />
-                        ) : productType === 'videogame' ? (
-                            <NameVideoGameSelector
-                                setProductName={setProductName}
-                                productType={productType}
-                            />
-                        ) : (
+                        </label>
+                        <label className="input-label">
+                            <span className="input-title">
+                                <FormattedMessage id="sale.productName" />
+                            </span>
+                            {productType === 'console' ? (
+                                <NameConsoleSelector
+                                    setProductName={setProductName}
+                                    productType={productType}
+                                />
+                            ) : productType === 'videogame' ? (
+                                <NameVideoGameSelector
+                                    setProductName={setProductName}
+                                    productType={productType}
+                                />
+                            ) : (
+                                <input
+                                    type="text"
+                                    onChange={(e) =>
+                                        setProductName(e.target.value)
+                                    }
+                                    className="normal-input"
+                                    placeholder="Escribe el nombre de tu accesorio"
+                                />
+                            )}
+                        </label>
+                        <label className="input-label">
+                            <span className="input-title">
+                                <FormattedMessage id="sale.productPrice" />
+                            </span>
                             <input
                                 type="text"
-                                onChange={(e) => setProductName(e.target.value)}
+                                onChange={(e) =>
+                                    setProductPrice(e.target.value)
+                                }
+                                className="normal-input"
+                                pattern="^\d+(,\d{1,2})?$"
+                                placeholder="Precio de tu producto"
                             />
-                        )}
-                    </label>
-                    <label>
-                        <FormattedMessage id="sale.productPrice" />
-                        <br />
-                        <input
-                            type="text"
-                            onChange={(e) => setProductPrice(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        <FormattedMessage id="sale.productLoc" />
-                        <br />
-                        <LocationSelector
-                            setProductLocation={setProductLocation}
-                        />
-                    </label>
-                    <label>
-                        <FormattedMessage id="sale.productStatus" />
-                        <br />
-                        <SelectSearch
-                            options={[
-                                { value: 'Nuevo', name: 'Nuevo' },
-                                {
-                                    value: 'usado como nuevo',
-                                    name: 'Usado - Como nuevo',
-                                },
-                                { value: 'usado', name: 'Usado' },
-                                { value: 'deteriorado', name: 'Deteriorado' },
-                                { value: 'recambio', name: 'Recambio' },
-                            ]}
-                            search
-                            placeholder="Nombre"
-                            onChange={setProductStatus}
-                        />
-                    </label>
-
-                    <label>
-                        <FormattedMessage id="sale.productCat" />
-                        <br />
-                        <CatSelector
-                            setProductCategory={setProductCategory}
-                            productName={productName}
-                            productType={productType}
-                        />
-                    </label>
-                    <label>
-                        <FormattedMessage id="sale.productDescrip" />
-                        <br />
-                        <textarea
-                            cols="30"
-                            rows="10"
-                            onChange={(e) =>
-                                setProductDescription(e.target.value)
-                            }
-                        ></textarea>
-                    </label>
-                    <button className="yellow-button">
-                        <FormattedMessage id="sale.createnew" />
-                    </button>
+                        </label>
+                        <label className="input-label">
+                            <span className="input-title">
+                                <FormattedMessage id="sale.productLoc" />
+                            </span>
+                            <LocationSelector
+                                setProductLocation={setProductLocation}
+                            />
+                        </label>
+                        <label className="input-label">
+                            <span className="input-title">
+                                <FormattedMessage id="sale.productStatus" />
+                            </span>
+                            <SelectSearch
+                                options={[
+                                    { value: 'Nuevo', name: 'Nuevo' },
+                                    {
+                                        value: 'usado como nuevo',
+                                        name: 'Usado - Como nuevo',
+                                    },
+                                    { value: 'usado', name: 'Usado' },
+                                    {
+                                        value: 'deteriorado',
+                                        name: 'Deteriorado',
+                                    },
+                                    { value: 'recambio', name: 'Recambio' },
+                                ]}
+                                search
+                                placeholder="Nombre"
+                                onChange={setProductStatus}
+                            />
+                        </label>
+                    </div>
+                    <div className="info-part">
+                        <label className="input-label">
+                            <span className="input-title">
+                                <FormattedMessage id="sale.productCat" />
+                            </span>
+                            <CatSelector
+                                setProductCategory={setProductCategory}
+                                productName={productName}
+                                productType={productType}
+                            />
+                        </label>
+                        <label className="input-label">
+                            <span className="input-title">
+                                <FormattedMessage id="sale.productDescrip" />
+                            </span>
+                            <textarea
+                                className="textarea-input"
+                                cols="30"
+                                rows="8"
+                                res
+                                onChange={(e) =>
+                                    setProductDescription(e.target.value)
+                                }
+                            ></textarea>
+                        </label>
+                        <button className="yellow-button">
+                            <span>
+                                <FormattedMessage id="sale.createnew" />
+                            </span>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

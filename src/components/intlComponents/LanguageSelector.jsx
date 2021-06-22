@@ -24,6 +24,7 @@ const LanguageSelector = () => {
                     .map((lang) => {
                         return (
                             <li
+                                key={lang}
                                 onClick={() =>
                                     dispatch({
                                         type: 'UPDATE/LANGUAGE',

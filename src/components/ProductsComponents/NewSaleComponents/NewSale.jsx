@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import NewSaleImageSelect from './NewSaleImageSelect';
 import NewSaleInfo from './NewSaleInfo';
 import Location from '../../Location';
+import { FormattedMessage } from 'react-intl';
 
 const NewSale = () => {
     const [files, setFiles] = useState([]);
@@ -16,6 +17,10 @@ const NewSale = () => {
     if (!isLoggedIn) return <Redirect to="/" />;
     return (
         <div className="new-sale">
+            <h1 className="new-sale-title main-title">
+                {' '}
+                <FormattedMessage id="sale.maintitle" />
+            </h1>
             <div className="new-sale-main">
                 <div className="new-sale-first-step">
                     <NewSaleImageSelect
@@ -37,7 +42,6 @@ const NewSale = () => {
                     />
                 )}
             </div>
-            {productLocation && <Location place={productLocation} />}
         </div>
     );
 };

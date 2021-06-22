@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentDots, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
-const NewBid = ({ id, showBidModal, setShowBidModal }) => {
+const NewBid = ({ id, setDoneBid, setShowBidModal }) => {
     const [bidData, setBidData] = useState({
         message: '',
         bidPrice: 0,
@@ -26,6 +26,7 @@ const NewBid = ({ id, showBidModal, setShowBidModal }) => {
             const data = await res.json();
             console.log(data);
             setShowBidModal(false);
+            setDoneBid(true);
         } else {
             alert('parece que algo salio mal');
             const data = await res.json();

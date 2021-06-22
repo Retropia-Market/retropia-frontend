@@ -26,8 +26,13 @@ const UserPublicInventory = ({ uid }) => {
                                             'en venta'
                                         ) {
                                             return (
-                                                <ProductCard data={product} />
+                                                <ProductCard
+                                                    data={product}
+                                                    key={product.id}
+                                                />
                                             );
+                                        } else {
+                                            return null;
                                         }
                                     })}
                             </div>
@@ -45,7 +50,7 @@ const UserPublicInventory = ({ uid }) => {
                             </h1>
                             <div className="inventory-products sold">
                                 {results &&
-                                    results.map((product) => {
+                                    results.map((product, i) => {
                                         if (
                                             product.sale_status.toLowerCase() ===
                                             'vendido'
@@ -53,9 +58,11 @@ const UserPublicInventory = ({ uid }) => {
                                             return (
                                                 <ProductCard
                                                     data={product}
-                                                    key={product?.id}
+                                                    key={product.id}
                                                 />
                                             );
+                                        } else {
+                                            return null;
                                         }
                                     })}
                             </div>

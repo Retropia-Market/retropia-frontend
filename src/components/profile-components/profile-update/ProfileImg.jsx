@@ -53,19 +53,21 @@ function ProfileImg({ user }) {
     };
 
     return (
-        <form className="profile-img" onSubmit={handleSubmit}>
-            <h3 className="profile-img-title">
+        <form className="profile-img profile-form" onSubmit={handleSubmit}>
+            <h3 className="profile-update-section-title">
                 <FormattedMessage id="profile.update.profilephoto" />
             </h3>
-            <label>
-                <div
-                    className="avatar"
-                    style={preview && { backgroundImage: `url(${preview})` }}
-                />
-                <input onChange={handleFile} type="file" />
-            </label>
-            <button className="submit-button">
-                <FontAwesomeIcon icon={faSave}></FontAwesomeIcon>
+            <div className="profile-update-image">
+                <label>
+                    <div
+                        className="avatar"
+                        style={preview && { backgroundImage: `url(${preview})` }}
+                    />
+                    <input onChange={handleFile} type="file" />
+                </label>
+            </div>
+            <button className="submit-button-1 profile-update-button">
+                Actualizar Imagen
             </button>
         </form>
     );
