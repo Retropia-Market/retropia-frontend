@@ -3,15 +3,15 @@ import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import SelectSearch from 'react-select-search';
 import LocationSelector from './ProductsComponents/NewSaleComponents/LocationSelector';
-import editIcon from '../img/icons/iconmonstr-edit-9.svg';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router';
 
 import checkIcon from '../img/icons/check.svg';
 import cancelIcon from '../img/icons/cancel.svg';
 
-
 import { item } from './animations';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UpdateProduct = ({ productId }) => {
     const [showUpdate, setShowUpdate] = useState(false);
@@ -57,11 +57,10 @@ const UpdateProduct = ({ productId }) => {
             <div
                 onClick={() => setShowUpdate(!showUpdate)}
                 className="update-icon"
-                style={{
-                    background: `url(${editIcon}) no-repeat`,
-                }}
             >
-                <editIcon />
+                <FontAwesomeIcon className="delete-icon" icon={faEdit}>
+                    Photo
+                </FontAwesomeIcon>
             </div>
             {showUpdate && (
                 <div className="update-modal">
@@ -72,9 +71,9 @@ const UpdateProduct = ({ productId }) => {
                         <motion.form
                             className="modal-fg"
                             variants={item}
-      animate="visible"
-                    initial="hidden"
-                    exit="hidden"
+                            animate="visible"
+                            initial="hidden"
+                            exit="hidden"
                             onSubmit={(e) => handleSubmit(e, productId)}
                             onClick={(e) => e.stopPropagation()}
                         >

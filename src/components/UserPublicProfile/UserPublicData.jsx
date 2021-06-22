@@ -57,12 +57,14 @@ const UserPublicData = ({ uid }) => {
                         }}
                     ></div>
                     {+uid === user?.userData?.id && (
-                        <label className="update-banner">
-                            <input
-                                type="file"
-                                onChange={(e) => handleClick(e)}
-                            />
-                        </label>
+                        <div className="update-banner-background">
+                            <label className="update-banner">
+                                <input
+                                    type="file"
+                                    onChange={(e) => handleClick(e)}
+                                />
+                            </label>
+                        </div>
                     )}
 
                     <div

@@ -69,6 +69,7 @@
             .product-card-general-icons {
                 display: flex;
                 justify-content: space-between;
+                align-items: flex-end;
             }
             .product-card-owner-icons {
                 margin-top: 1rem;
@@ -77,17 +78,21 @@
                 gap: 10px;
                 display: flex;
                 justify-content: flex-start;
+                align-items: flex-start;
                 color: grey;
                 .delete-icon,
                 .update-icon {
-                    width: 1em;
-                    height: 1em;
+                    width: 0.9em;
+                    height: 0.9em;
                     transition: all 0.2s ease-in-out;
                     cursor: pointer;
+                }
 
-                    :hover {
-                        transform: scale(1.3);
-                    }
+                .delete-icon:hover {
+                    transform: scale(1.3);
+                }
+                .update-icon:hover {
+                    transform: scale(1.1);
                 }
             }
             .product-card-info-icons {

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
-import BinIcon from '../img/icons/iconmonstr-trash-can-thin.svg';
 
 import CheckIcon from '../img/icons/check.svg';
 import CancelIcon from '../img/icons/cancel.svg';
+
+import { faTrash} from '@fortawesome/free-solid-svg-icons';
 import { item } from './animations';
 import {motion} from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DeleteProduct = ({ productId, setHide }) => {
     const user = useSelector((s) => s.user);
@@ -29,11 +31,9 @@ const DeleteProduct = ({ productId, setHide }) => {
         <>
             <div
                 onClick={() => setShowAlert(!showAlert)}
-                className="delete-icon"
-                style={{
-                    background: `url(${BinIcon}) no-repeat`,
-                }}
-            ></div>
+            ><FontAwesomeIcon className="delete-icon" icon={faTrash}>
+                    Photo
+                  </FontAwesomeIcon></div>
             {showAlert && (
                 <div className="update-modal">
                     <div

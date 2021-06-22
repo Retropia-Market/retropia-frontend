@@ -138,7 +138,11 @@
     .user {
         display: flex;
         gap: 0.5rem;
-        font-size: 1.3rem;
+
+        .user-pic {
+            font-size: 1.3rem;
+            color: white;
+        }
         .user-settings {
             list-style: none;
             a {

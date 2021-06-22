@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
-import { item } from '../animations';
+
 
 const LanguageSelector = () => {
     const { language } = useSelector((s) => s.language);
@@ -8,13 +7,10 @@ const LanguageSelector = () => {
     const options = ['es', 'en', 'gl', 'it'];
 
     return (
-        <motion.div className="lang">
-            <motion.div className={language}></motion.div>
+        <div className="lang" >
+            <div className={language}></div>
             <ul
-                variants={item}
-                animate="visible"
-                initial="hidden"
-                exit="hidden"
+                
                 className="dropdown"
             >
                 {options
@@ -37,7 +33,7 @@ const LanguageSelector = () => {
                         );
                     })}
             </ul>
-        </motion.div>
+        </div>
     );
 };
 
