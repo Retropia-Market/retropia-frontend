@@ -1,133 +1,133 @@
 .outside-box {
-  padding: 2rem 0 8rem 0;
+    padding: 2rem 0 8rem 0;
 }
 .single-product-page {
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-  padding: 5rem;
-  border: 2px solid none;
-  border-radius: 10px;
-  width: 70vw;
-  margin: auto;
-  margin-bottom: 2rem;
-  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
-
-  .product-main-page {
     display: flex;
-    width: 60vw;
     box-sizing: border-box;
-  }
-
-  .product-info > .product-title {
-    font-size: 2em;
-    text-align: start;
-    border-bottom: 2px solid #eceff1;
-  }
-  .product-main-page .product-img {
-    width: 40%;
-    height: 40vh;
-    background-size: cover;
-    background-position: center;
-    align-self: center;
-    border: 2px solid none;
-    border-radius: 5%;
-  }
-
-  .product-info {
-    margin-left: 1rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-  }
-
-  .product-card-info-price {
-    font-size: 1.4em;
-    color: $primary-color;
-  }
-
-  .seller-info {
-    padding: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .status-fav-price-bar {
-    border-top: 2px solid #eceff1;
-    border-bottom: 2px solid #eceff1;
-    padding: 1em;
-  }
-
-  .bid-message-buttons {
-    display: flex;
-    justify-content: center;
     align-items: center;
-  }
-  .product-main-page .image-gallery-content .bottom {
-    display: flex;
-    width: 25em;
-  }
+    flex-direction: column;
+    background-color: white;
+    padding: 5rem;
+    border: 2px solid none;
+    border-radius: 10px;
+    width: 70vw;
+    margin: auto;
+    margin-bottom: 2rem;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
 
-  button {
-    z-index: 0;
-  }
-  .image-gallery-image {
-    z-index: -5;
-  }
-  .image-gallery-thumbnails-wrapper bottom {
-    height: fit-content;
-  }
-
-  .icon-name {
-    display: flex;
-    gap: 4px;
-    align-self: center;
-  }
-  .reviews-component {
-    display: flex;
-
-    .total-review {
-      align-self: center;
+    .product-main-page {
+        display: flex;
+        width: 60vw;
+        box-sizing: border-box;
     }
-  }
-  .bid-message-buttons .heart-icon {
-    align-self: center;
-    padding: 0.6em;
-    margin: 1em;
-  }
 
-  .product-location {
-    width: 60vw;
-    height: 250px;
-    border: 0;
-    border-radius: 1.5rem;
-  }
-  .product-card-info-status {
-    margin-left: 10px;
-  }
-  .status-text {
-    align-self: center;
-  }
-  .button {
-    padding: 0.2rem 1rem;
-    color: rgb(0, 0, 0);
-    font-weight: 700;
-    border-radius: 1rem;
-    background-color: rgb(255, 217, 0);
-  }
+    .product-info > .product-title {
+        font-size: 2em;
+        text-align: start;
+        border-bottom: 2px solid #eceff1;
+    }
+    .product-main-page .product-img {
+        width: 40%;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+        align-self: center;
+        border: 2px solid none;
+        border-radius: 5%;
+    }
 
-  .product-description {
-    text-align: start;
-    padding: 1em;
-  }
+    .product-info {
+        margin-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
 
-  .catalogue-products {
-    display: flex;
-    grid-gap: 2rem;
-    flex: 1 1 auto;
-  }
+    .product-card-info-price {
+        font-size: 1.4em;
+        color: $primary-color;
+    }
+
+    .seller-info {
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .status-fav-price-bar {
+        border-top: 2px solid #eceff1;
+        border-bottom: 2px solid #eceff1;
+        padding: 1em;
+    }
+
+    .bid-message-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-main-page .image-gallery-content .bottom {
+        display: flex;
+        width: 25em;
+    }
+
+    button {
+        z-index: 0;
+    }
+    .image-gallery-image {
+        z-index: -5;
+    }
+    .image-gallery-thumbnails-wrapper bottom {
+        height: fit-content;
+    }
+
+    .icon-name {
+        display: flex;
+        gap: 4px;
+        align-self: center;
+    }
+    .reviews-component {
+        display: flex;
+
+        .total-review {
+            align-self: center;
+        }
+    }
+    .bid-message-buttons .heart-icon {
+        align-self: center;
+        padding: 0.6em;
+        margin: 1em;
+    }
+
+    .product-location {
+        width: 60vw;
+        height: 250px;
+        border: 0;
+        border-radius: 1.5rem;
+    }
+    .product-card-info-status {
+        margin-left: 10px;
+    }
+    .status-text {
+        align-self: center;
+    }
+    .button {
+        padding: 0.2rem 1rem;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+        border-radius: 1rem;
+        background-color: rgb(255, 217, 0);
+    }
+
+    .product-description {
+        text-align: start;
+        padding: 1em;
+    }
+
+    .catalogue {
+        .product-item {
+            width: fit-content;
+        }
+    }
 }
