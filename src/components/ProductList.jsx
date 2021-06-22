@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { container, item } from './animations';
+import mario from '../img/mario.gif';
 
 const ProductList = ({ type }) => {
   const { category, subcategory } = useParams();
@@ -58,7 +59,10 @@ const ProductList = ({ type }) => {
               exit="hidden"
               className="no-products"
             >
-              <FormattedMessage id="catalogue.notfound" />
+              <img src={mario} alt="Mario corriendo" width="100px"></img>
+              <p>
+                <FormattedMessage id="catalogue.notfound" />
+              </p>
             </motion.div>
           </div>
         )}
