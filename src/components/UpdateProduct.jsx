@@ -6,6 +6,9 @@ import LocationSelector from './ProductsComponents/NewSaleComponents/LocationSel
 import editIcon from '../img/icons/iconmonstr-edit-9.svg';
 import { useHistory } from 'react-router';
 
+import checkIcon from '../img/icons/check.svg';
+import cancelIcon from '../img/icons/cancel.svg';
+
 const UpdateProduct = ({ productId }) => {
     const [showUpdate, setShowUpdate] = useState(false);
     const [status, setStatus] = useState();
@@ -19,7 +22,11 @@ const UpdateProduct = ({ productId }) => {
         e.preventDefault();
         const productInfo = {};
         if (status) productInfo['status'] = status;
-        if (price) productInfo['price'] = price;
+        if (price)
+            productInfo['price'] =
+                price.indexOf(',') !== -1
+                    ? Number(price.replace(/,/, '.'))
+                    : +price;
         if (location) productInfo['location'] = location;
         if (description) productInfo['description'] = description;
         console.log(status);
@@ -63,9 +70,9 @@ const UpdateProduct = ({ productId }) => {
                             onSubmit={(e) => handleSubmit(e, productId)}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <h3 className="update-title">
+                            <div className="update-title">
                                 <FormattedMessage id="update.title" />
-                            </h3>
+                            </div>
                             <div className="update-inputs">
                                 <label>
                                     <FormattedMessage id="sale.productPrice" />
@@ -75,16 +82,19 @@ const UpdateProduct = ({ productId }) => {
                                         onChange={(e) =>
                                             setPrice(e.target.value)
                                         }
+                                        className="normal-input"
+                                        pattern="^\d+(,\d{1,2})?$"
                                     />
                                 </label>
                                 <label>
-                                    <FormattedMessage id="sale.productDescrip" />
+                                    <FormattedMessage id="update.productDescrip" />
                                     <textarea
                                         cols="30"
-                                        rows="10"
+                                        rows="8"
                                         onChange={(e) =>
                                             setDescription(e.target.value)
                                         }
+                                        className="textarea-input"
                                     ></textarea>
                                 </label>
                                 <label>
@@ -118,9 +128,24 @@ const UpdateProduct = ({ productId }) => {
                                     />
                                 </label>
 
-                                <button className="update-button">
-                                    <FormattedMessage id="update.button" />
-                                </button>
+                                <div className="delete-inputs">
+                                    <button
+                                        className="delete-button yes"
+                                        onClick={(e) =>
+                                            handleSubmit(e, productId)
+                                        }
+                                    >
+                                        <img src={checkIcon} alt="confirm" />
+                                    </button>
+                                    <button
+                                        className="delete-button no"
+                                        onClick={() =>
+                                            setShowUpdate(!showUpdate)
+                                        }
+                                    >
+                                        <img src={cancelIcon} alt="cancel" />
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>

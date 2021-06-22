@@ -160,6 +160,91 @@
                 filter: invert(100%);
             }
         }
+
+        .update-modal {
+            .modal-fg {
+                width: 20vw;
+                padding: 2em;
+
+                .update-title {
+                    font-size: 1.2em;
+                    margin-bottom: 1em;
+                }
+            }
+            .update-inputs {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .normal-input {
+                border: none;
+                width: 14vw;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+                height: 25px;
+                font-size: 0.6em;
+            }
+
+            .textarea-input {
+                width: 14vw;
+                margin-top: 10px;
+                resize: none;
+                background: none repeat scroll 0 0 #e9e9dc1c;
+                border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
+                border-image: none;
+                border-radius: 6px 6px 6px 6px;
+                border-style: none solid solid none;
+                border-width: medium 1px 1px medium;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+                color: #555555;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 0.6em;
+                line-height: 1.4em;
+                padding: 5px 8px;
+                transition: background-color 0.2s ease 0s;
+            }
+
+            .select-search__select {
+                position: absolute;
+            }
+            .select-search__input {
+                font-size: 0.6em;
+                text-align: start;
+                width: 14vw;
+                padding: 0;
+            }
+
+            .select-search__options {
+                padding-inline-start: 0;
+                width: 14vw;
+            }
+            .select-search__row {
+                width: 14vw;
+
+                button {
+                    padding: 0 5px;
+                }
+            }
+        }
+        .update-button {
+            margin: 0 auto;
+            padding: 0;
+            width: 10vw;
+            height: 5vh;
+            border: 2px solid transparent;
+            border-radius: 40px;
+            color: #1ecd97;
+            margin: 1em;
+            letter-spacing: 1px;
+            font-size: 18px;
+            transition: 0.4s all ease;
+            cursor: pointer;
+            align-self: center;
+        }
+        .update-button:hover {
+            background-color: #7c1c6f;
+            filter: invert(100%);
+        }
     }
 }
 
