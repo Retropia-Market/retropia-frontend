@@ -3,6 +3,9 @@ import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import binIcon from '../img/icons/iconmonstr-trash-can-thin.svg';
 
+import checkIcon from '../img/icons/check.svg';
+import cancelIcon from '../img/icons/cancel.svg';
+
 const DeleteProduct = ({ productId, setHide }) => {
     const user = useSelector((s) => s.user);
     const [showAlert, setShowAlert] = useState();
@@ -44,16 +47,16 @@ const DeleteProduct = ({ productId, setHide }) => {
                             </h3>
                             <div className="delete-inputs">
                                 <button
-                                    className="delete-button-yes"
+                                    className="delete-button yes"
                                     onClick={() => handleClick(productId)}
                                 >
-                                    <FormattedMessage id="delete.button.yes" />
+                                    <img src={checkIcon} alt="confirm" />
                                 </button>
                                 <button
-                                    className="delete-button-no"
+                                    className="delete-button no"
                                     onClick={() => setShowAlert(!showAlert)}
                                 >
-                                    <FormattedMessage id="delete.button.no" />
+                                    <img src={cancelIcon} alt="cancel" />
                                 </button>
                             </div>
                         </div>
