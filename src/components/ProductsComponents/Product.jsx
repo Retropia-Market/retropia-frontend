@@ -1,12 +1,12 @@
-import { useParams } from "react-router";
-import useFetch from "../../hooks/useFetch";
-import ProductInfo from "./ProductInfo";
-import Location from "../Location";
-import RelatedProducts from "./RelatedProducts";
-import ProductScreenShots from "./ProductScreenShots";
-import ErrorBoundary from "../../errors/ErrorBoundary";
-import { motion } from "framer-motion";
-import { item } from "../animations";
+import { useParams } from 'react-router';
+import useFetch from '../../hooks/useFetch';
+import ProductInfo from './ProductInfo';
+import Location from '../Location';
+import RelatedProducts from './RelatedProducts';
+import ProductScreenShots from './ProductScreenShots';
+import ErrorBoundary from '../../errors/ErrorBoundary';
+import { motion } from 'framer-motion';
+import { item } from '../animations';
 
 const Product = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const Product = () => {
 
   const [results] = useFetch(apiURL);
   return (
-    <>
+    <div className="outside-box">
       {results && (
         <motion.div
           variants={item}
@@ -39,7 +39,7 @@ const Product = () => {
           <RelatedProducts data={results} />
         </motion.div>
       )}
-    </>
+    </div>
   );
 };
 

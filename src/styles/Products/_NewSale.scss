@@ -13,6 +13,11 @@
     box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
     position: relative;
 
+    @media screen and (max-width: 780px) {
+        height: 150vh;
+        width: 80vw;
+    }
+
     .new-sale-title {
         border-bottom: 2px solid rgba(0, 0, 0, 0.267);
         color: rgba(147, 38, 131, 1);
@@ -30,6 +35,11 @@
         justify-content: space-around;
         margin: 1rem;
         height: 50vh;
+        @media screen and (max-width: 780px) {
+            flex-direction: column;
+            justify-content: center;
+            height: 80vh;
+        }
 
         .new-sale-first-step {
             display: flex;
@@ -46,12 +56,16 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
+
                 .new-sale-form {
                     display: flex;
                     height: 100%;
                     flex-direction: row;
                     align-items: flex-start;
-                    justify-content: space-around;
+                    justify-content: space-between;
+                    @media screen and (max-width: 780px) {
+                        flex-direction: column;
+                    }
 
                     .input-title {
                         font-size: 1.1em;
@@ -65,6 +79,10 @@
 
                         align-items: flex-start;
                         gap: 2em;
+
+                        @media screen and (max-width: 780px) {
+                            margin-bottom: 2rem;
+                        }
                     }
                 }
 
@@ -95,12 +113,19 @@
                     .select-search__input {
                         width: 10vw;
                         font-weight: 300;
+                        @media screen and (max-width: 780px) {
+                            width: 20vw;
+                        }
                     }
                     .select-search__options {
                         padding-inline-start: 0;
                         width: 100%;
                         .select-search__row {
                             width: 10vw;
+
+                            @media screen and (max-width: 780px) {
+                                width: 20vw;
+                            }
                             button {
                                 padding: 0 5px;
                             }
@@ -117,14 +142,23 @@
                 text-align: start;
                 width: 20vw;
                 padding: 0;
+                @media screen and (max-width: 780px) {
+                    width: 60vw;
+                }
             }
 
             .select-search__options {
                 padding-inline-start: 0;
                 width: 20vw;
+                @media screen and (max-width: 780px) {
+                    width: 54vw;
+                }
             }
             .select-search__row {
                 width: 20vw;
+                @media screen and (max-width: 780px) {
+                    width: 54vw;
+                }
                 button {
                     padding: 0 5px;
                 }
@@ -136,6 +170,9 @@
                 border-bottom: 1px solid rgba(0, 0, 0, 0.267);
                 height: 25px;
                 font-size: 1em;
+                @media screen and (max-width: 780px) {
+                    width: 80vw;
+                }
             }
 
             .textarea-input {
@@ -155,6 +192,9 @@
                 line-height: 1.4em;
                 padding: 5px 8px;
                 transition: background-color 0.2s ease 0s;
+                @media screen and (max-width: 780px) {
+                    width: 80vw;
+                }
             }
 
             textarea:focus {
@@ -175,6 +215,12 @@
             width: 15vw;
             height: 30vh;
             border-radius: 10px;
+            @media screen and (max-width: 780px) {
+                width: 80vw;
+                height: 30vh;
+                margin-top: 4rem;
+                margin-bottom: 2rem;
+            }
         }
 
         .file-list {
@@ -226,6 +272,11 @@
                 width: 5rem;
                 height: 5rem;
             }
+
+            @media screen and (max-width: 780px) {
+                width: 80vw;
+                margin-bottom: 2rem;
+            }
         }
         .yellow-button {
             padding: 0.5rem 1rem;
@@ -234,6 +285,7 @@
             border: 2px solid rgba(0, 0, 0, 0.404);
             border-radius: 1rem;
             background-color: rgb(255, 217, 0);
+            align-self: center;
         }
     }
 }
