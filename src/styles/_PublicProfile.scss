@@ -76,11 +76,37 @@
         }
         .username {
             font-size: 1.7em;
+            margin-bottom: 2rem;
+        }
+
+        .more-info {
+            margin-bottom: 2rem;
+            margin-right: 1rem;
+            font-size: 1.3em;
         }
 
         .reviews-info {
             display: flex;
             margin-left: 1rem;
+            margin-bottom: 2rem;
+        }
+        .bio {
+            border: 2px solid black;
+            border-radius: 10px;
+            text-align: start;
+            width: 40vw;
+            padding: 2em;
+            margin: auto;
+            position: relative;
+            margin-bottom: 2rem;
+            font-size: 1.4em;
+            .bio-title {
+                position: absolute;
+                background-color: white;
+                top: -1vh;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
         }
     }
 

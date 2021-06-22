@@ -129,5 +129,6 @@
     "delete.button.yes": "Si",
     "delete.button.no": "No",
     "sale.productdatatitle": "Datos del producto",
-    "update.productDescrip": "Descripción"
+    "update.productDescrip": "Descripción",
+    "publicprofile.bio": "Biografía"
 }

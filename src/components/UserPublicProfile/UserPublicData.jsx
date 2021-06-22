@@ -3,12 +3,16 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import Location from '../Location';
+import { useState } from 'react';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UserPublicData = ({ uid }) => {
     const user = useSelector((s) => s.user);
     const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
     const apiURL = 'http://localhost:8080/users/' + uid;
     const dispatch = useDispatch();
+    const [showBio, setShowBio] = useState();
 
     const [results] = useFetch(apiURL);
     const [ratings] = useFetch(`http://localhost:8080/user/${uid}/rating`);
@@ -77,6 +81,14 @@ const UserPublicData = ({ uid }) => {
                     ></div>
                     <div className="user-public-info">
                         <div className="username-stars">
+                            <div
+                                onClick={() => setShowBio(!showBio)}
+                                className="more-info"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faInfoCircle}
+                                ></FontAwesomeIcon>
+                            </div>
                             <div className="username">{results?.username}</div>
                             <div className="reviews-info">
                                 <div className="review-average">
@@ -96,11 +108,16 @@ const UserPublicData = ({ uid }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bio">
-                            {results?.bio ?? (
-                                <FormattedMessage id="publicprofile.notbio" />
-                            )}
-                        </div>
+                        {showBio && (
+                            <div className="bio">
+                                <div className="bio-title">
+                                    <FormattedMessage id="publicprofile.bio" />
+                                </div>
+                                {results?.bio ?? (
+                                    <FormattedMessage id="publicprofile.notbio" />
+                                )}
+                            </div>
+                        )}
 
                         <Location
                             place={results?.location}
