@@ -4,14 +4,11 @@ import { useState } from 'react';
 
 import useChat from '../../hooks/useChat';
 import useFetchChat from '../../hooks/useFetchChat';
-import useImage from '../../hooks/useImage';
+// import useImage from '../../hooks/useImage';
 
 function ChatRoom({setContactId}) {
   useChat();
-
   const { id } = useParams();
-  console.log(id)
-  setContactId(id)
 
   const user = useSelector((s) => s.user);
   useFetchChat(
@@ -36,9 +33,9 @@ function ChatRoom({setContactId}) {
     );
   };
 
-  const contact = useSelector((s) => s.contacts[id]);
+  // const contact = useSelector((s) => s.contacts[id]);
   const messages = useSelector((s) => s.messages[id]) || [];
-  const avatar = useImage(contact?.avatar);
+  // const avatar = useImage(contact?.avatar);
 
   return (
     <div className="chat-room">

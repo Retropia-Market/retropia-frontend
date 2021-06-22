@@ -18,7 +18,7 @@
     grid-column: 1 / 3;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background: transparent;
     box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.2);
 
     .chat-entry {
@@ -91,8 +91,14 @@
         color: white;
       }
     }
-    .active {
+    .chat-entry.active {
       box-shadow: 1px 0 10px rgba(147, 38, 131, 1);
+      background: rgb(110, 26, 98);
+
+      .top-row,
+      .bottom-row .message {
+        color: white;
+      }
     }
   }
 
@@ -101,13 +107,14 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    background: linear-gradient(
-      0deg,
-      rgba(147, 38, 131, 1) 0%,
-      rgba(45, 19, 66, 1) 70%,
-      rgba(24, 15, 53, 1) 100%
-    );
-
+    background-image: url('../../img/chat-background.png');
+    background-size: cover;
+    // background: linear-gradient(
+    //   0deg,
+    //   rgba(147, 38, 131, 1) 0%,
+    //   rgba(45, 19, 66, 1) 70%,
+    //   rgba(24, 15, 53, 1) 100%
+    // );
     .chat-header {
       display: flex;
       align-items: center;

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 import useImage from '../../hooks/useImage';
 
@@ -19,14 +19,11 @@ function DateViewer({ value }) {
 }
 
 
-function ChatEntry({ contact, contactId }) {
+function ChatEntry({ contact }) {
     const avatar = useImage(contact?.avatar)
-    const {id} = useParams()
-    console.log(id)
-    console.log(contactId)
 
     return (
-        <Link className={`chat-entry ${contactId === contact?.id && "active"}`} to={`/profile/chat/${contact.id}`}>
+        <NavLink className="chat-entry" to={`/profile/chat/${contact.id}`}>
             <div
                 className="avatar"
                 style={{ backgroundImage: `url(${avatar})` }}
@@ -48,7 +45,7 @@ function ChatEntry({ contact, contactId }) {
                     )}
                 </div>
             </div>
-        </Link>
+        </NavLink>
     );
 }
 
