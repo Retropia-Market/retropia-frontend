@@ -12,7 +12,9 @@ const UserPublicData = ({ uid }) => {
 
     const [results] = useFetch(apiURL);
     const [ratings] = useFetch(`http://localhost:8080/user/${uid}/rating`);
-    console.log(user);
+    const bannerUrl = `http://localhost:8080${
+        user?.userData?.banner ?? results?.banner
+    }`;
 
     const userImg =
         results?.image?.indexOf('google') !== -1
@@ -49,10 +51,8 @@ const UserPublicData = ({ uid }) => {
                     <div
                         className="public-avatar-background"
                         style={{
-                            backgroundImage: `url(http:\/\/localhost:8080${
-                                user?.userData?.banner ??
-                                results?.banner ??
-                                defaultImg
+                            backgroundImage: `url(${
+                                results?.banner ? bannerUrl : defaultImg
                             })`,
                         }}
                     ></div>
