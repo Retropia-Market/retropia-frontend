@@ -74,7 +74,7 @@ const UpdateProduct = ({ productId }) => {
                                 <FormattedMessage id="update.title" />
                             </div>
                             <div className="update-inputs">
-                                <label>
+                                <label className="price-input">
                                     <FormattedMessage id="sale.productPrice" />
                                     <input
                                         type="text"
