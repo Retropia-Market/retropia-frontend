@@ -12,8 +12,8 @@ const UserPublicData = ({ uid }) => {
 
     const [results] = useFetch(apiURL);
     const [ratings] = useFetch(`http://localhost:8080/user/${uid}/rating`);
+    console.log(user);
 
-    const bannerUser = `http:\/\/localhost:8080${user?.userData?.banner}`;
     const userImg =
         results?.image?.indexOf('google') !== -1
             ? results?.image
@@ -32,7 +32,10 @@ const UserPublicData = ({ uid }) => {
         if (res.ok) {
             const data = await res.json();
             alert('Banner cambiado!');
-            dispatch({ type: 'UPDATE', data: { banner: data?.url } });
+            dispatch({
+                type: 'UPDATE',
+                data: { banner: data?.url },
+            });
         } else {
             const data = await res.json();
             alert(data);
@@ -46,8 +49,10 @@ const UserPublicData = ({ uid }) => {
                     <div
                         className="public-avatar-background"
                         style={{
-                            backgroundImage: `url(${
-                                user?.userData?.banner ? bannerUser : defaultImg
+                            backgroundImage: `url(http:\/\/localhost:8080${
+                                user?.userData?.banner ??
+                                results?.banner ??
+                                defaultImg
                             })`,
                         }}
                     ></div>

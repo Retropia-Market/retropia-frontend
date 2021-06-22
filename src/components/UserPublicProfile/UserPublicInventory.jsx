@@ -20,21 +20,18 @@ const UserPublicInventory = ({ uid }) => {
                             </h1>
                             <div className="inventory-products">
                                 {results &&
-                                    results.map((product) => {
-                                        if (
-                                            product.sale_status.toLowerCase() ===
-                                            'en venta'
-                                        ) {
-                                            return (
-                                                <ProductCard
-                                                    data={product}
-                                                    key={product.id}
-                                                />
-                                            );
-                                        } else {
-                                            return null;
-                                        }
-                                    })}
+                                    results
+                                        .filter(
+                                            (p) =>
+                                                p.sale_status.toLowerCase() ===
+                                                'en venta'
+                                        )
+                                        .map((product) => (
+                                            <ProductCard
+                                                data={product}
+                                                key={product.id}
+                                            />
+                                        ))}
                             </div>
                         </>
                     )}
@@ -50,21 +47,18 @@ const UserPublicInventory = ({ uid }) => {
                             </h1>
                             <div className="inventory-products sold">
                                 {results &&
-                                    results.map((product, i) => {
-                                        if (
-                                            product.sale_status.toLowerCase() ===
-                                            'vendido'
-                                        ) {
-                                            return (
-                                                <ProductCard
-                                                    data={product}
-                                                    key={product.id}
-                                                />
-                                            );
-                                        } else {
-                                            return null;
-                                        }
-                                    })}
+                                    results
+                                        .filter(
+                                            (p) =>
+                                                p.sale_status.toLowerCase() ===
+                                                'vendido'
+                                        )
+                                        .map((product, i) => (
+                                            <ProductCard
+                                                data={product}
+                                                key={product.id}
+                                            />
+                                        ))}
                             </div>
                         </>
                     )}

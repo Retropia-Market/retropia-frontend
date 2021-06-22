@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
-import binIcon from '../img/icons/iconmonstr-trash-can-thin.svg';
+import BinIcon from '../img/icons/iconmonstr-trash-can-thin.svg';
 
-import checkIcon from '../img/icons/check.svg';
-import cancelIcon from '../img/icons/cancel.svg';
+import CheckIcon from '../img/icons/check.svg';
+import CancelIcon from '../img/icons/cancel.svg';
 
 const DeleteProduct = ({ productId, setHide }) => {
     const user = useSelector((s) => s.user);
@@ -29,7 +29,7 @@ const DeleteProduct = ({ productId, setHide }) => {
                 onClick={() => setShowAlert(!showAlert)}
                 className="delete-icon"
                 style={{
-                    background: `url(${binIcon}) no-repeat`,
+                    background: `url(${BinIcon}) no-repeat`,
                 }}
             ></div>
             {showAlert && (
@@ -50,13 +50,13 @@ const DeleteProduct = ({ productId, setHide }) => {
                                     className="delete-button yes"
                                     onClick={() => handleClick(productId)}
                                 >
-                                    <img src={checkIcon} alt="confirm" />
+                                    <img src={CheckIcon} alt="confirm" />
                                 </button>
                                 <button
                                     className="delete-button no"
                                     onClick={() => setShowAlert(!showAlert)}
                                 >
-                                    <img src={cancelIcon} alt="cancel" />
+                                    <img src={CancelIcon} alt="cancel" />
                                 </button>
                             </div>
                         </div>

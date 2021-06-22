@@ -165,6 +165,7 @@
             .modal-fg {
                 width: 20vw;
                 padding: 2em;
+                min-width: 350px;
 
                 .update-title {
                     font-size: 1.2em;
@@ -180,13 +181,20 @@
             .normal-input {
                 border: none;
                 width: 14vw;
+                min-width: 250px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.267);
                 height: 25px;
                 font-size: 0.6em;
             }
 
+            .price-input {
+                display: flex;
+                flex-direction: column;
+            }
+
             .textarea-input {
                 width: 14vw;
+                min-width: 250px;
                 margin-top: 10px;
                 resize: none;
                 background: none repeat scroll 0 0 #e9e9dc1c;
@@ -211,15 +219,18 @@
                 font-size: 0.6em;
                 text-align: start;
                 width: 14vw;
+                min-width: 250px;
                 padding: 0;
             }
 
             .select-search__options {
                 padding-inline-start: 0;
                 width: 14vw;
+                min-width: 250px;
             }
             .select-search__row {
                 width: 14vw;
+                min-width: 250px;
 
                 button {
                     padding: 0 5px;
