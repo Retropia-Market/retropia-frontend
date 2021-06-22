@@ -20,7 +20,6 @@ function Chat({ user }) {
             <Switch>
                 <Route path="/profile/chat" exact>
                     <div className="dbc-welcome">
-                        <MainBackground className="chat-background"/> 
                         {/* <FormattedMessage className="chat-welcome" id="chat.welcome" /> */}
                     </div>
                 </Route>
