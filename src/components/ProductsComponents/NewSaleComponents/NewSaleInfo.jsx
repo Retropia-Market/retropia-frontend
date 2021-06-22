@@ -8,6 +8,10 @@ import LocationSelector from './LocationSelector';
 import NameConsoleSelector from './NameConsoleSelector';
 import NameVideoGameSelector from './NameVideoGameSelector';
 
+
+import { itemNewSale } from '../../animations';
+import {motion} from 'framer-motion'
+
 const NewSaleInfo = ({
     files,
     setProductLocation,
@@ -66,7 +70,10 @@ const NewSaleInfo = ({
         }
     };
     return (
-        <div className="new-sale-info">
+        <motion.div className="new-sale-info" variants={itemNewSale}
+      animate="visible"
+                    initial="hidden"
+                    exit="hidden">
             <div className="sale-user-input">
                 {redirect && <Redirect to="/" />}
                 <span className="new-sale-title product-title">
@@ -195,7 +202,7 @@ const NewSaleInfo = ({
                     </div>
                 </form>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

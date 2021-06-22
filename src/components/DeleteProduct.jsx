@@ -5,6 +5,8 @@ import BinIcon from '../img/icons/iconmonstr-trash-can-thin.svg';
 
 import CheckIcon from '../img/icons/check.svg';
 import CancelIcon from '../img/icons/cancel.svg';
+import { item } from './animations';
+import {motion} from 'framer-motion'
 
 const DeleteProduct = ({ productId, setHide }) => {
     const user = useSelector((s) => s.user);
@@ -38,8 +40,12 @@ const DeleteProduct = ({ productId, setHide }) => {
                         className="modal-bg"
                         onClick={() => setShowAlert(false)}
                     >
-                        <div
+                        <motion.div
                             className="modal-fg delete-modal"
+                            variants={item}
+      animate="visible"
+                    initial="hidden"
+                    exit="hidden"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <h3 className="update-title">
@@ -59,7 +65,7 @@ const DeleteProduct = ({ productId, setHide }) => {
                                     <img src={CancelIcon} alt="cancel" />
                                 </button>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             )}

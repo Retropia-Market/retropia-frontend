@@ -5,6 +5,7 @@ import { useState } from 'react';
 import useNotifications from '../../hooks/useNotifications';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import {motion} from 'framer-motion'
 
 const ReviewsAndBidsNotifications = () => {
     const [hide, setHide] = useState(false);
@@ -52,7 +53,9 @@ const ReviewsAndBidsNotifications = () => {
                 (notifications.bids !== 0 ||
                     notifications.reviews ||
                     notifications.sales) && (
-                    <div className="pop-up">
+                    <motion.div className="pop-up" initial={{height: 0,  x: 0 }} animate={{height: 70,  x: -50, y : 5, transition: {
+            duration: 0.2,
+        }, }}>
                         {notifications.bids !== 0 && (
                             <Link to="/profile/transactions/bids/received">
                                 <span>
@@ -90,7 +93,7 @@ const ReviewsAndBidsNotifications = () => {
                                 </span>
                             </Link>
                         )}
-                    </div>
+                    </motion.div>
                 )}
         </div>
     );

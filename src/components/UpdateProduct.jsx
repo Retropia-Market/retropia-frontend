@@ -9,6 +9,10 @@ import { useHistory } from 'react-router';
 import checkIcon from '../img/icons/check.svg';
 import cancelIcon from '../img/icons/cancel.svg';
 
+
+import { item } from './animations';
+import {motion} from 'framer-motion'
+
 const UpdateProduct = ({ productId }) => {
     const [showUpdate, setShowUpdate] = useState(false);
     const [status, setStatus] = useState();
@@ -65,8 +69,12 @@ const UpdateProduct = ({ productId }) => {
                         className="modal-bg"
                         onClick={() => setShowUpdate(false)}
                     >
-                        <form
+                        <motion.form
                             className="modal-fg"
+                            variants={item}
+      animate="visible"
+                    initial="hidden"
+                    exit="hidden"
                             onSubmit={(e) => handleSubmit(e, productId)}
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -147,7 +155,7 @@ const UpdateProduct = ({ productId }) => {
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                        </motion.form>
                     </div>
                 </div>
             )}
