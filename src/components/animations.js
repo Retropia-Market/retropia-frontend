@@ -49,11 +49,37 @@ export const item = {
     exit: { opacity: 0, y: -20 },
 };
 
+
+export const itemNewSale = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.7
+        },
+    },
+    exit: { opacity: 0, y: -20 },
+};
+
+export const selectDropdown = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.2
+        },
+    },
+    exit: { opacity: 0, y: -20 },
+};
+
+
 export const languageDropdownAni = {
     hidden: { y: 20, opacity: 0 },
     visible: {
         y: 0,
-        opacity: 1,
+        opacity: 0.2,
     },
     exit: { opacity: 0, y: -20 },
 };

@@ -32,7 +32,9 @@ const MessageNotifications = () => {
         </motion.div>
       </div>
       {hide && messages > 0 && (
-        <div className="pop-up">
+        <motion.div className="pop-up" initial={{opacity: 0,  x: 0 }} animate={{opacity: 1,  x: -50, y : 5, transition: {
+            duration: 0.4,
+        }, }}>
           {results_messages &&
             results_messages
               .reduce((acc, product) => {
@@ -66,7 +68,7 @@ const MessageNotifications = () => {
                   </Link>
                 );
               })}
-        </div>
+        </motion.div>
       )}
     </div>
   );

@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import NewSaleImageSelect from './NewSaleImageSelect';
 import NewSaleInfo from './NewSaleInfo';
-import Location from '../../Location';
 import { FormattedMessage } from 'react-intl';
+import {motion} from 'framer-motion'
+import { item } from '../../animations';
 
 const NewSale = () => {
   const [files, setFiles] = useState([]);
@@ -17,7 +18,11 @@ const NewSale = () => {
   if (!isLoggedIn) return <Redirect to="/" />;
   return (
     <div className="outside-box">
-      <div className="new-sale">
+      <motion.div className="new-sale" 
+      variants={item}
+      animate="visible"
+                    initial="hidden"
+                    exit="hidden">
         <h1 className="new-sale-title main-title">
           {' '}
           <FormattedMessage id="sale.maintitle" />
@@ -43,7 +48,7 @@ const NewSale = () => {
             />
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

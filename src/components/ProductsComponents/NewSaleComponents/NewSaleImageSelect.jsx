@@ -2,6 +2,8 @@ import { useCallback, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import DragNDrop from './DragNDrop';
+import { item } from '../../animations';
+import {motion} from 'framer-motion'
 
 const NewSaleImageSelect = ({
     setImageAdded,
@@ -94,7 +96,10 @@ const NewSaleImageSelect = ({
 
     return (
         <div className="image-select">
-            <div className="add-first-image">
+            <motion.div className="add-first-image" variants={item}
+      animate="visible"
+                    initial="hidden"
+                    exit="hidden">
                 {previews.map((preview, i) => (
                     <div
                         className={!imageAdded ? 'image' : 'image visioned'}
@@ -130,7 +135,7 @@ const NewSaleImageSelect = ({
                         </div>
                     </>
                 )}
-            </div>
+            </motion.div>
             {imageAdded && (
                 <DragNDrop onDrop={onDrop} accept={'image/*'} images={images} />
             )}
