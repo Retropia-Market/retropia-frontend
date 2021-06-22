@@ -1,200 +1,201 @@
 .navbar-container {
-  z-index: 5;
-  position: fixed;
-  color: #fff;
-  display: grid;
-  @media screen and (min-width: 1000px) {
-    grid-template-areas:
-      'logo search category user'
-      'logo  lower lower lower';
-    grid-template-columns: 0.1fr 0.3fr 0.6fr 1fr;
-    grid-template-rows: 1fr 0.5fr;
-  }
-  @media screen and (max-width: 999px) {
-    padding: 0 2rem;
-    grid-template-areas: 'logo search user';
-    grid-template-columns: 0.4fr 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
-  width: 100%;
-  height: 10vh;
-  min-height: 43px;
-  margin: -10vh 0 0;
-  background: linear-gradient(
-    0deg,
-    rgba(147, 38, 131, 1) 0%,
-    rgba(45, 19, 66, 1) 30%,
-    rgba(24, 15, 53, 1) 100%
-  );
-
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: logo;
-    padding: 0.8rem;
-    @media screen and (max-width: 1000px) {
-      min-width: 1rem;
-      position: relative;
-      padding: 0 -1rem 0 2rem;
-      right: 2rem;
+    z-index: 5;
+    position: fixed;
+    color: #fff;
+    display: grid;
+    @media screen and (min-width: 1000px) {
+        grid-template-areas:
+            'logo search category user'
+            'logo  lower lower lower';
+        grid-template-columns: 0.1fr 0.3fr 0.6fr 1fr;
+        grid-template-rows: 1fr 0.5fr;
     }
-  }
-
-  .logo img {
-    width: auto;
-    height: 100%;
-  }
-
-  .search-bar {
-    grid-area: search;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @media screen and (max-width: 999px) {
+        padding: 0 2rem;
+        grid-template-areas: 'logo search user';
+        grid-template-columns: 0.4fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
     width: 100%;
-    height: 100%;
-  }
-
-  .search-bar input {
-    border-style: none;
-    border-radius: 2rem;
-    padding-left: 1rem;
-    height: 50%;
-    width: 100%;
-  }
-  .search-bar button {
-    border-style: none;
-    height: 50%;
-    width: 3rem;
-    background-color: rgb(255, 255, 255);
-    border-radius: 2rem;
-    right: 2rem;
-    @media screen and (max-width: 1000px) {
-      right: 3rem;
-    }
-    position: relative;
-    z-index: 1;
-  }
-
-  .types {
-    grid-area: category;
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-  }
-
-  .type {
-    grid-area: category;
-    display: flex;
-    height: 100%;
-    flex-grow: 1;
-
-    justify-content: space-around;
-    align-items: stretch;
-    .type-name {
-      color: #fff;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-    @media screen and (max-width: 1000px) {
-      display: none;
-      visibility: hidden;
-    }
-  }
-
-  .type:hover,
-  .selected {
-    background: rgb(147, 38, 131);
+    height: 10vh;
+    min-height: 43px;
+    margin: -10vh 0 0;
     background: linear-gradient(
-      0deg,
-      rgba(45, 19, 66, 0.5) 1%,
-      rgba(147, 38, 131, 1) 100%
+        0deg,
+        rgba(147, 38, 131, 1) 0%,
+        rgba(45, 19, 66, 1) 30%,
+        rgba(24, 15, 53, 1) 100%
     );
-    a {
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-    letter-spacing: 0.1rem;
-    font-weight: 800;
-    cursor: pointer;
-  }
 
-  .user-nav {
-    grid-area: user;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 1rem;
-    gap: 1rem;
-    button {
-      border-style: none;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-    }
-  }
-
-  .user {
-    display: flex;
-    gap: 0.5rem;
-    .user-settings {
-      list-style: none;
-      a {
-        color: #fff;
-        margin-left: 1rem;
-        text-decoration: none;
-        :hover {
-          background-color: aqua;
-          letter-spacing: 0.1rem;
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: logo;
+        padding: 0.8rem;
+        @media screen and (max-width: 1000px) {
+            min-width: 1rem;
+            position: relative;
+            padding: 0 -1rem 0 2rem;
+            right: 2rem;
         }
-      }
-      display: flex;
     }
-  }
 
-  .sell-button {
-    padding: 0.2rem 1rem;
-    color: rgb(0, 0, 0);
-    font-weight: 700;
-    border-radius: 1rem;
-    background-color: rgb(255, 217, 0);
-    margin-right: 2rem;
-    text-decoration: none;
-  }
+    .logo img {
+        width: auto;
+        height: 100%;
+    }
 
-  .lower {
-    grid-area: lower;
-    display: flex;
-    gap: 0;
-    background: rgb(147, 38, 131);
-    background: linear-gradient(
-      0deg,
-      rgba(45, 19, 66, 0.5) 1%,
-      rgba(147, 38, 131, 1) 100%
-    );
-    border-top-left-radius: 1rem;
-    @media screen and (max-width: 1000px) {
-      display: none;
-      visibility: hidden;
+    .search-bar {
+        grid-area: search;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
     }
-    :hover {
-      cursor: pointer;
-      opacity: 80%;
+
+    .search-bar input {
+        border-style: none;
+        border-radius: 2rem;
+        padding-left: 1rem;
+        height: 50%;
+        width: 100%;
     }
-    .category {
-      display: flex;
-      font-weight: 300;
-      height: 100%;
-      gap: 0.4rem;
-      padding: 0 2rem;
-      justify-content: flex-start;
-      align-items: center;
-      .category-name {
-        text-transform: capitalize;
+    .search-bar button {
+        border-style: none;
+        height: 50%;
+        width: 3rem;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2rem;
+        right: 2rem;
+        @media screen and (max-width: 1000px) {
+            right: 3rem;
+        }
+        position: relative;
+        z-index: 1;
+    }
+
+    .types {
+        grid-area: category;
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    .type {
+        grid-area: category;
+        display: flex;
+        height: 100%;
+        flex-grow: 1;
+
+        justify-content: space-around;
+        align-items: stretch;
+        .type-name {
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        @media screen and (max-width: 1000px) {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    .type:hover,
+    .selected {
+        background: rgb(147, 38, 131);
+        background: linear-gradient(
+            0deg,
+            rgba(45, 19, 66, 0.5) 1%,
+            rgba(147, 38, 131, 1) 100%
+        );
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        letter-spacing: 0.1rem;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    .user-nav {
+        grid-area: user;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 1rem;
+        gap: 1rem;
+        button {
+            border-style: none;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .user {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+        .user-settings {
+            list-style: none;
+            a {
+                color: #fff;
+                margin-left: 1rem;
+                text-decoration: none;
+                :hover {
+                    background-color: aqua;
+                    letter-spacing: 0.1rem;
+                }
+            }
+            display: flex;
+        }
+    }
+
+    .sell-button {
+        padding: 0.2rem 1rem;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+        border-radius: 1rem;
+        background-color: rgb(255, 217, 0);
+        margin-right: 2rem;
         text-decoration: none;
-        color: #fff;
-      }
     }
-  }
+
+    .lower {
+        grid-area: lower;
+        display: flex;
+        gap: 0;
+        background: rgb(147, 38, 131);
+        background: linear-gradient(
+            0deg,
+            rgba(45, 19, 66, 0.5) 1%,
+            rgba(147, 38, 131, 1) 100%
+        );
+        border-top-left-radius: 1rem;
+        @media screen and (max-width: 1000px) {
+            display: none;
+            visibility: hidden;
+        }
+        :hover {
+            cursor: pointer;
+            opacity: 80%;
+        }
+        .category {
+            display: flex;
+            font-weight: 300;
+            height: 100%;
+            gap: 0.4rem;
+            padding: 0 2rem;
+            justify-content: flex-start;
+            align-items: center;
+            .category-name {
+                text-transform: capitalize;
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
 }
