@@ -56,6 +56,7 @@ function Navbar() {
                     <img href="/" src={logo} alt="Logo Retropia Market" />
                 </Link>
 
+<<<<<<< HEAD
                 <div className="search">
                     <form className="search-bar" onSubmit={handleSubmit}>
                         <input
@@ -156,6 +157,81 @@ function Navbar() {
                             category={category}
                         />
                     )}
+=======
+        <div className="search">
+          <form className="search-bar" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Ingresa tu búsqueda..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button>🔍</button>
+          </form>
+        </div>
+        <div className="types" onClick={handleHideSubcategoriesClick}>
+          <Types
+            typeIndex={typeIndex}
+            setTypeIndex={setTypeIndex}
+            setType={setType}
+          />
+        </div>
+        <div className="user-nav">
+          <LanguageSelector />
+          {!Object.keys(user).length ? (
+            <div className="user-access">
+              <button className="user-access-login" onClick={() => setShowLogin(true)}>
+                <FormattedMessage id="navbar.login" />
+              </button>
+              <span className="user-access-separator">
+                /
+              </span>
+              <button className="user-access-register" onClick={() => setShowRegister(true)}>
+                <FormattedMessage id="navbar.register" />
+              </button>
+            </div>
+          ) : (
+            <div className="user-nav">
+              <Link className="sell-button" to="/sell">
+                <FormattedMessage id="navbar.sell" />
+              </Link>
+              <MessageNotifications />
+              <ReviewsAndBidsNotifications />
+
+              <div className="user">
+                <Link to={`/users/${user.userData.id}`}>
+                  <FontAwesomeIcon className="user-pic" icon={faUser}>
+                    Photo
+                  </FontAwesomeIcon>
+                </Link>
+                <div className="user-settings">
+                  <FontAwesomeIcon
+                    className="user-settings-button"
+                    icon={faEllipsisH}
+                    onClick={() => setShowSettings(!showSettings)}
+                  >
+                    Settings
+                  </FontAwesomeIcon>
+                  {showSettings && (
+                    <div className="user-settings-menu-container">
+                      <div className="user-settings-menu">
+                        <div className="user-settings-menu-arrow"></div>
+                        <div className="user-settings-menu-list">
+                          <li className="menu-item">
+                            <Link className="menu-link" onClick={handleLogout} to="/">
+                              <FormattedMessage id="navbar.logout" />
+                            </Link>
+                          </li>
+                          <li className="menu-item">
+                            <Link className="menu-link" to="/profile">
+                              <FormattedMessage id="navbar.profile" />
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+>>>>>>> german
                 </div>
             </div>
 

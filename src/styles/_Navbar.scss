@@ -128,10 +128,25 @@
     justify-content: flex-end;
     margin-right: 1rem;
     gap: 1rem;
-    button {
-      border-style: none;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
+
+    .user-access {
+      display: flex;
+      justify-content: center;
+      * {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      button {
+        // font-size: 1rem;
+        border: none;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        color: $main-color-1;
+      }
     }
   }
 
@@ -139,18 +154,99 @@
     display: flex;
     gap: 0.5rem;
     font-size: 1.3rem;
+
     .user-settings {
-      list-style: none;
-      a {
-        color: #fff;
-        margin-left: 1rem;
-        text-decoration: none;
-        :hover {
-          background-color: aqua;
-          letter-spacing: 0.1rem;
+      position: relative;
+
+      .user-settings-button {
+        transform: rotate(90deg);
+        cursor: pointer;
+        position: relative;
+      }
+
+      .user-settings-menu-container {
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        border-radius: 15px;
+        background: red;
+        box-shadow: $shadow-1;
+        // box-shadow: 3px 3px 2px 5px rgba(0, 0, 0, 0.5);
+
+        .user-settings-menu {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+
+          .user-settings-menu-arrow {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            transform: rotate(45deg);
+            border-radius: 8px;
+            border-top-left-radius: 2px;
+            top: -6px;
+            right: 1px;
+
+            background: white;
+          }
+          .user-settings-menu-list {
+            background: white;
+            border-radius: 15px;
+            border-top-right-radius: 3px;
+            width: 120px;
+            list-style: none;
+
+            .menu-item:first-of-type {
+              border-top-left-radius: 15px;
+              .menu-link {
+                padding-top: 6px;
+                border-top-left-radius: 15px;
+              }
+            }
+            .menu-item:last-of-type {
+              border-bottom-left-radius: 15px;
+              border-bottom-right-radius: 15px;
+              .menu-link {
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                padding-bottom: 6px;
+              }
+            }
+            .menu-item {
+              display: flex;
+              align-items: stretch;
+              z-index: 1;
+
+              .menu-link {
+                z-index: 1;
+                width: 100%;
+                padding: 2px 10px;
+                text-decoration: none;
+                background: white;
+                font-weight: 300;
+                text-transform: lowercase;
+              }
+              :hover {
+                font-weight: 500;
+              }
+            }
+          }
         }
       }
-      display: flex;
+
+      // list-style: none;
+      // a {
+      //   color: #fff;
+      //   margin-left: 1rem;
+      //   text-decoration: none;
+      //   :hover {
+      //     background-color: aqua;
+      //     letter-spacing: 0.1rem;
+      //   }
+      // }
+      // display: flex;
     }
   }
 
