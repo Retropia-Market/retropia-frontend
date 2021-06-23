@@ -17,8 +17,12 @@ import basketIcon from '../img/icons/basket-grey-icon.svg';
 import { useEffect } from 'react';
 import DeleteProduct from './DeleteProduct';
 import UpdateProduct from './UpdateProduct';
+import Login from './profile-components/profile-authentication/Login';
+import Register from './profile-components/profile-authentication/Register';
 
 const ProductCard = ({ data, favorites }) => {
+    const [showLogin, setShowLogin] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
     const [showBidModal, setShowBidModal] = useState(false);
     const history = useHistory();
     const { seller, name, status, price, images, seller_id, id } = data;
@@ -175,6 +179,20 @@ const ProductCard = ({ data, favorites }) => {
                                                     ></div>
                                                 </div>
                                             )}
+                                        {!user.userData && (
+                                            <div>
+                                                <div
+                                                    onClick={() =>
+                                                        setShowLogin(true)
+                                                    }
+                                                    className="message-icon"
+                                                    style={{
+                                                        background: `url(${messageIcon}) no-repeat`,
+                                                        cursor: 'pointer',
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        )}
                                         {user.userData &&
                                             user.userData.id !== seller_id &&
                                             !doneBid && (
@@ -188,6 +206,19 @@ const ProductCard = ({ data, favorites }) => {
                                                     ></div>
                                                 </div>
                                             )}
+                                        {!user.userData && (
+                                            <div>
+                                                <div
+                                                    onClick={() =>
+                                                        setShowLogin(true)
+                                                    }
+                                                    className="basket-icon"
+                                                    style={{
+                                                        background: `url(${basketIcon}) no-repeat`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -201,6 +232,18 @@ const ProductCard = ({ data, favorites }) => {
                     showBidModal={showBidModal}
                     setShowBidModal={setShowBidModal}
                     setDoneBid={setDoneBid}
+                />
+            )}
+            {showLogin && (
+                <Login
+                    setShowLogin={setShowLogin}
+                    setShowRegister={setShowRegister}
+                />
+            )}
+            {showRegister && (
+                <Register
+                    setShowLogin={setShowLogin}
+                    setShowRegister={setShowRegister}
                 />
             )}
         </>
