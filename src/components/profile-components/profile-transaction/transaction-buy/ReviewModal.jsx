@@ -5,14 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
 import ReactStarsRating from 'react-awesome-stars-rating';
+import StarRatingComponent from 'react-star-rating-component';
 
 function ReviewModal({ setShowReviewModal, data }) {
   const [reviewRating, setReviewRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
   const dispatch = useDispatch();
   const user = useSelector((s) => s.user);
-
+  console.log(data);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
@@ -35,9 +37,9 @@ function ReviewModal({ setShowReviewModal, data }) {
       dispatch({ type: 'modal', user: data });
     } else if (res.status === 401) {
       setErrorMessage('Usuario o Contraseña incorrectos.');
-      console.log(errorMessage);
+      console.error(errorMessage);
     } else {
-      console.log('Parece que algo fue mal');
+      console.error('Parece que algo fue mal');
     }
   };
 
@@ -62,24 +64,21 @@ function ReviewModal({ setShowReviewModal, data }) {
             <FormattedMessage id="review.note" />
           </label>
           <ReactStarsRating
-            isHalf="true"
-            isEdit="true"
-            value={reviewRating}
-            onChange={setReviewRating}
+            className="react-stars"
+            value={5}
+            isEdit={false}
+            isHalf={true}
           />
-          {console.log(reviewRating)}
-
           <label htmlFor="review-text">
             <FormattedMessage id="review.text" />
           </label>
           <div className="modal-field">
-            <input
+            <textarea
               id="review-text"
               type="textarea"
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
             />
-            {console.log(data)}
           </div>
         </div>
 
