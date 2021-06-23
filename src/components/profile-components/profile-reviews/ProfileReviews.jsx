@@ -22,8 +22,10 @@ function ProfileReviews({ user }) {
                     <FormattedMessage id="profile.reviews.done.title" />
                 </span>
             </h2>
-            {section === false && <ReceivedReviews />}
-            {section === true && <MadeReviews />}
+            <div className="review-section">
+                {section === false && <ReceivedReviews />}
+                {section === true && <MadeReviews />}
+            </div>
         </div>
     );
 }
