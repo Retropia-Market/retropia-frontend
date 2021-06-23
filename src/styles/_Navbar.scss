@@ -108,8 +108,8 @@
   .selected {
     background: rgb(147, 38, 131);
     background: linear-gradient(
-      0deg,
-      rgba(45, 19, 66, 0.5) 1%,
+      180deg,
+      rgba(45, 19, 66, 0.5) 20%,
       rgba(147, 38, 131, 1) 100%
     );
     a {
@@ -181,7 +181,7 @@
       display: none;
       visibility: hidden;
     }
-    :hover {
+    .category-select:hover {
       cursor: pointer;
       opacity: 80%;
     }
@@ -193,6 +193,10 @@
       padding: 0 2rem;
       justify-content: flex-start;
       align-items: center;
+      :hover {
+        cursor: pointer;
+        opacity: 80%;
+      }
       .category-name {
         text-transform: capitalize;
         text-decoration: none;

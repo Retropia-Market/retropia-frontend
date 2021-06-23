@@ -18,8 +18,8 @@ const Categories = ({hideCategories, showSubcategories, setCategoryIndex, setCat
       
       {allCategories?.reduce((acc, c) => 
         acc.includes(c.categoria) ? acc : [...acc, c.categoria]  ,[]).map((c,i) =>
-          <li className="category" key={i} onClick={() => handleClick(i, c)}>
-            <div className="category-name">{c}</div>
+          <li className="category" key={i} >
+            <div className="category-name" onClick={() => handleClick(i, c)}>{c}</div>
           </li> )}
     </>
 }

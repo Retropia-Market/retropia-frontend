@@ -20,7 +20,7 @@ const Types = ({ typeIndex, setTypeIndex, setType }) => {
             key={i}
             onClick={() => handleClick(i)}
             className={`type ${
-                typeIndex === i && pathname === `/catalogue/${t.id}`
+                typeIndex === i && pathname.includes(`/catalogue/${t.id}`)
                     ? 'selected'
                     : ''
             }`}
