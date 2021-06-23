@@ -24,6 +24,7 @@ function TransactionBuy() {
         if (res.ok) {
             const data = await res.json();
             setBidsObject(data);
+            console.log(data);
         }
     }, [user]);
 
