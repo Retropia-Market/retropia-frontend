@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
-import ReactStarsRating from 'react-awesome-stars-rating';
 import StarRatingComponent from 'react-star-rating-component';
 
 function ReviewModal({ setShowReviewModal, data }) {
@@ -63,11 +62,19 @@ function ReviewModal({ setShowReviewModal, data }) {
           <label htmlFor="username-modal">
             <FormattedMessage id="review.note" />
           </label>
-          <ReactStarsRating
-            className="react-stars"
-            value={5}
+          <StarRatingComponent
+            value={reviewRating}
+            onStarClick={setReviewRating}
+            renderStarIcon={() => (
+              <FontAwesomeIcon
+                id="review-stars"
+                className="review-star"
+                icon={faStar}
+              ></FontAwesomeIcon>
+            )}
             isEdit={false}
             isHalf={true}
+            onStarHover={() => setReviewRating}
           />
           <label htmlFor="review-text">
             <FormattedMessage id="review.text" />

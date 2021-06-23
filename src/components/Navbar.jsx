@@ -78,13 +78,17 @@ function Navbar() {
           <LanguageSelector />
           {!Object.keys(user).length ? (
             <div className="user-access">
-              <button className="user-access-login" onClick={() => setShowLogin(true)}>
+              <button
+                className="user-access-login"
+                onClick={() => setShowLogin(true)}
+              >
                 <FormattedMessage id="navbar.login" />
               </button>
-              <span className="user-access-separator">
-                /
-              </span>
-              <button className="user-access-register" onClick={() => setShowRegister(true)}>
+              <span className="user-access-separator">/</span>
+              <button
+                className="user-access-register"
+                onClick={() => setShowRegister(true)}
+              >
                 <FormattedMessage id="navbar.register" />
               </button>
             </div>
@@ -116,7 +120,11 @@ function Navbar() {
                         <div className="user-settings-menu-arrow"></div>
                         <div className="user-settings-menu-list">
                           <li className="menu-item">
-                            <Link className="menu-link" onClick={handleLogout} to="/">
+                            <Link
+                              className="menu-link"
+                              onClick={handleLogout}
+                              to="/"
+                            >
                               <FormattedMessage id="navbar.logout" />
                             </Link>
                           </li>
