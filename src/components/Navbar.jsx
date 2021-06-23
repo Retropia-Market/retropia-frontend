@@ -77,14 +77,17 @@ function Navbar() {
         <div className="user-nav">
           <LanguageSelector />
           {!Object.keys(user).length ? (
-            <>
-              <button onClick={() => setShowLogin(true)}>
+            <div className="user-access">
+              <button className="user-access-login" onClick={() => setShowLogin(true)}>
                 <FormattedMessage id="navbar.login" />
               </button>
-              <button onClick={() => setShowRegister(true)}>
+              <span className="user-access-separator">
+                /
+              </span>
+              <button className="user-access-register" onClick={() => setShowRegister(true)}>
                 <FormattedMessage id="navbar.register" />
               </button>
-            </>
+            </div>
           ) : (
             <div className="user-nav">
               <Link className="sell-button" to="/sell">
@@ -101,24 +104,29 @@ function Navbar() {
                 </Link>
                 <div className="user-settings">
                   <FontAwesomeIcon
-                    className="user-options"
+                    className="user-settings-button"
                     icon={faEllipsisH}
                     onClick={() => setShowSettings(!showSettings)}
                   >
                     Settings
                   </FontAwesomeIcon>
                   {showSettings && (
-                    <div className="user-settings">
-                      <li>
-                        <Link onClick={handleLogout} to="/">
-                          <FormattedMessage id="navbar.logout" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/profile">
-                          <FormattedMessage id="navbar.profile" />
-                        </Link>
-                      </li>
+                    <div className="user-settings-menu-container">
+                      <div className="user-settings-menu">
+                        <div className="user-settings-menu-arrow"></div>
+                        <div className="user-settings-menu-list">
+                          <li className="menu-item">
+                            <Link className="menu-link" onClick={handleLogout} to="/">
+                              <FormattedMessage id="navbar.logout" />
+                            </Link>
+                          </li>
+                          <li className="menu-item">
+                            <Link className="menu-link" to="/profile">
+                              <FormattedMessage id="navbar.profile" />
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
