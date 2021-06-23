@@ -167,7 +167,7 @@
       .user-settings-menu-container {
         position: absolute;
         top: 40px;
-        right: 0px;
+        right: -2px;
         border-radius: 15px;
         background: red;
         box-shadow: $shadow-1;
@@ -185,16 +185,17 @@
             position: absolute;
             transform: rotate(45deg);
             border-radius: 8px;
+            border-top-right-radius: 7px;
             border-top-left-radius: 2px;
-            top: -6px;
-            right: 1px;
+            top: -5px;
+            right: 2px;
 
             background: white;
           }
           .user-settings-menu-list {
             background: white;
             border-radius: 15px;
-            border-top-right-radius: 3px;
+            // border-top-right-radius: 20px;
             width: 120px;
             list-style: none;
 
@@ -203,6 +204,7 @@
               .menu-link {
                 padding-top: 6px;
                 border-top-left-radius: 15px;
+                border-top-right-radius: 5px;
               }
             }
             .menu-item:last-of-type {

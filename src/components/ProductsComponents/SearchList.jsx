@@ -12,13 +12,11 @@ const SearchList = () => {
 
   return (
     <div className="catalogue">
-      <div className="upper">
-        <h1>
+        <h1 className="main-title">
           <FormattedMessage id="search.title" />
+          <span className="main-title-row"></span>
         </h1>
-        <hr className="horizontal-rule" />
-      </div>
-      <div className="catalogue-products">
+      <div className="catalogue-inside">
         {results &&
           results.map((product) => {
             return <ProductCard data={product} key={product.id} />;

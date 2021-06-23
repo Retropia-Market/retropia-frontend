@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
-import { container, item } from './animations';
+import { container } from './animations';
 import mario from '../img/mario.gif';
 
 const ProductList = ({ type }) => {
