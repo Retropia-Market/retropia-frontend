@@ -13,17 +13,19 @@ function ProfileReviews({ user }) {
 
     return (
         <div className="profile-reviews">
-            <h2 className="title">
+            <h2 className="main-title">
                 <span className="tab" onClick={() => setSection(false)}>
                     <FormattedMessage id="profile.reviews.received.title" />
                 </span>
-                <span className="tab-divider">|</span>
+                <span className="tab-divider"> | </span>
                 <span className="tab" onClick={() => setSection(true)}>
                     <FormattedMessage id="profile.reviews.done.title" />
                 </span>
             </h2>
-            {section === false && <ReceivedReviews />}
-            {section === true && <MadeReviews />}
+            <div className="review-section">
+                {section === false && <ReceivedReviews />}
+                {section === true && <MadeReviews />}
+            </div>
         </div>
     );
 }

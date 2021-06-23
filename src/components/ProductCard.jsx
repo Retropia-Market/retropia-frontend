@@ -49,7 +49,7 @@ const ProductCard = ({ data, favorites }) => {
     };
 
     const handleOnClick = (e) => {
-        history.replace('/catalogue/' + data.id);
+        history.push('/catalogue/' + data.id);
     };
 
     const chatClickHandler = async (e) => {
@@ -100,7 +100,10 @@ const ProductCard = ({ data, favorites }) => {
                         ></div>
                         <div className="product-card-info">
                             <div className="product-card-info-name-price">
-                                <span className="product-card-info-name">
+                                <span
+                                    className="product-card-info-name"
+                                    onClick={handleOnClick}
+                                >
                                     {name}
                                 </span>
                                 <span className="product-card-info-price">

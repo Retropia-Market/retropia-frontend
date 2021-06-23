@@ -1,0 +1,80 @@
+.profile-reviews {
+    .main-title {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 60vw;
+
+        span {
+            display: inline-block;
+        }
+
+        .tab {
+            cursor: pointer;
+        }
+    }
+
+    .review-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: stretch;
+
+        .reviews {
+            display: flex;
+            background: white;
+            width: 60vw;
+            box-sizing: border-box;
+            align-items: flex-start;
+            background-color: white;
+            padding: 1.5rem;
+            border: 2px solid none;
+            border-radius: 10px;
+            margin: auto;
+            margin-bottom: 2rem;
+            box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
+
+            .product-item {
+                flex-basis: 20vw;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                height: 100%;
+                justify-content: space-around;
+                text-align: start;
+                margin-left: 2em;
+                margin-right: 2em;
+                .title {
+                    font-size: 2em;
+                }
+                p {
+                    font-size: 1.1em;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+
+                footer {
+                    align-self: flex-end;
+                    display: flex;
+
+                    span {
+                        margin: 2em;
+                        font-size: 1.3em;
+                        color: #8a406b;
+
+                        a {
+                            text-decoration: none;
+                            color: #8a406b;
+                        }
+                    }
+                    .username {
+                        color: #8a406b;
+                    }
+                }
+            }
+        }
+    }
+}
