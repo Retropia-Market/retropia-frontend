@@ -63,7 +63,10 @@ const ReviewsAndBidsNotifications = () => {
                     }}
                 >
                     {notifications.bids !== 0 && (
-                        <Link to="/profile/transactions/bids/received">
+                        <Link
+                            to="/profile/transactions/bids/received"
+                            onClick={() => setHide(!hide)}
+                        >
                             <span>
                                 <FormattedMessage
                                     id="notifications.bids"
@@ -75,7 +78,10 @@ const ReviewsAndBidsNotifications = () => {
                         </Link>
                     )}
                     {notifications.reviews !== 0 && (
-                        <Link to="/profile/ratings">
+                        <Link
+                            to="/profile/ratings"
+                            onClick={() => setHide(!hide)}
+                        >
                             <span>
                                 <FormattedMessage
                                     id="notifications.reviews"
@@ -87,7 +93,10 @@ const ReviewsAndBidsNotifications = () => {
                         </Link>
                     )}
                     {notifications.sales !== 0 && (
-                        <Link to="/profile/transactions/buy">
+                        <Link
+                            to="/profile/transactions/buy"
+                            onClick={() => setHide(!hide)}
+                        >
                             <span>
                                 <FormattedMessage
                                     id="notifications.sales"
@@ -101,7 +110,7 @@ const ReviewsAndBidsNotifications = () => {
                     {notifications.sales === 0 &&
                         notifications.reviews === 0 &&
                         notifications.bids === 0 && (
-                            <span>
+                            <span onClick={() => setHide(!hide)}>
                                 <FormattedMessage id="notifications.nothing" />
                             </span>
                         )}

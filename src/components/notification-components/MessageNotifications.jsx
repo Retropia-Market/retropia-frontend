@@ -69,7 +69,10 @@ const MessageNotifications = () => {
                             }, [])
                             .map((message) => {
                                 return (
-                                    <Link to={`/profile/chat/${message.id}`}>
+                                    <Link
+                                        to={`/profile/chat/${message.id}`}
+                                        onClick={() => setHide(!hide)}
+                                    >
                                         <span>
                                             <FormattedMessage
                                                 id="notifications.message"
@@ -84,7 +87,7 @@ const MessageNotifications = () => {
                                 );
                             })}
                     {messages === 0 && (
-                        <span>
+                        <span onClick={() => setHide(!hide)}>
                             <FormattedMessage id="notifications.nothing" />
                         </span>
                     )}

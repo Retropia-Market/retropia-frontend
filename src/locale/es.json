@@ -73,7 +73,7 @@
     "notifications.message": "Has recibido {notifications, plural, one {un mensaje} other {# mensajes}} de {username}",
     "notifications.bids": "Has recibido {notifications, plural, one {una oferta} other {# ofertas}}.",
     "notifications.reviews": "Te han añadido {notifications, plural, one {una reseña} other {# reseñas}}.",
-    "notifications.sales": "Te han comprado {notifications, plural, one {un artículo} other {# articulos}.",
+    "notifications.sales": "Has comprado {notifications, plural, one {un artículo} other {# articulos}}!.",
     "chat.welcome": "Selecciona una conversación para comenzar a hablar!",
     "fav.title": "Tus Favoritos",
     "profile.reviews.received.title": "Valoraciones Recibidas",
