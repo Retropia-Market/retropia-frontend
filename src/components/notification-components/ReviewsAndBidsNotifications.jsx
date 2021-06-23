@@ -5,7 +5,7 @@ import { useState } from 'react';
 import useNotifications from '../../hooks/useNotifications';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const ReviewsAndBidsNotifications = () => {
     const [hide, setHide] = useState(false);
@@ -49,52 +49,64 @@ const ReviewsAndBidsNotifications = () => {
                     </div>
                 </div>
             </div>
-            {hide &&
-                (notifications.bids !== 0 ||
-                    notifications.reviews ||
-                    notifications.sales) && (
-                    <motion.div className="pop-up" initial={{height: 0,  x: 0 }} animate={{height: 70,  x: -50, y : 5, transition: {
-            duration: 0.2,
-        }, }}>
-                        {notifications.bids !== 0 && (
-                            <Link to="/profile/transactions/bids/received">
-                                <span>
-                                    <FormattedMessage
-                                        id="notifications.bids"
-                                        values={{
-                                            notifications: notifications.bids,
-                                        }}
-                                    />
-                                </span>
-                            </Link>
+            {hide && (
+                <motion.div
+                    className="pop-up"
+                    initial={{ height: 0, x: 0 }}
+                    animate={{
+                        height: 70,
+                        x: -50,
+                        y: 5,
+                        transition: {
+                            duration: 0.2,
+                        },
+                    }}
+                >
+                    {notifications.bids !== 0 && (
+                        <Link to="/profile/transactions/bids/received">
+                            <span>
+                                <FormattedMessage
+                                    id="notifications.bids"
+                                    values={{
+                                        notifications: notifications.bids,
+                                    }}
+                                />
+                            </span>
+                        </Link>
+                    )}
+                    {notifications.reviews !== 0 && (
+                        <Link to="/profile/ratings">
+                            <span>
+                                <FormattedMessage
+                                    id="notifications.reviews"
+                                    values={{
+                                        notifications: notifications.reviews,
+                                    }}
+                                />
+                            </span>
+                        </Link>
+                    )}
+                    {notifications.sales !== 0 && (
+                        <Link to="/profile/transactions/buy">
+                            <span>
+                                <FormattedMessage
+                                    id="notifications.sales"
+                                    values={{
+                                        notifications: notifications.sales,
+                                    }}
+                                />
+                            </span>
+                        </Link>
+                    )}
+                    {notifications.sales === 0 &&
+                        notifications.reviews === 0 &&
+                        notifications.bids === 0 && (
+                            <span>
+                                <FormattedMessage id="notifications.nothing" />
+                            </span>
                         )}
-                        {notifications.reviews !== 0 && (
-                            <Link to="/profile/ratings">
-                                <span>
-                                    <FormattedMessage
-                                        id="notifications.reviews"
-                                        values={{
-                                            notifications:
-                                                notifications.reviews,
-                                        }}
-                                    />
-                                </span>
-                            </Link>
-                        )}
-                        {notifications.sales !== 0 && (
-                            <Link to="/profile/transactions/buy">
-                                <span>
-                                    <FormattedMessage
-                                        id="notifications.sales"
-                                        values={{
-                                            notifications: notifications.sales,
-                                        }}
-                                    />
-                                </span>
-                            </Link>
-                        )}
-                    </motion.div>
-                )}
+                </motion.div>
+            )}
         </div>
     );
 };

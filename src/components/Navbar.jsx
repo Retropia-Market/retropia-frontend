@@ -10,8 +10,8 @@ import Subcategories from './navbar-components/Subcategories';
 import { FormattedMessage } from 'react-intl';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../img/logo.svg';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import logo from '../img/logo.svg';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import LanguageSelector from './intlComponents/LanguageSelector';
 import MessageNotifications from './notification-components/MessageNotifications';
