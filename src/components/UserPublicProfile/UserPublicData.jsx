@@ -19,6 +19,7 @@ const UserPublicData = ({ uid }) => {
     const bannerUrl = `http://localhost:8080${
         user?.userData?.banner ?? results?.banner
     }`;
+    console.log(ratings);
 
     const userImg =
         results?.image?.indexOf('google') !== -1
@@ -93,8 +94,8 @@ const UserPublicData = ({ uid }) => {
                                     <ReactStarsRating
                                         className="react-stars"
                                         value={
-                                            +results[0]?.review_average > 0
-                                                ? +results[0]?.review_average
+                                            +ratings?.review_average > 0
+                                                ? +ratings?.review_average
                                                 : 0
                                         }
                                         isEdit={false}
