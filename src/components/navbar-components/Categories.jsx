@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 
