@@ -182,16 +182,38 @@
       display: flex;
       background: transparent;
 
-      input {
+      .input {
         flex: 1 1 auto;
         height: 42px;
+        max-height: 100px;
         background-color: white;
         border-radius: 21px;
         border: 0;
         outline: 0;
         box-sizing: border-box;
-        padding: 10px 20px;
         margin: 10px 20px;
+        padding: 0 5px 0 5px;
+        display: flex;
+        justify-content: space-around;
+        word-wrap: break-word;
+
+        input {
+          border-radius: 21px;
+          flex-grow: 1;
+          padding: 10px 20px;
+          border: none;
+        }
+        .send-button {
+          border: none;
+          background: transparent;
+          border-radius: 100%;
+          transform: rotate(42deg);
+
+          svg {
+            cursor: pointer;
+            color: rgb(110, 26, 98);
+          }
+        }
       }
     }
   }

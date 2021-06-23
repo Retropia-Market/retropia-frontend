@@ -6,6 +6,9 @@ import useChat from '../../hooks/useChat';
 import useFetchChat from '../../hooks/useFetchChat';
 // import useImage from '../../hooks/useImage';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+
 function ChatRoom({setContactId}) {
   useChat();
   const { id } = useParams();
@@ -61,11 +64,16 @@ function ChatRoom({setContactId}) {
         ))}
       </div>
       <form className="footer-chat" onSubmit={handleSubmit}>
-        <input
-          placeholder="Escribe aquí..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
+        <div className="input">
+          <input
+            placeholder="Escribe aquí..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button className="send-button">
+            <FontAwesomeIcon icon={faLocationArrow} size="2x"></FontAwesomeIcon>
+          </button>
+        </div>
       </form>
     </div>
   );
