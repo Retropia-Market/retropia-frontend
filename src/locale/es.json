@@ -131,5 +131,7 @@
     "sale.productdatatitle": "Datos del producto",
     "update.productDescrip": "Descripción",
     "publicprofile.bio": "Biografía",
-    "notifications.nothing": "Todavía no tienes ninguna notificación."
+    "notifications.nothing": "Todavía no tienes ninguna notificación.",
+    "review.note": "Nota",
+    "review.text": "Detalles"
 }
