@@ -1,0 +1,16 @@
+.submit-button-1 {
+  cursor: pointer;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  background: rgb(147, 38, 131);
+  background: linear-gradient(
+    90deg,
+    rgba(45, 19, 66, 0.9) 30%,
+    rgba(147, 38, 131, 1) 70%
+  );
+}

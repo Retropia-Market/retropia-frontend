@@ -11,8 +11,9 @@ const TopProducts = () => {
         <>
             {results && results?.length !== 0 && (
                 <div className="catalogue most-viewed">
-                    <h1>
+                    <h1 className="main-title">
                         <FormattedMessage id="top.title" />
+                        <span className="main-title-row"></span>
                     </h1>
                     <div className="catalogue-products">
                         {results &&

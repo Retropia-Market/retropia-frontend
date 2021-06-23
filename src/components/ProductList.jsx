@@ -17,8 +17,9 @@ const ProductList = ({ type }) => {
 
   return (
     <div className="catalogue">
-      <h1>
+      <h1 className="main-title">
         <FormattedMessage id="catalogue.title" />
+        <span className="main-title-row"></span>
       </h1>
       <div className="catalogue-inside">
         {results && (

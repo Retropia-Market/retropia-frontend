@@ -91,25 +91,12 @@ $primary-color: #88236b;
   perspective: 1000px;
 }
 
-.submit-button-1 {
-  cursor: pointer;
-  margin-top: 2rem;
-  padding: 0.5rem;
-  border-radius: 50px;
-  border: none;
-  color: white;
-  font-weight: bolder;
-  letter-spacing: 2px;
-  background: rgb(147, 38, 131);
-  background: linear-gradient(
-    90deg,
-    rgba(45, 19, 66, 0.9) 30%,
-    rgba(147, 38, 131, 1) 70%
-  );
-}
-
+// MODELS
+@import './Models/Modal';
+@import './Models/Titles';
+@import './Models/Buttons';
+//
 @import './MainBackground';
-@import './Modal';
 @import './Navbar';
 @import './Products/Products';
 @import './Register';
@@ -122,10 +109,8 @@ $primary-color: #88236b;
 @import './LanguageSelector';
 
 // PROFILE
-@import './User/_user-private-page';
-@import './User/_profile-management';
-@import './User/_profile-chat';
-// @import './ProfileNavbar';
-// @import './ProfileInfo';
-// @import './Chat';
+@import './User/User-private-page';
+@import './User/Profile-management';
+@import './User/Profile-chat';
+//
 @import '~react-image-gallery/styles/scss/image-gallery.scss';
