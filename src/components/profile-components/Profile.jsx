@@ -33,7 +33,7 @@ function Profile() {
   return (
     <div className="user-private-page">
       <ul className="user-private-sidebar">
-        <NavLink className="user-sidebar-section" to="/profile">
+        <NavLink className="user-sidebar-section" to="/profile" exact>
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faUser} size="3x"></FontAwesomeIcon>
           </li>
@@ -53,7 +53,7 @@ function Profile() {
             <FontAwesomeIcon icon={faStar} size="3x"></FontAwesomeIcon>
           </li>
         </NavLink>
-        <NavLink className="user-sidebar-section" to="/profile/transactions/bids/made">
+        <NavLink className="user-sidebar-section" to="/profile/transactions">
           <li className="user-sidebar-item">
             <FontAwesomeIcon icon={faHandshake} size="3x"></FontAwesomeIcon>
           </li>
