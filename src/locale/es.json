@@ -130,5 +130,6 @@
     "delete.button.no": "No",
     "sale.productdatatitle": "Datos del producto",
     "update.productDescrip": "Descripción",
-    "publicprofile.bio": "Biografía"
+    "publicprofile.bio": "Biografía",
+    "notifications.nothing": "Todavía no tienes ninguna notificación."
 }
