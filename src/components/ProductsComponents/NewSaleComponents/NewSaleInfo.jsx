@@ -10,6 +10,7 @@ import NameVideoGameSelector from './NameVideoGameSelector';
 
 import { itemNewSale } from '../../animations';
 import { motion } from 'framer-motion';
+import SelectSaleState from '../SelectSaleState';
 
 const NewSaleInfo = ({
     files,
@@ -151,22 +152,8 @@ const NewSaleInfo = ({
                             <span className="input-title">
                                 <FormattedMessage id="sale.productStatus" />
                             </span>
-                            <SelectSearch
-                                options={[
-                                    { value: 'Nuevo', name: 'Nuevo' },
-                                    {
-                                        value: 'usado como nuevo',
-                                        name: 'Usado - Como nuevo',
-                                    },
-                                    { value: 'desgastado', name: 'Desgastado' },
-                                    {
-                                        value: 'deteriorado',
-                                        name: 'Deteriorado',
-                                    },
-                                ]}
-                                search
-                                placeholder="Nombre"
-                                onChange={setProductStatus}
+                            <SelectSaleState
+                                setProductStatus={setProductStatus}
                             />
                         </label>
                     </div>

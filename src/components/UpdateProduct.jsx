@@ -12,6 +12,7 @@ import cancelIcon from '../img/icons/cancel.svg';
 
 import { item } from './animations';
 import { motion } from 'framer-motion';
+import SelectSaleState from './ProductsComponents/SelectSaleState';
 
 const UpdateProduct = ({ productId }) => {
     const [showUpdate, setShowUpdate] = useState(false);
@@ -103,26 +104,8 @@ const UpdateProduct = ({ productId }) => {
                                 </label>
                                 <label>
                                     <FormattedMessage id="sale.productStatus" />
-                                    <SelectSearch
-                                        options={[
-                                            { value: 'Nuevo', name: 'Nuevo' },
-                                            {
-                                                value: 'usado como nuevo',
-                                                name: 'Usado - Como nuevo',
-                                            },
-                                            { value: 'usado', name: 'Usado' },
-                                            {
-                                                value: 'deteriorado',
-                                                name: 'Deteriorado',
-                                            },
-                                            {
-                                                value: 'recambio',
-                                                name: 'Recambio',
-                                            },
-                                        ]}
-                                        search
-                                        placeholder="Nombre"
-                                        onChange={setStatus}
+                                    <SelectSaleState
+                                        setProductStatus={setStatus}
                                     />
                                 </label>
                                 <label>
