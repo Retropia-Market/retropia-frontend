@@ -85,9 +85,9 @@ const ProductInfo = ({ data, metacritic }) => {
                   <div className="logo"></div>
                   <span
                     className={`metacritic-score ${
-                      metacritic > 75
+                      metacritic > 60
                         ? 'meta-green'
-                        : metacritic > 50
+                        : metacritic > 39
                         ? 'meta-yellow'
                         : 'meta-red'
                     }`}
