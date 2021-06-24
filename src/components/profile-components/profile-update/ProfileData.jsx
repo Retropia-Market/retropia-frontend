@@ -155,7 +155,7 @@ function ProfileData({ updateField, user }) {
                             />
                         </div>
                     </div>
-                    <div className="profile-update-field">
+                    {/* <div className="profile-update-field">
                         <label className="profile-update-field-label" htmlFor="profile-update-bio">
                             <span>
                                 <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>
@@ -168,7 +168,6 @@ function ProfileData({ updateField, user }) {
                             <textarea
                                 id="profile-update-bio"
                                 type="textarea"
-                                cols="20"
                                 value={profileData?.bio}
                                 name="bio"
                                 placeholder={user?.userData?.bio}
@@ -177,7 +176,7 @@ function ProfileData({ updateField, user }) {
                                 }
                             />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="profile-update-fields-2">
                     <div className="profile-update-field">
