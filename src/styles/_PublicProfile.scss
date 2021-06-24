@@ -42,16 +42,37 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+        .update-banner-div {
+            z-index: 5;
+            border: 2px solid black;
+            position: relative;
+            border-radius: 50%;
+            background-color: white;
+            margin-top: 10px;
+            align-self: flex-end;
+
+            width: 30px;
+            height: 30px;
+
+            padding: 10px;
+
+            cursor: pointer;
             .update-banner {
-                z-index: 5;
                 background-size: 100%;
+                z-index: 6;
                 background-repeat: no-repeat;
+                cursor: pointer;
+                position: absolute;
+                top: 5px;
+                left: 8px;
                 width: 15px;
                 height: 15px;
                 background-image: url('../img/icons/editar.svg');
-                input[type='file'] {
-                    display: none;
-                }
+            }
+
+            input[type='file'] {
+                display: none;
             }
         }
 
