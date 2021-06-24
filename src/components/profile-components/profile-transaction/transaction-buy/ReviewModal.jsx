@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp, faStar } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronUp,
+  faStar,
+  faStarHalf,
+} from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
 import StarRatingComponent from 'react-star-rating-component';
 
@@ -67,10 +71,13 @@ function ReviewModal({ setShowReviewModal, data }) {
             onStarClick={setReviewRating}
             renderStarIcon={() => (
               <FontAwesomeIcon
-                id="review-stars"
                 className="review-star"
                 icon={faStar}
+                size="2x"
               ></FontAwesomeIcon>
+            )}
+            renderStarIconHalf={() => (
+              <FontAwesomeIcon size="7x" icon={faStarHalf}></FontAwesomeIcon>
             )}
             isEdit={false}
             isHalf={true}
@@ -79,7 +86,7 @@ function ReviewModal({ setShowReviewModal, data }) {
           <label htmlFor="review-text">
             <FormattedMessage id="review.text" />
           </label>
-          <div className="modal-field">
+          <div id="modal-field">
             <textarea
               id="review-text"
               type="textarea"
@@ -89,16 +96,11 @@ function ReviewModal({ setShowReviewModal, data }) {
           </div>
         </div>
 
-                <button className="submit-button-1">
-                    <FormattedMessage
-                        id="review.modal.send"
-                        onClick={handleSubmit}
-                    />
-                </button>
-                {errorMessage && (
-                    <div className="error-message">{errorMessage}</div>
-                )}
-            </form>
+        <button className="submit-button-1">
+          <FormattedMessage id="review.modal.send" onClick={handleSubmit} />
+        </button>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+      </form>
 
       <FontAwesomeIcon
         className="modal-exit"
