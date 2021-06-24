@@ -136,6 +136,7 @@ $white: #ffffff;
 @import './Reviews';
 
 // PROFILE
+@import './User/User-login-register';
 @import './User/User-private-page';
 @import './User/Profile-management';
 @import './User/Profile-chat';

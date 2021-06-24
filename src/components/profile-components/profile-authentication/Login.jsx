@@ -69,44 +69,52 @@ function Login({ setShowLogin, setShowRegister }) {
     setShowLogin(false);
   };
 
-  return (
-    <div className="modal-bg" onClick={closeModalHandler}>
-      <div className="modal-fg" onClick={(e) => e.stopPropagation()}>
-        {!showPassRec && (
-          <form onSubmit={handleSubmit}>
-            <h2 className="modal-title">
-              <FormattedMessage id="login.login" />
-            </h2>
-            <div className="modal-inputs">
-              <label htmlFor="username-login">
-                {' '}
-                <FormattedMessage id="login.user" />
-              </label>
-              <div className="modal-field">
-                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                <input
-                  id="username-login"
-                  type="email"
-                  placeholder="email..."
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-              <label htmlFor="password-login">
-                {' '}
-                <FormattedMessage id="login.password" />
-              </label>
-              <div className="modal-field">
-                <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-                <input
-                  id="password-login"
-                  type="password"
-                  placeholder="************"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-            </div>
+    return (
+        <div className="modal-bg" id="login-bg" onClick={closeModalHandler}>
+            <div className="modal-fg" id="login-fg" onClick={(e) => e.stopPropagation()}>
+                {!showPassRec && (
+                    <form onSubmit={handleSubmit}>
+                        <h2 className="modal-title">
+                            <FormattedMessage id="login.login" />
+                        </h2>
+                        <div className="modal-inputs">
+                            <label htmlFor="username-login">
+                                {' '}
+                                <FormattedMessage id="login.user" />
+                            </label>
+                            <div className="modal-field">
+                                <FontAwesomeIcon
+                                    icon={faUser}
+                                ></FontAwesomeIcon>
+                                <input
+                                    id="username-login"
+                                    type="email"
+                                    placeholder="email..."
+                                    value={username}
+                                    onChange={(e) =>
+                                        setUsername(e.target.value)
+                                    }
+                                />
+                            </div>
+                            <label htmlFor="password-login">
+                                {' '}
+                                <FormattedMessage id="login.password" />
+                            </label>
+                            <div className="modal-field">
+                                <FontAwesomeIcon
+                                    icon={faLock}
+                                ></FontAwesomeIcon>
+                                <input
+                                    id="password-login"
+                                    type="password"
+                                    placeholder="************"
+                                    value={password}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+                            </div>
+                        </div>
 
             <div className="modal-options-container">
               <button
@@ -125,20 +133,19 @@ function Login({ setShowLogin, setShowRegister }) {
               </button>
             </div>
 
-            <button className="modal-button">
-              {' '}
-              <FormattedMessage id="login.login" />
-            </button>
-            <GoogleLogin
-              className="login-with-google"
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              // buttonText="Log in"
-              onSuccess={handleGoogleLogin}
-              onFailure={handleGoogleLogin}
-              cookiePolicy={'single_host_origin'}
-            />
-          </form>
-        )}
+                        <button className="submit-button-1">
+                            {' '}
+                            <FormattedMessage id="login.login" />
+                        </button>
+                        <GoogleLogin
+                            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                            // buttonText="Log in"
+                            onSuccess={handleGoogleLogin}
+                            onFailure={handleGoogleLogin}
+                            cookiePolicy={'single_host_origin'}
+                        />
+                    </form>
+                )}
 
         {showPassRec && (
           <PassRecovery
@@ -150,14 +157,13 @@ function Login({ setShowLogin, setShowRegister }) {
         {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
 
-      <FontAwesomeIcon
-        className="login-exit"
-        icon={faChevronUp}
-        size="2x"
-        onClick={() => setShowLogin(false)}
-      ></FontAwesomeIcon>
-    </div>
-  );
+            <FontAwesomeIcon
+                className="login-exit"
+                icon={faChevronUp}
+                onClick={() => setShowLogin(false)}
+            ></FontAwesomeIcon>
+        </div>
+    );
 }
 
 export default Login;

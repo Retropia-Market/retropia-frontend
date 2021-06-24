@@ -55,10 +55,10 @@ function Register({ setShowRegister, setShowLogin }) {
     };
 
     return (
-        <div className="modal-bg" onClick={closeModalHandler}>
+        <div className="modal-bg" id="register-bg" onClick={closeModalHandler}>
             <div
                 className="modal-fg"
-                id="register-modal"
+                id="register-fg"
                 onClick={(e) => e.stopPropagation()}
             >
                 <form onSubmit={handleSubmit}>
@@ -170,7 +170,7 @@ function Register({ setShowRegister, setShowLogin }) {
                             <FormattedMessage id="register.alreadyaccount" />
                         </button>
                     </div>
-                    <button className="modal-button">
+                    <button className="submit-button-1">
                         <FormattedMessage id="register.registernow" />
                     </button>
                 </form>

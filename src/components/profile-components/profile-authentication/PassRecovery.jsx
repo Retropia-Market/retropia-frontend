@@ -49,7 +49,7 @@ export function PassRecovery({ setShow, setErrorMessage }) {
                     />
                 </div>
             </div>
-            <button className="modal-button">
+            <button className="submit-button-1">
                 <FormattedMessage id="password.recovery.button" />
             </button>
             <FontAwesomeIcon

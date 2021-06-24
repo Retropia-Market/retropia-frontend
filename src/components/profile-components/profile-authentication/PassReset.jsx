@@ -91,7 +91,7 @@ export function PassReset() {
                                     />
                                 </div>
                             </div>
-                            <button className="modal-button">
+                            <button className="submit-button-1">
                                 <FormattedMessage id="profile.update.savechanges" />
                             </button>
                         </form>
