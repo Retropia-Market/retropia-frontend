@@ -24,6 +24,8 @@
       align-items: center;
       justify-content: center;
       height: 100%;
+      position: relative;
+      z-index: 1;
 
       .user-sidebar-item {
         padding: 0 0.5rem;
@@ -34,16 +36,34 @@
         justify-content: center;
         height: 100%;
         border-top: rgba(147, 38, 131, 1) 1px solid;
+        transition: color 0.5s ease;
       }
     }
-    .user-sidebar-section:hover {
+    .user-sidebar-section::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       color: white;
-      background: linear-gradient(
+      background-image: linear-gradient(
         180deg,
         rgba(147, 38, 131, 1) 0%,
         rgba(45, 19, 66, 1) 30%,
         rgba(24, 15, 53, 1) 100%
       );
+      z-index: -1;
+      transition: opacity 0.5s linear;
+      opacity: 0;
+    }
+    .user-sidebar-section:hover {
+      color: white;
+    }
+
+    .user-sidebar-section:hover::before {
+      color: white;
+      opacity: 1;
     }
     .active {
       color: white;
