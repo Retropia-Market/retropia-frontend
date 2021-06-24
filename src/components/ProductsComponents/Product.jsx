@@ -7,6 +7,7 @@ import ProductScreenShots from './ProductScreenShots';
 import ErrorBoundary from '../../errors/ErrorBoundary';
 import { motion } from 'framer-motion';
 import { item } from '../animations';
+import { useState } from 'react';
 
 const Product = () => {
     const { id } = useParams();
@@ -14,6 +15,8 @@ const Product = () => {
     const apiURL = `http://localhost:8080/catalogue/${id}`;
 
     const [results] = useFetch(apiURL);
+
+    const [metacritic, setMetacritic] = useState();
 
     return (
         <div className="outside-box">
@@ -25,17 +28,20 @@ const Product = () => {
                     exit="hidden"
                     className="single-product-page"
                 >
-                    <ProductInfo data={results} />
+                    <ProductInfo data={results} metacritic={metacritic} />
                     <div className="locationimg">
                         <Location place={results?.location} />
                     </div>
                     <ErrorBoundary>
-                        {results.name && results.product_type && (
-                            <ProductScreenShots
-                                query={results?.name}
-                                type={results?.product_type}
-                            />
-                        )}
+                        {results.name &&
+                            results.product_type &&
+                            results?.product_type === 'videogame' && (
+                                <ProductScreenShots
+                                    query={results?.name}
+                                    type={results?.product_type}
+                                    setMetacritic={setMetacritic}
+                                />
+                            )}
                     </ErrorBoundary>
                     <RelatedProducts data={results} />
                 </motion.div>
