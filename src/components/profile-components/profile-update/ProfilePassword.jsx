@@ -57,7 +57,7 @@ function ProfilePassword({ updateField, user }) {
                 <FormattedMessage id="profile.update.password" />
             </h3>
 
-            <div className="profile-update-fields">
+            <div className="profile-update-passwords">
                 <div className="profile-update-field">
                     <label 
                         className="profile-update-field-label" 
