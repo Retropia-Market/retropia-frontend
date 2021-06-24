@@ -15,4 +15,4 @@ objetivo claro, facilitar y promover un mercado olvidado centrándose únicament
 [![GPLv3 License](http://img.shields.io/badge/Renzo-D'Astolfi-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/germanabenza/)
 [![AGPL License](http://img.shields.io/badge/German-Abenza-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/renzo-dastolfi/)
 
-![Logo](https://i.ibb.co/dG2kzqy/logo.png)
+![Logo](https://i.ibb.co/MMVP34L/logo.png)
