@@ -55,7 +55,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 100px;
+        height: fit-content;
+        animation: rotateMenu 500ms ease-in-out forwards;
+        transform-origin: top center;
+        @for $num from 1 through 4 {
+            .dropdown-menu-#{$num} {
+                margin-bottom: 5px;
+            }
+        }
+
         li {
             margin: 0;
             display: block;
@@ -64,5 +72,17 @@
                 height: 20px;
             }
         }
+    }
+}
+
+@keyframes rotateMenu {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    70% {
+        transform: rotateX(20deg);
+    }
+    100% {
+        transform: rotateX(0deg);
     }
 }

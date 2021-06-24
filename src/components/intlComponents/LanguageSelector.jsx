@@ -6,6 +6,7 @@ const LanguageSelector = () => {
     const { language } = useSelector((s) => s.language);
     const dispatch = useDispatch();
     const options = ['es', 'en', 'gl', 'it'];
+    let index = 0;
 
     return (
         <motion.div className="lang">
@@ -32,7 +33,9 @@ const LanguageSelector = () => {
                                     })
                                 }
                             >
-                                <div className={lang}></div>
+                                <div
+                                    className={`${lang} dropdown-menu-${++index}`}
+                                ></div>
                             </li>
                         );
                     })}
