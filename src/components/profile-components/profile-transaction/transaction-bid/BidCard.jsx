@@ -1,5 +1,8 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from '../../../ProductCard';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import useFetch from '../../../../hooks/useFetch';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import ReviewModal from '../transaction-buy/ReviewModal';
@@ -94,8 +97,6 @@ function BidCard({ data, user, update, type, className }) {
         <div className={`bid ${className}`}>
           {product.id && <ProductCard data={product} />}
           <div className={`bid-card`}>
-            <h2>DEV_Estado:</h2>
-            <h3>{className}</h3>
             <h2>
               <FormattedMessage id="profile.bids.message" />
             </h2>
@@ -123,8 +124,17 @@ function BidCard({ data, user, update, type, className }) {
                 <button onClick={handleDelete}>X</button>
               )}
               {type === 'completada' && (
-                <button onClick={handleReview}>
+                <button
+                  className="submit-button-1"
+                  id=""
+                  onClick={handleReview}
+                >
                   {' '}
+                  <FontAwesomeIcon
+                    id="review-stars"
+                    className="review-star"
+                    icon={faStar}
+                  ></FontAwesomeIcon>
                   <FormattedMessage id="profile.bids.review" />
                 </button>
               )}
