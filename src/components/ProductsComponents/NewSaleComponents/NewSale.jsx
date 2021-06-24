@@ -6,7 +6,6 @@ import NewSaleInfo from './NewSaleInfo';
 import { FormattedMessage } from 'react-intl';
 import { motion } from 'framer-motion';
 import { item } from '../../animations';
-import AlertNotification from '../../AlertNotification';
 
 const NewSale = () => {
   const [files, setFiles] = useState([]);
