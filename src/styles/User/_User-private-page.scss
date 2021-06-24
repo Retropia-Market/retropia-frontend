@@ -1,11 +1,11 @@
 .user-private-page {
   display: flex;
-  height: calc(90vh - 100px);
+  height: calc(100vh - 200px);
   overflow-y: hidden;
 
   .user-private-sidebar {
     box-sizing: border-box;
-    height: calc(90vh - 100px);
+    height: calc(100vh - 200px);
     margin: 0;
     padding: 0;
 
