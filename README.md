@@ -21,4 +21,6 @@ objetivo claro, facilitar y promover un mercado olvidado centrándose únicament
 [![Renzo](http://img.shields.io/badge/Renzo-D'Astolfi-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/germanabenza/)
 [![German](http://img.shields.io/badge/German-Abenza-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/renzo-dastolfi/)
 
+//
+
 ![Logo](https://svgshare.com/i/YUR.svg)
