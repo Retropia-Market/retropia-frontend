@@ -2,8 +2,9 @@ import { useCallback, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import DragNDrop from './DragNDrop';
+import Loader from './Loader';
 import { item } from '../../animations';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const NewSaleImageSelect = ({
     setImageAdded,
@@ -14,9 +15,8 @@ const NewSaleImageSelect = ({
 }) => {
     const [previews, setPreviews] = useState([]);
     const [images, setImages] = useState([]);
-    const [vision, setVision] = useState(false);
     const user = useSelector((s) => s.user);
-    console.log(vision);
+    const [firstStep, setFirstStep] = useState(false);
 
     const onDrop = useCallback(
         (acceptedFiles) => {
@@ -73,33 +73,35 @@ const NewSaleImageSelect = ({
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (files.length < 1) return;
-        let ret;
-        if (vision) {
-            const fd = new FormData();
-            fd.append('image', files[0]);
-            ret = await fetch('http://localhost:8080/sell/vision/', {
-                method: 'POST',
-                headers: {
-                    Authorization: 'Bearer ' + user.token,
-                },
-                body: fd,
-            });
-        }
-        if (vision && ret.ok) {
+        setFirstStep(true);
+
+        const fd = new FormData();
+        fd.append('image', files[0]);
+        const ret = await fetch('http://localhost:8080/sell/vision/', {
+            method: 'POST',
+            headers: {
+                Authorization: 'Bearer ' + user.token,
+            },
+            body: fd,
+        });
+
+        if (ret.ok) {
             const response = await ret.json();
             setProductType(handleTypeData(response));
-            setImageAdded(true);
-        } else {
+            setFirstStep(false);
             setImageAdded(true);
         }
     };
 
     return (
         <div className="image-select">
-            <motion.div className="add-first-image" variants={item}
-      animate="visible"
-                    initial="hidden"
-                    exit="hidden">
+            <motion.div
+                className="add-first-image"
+                variants={item}
+                animate="visible"
+                initial="hidden"
+                exit="hidden"
+            >
                 {previews.map((preview, i) => (
                     <div
                         className={!imageAdded ? 'image' : 'image visioned'}
@@ -118,20 +120,15 @@ const NewSaleImageSelect = ({
                             <FormattedMessage id="sale.imgDescription" />
                         </h3>
                         <div className="button-vision">
-                            <button
-                                className="agregar-imagen yellow-button"
-                                onClick={handleSubmit}
-                            >
-                                <FormattedMessage id="sale.continue" />
-                            </button>
-                            <br />
-                            <label>
-                                Vision
-                                <input
-                                    type="checkbox"
-                                    onChange={() => setVision(!vision)}
-                                />
-                            </label>
+                            {!firstStep && (
+                                <button
+                                    className="agregar-imagen yellow-button"
+                                    onClick={handleSubmit}
+                                >
+                                    <FormattedMessage id="sale.continue" />
+                                </button>
+                            )}
+                            {firstStep && <Loader />}
                         </div>
                     </>
                 )}

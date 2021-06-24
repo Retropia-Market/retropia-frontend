@@ -8,9 +8,8 @@ import LocationSelector from './LocationSelector';
 import NameConsoleSelector from './NameConsoleSelector';
 import NameVideoGameSelector from './NameVideoGameSelector';
 
-
 import { itemNewSale } from '../../animations';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const NewSaleInfo = ({
     files,
@@ -70,10 +69,13 @@ const NewSaleInfo = ({
         }
     };
     return (
-        <motion.div className="new-sale-info" variants={itemNewSale}
-      animate="visible"
-                    initial="hidden"
-                    exit="hidden">
+        <motion.div
+            className="new-sale-info"
+            variants={itemNewSale}
+            animate="visible"
+            initial="hidden"
+            exit="hidden"
+        >
             <div className="sale-user-input">
                 {redirect && <Redirect to="/" />}
                 <span className="new-sale-title product-title">
@@ -156,12 +158,11 @@ const NewSaleInfo = ({
                                         value: 'usado como nuevo',
                                         name: 'Usado - Como nuevo',
                                     },
-                                    { value: 'usado', name: 'Usado' },
+                                    { value: 'desgastado', name: 'Desgastado' },
                                     {
                                         value: 'deteriorado',
                                         name: 'Deteriorado',
                                     },
-                                    { value: 'recambio', name: 'Recambio' },
                                 ]}
                                 search
                                 placeholder="Nombre"
