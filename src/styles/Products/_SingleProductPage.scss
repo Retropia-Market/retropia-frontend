@@ -21,10 +21,9 @@
     box-sizing: border-box;
   }
 
-  .product-info > .product-title {
+  .product-info .product-title {
     font-size: 2em;
     text-align: start;
-    border-bottom: 2px solid #eceff1;
   }
   .product-main-page .product-img {
     width: 40%;
@@ -34,6 +33,51 @@
     align-self: center;
     border: 2px solid none;
     border-radius: 5%;
+  }
+
+  .name-metacritic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 2px solid #eceff1;
+
+    .metacritic {
+      display: flex;
+      align-items: center;
+      .logo {
+        background-image: url('../../img/icons/metacritic.png');
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .metacritic-score {
+        font-size: 35px;
+        border-radius: 6px;
+        height: 1.6em;
+        width: 1.6em;
+        line-height: 1.6em;
+        margin-left: 0.6em;
+        margin-bottom: 0.2em;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .meta-yellow {
+        background-color: #ffcc33;
+      }
+      .meta-green {
+        background-color: #6fcc33;
+      }
+      .meta-red {
+        background-color: #ef4e17;
+      }
+    }
   }
 
   .product-info {
@@ -106,12 +150,42 @@
     border: 0;
     border-radius: 1.5rem;
   }
-  .product-card-info-status {
-    margin-left: 10px;
+
+  .data-sheet {
+    width: 100%;
   }
+
   .status-text {
     align-self: center;
   }
+
+  .product-card-info-status {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    font-weight: 800;
+    align-self: center;
+    margin-left: 0.3em;
+  }
+
+  .nuevo-state {
+    color: rgb(3, 88, 0);
+
+    background-color: #8cc63f;
+  }
+  .comonuevo-state {
+    background-color: #ebd454;
+    color: black;
+  }
+  .desgastado-state {
+    background-color: red;
+    color: white;
+  }
+  .deteriorado-state {
+    background-color: orange;
+    color: white;
+  }
+
   .button {
     padding: 0.2rem 1rem;
     color: rgb(0, 0, 0);
@@ -122,6 +196,7 @@
 
   .product-description {
     text-align: start;
+    font-family: 'Open Sans', sans-serif;
     padding: 1em;
   }
 
