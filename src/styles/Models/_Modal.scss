@@ -82,6 +82,8 @@
   cursor: pointer;
   border: none;
   background: none;
+  padding: 0 1rem;
+  margin-top: 1rem;
 }
 .modal-fg .modal-options:hover {
   font-weight: bolder;
@@ -99,10 +101,21 @@
   letter-spacing: 2px;
   background: rgb(147, 38, 131);
   background: linear-gradient(
-    90deg,
+    45deg,
     rgba(45, 19, 66, 0.9) 30%,
     rgba(147, 38, 131, 1) 70%
   );
+  margin-bottom: 2rem;
+  transition: 0.2s;
+}
+
+.modal-button:hover {
+  transform: scale(1.1);
+}
+
+.login-with-google {
+  background: aqua;
+  padding: 0.5rem;
 }
 
 .login-fg .login-logo {

@@ -8,166 +8,156 @@ import { FormattedMessage } from 'react-intl';
 import { PassRecovery } from './PassRecovery';
 
 function Login({ setShowLogin, setShowRegister }) {
-    const [showPassRec, setShowPassRec] = useState(false);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const dispatch = useDispatch();
+  const [showPassRec, setShowPassRec] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setErrorMessage('');
-        const res = await fetch('http://localhost:8080/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ email: username, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (res.ok) {
-            const user = await res.json();
-            if (user.userData.verified) {
-                dispatch({ type: 'LOGIN', user });
-                setShowLogin(false);
-            } else {
-                setErrorMessage(
-                    'Este email no esta verificado. Por favor revisa tu bandeja de correo'
-                );
-            }
-        } else if (res.status === 401) {
-            setErrorMessage('Usuario o Contraseña incorrectos.');
-            console.log(errorMessage);
-        } else {
-            console.log('Parece que algo fue mal');
-        }
-    };
-
-    const handleGoogleLogin = async (googleData) => {
-        const res = await fetch('http://localhost:8080/users/login-google', {
-            method: 'POST',
-            body: JSON.stringify({
-                token: googleData.tokenId,
-            }),
-            headers: {
-                'content-type': 'application/json',
-            },
-        });
-        if (res.ok) {
-            const data = await res.json();
-            dispatch({ type: 'LOGIN', user: data });
-            setShowLogin(false);
-        }
-    };
-
-    const handleRegister = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage('');
+    const res = await fetch('http://localhost:8080/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ email: username, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (res.ok) {
+      const user = await res.json();
+      if (user.userData.verified) {
+        dispatch({ type: 'LOGIN', user });
         setShowLogin(false);
-        setShowRegister(true);
-    };
-    const handleRecovery = () => {
-        setShowPassRec(true);
-    };
+      } else {
+        setErrorMessage(
+          'Este email no esta verificado. Por favor revisa tu bandeja de correo'
+        );
+      }
+    } else if (res.status === 401) {
+      setErrorMessage('Usuario o Contraseña incorrectos.');
+      console.log(errorMessage);
+    } else {
+      console.log('Parece que algo fue mal');
+    }
+  };
 
-    const closeModalHandler = (e) => {
-        setShowLogin(false);
-    };
+  const handleGoogleLogin = async (googleData) => {
+    const res = await fetch('http://localhost:8080/users/login-google', {
+      method: 'POST',
+      body: JSON.stringify({
+        token: googleData.tokenId,
+      }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      dispatch({ type: 'LOGIN', user: data });
+      setShowLogin(false);
+    }
+  };
 
-    return (
-        <div className="modal-bg" onClick={closeModalHandler}>
-            <div className="modal-fg" onClick={(e) => e.stopPropagation()}>
-                {!showPassRec && (
-                    <form onSubmit={handleSubmit}>
-                        <h2 className="modal-title">
-                            <FormattedMessage id="login.login" />
-                        </h2>
-                        <div className="modal-inputs">
-                            <label htmlFor="username-login">
-                                {' '}
-                                <FormattedMessage id="login.user" />
-                            </label>
-                            <div className="modal-field">
-                                <FontAwesomeIcon
-                                    icon={faUser}
-                                ></FontAwesomeIcon>
-                                <input
-                                    id="username-login"
-                                    type="email"
-                                    placeholder="email..."
-                                    value={username}
-                                    onChange={(e) =>
-                                        setUsername(e.target.value)
-                                    }
-                                />
-                            </div>
-                            <label htmlFor="password-login">
-                                {' '}
-                                <FormattedMessage id="login.password" />
-                            </label>
-                            <div className="modal-field">
-                                <FontAwesomeIcon
-                                    icon={faLock}
-                                ></FontAwesomeIcon>
-                                <input
-                                    id="password-login"
-                                    type="password"
-                                    placeholder="************"
-                                    value={password}
-                                    onChange={(e) =>
-                                        setPassword(e.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
+  const handleRegister = () => {
+    setShowLogin(false);
+    setShowRegister(true);
+  };
+  const handleRecovery = () => {
+    setShowPassRec(true);
+  };
 
-                        <div className="modal-options-container">
-                            <button
-                                type="button"
-                                className="modal-options"
-                                onClick={handleRegister}
-                            >
-                                <FormattedMessage id="login.notaccount" />
-                            </button>
-                            <button
-                                type="button"
-                                className="modal-options"
-                                onClick={handleRecovery}
-                            >
-                                <FormattedMessage id="login.forgot" />
-                            </button>
-                        </div>
+  const closeModalHandler = (e) => {
+    setShowLogin(false);
+  };
 
-                        <button className="modal-button">
-                            {' '}
-                            <FormattedMessage id="login.login" />
-                        </button>
-                        <GoogleLogin
-                            className="modal-button"
-                            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                            // buttonText="Log in"
-                            onSuccess={handleGoogleLogin}
-                            onFailure={handleGoogleLogin}
-                            cookiePolicy={'single_host_origin'}
-                        />
-                    </form>
-                )}
-
-                {showPassRec && (
-                    <PassRecovery
-                        setShow={setShowPassRec}
-                        setErrorMessage={setErrorMessage}
-                    />
-                )}
-
-                {errorMessage && (
-                    <div className="error-message">{errorMessage}</div>
-                )}
+  return (
+    <div className="modal-bg" onClick={closeModalHandler}>
+      <div className="modal-fg" onClick={(e) => e.stopPropagation()}>
+        {!showPassRec && (
+          <form onSubmit={handleSubmit}>
+            <h2 className="modal-title">
+              <FormattedMessage id="login.login" />
+            </h2>
+            <div className="modal-inputs">
+              <label htmlFor="username-login">
+                {' '}
+                <FormattedMessage id="login.user" />
+              </label>
+              <div className="modal-field">
+                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                <input
+                  id="username-login"
+                  type="email"
+                  placeholder="email..."
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <label htmlFor="password-login">
+                {' '}
+                <FormattedMessage id="login.password" />
+              </label>
+              <div className="modal-field">
+                <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
+                <input
+                  id="password-login"
+                  type="password"
+                  placeholder="************"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
             </div>
 
-            <FontAwesomeIcon
-                className="login-exit"
-                icon={faChevronUp}
-                size="2x"
-                onClick={() => setShowLogin(false)}
-            ></FontAwesomeIcon>
-        </div>
-    );
+            <div className="modal-options-container">
+              <button
+                type="button"
+                className="modal-options"
+                onClick={handleRegister}
+              >
+                <FormattedMessage id="login.notaccount" />
+              </button>
+              <button
+                type="button"
+                className="modal-options"
+                onClick={handleRecovery}
+              >
+                <FormattedMessage id="login.forgot" />
+              </button>
+            </div>
+
+            <button className="modal-button">
+              {' '}
+              <FormattedMessage id="login.login" />
+            </button>
+            <GoogleLogin
+              className="login-with-google"
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              // buttonText="Log in"
+              onSuccess={handleGoogleLogin}
+              onFailure={handleGoogleLogin}
+              cookiePolicy={'single_host_origin'}
+            />
+          </form>
+        )}
+
+        {showPassRec && (
+          <PassRecovery
+            setShow={setShowPassRec}
+            setErrorMessage={setErrorMessage}
+          />
+        )}
+
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+      </div>
+
+      <FontAwesomeIcon
+        className="login-exit"
+        icon={faChevronUp}
+        size="2x"
+        onClick={() => setShowLogin(false)}
+      ></FontAwesomeIcon>
+    </div>
+  );
 }
 
 export default Login;
