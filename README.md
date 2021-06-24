@@ -3,6 +3,12 @@
 Retropia Market es una aplicación web orientada a la compra/venta de productos gaming retro que nace con un
 objetivo claro, facilitar y promover un mercado olvidado centrándose únicamente en éste.
 
+## Tech Stack
+
+**Client:** React, Redux & Sass.
+
+**Server:** Node, Express, WebSockets & MySql.
+
 ## Autores
 
 - [@germanabenza](https://www.github.com/gaber95)
