@@ -64,7 +64,6 @@ const ProductCard = ({ data, favorites }) => {
                     },
                 }
             );
-            console.log(res);
             if (res.ok) {
                 const data = await res.json();
                 console.log(data);

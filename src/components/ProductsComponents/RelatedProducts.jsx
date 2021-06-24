@@ -12,20 +12,16 @@ const RelatedProducts = ({ data }) => {
             {results_data?.length > 1 && (
                 <>
                     {' '}
-                    <h1>
+                    <h1 className="main-title">
                         <FormattedMessage id="prod.related" />
+                        <span className="main-title-row"></span>
                     </h1>
                     <div className="catalogue-products">
-                        {results_data.map((product) => {
-                            if (data.id !== product.id) {
-                                return (
-                                    <ProductCard
-                                        data={product}
-                                        key={product.id}
-                                    />
-                                );
-                            }
-                        })}
+                        {results_data
+                            .filter((p, i) => p.id !== data.id && i < 4)
+                            .map((product) => (
+                                <ProductCard data={product} key={product.id} />
+                            ))}
                     </div>
                 </>
             )}

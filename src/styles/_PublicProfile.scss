@@ -44,7 +44,7 @@
             justify-content: center;
         }
         .update-banner-div {
-            z-index: 5;
+            z-index: 3;
             border: 2px solid black;
             position: relative;
             border-radius: 50%;
@@ -60,7 +60,7 @@
             cursor: pointer;
             .update-banner {
                 background-size: 100%;
-                z-index: 6;
+                z-index: 4;
                 background-repeat: no-repeat;
                 cursor: pointer;
                 position: absolute;

@@ -248,6 +248,9 @@
             justify-content: space-between;
             flex-direction: column;
             height: 100%;
+            .image {
+                border-radius: 10px;
+            }
             .image.add {
                 border-radius: 100%;
                 background-image: url('https://icons-for-free.com/iconfiles/png/512/cloud+upload+file+storage+upload+icon-1320190558968694328.png');

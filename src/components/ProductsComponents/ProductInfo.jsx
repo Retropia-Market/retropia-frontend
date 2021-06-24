@@ -5,10 +5,10 @@ import useFetch from '../../hooks/useFetch';
 import productPlaceholder from '../../img/colorPlaceholder.svg';
 import { useState } from 'react';
 import NewBid from '../NewBid';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import GiveFavComponent from '../GiveFavComponent';
 import ReactStarsRating from 'react-awesome-stars-rating';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 
 const ProductInfo = ({ data }) => {
@@ -18,6 +18,33 @@ const ProductInfo = ({ data }) => {
     const results = useFetch(
         `http://localhost:8080/user/${data?.seller_id}/rating`
     );
+
+    const history = useHistory();
+    const contacts = useSelector((s) => s.contacts);
+    const user = useSelector((s) => s.user);
+    const dispatch = useDispatch();
+
+    const chatClickHandler = async (e) => {
+        if (!contacts[data.seller_id]) {
+            const res = await fetch(
+                `http://localhost:8080/chats/${user.userData.id}/add-contact/${data.seller_id}`,
+                {
+                    method: 'POST',
+                    headers: {
+                        Authorization: 'Bearer ' + user.token,
+                    },
+                }
+            );
+            if (res.ok) {
+                const data_ok = await res.json();
+                dispatch({ type: 'ADD-CONTACT', data: data_ok.contact });
+            } else {
+                // TODO: configurar errores
+                console.error('error inesperado');
+            }
+        }
+        history.push(`/profile/chat/${data.seller_id}`);
+    };
 
     if (data?.error) {
         return (
@@ -101,24 +128,29 @@ const ProductInfo = ({ data }) => {
                         <div className="product-description">
                             {data.description}
                         </div>
-                        <div className="bid-message-buttons">
-                            <button className="button sell-button">
-                                <FormattedMessage id="button.message" />
-                            </button>
-                            <div>
-                                {userData ? (
-                                    <GiveFavComponent data={data} />
-                                ) : (
-                                    ''
-                                )}
+                        {data.seller_id !== userData.id && (
+                            <div className="bid-message-buttons">
+                                <button
+                                    className="button sell-button"
+                                    onClick={chatClickHandler}
+                                >
+                                    <FormattedMessage id="button.message" />
+                                </button>
+                                <div>
+                                    {userData ? (
+                                        <GiveFavComponent data={data} />
+                                    ) : (
+                                        ''
+                                    )}
+                                </div>
+                                <button
+                                    onClick={handleBid}
+                                    className="button bid-button"
+                                >
+                                    <FormattedMessage id="button.bid" />
+                                </button>
                             </div>
-                            <button
-                                onClick={handleBid}
-                                className="button bid-button"
-                            >
-                                <FormattedMessage id="button.bid" />
-                            </button>
-                        </div>
+                        )}
                     </div>
                 </div>
             )}

@@ -12,10 +12,6 @@ const ProductCard = ({ data }) => {
     const { seller, name, status, price, images, seller_id, id } = data;
     const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
 
-    const handleBid = () => {
-        setShowModal(!showModal);
-    };
-
     const handleOnClick = () => {
         history.push('/catalogue/' + data.id);
     };
