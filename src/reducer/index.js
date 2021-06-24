@@ -100,12 +100,10 @@ const notificationReducer = (
     case 'noti/bids':
       newState = { ...state };
       newState['bids'] = action['noti/bids'];
-      console.log('bids', newState);
       return newState;
     case 'noti/reviews':
       newState = { ...state };
       newState['reviews'] = action['noti/reviews'];
-      console.log('reviews', newState);
       return newState;
     case 'noti/sales':
       newState = { ...state };

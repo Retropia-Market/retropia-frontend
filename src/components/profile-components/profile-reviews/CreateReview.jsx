@@ -11,7 +11,6 @@ function CreateReview({ data }) {
   });
 
   const updateField = (e, setData, data) => {
-    console.log(e);
     if (e.target.type === 'number') {
       setData({
         ...data,
@@ -27,7 +26,6 @@ function CreateReview({ data }) {
 
   const handleReview = async (e) => {
     e.preventDefault();
-    console.log(data.product_id);
     const res = await fetch(
       `http://localhost:8080/catalogue/${data.product_id}/review/update`,
       {
@@ -41,7 +39,6 @@ function CreateReview({ data }) {
     );
     if (res.ok) {
       const data = await res.json();
-      console.log(data);
     }
   };
 
