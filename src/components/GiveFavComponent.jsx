@@ -47,7 +47,6 @@ const GiveFavComponent = ({ data }) => {
         }
       );
       if (ret.ok) {
-        console.log(ret);
         setFav(false);
       }
     }

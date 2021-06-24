@@ -17,7 +17,6 @@ function ReviewModal({ setShowReviewModal, data }) {
 
   const dispatch = useDispatch();
   const user = useSelector((s) => s.user);
-  console.log(data);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');

@@ -83,7 +83,6 @@ function BidCard({ data, user, update, type, className }) {
 
   const handleReview = async () => {
     setShowReviewModal(true);
-    console.log(resultsReviews);
   };
 
   const [resultsReviews] = useFetch(
