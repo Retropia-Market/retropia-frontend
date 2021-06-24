@@ -42,6 +42,8 @@ body {
 
 $main-color-1: rgb(147, 38, 131);
 $main-color-2: rgb(45, 19, 66);
+$main-color-3: #ebd454;
+$main-color-4: #d6597c;
 
 $shadow-1: 3px 3px 2px 5px rgba(0, 0, 0, 0.5);
 
@@ -60,6 +62,23 @@ $reversed-gradient: linear-gradient(
 );
 
 $primary-color: #88236b;
+
+$icon-size: 35px;
+$border-radius: 0.5; //15% = 0.15, 50% = 0.50 etc.
+
+$background: #2d2c3e;
+$background-b: #2d2c3e;
+
+// Icon Colors
+$green: #16a085;
+$red: #c82647;
+$green-l: #8cc63f;
+$orange: #eb9532;
+$purple: #7e3661;
+$yellow: #d85261;
+
+// Text
+$white: #ffffff;
 
 @keyframes shake {
     10%,
@@ -101,6 +120,7 @@ $primary-color: #88236b;
 @import './Models/Titles';
 @import './Models/Buttons';
 @import './Models/Loader';
+@import './Models/Icons';
 //
 @import './MainBackground';
 @import './Navbar';

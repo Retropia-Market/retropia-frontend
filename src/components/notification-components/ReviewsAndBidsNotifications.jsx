@@ -39,7 +39,7 @@ const ReviewsAndBidsNotifications = () => {
                                 </div>
                             </div>
                         )}
-                    <div className="icon">
+                    <div className="icon-custom icon-rotate">
                         <FontAwesomeIcon
                             className="notifications"
                             icon={faBell}

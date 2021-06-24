@@ -26,7 +26,10 @@ const MessageNotifications = () => {
                                 </div>
                             </div>
                         )}
-                    <div className="icon" onClick={() => setHide(!hide)}>
+                    <div
+                        className="icon-custom icon-fill"
+                        onClick={() => setHide(!hide)}
+                    >
                         <FontAwesomeIcon
                             className="messages"
                             icon={faCommentDots}
