@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-import SelectSearch from 'react-select-search';
 import CatSelector from './CatSelector';
 import LocationSelector from './LocationSelector';
 import NameConsoleSelector from './NameConsoleSelector';
@@ -11,6 +10,9 @@ import NameVideoGameSelector from './NameVideoGameSelector';
 import { itemNewSale } from '../../animations';
 import { motion } from 'framer-motion';
 import SelectSaleState from '../SelectSaleState';
+import SelectProductType from '../SelectProductType';
+
+import { useIntl } from 'react-intl';
 
 const NewSaleInfo = ({
     files,
@@ -29,6 +31,7 @@ const NewSaleInfo = ({
     const [redirect, setRedirect] = useState(false);
 
     const user = useSelector((s) => s.user);
+    const intl = useIntl();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -87,18 +90,17 @@ const NewSaleInfo = ({
                         <label className="product-type">
                             <span className="product-type-title">
                                 <FormattedMessage id="sale.productType" />
-                                {productType === 'console' ? 'una' : 'un'}
+                                {productType === 'console'
+                                    ? `${intl.formatMessage({
+                                          id: 'article.fem',
+                                      })}`
+                                    : `${intl.formatMessage({
+                                          id: 'article.mascul',
+                                      })}`}
                             </span>
-                            <SelectSearch
-                                options={[
-                                    { value: 'console', name: 'Consola' },
-                                    { value: 'videogame', name: 'Videojuego' },
-                                    { value: 'accesory', name: 'Accesorio' },
-                                ]}
-                                search
-                                placeholder="Nombre"
-                                onChange={setProductType}
-                                value={productType}
+                            <SelectProductType
+                                setProductType={setProductType}
+                                productType={productType}
                             />
                         </label>
                         <label className="input-label">

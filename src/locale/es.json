@@ -40,7 +40,7 @@
     "sale.productName": "Nombre del producto",
     "sale.productStatus": "Estado del producto",
     "sale.productType": "Estoy vendiendo ",
-    "sale.productCat": "Categoria",
+    "sale.productCat": "Plataforma",
     "sale.productLoc": "Localización",
     "sale.productPrice": "Precio",
     "sale.createnew": "Crea tu venta",
@@ -125,7 +125,7 @@
     "password.recovery.subtitle": "Introduce el correo para el que deseas recuperar tu contraseña.",
     "password.recovery.button": "Enviar correo",
     "password.recovery.aftersent": "Listo, comprueba tu correo!",
-    "delete.title": "¿Estas seguro?",
+    "delete.title": "¿Estás seguro?",
     "delete.button.yes": "Si",
     "delete.button.no": "No",
     "sale.productdatatitle": "Datos del producto",
@@ -137,5 +137,10 @@
     "status.new": "Nuevo",
     "status.used": "Usado - Como nuevo",
     "status.wornout": "Desgastado",
-    "status.deteriorated": "Deteriorado"
+    "status.deteriorated": "Deteriorado",
+    "type.console": "Consola",
+    "type.videogame": "Videojuego",
+    "type.accesory": "Periférico",
+    "article.mascul": "un",
+    "article.fem": "una"
 }
