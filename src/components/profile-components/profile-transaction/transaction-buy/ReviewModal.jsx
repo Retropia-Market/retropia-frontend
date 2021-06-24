@@ -83,7 +83,7 @@ function ReviewModal({ setShowReviewModal, data }) {
                     </div>
                 </div>
 
-                <button className="modal-button">
+                <button className="submit-button-1">
                     <FormattedMessage
                         id="review.modal.send"
                         onClick={handleSubmit}

@@ -70,8 +70,8 @@ function Login({ setShowLogin, setShowRegister }) {
     };
 
     return (
-        <div className="modal-bg" onClick={closeModalHandler}>
-            <div className="modal-fg" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-bg" id="login-bg" onClick={closeModalHandler}>
+            <div className="modal-fg" id="login-fg" onClick={(e) => e.stopPropagation()}>
                 {!showPassRec && (
                     <form onSubmit={handleSubmit}>
                         <h2 className="modal-title">
@@ -133,12 +133,11 @@ function Login({ setShowLogin, setShowRegister }) {
                             </button>
                         </div>
 
-                        <button className="modal-button">
+                        <button className="submit-button-1">
                             {' '}
                             <FormattedMessage id="login.login" />
                         </button>
                         <GoogleLogin
-                            className="modal-button"
                             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                             // buttonText="Log in"
                             onSuccess={handleGoogleLogin}
@@ -163,7 +162,6 @@ function Login({ setShowLogin, setShowRegister }) {
             <FontAwesomeIcon
                 className="login-exit"
                 icon={faChevronUp}
-                size="2x"
                 onClick={() => setShowLogin(false)}
             ></FontAwesomeIcon>
         </div>

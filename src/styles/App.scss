@@ -1,43 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    padding: 100px 0 0 0;
-    box-sizing: border-box;
-    margin: 0;
-    @media screen and (max-width: 1400px) {
-        font-size: 0.8rem;
-    }
+  padding: 100px 0 0 0;
+  box-sizing: border-box;
+  margin: 0;
+  @media screen and (max-width: 1400px) {
+    font-size: 0.8rem;
+  }
 
-    //   background: url('https://www.toptal.com/designers/subtlepatterns/patterns/confectionary.png');
-    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png');
+  //   background: url('https://www.toptal.com/designers/subtlepatterns/patterns/confectionary.png');
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png');
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .main {
-    box-sizing: border-box;
-    height: calc(90vh - 100px);
-    .catalogue:last-child {
-        padding-bottom: 6rem;
-    }
+  box-sizing: border-box;
+  height: calc(90vh - 100px);
+  .catalogue:last-child {
+    padding-bottom: 6rem;
+  }
 }
 
 .App {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 $main-color-1: rgb(147, 38, 131);
@@ -48,17 +48,17 @@ $main-color-4: #d6597c;
 $shadow-1: 3px 3px 2px 5px rgba(0, 0, 0, 0.5);
 
 $main-gradient: linear-gradient(
-    0deg,
-    rgba(147, 38, 131, 1) 0%,
-    rgba(45, 19, 66, 1) 30%,
-    rgba(24, 15, 53, 1) 100%
+  0deg,
+  rgba(147, 38, 131, 1) 0%,
+  rgba(45, 19, 66, 1) 30%,
+  rgba(24, 15, 53, 1) 100%
 );
 
 $reversed-gradient: linear-gradient(
-    0deg,
-    rgba(24, 15, 53, 1) 0%,
-    rgba(45, 19, 66, 1) 30%,
-    rgba(147, 38, 131, 1) 100%
+  0deg,
+  rgba(24, 15, 53, 1) 0%,
+  rgba(45, 19, 66, 1) 30%,
+  rgba(147, 38, 131, 1) 100%
 );
 
 $primary-color: #88236b;
@@ -81,38 +81,38 @@ $yellow: #d85261;
 $white: #ffffff;
 
 @keyframes shake {
-    10%,
-    90% {
-        transform: translate3d(-1px, 0, 0);
-    }
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
 
-    20%,
-    80% {
-        transform: translate3d(2px, 0, 0);
-    }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
-    30%,
-    50%,
-    70% {
-        transform: translate3d(-4px, 0, 0);
-    }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
 
-    40%,
-    60% {
-        transform: translate3d(4px, 0, 0);
-    }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .error-message {
-    color: red;
-    margin-top: 2rem;
+  color: red;
+  margin-top: 2rem;
 }
 
 .error-message {
-    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 // MODELS
@@ -136,6 +136,7 @@ $white: #ffffff;
 @import './Reviews';
 
 // PROFILE
+@import './User/User-login-register';
 @import './User/User-private-page';
 @import './User/Profile-management';
 @import './User/Profile-chat';
