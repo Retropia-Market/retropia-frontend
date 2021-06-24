@@ -5,8 +5,8 @@ objetivo claro, facilitar y promover un mercado olvidado centrándose únicament
 
 ## Autores
 
-- [@germanabenza](https://www.github.com/octokatherine)
-- [@renzodasltofi](https://www.github.com/octokatherine)
+- [@germanabenza](https://www.github.com/gaber95)
+- [@renzodasltofi](https://www.github.com/RenzoDastolfi)
 - [@ivanfernandez](https://www.github.com/ivan-gal)
 
 ## Linkedin
