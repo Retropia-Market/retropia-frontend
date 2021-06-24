@@ -7,6 +7,7 @@
     background-color: white;
     padding: 0.2rem;
     border-radius: 50%;
+
     .dropdown {
         position: absolute;
         top: 0;
@@ -50,6 +51,9 @@
 .lang:hover {
     margin-left: 1em;
     transition: 1s all ease-in;
+    .main {
+        visibility: hidden;
+    }
     .dropdown {
         display: flex;
         flex-direction: column;

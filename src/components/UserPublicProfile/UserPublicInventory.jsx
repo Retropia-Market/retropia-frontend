@@ -15,9 +15,12 @@ const UserPublicInventory = ({ uid }) => {
                         (p) => p.sale_status.toLowerCase() === 'en venta'
                     ) && (
                         <>
-                            <h1>
-                                <FormattedMessage id="publicprofile.onsale" />
-                            </h1>
+                            <div className="title-container">
+                                <h1 className="main-title title-inventory">
+                                    <FormattedMessage id="publicprofile.onsale" />
+                                    <span className="main-title-row"></span>
+                                </h1>
+                            </div>
                             <div className="inventory-products">
                                 {results &&
                                     results
@@ -42,8 +45,9 @@ const UserPublicInventory = ({ uid }) => {
                         (p) => p.sale_status.toLowerCase() === 'vendido'
                     ) && (
                         <>
-                            <h1>
+                            <h1 className="main-title title-inventory">
                                 <FormattedMessage id="publicprofile.sold" />
+                                <span className="main-title-row"></span>
                             </h1>
                             <div className="inventory-products sold">
                                 {results &&

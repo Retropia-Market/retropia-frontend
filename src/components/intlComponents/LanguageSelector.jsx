@@ -9,15 +9,9 @@ const LanguageSelector = () => {
     let index = 0;
 
     return (
-        <motion.div className="lang">
-            <motion.div className={language}></motion.div>
-            <ul
-                variants={item}
-                animate="visible"
-                initial="hidden"
-                exit="hidden"
-                className="dropdown"
-            >
+        <div className="lang">
+            <div className={`${language} main`}></div>
+            <ul className="dropdown">
                 {options
                     .sort((a, b) =>
                         a === language ? -1 : b === language ? 1 : 0
@@ -40,7 +34,7 @@ const LanguageSelector = () => {
                         );
                     })}
             </ul>
-        </motion.div>
+        </div>
     );
 };
 

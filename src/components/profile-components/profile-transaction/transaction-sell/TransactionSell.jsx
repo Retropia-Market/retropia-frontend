@@ -20,7 +20,7 @@ function TransactionSell() {
             setSellssObject({ productsOnSale: data });
             console.log(sellsObject);
         }
-    }, [user]);
+    }, [user, sellsObject]);
 
     useEffect(() => {
         fetchData();

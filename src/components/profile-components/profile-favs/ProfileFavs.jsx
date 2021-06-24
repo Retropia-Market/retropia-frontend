@@ -15,8 +15,9 @@ function ProfileFavs({ user }) {
 
     return (
         <div className="catalogue">
-            <h2>
+            <h2 className="main-title">
                 <FormattedMessage id="fav.title" />
+                <span className="main-title-row"></span>
             </h2>
 
             {!favs && <h3>Cargando...</h3>}
