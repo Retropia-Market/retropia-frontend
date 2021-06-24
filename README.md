@@ -18,9 +18,7 @@ objetivo claro, facilitar y promover un mercado olvidado centrándose únicament
 ## Linkedin
 
 [![Ivan](http://img.shields.io/badge/Ivan-Fernandez-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ivanfernandezlopez/)
-[![Renzo](http://img.shields.io/badge/Renzo-D'Astolfi-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/germanabenza/)
-[![German](http://img.shields.io/badge/German-Abenza-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/renzo-dastolfi/)
-
-//
+[![Renzo](http://img.shields.io/badge/Renzo-D'Astolfi-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/renzo-dastolfi/)
+[![German](http://img.shields.io/badge/German-Abenza-orange?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/germanabenza/)
 
 ![Logo](https://svgshare.com/i/YUR.svg)
