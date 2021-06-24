@@ -1,25 +1,19 @@
 import useFetch from '../../hooks/useFetch';
 import ReactStarsRating from 'react-awesome-stars-rating';
-import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import Location from '../Location';
-import { useState } from 'react';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import banner from '../../img/banner-placeholder.jpeg';
+import logo from '../../img/placeholder-logo.png';
 
 const UserPublicData = ({ uid }) => {
   const user = useSelector((s) => s.user);
-  const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
   const apiURL = 'http://localhost:8080/users/' + uid;
   const dispatch = useDispatch();
-  const [showBio, setShowBio] = useState();
-
   const [results] = useFetch(apiURL);
   const [ratings] = useFetch(`http://localhost:8080/user/${uid}/rating`);
   const bannerUrl = `http://localhost:8080${
     user?.userData?.banner ?? results?.banner
   }`;
-  console.log(ratings);
 
   const userImg =
     results?.image?.indexOf('google') !== -1
@@ -56,9 +50,7 @@ const UserPublicData = ({ uid }) => {
           <div
             className="public-avatar-background"
             style={{
-              backgroundImage: `url(${
-                results?.banner ? bannerUrl : defaultImg
-              })`,
+              backgroundImage: `url(${results?.banner ? bannerUrl : banner})`,
             }}
           ></div>
           {+uid === user?.userData?.id && (
@@ -72,7 +64,7 @@ const UserPublicData = ({ uid }) => {
           <div
             className="public-avatar"
             style={{
-              backgroundImage: `url(${results?.image ? userImg : defaultImg})`,
+              backgroundImage: `url(${results?.image ? userImg : logo})`,
             }}
           ></div>
           <div className="user-public-info">
