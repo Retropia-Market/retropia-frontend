@@ -19,6 +19,7 @@ import DeleteProduct from './DeleteProduct';
 import UpdateProduct from './UpdateProduct';
 import Login from './profile-components/profile-authentication/Login';
 import Register from './profile-components/profile-authentication/Register';
+import ProductCardStatus from './ProductCardStatus';
 
 const ProductCard = ({ data, favorites }) => {
     const [showLogin, setShowLogin] = useState(false);
@@ -107,9 +108,8 @@ const ProductCard = ({ data, favorites }) => {
                                     {name}
                                 </span>
                                 <span className="product-card-info-price">
-                                    <span className="product-card-info-status">
-                                        {status}
-                                    </span>
+                                    <ProductCardStatus status={status} />
+
                                     <FormattedNumber
                                         style="currency"
                                         value={price}

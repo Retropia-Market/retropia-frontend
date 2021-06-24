@@ -133,5 +133,9 @@
     "publicprofile.bio": "Biografía",
     "notifications.nothing": "Todavía no tienes ninguna notificación.",
     "review.note": "Nota",
-    "review.text": "Detalles"
+    "review.text": "Detalles",
+    "status.new": "Nuevo",
+    "status.used": "Usado - Como nuevo",
+    "status.wornout": "Desgastado",
+    "status.deteriorated": "Deteriorado"
 }
