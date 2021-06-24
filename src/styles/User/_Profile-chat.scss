@@ -31,6 +31,8 @@
       cursor: pointer;
       text-align: left;
       text-decoration: none;
+      z-index: 1;
+      position: relative;
 
       .avatar {
         min-width: 60px;
@@ -76,20 +78,40 @@
         }
       }
     }
-    .chat-entry:hover {
+    .chat-entry::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       box-shadow: 1px 0 10px rgba(147, 38, 131, 1);
-      background: rgb(110, 26, 98);
+      background: rgba(110, 26, 98, 0.8);
       // background: linear-gradient(
       //   180deg,
       //   rgba(147, 38, 131, 1) 0%,
       //   rgba(45, 19, 66, 1) 80%,
       //   rgba(24, 15, 53, 1) 100%
       // );
+      z-index: -1;
+      transition: opacity 0.5s linear;
+      opacity: 0;
 
       .top-row,
       .bottom-row .message {
         color: white;
       }
+    }
+
+    .chat-entry:hover {
+      .top-row,
+      .bottom-row .message {
+        color: white;
+      }
+    }
+
+    .chat-entry:hover::before {
+      opacity: 1;
     }
     .chat-entry.active {
       box-shadow: 1px 0 10px rgba(147, 38, 131, 1);

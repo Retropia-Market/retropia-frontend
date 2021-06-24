@@ -15,10 +15,36 @@
     }
     text-decoration: none;
     background-color: rgb(221, 221, 221);
+    z-index: 1;
+    position: relative;
+  }
+  a::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      0deg,
+      rgba(45, 19, 66, 1) 1%,
+      rgba(147, 38, 131, 1) 100%
+    );
+
+    z-index: -1;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+  }
+  a:hover {
+    transition: color 0.5s linear;
+    color: #fff;
   }
 
-  a:hover,
-  .selected {
+  a:hover::before {
+    opacity: 1;
+  }
+
+  a.selected {
     color: #fff;
     background: linear-gradient(
       0deg,
