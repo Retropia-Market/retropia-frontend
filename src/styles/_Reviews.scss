@@ -35,6 +35,9 @@
     justify-content: space-evenly;
     align-items: center;
     width: 60vw;
+    .selected {
+      font-weight: 700;
+    }
 
     span {
       display: inline-block;

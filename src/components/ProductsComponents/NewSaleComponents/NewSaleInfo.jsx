@@ -13,7 +13,6 @@ import SelectSaleState from '../SelectSaleState';
 import SelectProductType from '../SelectProductType';
 
 import { useIntl } from 'react-intl';
-import AlertNotification from '../../AlertNotification';
 
 const NewSaleInfo = ({
   files,
