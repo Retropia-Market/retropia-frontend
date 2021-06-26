@@ -37,3 +37,19 @@
 .submit-button-1:hover::before {
   opacity: 1;
 }
+
+.google-button {
+  padding-top: 2rem;
+  button:hover {
+    transition: 0.2s;
+    transform: scale(1.05) !important;
+  }
+  button {
+    transition: 0.2s !important;
+
+    border-radius: 1rem !important;
+    div {
+      background-color: transparent !important;
+    }
+  }
+}

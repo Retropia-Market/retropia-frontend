@@ -132,13 +132,15 @@ function Login({ setShowLogin, setShowRegister }) {
               {' '}
               <FormattedMessage id="login.login" />
             </button>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              // buttonText="Log in"
-              onSuccess={handleGoogleLogin}
-              onFailure={handleGoogleLogin}
-              cookiePolicy={'single_host_origin'}
-            />
+            <div className="google-button">
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                // buttonText="Log in"
+                onSuccess={handleGoogleLogin}
+                onFailure={handleGoogleLogin}
+                cookiePolicy={'single_host_origin'}
+              />
+            </div>
           </form>
         )}
 
