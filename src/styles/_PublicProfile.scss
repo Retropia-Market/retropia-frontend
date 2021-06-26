@@ -145,10 +145,17 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    li {
+      .product-card {
+        margin: 1rem;
+        width: 100%;
+      }
+    }
   }
 
   .sold .product-card {
     filter: grayscale(70%);
+    width: 100%;
   }
 
   .catalogue {

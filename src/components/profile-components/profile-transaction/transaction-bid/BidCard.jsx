@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../../../ProductCard';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useFetch from '../../../../hooks/useFetch';
@@ -96,21 +96,25 @@ function BidCard({ data, user, update, type, className }) {
         <div className={`bid ${className}`}>
           {product.id && <ProductCard data={product} />}
           <div className={`bid-card`}>
-            <h2>
-              <FormattedMessage id="profile.bids.message" />
-            </h2>
-            <h3>{data.bid_message}</h3>
-            <h2>
-              {' '}
-              <FormattedMessage id="profile.bids.offer" />:
-            </h2>
-            <h3>
-              <FormattedNumber
-                style="currency"
-                value={data.bid_price}
-                currency="EUR"
-              />
-            </h3>
+            <div className="bid-message">
+              <h2 className="bid-card-message-tilte">
+                <FormattedMessage id="profile.bids.message" />
+              </h2>
+              <h3 className="bid-card-message-text">{data.bid_message}</h3>
+            </div>
+            <div className="bid-price">
+              <h2 className="bid-card-price-tilte">
+                {' '}
+                <FormattedMessage id="profile.bids.offer" />:
+              </h2>
+              <h3 className="bid-card-price-amount">
+                <FormattedNumber
+                  style="currency"
+                  value={data.bid_price}
+                  currency="EUR"
+                />
+              </h3>
+            </div>
             <div className="buttons">
               {bidder.id && <h3>{bidder.username}</h3>}
               {type === 'recibida' && (
@@ -120,7 +124,11 @@ function BidCard({ data, user, update, type, className }) {
                 </button>
               )}
               {type === 'realizada' && (
-                <button onClick={handleDelete}>X</button>
+                <button className="bid-card-button" onClick={handleDelete}>
+                  <FontAwesomeIcon className="delete-icon" icon={faTrashAlt}>
+                    Delete
+                  </FontAwesomeIcon>
+                </button>
               )}
               {type === 'completada' && (
                 <button
