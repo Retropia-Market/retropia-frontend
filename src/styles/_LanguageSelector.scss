@@ -1,13 +1,16 @@
 .lang {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-self: center;
+  justify-self: center;
+  left: -60px;
   position: relative;
-  margin-left: 1em;
+  margin: 1em;
   background-color: white;
   padding: 0.2rem;
   border-radius: 50%;
   cursor: pointer;
+  animation: rotateMenu 500ms ease-in-out forwards;
 
   .dropdown {
     position: absolute;
@@ -50,22 +53,21 @@
 }
 
 .lang:hover {
-  margin-left: 1em;
   transition: 1s all ease-in;
   .main {
     visibility: hidden;
   }
   .dropdown {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     height: fit-content;
     animation: rotateMenu 500ms ease-in-out forwards;
-    transform-origin: top center;
+    transform-origin: top left;
     @for $num from 1 through 4 {
       .dropdown-menu-#{$num} {
-        margin-bottom: 5px;
+        margin: 0 3px;
       }
     }
 
@@ -82,12 +84,14 @@
 
 @keyframes rotateMenu {
   0% {
-    transform: rotateX(-90deg);
+    opacity: 0;
+    transform: rotateY(-90deg);
   }
   70% {
-    transform: rotateX(20deg);
+    opacity: 1;
+    transform: rotateY(20deg);
   }
   100% {
-    transform: rotateX(0deg);
+    transform: rotateY(0deg);
   }
 }

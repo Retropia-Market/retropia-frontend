@@ -89,7 +89,7 @@ function BidCard({ data, user, update, type, className }) {
     `http://localhost:8080/catalogue/${data.product_id}/review/`,
     user
   );
-
+  console.log(data);
   return (
     <>
       {resultsReviews?.error && (
@@ -97,17 +97,27 @@ function BidCard({ data, user, update, type, className }) {
           {product.id && <ProductCard data={product} />}
           <div className={`bid-card`}>
             <div className="bid-message">
-              <h2 className="bid-card-message-title">Detalles de la oferta</h2>
-              <h2 className="bid-card-message-sub-title">
-                <FormattedMessage
-                  id={
-                    type === "realizada"
-                      ? "profile.bids.message.to.seller"
-                      : "profile.bids.message.from.buyer"
-                  }
-                />
+              <h2 className="bid-card-message-title">
+                <FormattedMessage id="offer.details"></FormattedMessage>
               </h2>
-              <h3 className="bid-card-message-text">{data.bid_message}</h3>
+              {data.sale_status === "vendido" ? (
+                ""
+              ) : (
+                <>
+                  <h2 className="bid-card-message-sub-title">
+                    <FormattedMessage
+                      id={
+                        type === "realizada"
+                          ? "profile.bids.message.to.seller"
+                          : type === "recibida"
+                          ? "profile.bids.message.from.buyer"
+                          : "profile.bids.message.to.seller"
+                      }
+                    />
+                  </h2>
+                  <h3 className="bid-card-message-text">{data.bid_message}</h3>
+                </>
+              )}
             </div>
             <div className="bottom">
               <div className="bid-price">
@@ -117,7 +127,9 @@ function BidCard({ data, user, update, type, className }) {
                     id={
                       type === "realizada"
                         ? "profile.bids.offer.to.seller"
-                        : "profile.bids.offer.from.buyer"
+                        : type === "recibida"
+                        ? "profile.bids.offer.from.buyer"
+                        : "profile.bids.total.paid"
                     }
                   />
                   :
@@ -151,7 +163,7 @@ function BidCard({ data, user, update, type, className }) {
                   )}
                   {type === "completada" && (
                     <button
-                      className="submit-button-1"
+                      className="submit-button-1 review-button"
                       id=""
                       onClick={handleReview}
                     >

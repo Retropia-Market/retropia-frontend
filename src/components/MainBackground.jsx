@@ -1,8 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import logo from '../img/logo.svg';
-import { motion } from 'framer-motion';
-import { pageAnimation, logoAnimation } from './animations';
+import React from "react";
+import { useState, useEffect } from "react";
+import logo from "../img/logo.svg";
+import { motion } from "framer-motion";
+import { pageAnimation, logoAnimation } from "./animations";
 
 const MainBackground = () => {
   const [bckPosY, setBckPosY] = useState();
@@ -41,7 +41,7 @@ const MainBackground = () => {
         <div className="scene">
           <div
             className="grid"
-            style={{ backgroundPositionY: bckPosY + 'px' }}
+            style={{ backgroundPositionY: bckPosY + "px" }}
           ></div>
         </div>
       </div>
