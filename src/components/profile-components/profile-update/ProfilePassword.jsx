@@ -1,48 +1,48 @@
-import { useState } from 'react';
+import { useState } from "react";
 // import { useDispatch } from "react-redux";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUnlock,
   faLock,
   faUserLock,
-} from '@fortawesome/free-solid-svg-icons';
-import { FormattedMessage } from 'react-intl';
+} from "@fortawesome/free-solid-svg-icons";
+import { FormattedMessage } from "react-intl";
 
 function ProfilePassword({ updateField, user }) {
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [profilePassword, setProfilePassword] = useState({
-    oldPassword: '',
-    newPassword: '',
-    repeatedNewPassword: '',
+    oldPassword: "",
+    newPassword: "",
+    repeatedNewPassword: "",
   });
 
   const handlePassword = async (e) => {
     e.preventDefault();
-    setErrorMessage('');
+    setErrorMessage("");
     const res = await fetch(
       `http://localhost:8080/users/${user.userData.id}/update-password`,
       {
-        method: 'PATCH',
+        method: "PATCH",
         headers: {
-          Authorization: 'Bearer ' + user.token,
-          'Content-Type': 'application/json',
+          Authorization: "Bearer " + user.token,
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(profilePassword),
       }
     );
     if (res.ok) {
       setProfilePassword({
-        oldPassword: '',
-        newPassword: '',
-        repeatedNewPassword: '',
+        oldPassword: "",
+        newPassword: "",
+        repeatedNewPassword: "",
       });
     } else if (res.status === 401) {
-      setErrorMessage('Contraseña Incorrecta.');
+      setErrorMessage("Contraseña Incorrecta.");
     } else if (res.status === 400) {
-      setErrorMessage('Nueva contraseña inválida');
+      setErrorMessage("Nueva contraseña inválida");
     } else {
-      console.log('Parece que algo fue mal');
+      console.log("Parece que algo fue mal");
     }
   };
 
@@ -97,7 +97,7 @@ function ProfilePassword({ updateField, user }) {
           >
             <FormattedMessage id="profile.update.confirmpassword" />
           </label>
-          <div className="profile-update-info">
+          <div className="profile-update-input">
             <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
             <input
               id="confirmed-new-password"
