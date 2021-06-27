@@ -6,6 +6,7 @@
   .user-private-sidebar {
     box-sizing: border-box;
     height: calc(100vh - 200px);
+    min-width: 100px;
     margin: 0;
     padding: 0;
 
@@ -16,6 +17,10 @@
 
     background: white;
     box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.2);
+
+    :first-child .user-sidebar-item {
+      border-top: none !important;
+    }
 
     .user-sidebar-section {
       padding: 0 0.5rem;
@@ -41,7 +46,7 @@
     }
     .user-sidebar-section::before {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       right: 0;
       bottom: 0;
@@ -59,6 +64,10 @@
     }
     .user-sidebar-section:hover {
       color: white;
+
+      & + .user-sidebar-section .user-sidebar-item {
+        border-top: none;
+      }
     }
 
     .user-sidebar-section:hover::before {
@@ -73,6 +82,9 @@
         rgba(45, 19, 66, 1) 30%,
         rgba(24, 15, 53, 1) 100%
       );
+      & + .user-sidebar-section .user-sidebar-item {
+        border-top: none;
+      }
     }
   }
 

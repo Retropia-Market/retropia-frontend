@@ -6,14 +6,14 @@
   display: grid;
   @media screen and (min-width: 1000px) {
     grid-template-areas:
-      "logo search category user"
-      "logo  lower lower lower";
-    grid-template-columns: 0.1fr 0.3fr 0.6fr 1fr;
+      'logo search category user'
+      'logo  lower lower lower';
+    grid-template-columns: 100px 0.3fr 0.6fr 1fr;
     grid-template-rows: 1fr 0.5fr;
   }
   @media screen and (max-width: 999px) {
     padding: 0 2rem;
-    grid-template-areas: "logo search user";
+    grid-template-areas: 'logo search user';
     grid-template-columns: 0.4fr 1fr 1fr;
     grid-template-rows: 1fr;
   }
@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: center;
     grid-area: logo;
-    padding: 1rem;
+    padding: 0.8rem;
     @media screen and (max-width: 1000px) {
       min-width: 1rem;
       position: relative;
@@ -44,6 +44,7 @@
   .logo img {
     width: auto;
     height: 100%;
+    object-fit: contain;
   }
 
   .search-bar {
@@ -116,7 +117,7 @@
 
   .type::before {
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     right: 0;
     bottom: 0;
@@ -175,7 +176,7 @@
   .user {
     display: flex;
     gap: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 
     .user-settings {
       position: relative;
@@ -199,7 +200,7 @@
         right: 5px;
         border-radius: 15px;
         background: red;
-        box-shadow: $photo-box-shadow;
+        box-shadow: $shadow-1;
         // box-shadow: 3px 3px 2px 5px rgba(0, 0, 0, 0.5);
 
         .user-settings-menu {
@@ -218,6 +219,7 @@
             border-top-left-radius: 2px;
             top: -5px;
             right: 2px;
+
             background: white;
           }
           .user-settings-menu-list {
@@ -256,11 +258,10 @@
                 text-decoration: none;
                 background: white;
                 font-weight: 300;
+                text-transform: lowercase;
               }
               :hover {
                 font-weight: 500;
-                // background-color: $primary-color;
-                // color: #fff;
               }
             }
           }
@@ -287,6 +288,7 @@
     font-weight: 700;
     border-radius: 1rem;
     background-color: rgb(255, 217, 0);
+    margin-right: 2rem;
     text-decoration: none;
   }
 
