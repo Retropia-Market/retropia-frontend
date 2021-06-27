@@ -34,7 +34,7 @@ const NameConsoleSelector = ({ setProductName }) => {
                 getOptions={getFunOp}
                 search
                 placeholder="Nombre de tu consola"
-                debounce={1000}
+                debounce={100}
                 onChange={setProductName}
             />
         </div>

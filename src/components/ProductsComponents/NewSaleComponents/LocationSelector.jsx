@@ -25,7 +25,7 @@ const LocationSelector = ({setProductLocation}) => {
 return (
     <div className="new-sale-selector">
           <SelectSearch options={[]} getOptions={getFunOp} search
-        placeholder="Lugar donde resides actualmente"  debounce={1000}  onChange={setProductLocation} />
+        placeholder="Lugar donde resides actualmente"  debounce={100}  onChange={setProductLocation} />
     </div>
 )
 }

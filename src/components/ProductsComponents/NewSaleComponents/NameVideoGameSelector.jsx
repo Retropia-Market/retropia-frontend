@@ -10,7 +10,7 @@ const NameVideoGameSelector = ({ setProductName }) => {
                     if (results) {
                         resolve(
                             results
-                                .filter((_, i) => i < 5)
+                                .filter((_, i) => i < 10)
                                 .map((product, i) => ({
                                     value: [product, i],
                                     name: product.name,
@@ -29,7 +29,7 @@ const NameVideoGameSelector = ({ setProductName }) => {
                 getOptions={getFunOp}
                 search
                 placeholder="Nombre de tu videojuego"
-                debounce={1000}
+                debounce={100}
                 onChange={setProductName}
             />
         </div>
