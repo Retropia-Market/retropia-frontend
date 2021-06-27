@@ -30,22 +30,23 @@
     rgba(147, 38, 131, 1) 70%
   );
   z-index: -1;
-  transition: opacity 0.5s linear;
+  transition: opacity 0.4s linear;
   opacity: 0;
 }
 
 .submit-button-1:hover::before {
   opacity: 1;
+  transform: scale(1.05) !important;
 }
 
 .google-button {
   padding-top: 2rem;
   button:hover {
-    transition: 0.2s;
+    transition: 0.4s;
     transform: scale(1.05) !important;
   }
   button {
-    transition: 0.2s !important;
+    transition: 0.4s !important;
 
     border-radius: 1rem !important;
     div {
