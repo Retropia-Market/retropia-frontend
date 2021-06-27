@@ -113,6 +113,10 @@ const notificationReducer = (
       newState = { ...state };
       newState['newsale'] = action['noti/newsale'];
       return newState;
+    case 'noti/newregister':
+      newState = { ...state };
+      newState['newregister'] = action['noti/newregister'];
+      return newState;
     default:
       return state;
   }
