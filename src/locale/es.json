@@ -87,8 +87,6 @@
   "profile.bids.done.title": "Ofertas Realizadas",
   "profile.bids.notyet": "Parece que aún no has recibido ofertas.",
   "profile.bids.notdoneyet": "Parece que aún no has realizado ofertas.",
-  "profile.bids.offer": "Oferta",
-  "profile.bids.message": "Mensaje del usuario",
   "profile.bids.acceptoffer": "Aceptar oferta",
   "profile.bids.review": "Valorar compra",
   "profile.bids": "Ofertas",
@@ -142,5 +140,9 @@
   "type.videogame": "Videojuego",
   "type.accesory": "Periférico",
   "article.mascul": "un",
-  "article.fem": "una"
+  "article.fem": "una",
+  "profile.bids.offer.to.seller": "Tu oferta",
+  "profile.bids.message.to.seller": "Tu mensaje al vendedor",
+  "profile.bids.offer.from.buyer": "Te Ofrecen",
+  "profile.bids.message.from.buyer": "Mensaje del comprador"
 }

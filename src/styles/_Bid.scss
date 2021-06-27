@@ -52,6 +52,7 @@
   }
 }
 
+
 .bids-active {
   padding: 0;
   display: flex;
@@ -60,13 +61,12 @@
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
-  height: calc(100vh - 276.39px);
   h3 {
+    
     padding: 0;
     margin: 0;
     font-weight: 100 !important;
   }
-
   .transactions-section {
     height: 100%;
     .transactions-subnav {
@@ -74,23 +74,65 @@
     }
   }
 }
+
+
+
 .bid {
-  width: 50%;
-  height: 300px;
+
+  width: 40%;
+  margin-top: 3rem;
+  height: 270px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background-color: #fff;
   border-radius: 1rem;
   box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
 
+  .product-item{
+    padding: 0;
+    width: 400px;
+    height: 300px;
+    
+  }
+  
+.bid-message{
+  align-self: flex-start;
+  .bid-card-message-title{
+    font-weight: 600 !important;
+    font-size: 1rem;
+    text-align: start;
+  }
+  .bid-card-message-text{
+    font-weight: 200 !important;
+    font-size: 1.3rem;
+    font-style: italic;
+    text-align: start;
+  }
+}
+
+  .bid-card-price-title{
+    font-weight: 600 !important;
+    text-align: end;
+  }
+  
+  .bid-card-price-amount{
+    color: $primary-color;
+    font-weight: 800 !important;
+    text-align: end;
+  }
   .bid-card {
-    padding: 2rem;
-    overflow-y: auto;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+    color: rgb(42, 42, 42);
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 1rem;
+    width: 50%;
     height: 100%;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: space-between;
     h1,
     h2,
@@ -104,13 +146,12 @@
     h3 {
       font-size: 1.2em;
       font-weight: 300;
-      margin-bottom: 1em;
     }
     .bid-card-message-tilte {
       font-size: 0.5em !important;
       align-self: flex-start;
     }
-    .buttons {
+    .product-card-owner-icons {
       justify-content: space-between;
       h3 {
         font-size: 1rem;
@@ -127,8 +168,6 @@
 
   .product-card {
     display: flex;
-    width: 300px;
-    height: 350px;
     flex-direction: column;
     transition: 0.2s ease-in-out;
     .product-card-img {

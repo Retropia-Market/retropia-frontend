@@ -97,15 +97,17 @@ function BidCard({ data, user, update, type, className }) {
           {product.id && <ProductCard data={product} />}
           <div className={`bid-card`}>
             <div className="bid-message">
-              <h2 className="bid-card-message-tilte">
-                <FormattedMessage id="profile.bids.message" />
+              <h2 className="bid-card-message-title">
+                <FormattedMessage id={type === "realizada" ? "profile.bids.message.to.seller" : "profile.bids.message.from.buyer"} />
               </h2>
               <h3 className="bid-card-message-text">{data.bid_message}</h3>
             </div>
+            <div className="bottom">
+            <hr/>
             <div className="bid-price">
-              <h2 className="bid-card-price-tilte">
+              <h2 className="bid-card-price-title">
                 {' '}
-                <FormattedMessage id="profile.bids.offer" />:
+                <FormattedMessage id={type === "realizada" ? "profile.bids.offer.to.seller" : "profile.bids.offer.from.buyer"} />:
               </h2>
               <h3 className="bid-card-price-amount">
                 <FormattedNumber
@@ -115,7 +117,8 @@ function BidCard({ data, user, update, type, className }) {
                 />
               </h3>
             </div>
-            <div className="buttons">
+            <div className="bid-card-general-icons">
+            <div className="bid-card-owner-icons">
               {bidder.id && <h3>{bidder.username}</h3>}
               {type === 'recibida' && (
                 <button onClick={handleAccept}>
@@ -124,11 +127,11 @@ function BidCard({ data, user, update, type, className }) {
                 </button>
               )}
               {type === 'realizada' && (
-                <button className="bid-card-button" onClick={handleDelete}>
-                  <FontAwesomeIcon className="delete-icon" icon={faTrashAlt}>
+                <div className="bid-card-button" onClick={handleDelete}>
+                <FontAwesomeIcon className="delete-icon" icon={faTrashAlt}>
                     Delete
-                  </FontAwesomeIcon>
-                </button>
+                </FontAwesomeIcon>
+                </div>
               )}
               {type === 'completada' && (
                 <button
@@ -145,6 +148,8 @@ function BidCard({ data, user, update, type, className }) {
                   <FormattedMessage id="profile.bids.review" />
                 </button>
               )}
+            </div>
+            </div>
             </div>
           </div>
         </div>

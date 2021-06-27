@@ -31,11 +31,12 @@ function BidsReceived() {
   console.log(bidsObject.bids);
 
   return (
+    <div className="outside-box">
     <div className="bids-active">
       {!Object.keys(bidsObject).length && <h3>Cargando...</h3>}
       {bidsObject.bids?.filter((oferta) => oferta.bid_status === 'ofertado')
         .length === 0 && (
-        <h3>
+        <h3 className='transaction-empty'>
           <FormattedMessage id="profile.bids.notyet" />
         </h3>
       )}
@@ -56,6 +57,7 @@ function BidsReceived() {
             );
           }
         })}
+    </div>
     </div>
   );
 }

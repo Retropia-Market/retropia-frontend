@@ -24,6 +24,9 @@
   padding: 0;
 }
 .profile-reviews {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   .main-title {
     display: flex;
     justify-content: space-evenly;

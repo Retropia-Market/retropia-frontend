@@ -37,6 +37,7 @@ function ReviewModal({ setShowReviewModal, data }) {
     if (res.ok) {
       const data = await res.json();
       dispatch({ type: 'modal', user: data });
+      setShowReviewModal(false);
     } else if (res.status === 401) {
       setErrorMessage('Usuario o Contraseña incorrectos.');
       console.error(errorMessage);

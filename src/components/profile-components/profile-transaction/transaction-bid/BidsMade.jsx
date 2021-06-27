@@ -27,11 +27,12 @@ function BidsMade() {
     }, [fetchData]);
 
     return (
+        <div className="outside-box">
         <div className="bids-active">
             {!Object.keys(bidsObject).length && <h3>Cargando...</h3>}
 
             {bidsObject.bids?.length === 0 && (
-                <h3>
+                <h3 className='transaction-empty'>
                     <FormattedMessage id="profile.bids.notdoneyet" />
                 </h3>
             )}
@@ -44,6 +45,8 @@ function BidsMade() {
                         type="realizada"
                     />
                 ))}
+        
+        </div>
         </div>
     );
 }

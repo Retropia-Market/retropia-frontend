@@ -13,6 +13,7 @@ body {
   background: url('https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png');
 }
 
+
 *,
 *::before,
 *::after {
@@ -116,7 +117,9 @@ $white: #ffffff;
   backface-visibility: hidden;
   perspective: 1000px;
 }
-
+a:link{
+  color: $primary-color;
+}
 // MODELS
 @import './Models/Modal';
 @import './Models/Titles';

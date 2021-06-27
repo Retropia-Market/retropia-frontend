@@ -24,7 +24,7 @@ function TransactionBuy() {
   return (
     <div className="bids-active">
       {results?.bids?.length === 0 && (
-        <h3>
+        <h3 className="transaction-empty">
           <FormattedMessage id="profile.purchases.notyet" />
         </h3>
       )}
