@@ -155,7 +155,7 @@ function Login({ setShowLogin, setShowRegister }) {
       </div>
 
       <FontAwesomeIcon
-        className="login-exit"
+        className="modal-exit"
         icon={faChevronUp}
         onClick={() => setShowLogin(false)}
       ></FontAwesomeIcon>
