@@ -181,6 +181,10 @@
       position: relative;
       align-self: center;
 
+      svg {
+        margin-top: 0 !important;
+      }
+
       .user-settings-button {
         cursor: pointer;
         position: relative;
