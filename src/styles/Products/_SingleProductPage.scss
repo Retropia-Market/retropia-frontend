@@ -1,5 +1,5 @@
 .outside-box {
-  padding: 2rem 0 8rem 0;
+  padding: 2rem 0 6rem 0;
 }
 .single-product-page {
   display: flex;
@@ -46,7 +46,7 @@
       display: flex;
       align-items: center;
       .logo {
-        background-image: url('../../img/icons/metacritic.png');
+        background-image: url("../../img/icons/metacritic.png");
         width: 50px;
         height: 50px;
         background-size: cover;
@@ -196,7 +196,7 @@
 
   .product-description {
     text-align: start;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     padding: 1em;
   }
 

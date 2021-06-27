@@ -96,7 +96,7 @@
   "profile.bids": "Ofertas",
   "profile.sales": "Ventas",
   "profile.purchases": "Compras",
-  "profile.purchases.notyet": "Parece que aún no has completa ninguna compra.",
+  "profile.purchases.notyet": "Parece que aún no has completado ninguna compra.",
   "profile.purchases.finished": "Compras Finalizadas",
   "profile.bids.active": "Ofertas Activas",
   "profile.notfound": "No ha sido encontrado.",
@@ -148,5 +148,7 @@
   "profile.bids.offer.to.seller": "Tu oferta",
   "profile.bids.message.to.seller": "Tu mensaje al vendedor",
   "profile.bids.offer.from.buyer": "Te Ofrecen",
-  "profile.bids.message.from.buyer": "Mensaje del comprador"
+  "profile.bids.message.from.buyer": "Mensaje del comprador",
+  "profile.bids.total.paid": "Total Pagado",
+  "offer.details": "Detalles de la oferta"
 }
