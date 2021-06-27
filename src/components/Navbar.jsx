@@ -16,12 +16,12 @@ import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import LanguageSelector from './intlComponents/LanguageSelector';
 import MessageNotifications from './notification-components/MessageNotifications';
 import ReviewsAndBidsNotifications from './notification-components/ReviewsAndBidsNotifications';
+import { UserMenu } from './navbar-components/UserMenu';
 
 function Navbar() {
   const { q } = useParams();
   const history = useHistory();
   const user = useSelector((s) => s.user);
-  const dispatch = useDispatch();
 
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
@@ -38,10 +38,6 @@ function Navbar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push('/search/' + search);
-  };
-
-  const handleLogout = (e) => {
-    dispatch({ type: 'LOGOUT' });
   };
 
   const handleHideSubcategoriesClick = () => {
@@ -101,45 +97,19 @@ function Navbar() {
               <ReviewsAndBidsNotifications />
 
               <div className="user">
-                <Link
-                  to={`/users/${user.userData.id}`}
-                  className="icon-enter icon-custom"
+                <div className="user-settings">
+                <div
+                  // to={`/users/${user.userData.id}`}
+                  className="icon-enter icon-custom user-settings-button"
+                  onClick={() => setShowSettings(!showSettings)}
                 >
-                  <FontAwesomeIcon icon={faUser} className="font-icon">
+                  <FontAwesomeIcon 
+                    icon={faUser} 
+                    className="icon-enter icon-custom">
                     Photo
                   </FontAwesomeIcon>
-                </Link>
-                <div className="user-settings">
-                  <FontAwesomeIcon
-                    className="user-settings-button"
-                    icon={faEllipsisH}
-                    onClick={() => setShowSettings(!showSettings)}
-                  >
-                    Settings
-                  </FontAwesomeIcon>
-                  {showSettings && (
-                    <div className="user-settings-menu-container">
-                      <div className="user-settings-menu">
-                        <div className="user-settings-menu-arrow"></div>
-                        <div className="user-settings-menu-list">
-                          <li className="menu-item">
-                            <Link
-                              className="menu-link"
-                              onClick={handleLogout}
-                              to="/"
-                            >
-                              <FormattedMessage id="navbar.logout" />
-                            </Link>
-                          </li>
-                          <li className="menu-item">
-                            <Link className="menu-link" to="/profile">
-                              <FormattedMessage id="navbar.profile" />
-                            </Link>
-                          </li>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                </div>
+                  {showSettings && <UserMenu user={user}/>}
                 </div>
               </div>
             </div>

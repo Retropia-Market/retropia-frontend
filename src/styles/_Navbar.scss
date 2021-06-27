@@ -182,15 +182,17 @@
       align-self: center;
 
       .user-settings-button {
-        transform: rotate(90deg);
         cursor: pointer;
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .user-settings-menu-container {
         position: absolute;
-        top: 40px;
-        right: -2px;
+        top: 45px;
+        right: 5px;
         border-radius: 15px;
         background: red;
         box-shadow: $shadow-1;
