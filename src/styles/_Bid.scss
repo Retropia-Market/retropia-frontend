@@ -142,9 +142,9 @@
 
   .bid-message {
     align-self: flex-start;
-    .bid-card-message-title {
-      font-weight: 600 !important;
-      font-size: 1rem;
+    .bid-card-message-sub-title {
+      font-weight: $modal-sub-title-weight;
+      font-size: $modal-sub-title-size;
       text-align: start;
     }
     .bid-card-message-text {

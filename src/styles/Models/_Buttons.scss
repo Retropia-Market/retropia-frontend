@@ -18,7 +18,7 @@
 }
 .submit-button-1::before {
   position: absolute;
-  content: '';
+  content: "";
   border-radius: 50px;
   top: 0;
   right: 0;
@@ -36,6 +36,7 @@
 
 .submit-button-1:hover::before {
   opacity: 1;
+  transition: 0.2s;
   transform: scale(1.05) !important;
 }
 
