@@ -11,6 +11,7 @@ function BidCard({ data, user, update, type, className }) {
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [product, setProduct] = useState({});
   const [bidder, setBidder] = useState({});
+  const [showCard, setShowCard] = useState(true);
 
   useEffect(() => {
     const fetchProduct = async (product_id) => {
@@ -92,7 +93,7 @@ function BidCard({ data, user, update, type, className }) {
   console.log(data);
   return (
     <>
-      {resultsReviews?.error && (
+      {resultsReviews?.error && showCard && (
         <div className={`bid ${className}`}>
           {product.id && <ProductCard data={product} />}
           <div className={`bid-card`}>
@@ -146,7 +147,7 @@ function BidCard({ data, user, update, type, className }) {
                 <div className="bid-card-owner-icons">
                   {bidder.id && <h3>{bidder.username}</h3>}
                   {type === "recibida" && (
-                    <button onClick={handleAccept}>
+                    <button className="submit-button-1" onClick={handleAccept}>
                       {" "}
                       <FormattedMessage id="profile.bids.acceptoffer" />
                     </button>
@@ -183,7 +184,11 @@ function BidCard({ data, user, update, type, className }) {
         </div>
       )}
       {showReviewModal && (
-        <ReviewModal data={data} setShowReviewModal={setShowReviewModal} />
+        <ReviewModal
+          data={data}
+          setShowCard={setShowCard}
+          setShowReviewModal={setShowReviewModal}
+        />
       )}
     </>
   );
