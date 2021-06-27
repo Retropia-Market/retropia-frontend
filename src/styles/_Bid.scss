@@ -1,3 +1,42 @@
+.message-to-seller {
+  font-size: $modal-sub-title-size;
+  font-weight: $modal-sub-title-weight;
+  text-align: start;
+  margin-left: $default-element-margin;
+  margin-bottom: $default-element-margin;
+}
+
+.modal-button {
+  align-self: flex-end;
+  padding: 0;
+  margin: 0;
+}
+
+.bid-price-field {
+  font-size: 1rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: $default-element-margin;
+}
+
+#price-bid {
+  border-style: none;
+  font-size: $modal-price-text-size;
+  font-weight: $modal-price-text-weight;
+  color: $primary-color;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  width: 100px;
+}
+
+#price-bid::-webkit-outer-spin-button,
+#price-bid::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .bid-bg {
   z-index: 1;
   position: fixed;
@@ -14,25 +53,36 @@
     position: fixed;
     z-index: 1;
     padding: 5rem 3rem 1rem 3rem;
-    margin: 5rem;
+    margin: 11rem;
     background-color: white;
     border-radius: 30px;
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.4);
     width: 550px;
-    height: 70vh;
+    height: 550px;
     display: flex;
     flex-direction: column;
+    .bid-inputs {
+      margin-top: 2rem;
+      .container-message {
+        .message-bid {
+        }
+      }
+    }
     .price {
       margin: 1rem 0;
     }
     #message-bid {
-      height: 10vh;
+      height: 200px;
+      margin-bottom: $default-element-margin;
+      padding: $default-element-margin;
       justify-content: flex-start;
       align-items: flex-start;
       width: 80%;
-      border-radius: 0.3rem;
+      border-radius: 1rem;
       border-style: none;
       background-color: #eee;
+      box-shadow: $default-element-inner-shadow;
+      resize: none;
     }
     .bid-title {
       position: absolute;
@@ -52,7 +102,6 @@
   }
 }
 
-
 .bids-active {
   padding: 0;
   display: flex;
@@ -62,7 +111,6 @@
   flex-direction: column;
   gap: 2rem;
   h3 {
-    
     padding: 0;
     margin: 0;
     font-weight: 100 !important;
@@ -75,10 +123,7 @@
   }
 }
 
-
-
 .bid {
-
   width: 40%;
   margin-top: 3rem;
   height: 270px;
@@ -89,34 +134,33 @@
   border-radius: 1rem;
   box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
 
-  .product-item{
+  .product-item {
     padding: 0;
     width: 400px;
     height: 300px;
-    
   }
-  
-.bid-message{
-  align-self: flex-start;
-  .bid-card-message-title{
-    font-weight: 600 !important;
-    font-size: 1rem;
-    text-align: start;
-  }
-  .bid-card-message-text{
-    font-weight: 200 !important;
-    font-size: 1.3rem;
-    font-style: italic;
-    text-align: start;
-  }
-}
 
-  .bid-card-price-title{
+  .bid-message {
+    align-self: flex-start;
+    .bid-card-message-title {
+      font-weight: 600 !important;
+      font-size: 1rem;
+      text-align: start;
+    }
+    .bid-card-message-text {
+      font-weight: 200 !important;
+      font-size: 1.3rem;
+      font-style: italic;
+      text-align: start;
+    }
+  }
+
+  .bid-card-price-title {
     font-weight: 600 !important;
     text-align: end;
   }
-  
-  .bid-card-price-amount{
+
+  .bid-card-price-amount {
     color: $primary-color;
     font-weight: 800 !important;
     text-align: end;

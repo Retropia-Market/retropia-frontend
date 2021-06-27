@@ -103,7 +103,6 @@ function BidCard({ data, user, update, type, className }) {
               <h3 className="bid-card-message-text">{data.bid_message}</h3>
             </div>
             <div className="bottom">
-            <hr/>
             <div className="bid-price">
               <h2 className="bid-card-price-title">
                 {' '}
