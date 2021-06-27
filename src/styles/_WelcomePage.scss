@@ -27,27 +27,13 @@
   height: 100% !important;
 
   .welcome-title {
+    z-index: 6;
     color: white;
     font-size: 2rem;
     letter-spacing: 0.15rem;
     font-weight: 400;
     font-family: $font-welcome-slogan;
     padding-top: 1rem;
-  }
-
-  .welcome-button {
-    z-index: 1;
-    cursor: pointer;
-    background: $main-color-3;
-    border: none;
-    color: #1b203a;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    margin-top: 2rem;
-    transition &:hover {
-      transform: scale(1.2);
-    }
   }
 
   @media screen {

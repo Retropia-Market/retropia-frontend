@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {  motion } from 'framer-motion';
 
-import { persianaAnimation, logoAnimation } from './animations';
+import { pageAnimation, logoAnimation } from './animations';
 import logo from '../img/logo.svg';
 import { FormattedMessage } from "react-intl";
 
@@ -23,7 +23,7 @@ export function WelcomePage({showWelcome, setShowWelcome}) {
     return <>
       <motion.div
       className={`welcome-page ${!showWelcome ? 'hidden' : null}`}
-      variants={persianaAnimation}
+      variants={pageAnimation}
       initial="hidden"
       animate="show"
       exit="exit"
@@ -41,15 +41,6 @@ export function WelcomePage({showWelcome, setShowWelcome}) {
           <h2 className="welcome-title">
             <FormattedMessage id="welcome.title"/>
           </h2>
-          {/* <div className="welcome-message">
-            <FormattedMessage id="welcome.message"/>
-          </div> */}
-          {/* <button 
-            className="welcome-button "
-            onClick={() => setShowWelcome(false)}
-          >
-            <FormattedMessage id="welcome.button"/>
-          </button> */}
 
           <div class="wrapper"
           >
@@ -57,7 +48,9 @@ export function WelcomePage({showWelcome, setShowWelcome}) {
             className="cta" 
               onClick={() => setShowWelcome(false)}
             >
-              <span>Accede</span>
+              <span>
+                <FormattedMessage id="welcome.button" />
+              </span>
               <span>
                 <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" >
                   <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
