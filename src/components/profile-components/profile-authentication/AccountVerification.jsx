@@ -4,32 +4,32 @@ import { useHistory, useParams } from 'react-router';
 import useFetch from '../../../hooks/useFetch';
 
 export function AccountVerification() {
-    const { emailCode } = useParams();
-    const url = `http://localhost:8080/verify-email/${emailCode}`;
-    const dispatch = useDispatch();
-    const history = useHistory();
+  const { emailCode } = useParams();
+  const url = `http://localhost:8080/verify-email/${emailCode}`;
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-    const user = useFetch(url);
+  const user = useFetch(url);
 
-    if (user) {
-        dispatch({ type: 'LOGIN', user });
-        setTimeout(() => {
-            history.push('/');
-        }, 1000);
-    }
+  if (user) {
+    dispatch({ type: 'LOGIN', user });
+    setTimeout(() => {
+      history.push('/');
+    }, 1000);
+  }
 
-    return (
-        <>
-            {!user && (
-                <h2>
-                    <FormattedMessage id="loading" />
-                </h2>
-            )}
-            {user && (
-                <h2>
-                    <FormattedMessage id="account.verified" />
-                </h2>
-            )}
-        </>
-    );
+  return (
+    <>
+      {!user && (
+        <h2>
+          <FormattedMessage id="loading" />
+        </h2>
+      )}
+      {user && (
+        <h2>
+          <FormattedMessage id="account.verified" />
+        </h2>
+      )}
+    </>
+  );
 }
