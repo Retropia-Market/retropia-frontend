@@ -105,6 +105,14 @@
     }
     z-index: 1;
   }
+  .type.selected {
+    color: white;
+    background: linear-gradient(
+      180deg,
+      rgba(45, 19, 66, 0.5) 20%,
+      rgba(147, 38, 131, 1) 100%
+    );
+  }
 
   .type::before {
     position: absolute;
