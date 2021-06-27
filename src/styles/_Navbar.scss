@@ -175,7 +175,7 @@
   .user {
     display: flex;
     gap: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 
     .user-settings {
       position: relative;
@@ -199,7 +199,7 @@
         right: 5px;
         border-radius: 15px;
         background: red;
-        box-shadow: $shadow-1;
+        box-shadow: $photo-box-shadow;
         // box-shadow: 3px 3px 2px 5px rgba(0, 0, 0, 0.5);
 
         .user-settings-menu {
@@ -218,7 +218,6 @@
             border-top-left-radius: 2px;
             top: -5px;
             right: 2px;
-
             background: white;
           }
           .user-settings-menu-list {
@@ -260,6 +259,8 @@
               }
               :hover {
                 font-weight: 500;
+                // background-color: $primary-color;
+                // color: #fff;
               }
             }
           }
