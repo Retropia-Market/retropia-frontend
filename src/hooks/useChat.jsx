@@ -6,7 +6,7 @@ export default function useChat() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const ws = new WebSocket('ws://15.188.133.89:8080/ws', 'v1');
+    const ws = new WebSocket('wss://15.188.133.89:8080/ws', 'v1');
     ws.onopen = () => {
       ws.send(JSON.stringify({ auth: user.token }));
     };
