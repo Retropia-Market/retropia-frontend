@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 function SellCard({ data, user, update }) {
   const handleAccept = async () => {
     const res = await fetch(
-      `http://localhost:8080/products/bid/${data.id}/delete`,
+      `http://15.188.133.89:8080/products/bid/${data.id}/delete`,
       {
         method: 'DELETE',
         headers: {
@@ -26,7 +26,7 @@ function SellCard({ data, user, update }) {
     <div className="sell-card">
       <h1 className="sell-card-name">{data.name}</h1>
       <h2 className="sell-card-price">{data.price}€</h2>
-      <a href={`http://localhost:3000/catalogue/${data.id}`}>
+      <a href={`http://15.188.133.89:3000/catalogue/${data.id}`}>
         <FormattedMessage id="product.sell.lookpage" />
       </a>
     </div>

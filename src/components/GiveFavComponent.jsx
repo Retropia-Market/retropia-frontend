@@ -8,7 +8,7 @@ import greyHeart from '../img/icons/heart-grey-icon.svg';
 const GiveFavComponent = ({ data }) => {
   const user = useSelector((s) => s.user);
 
-  const apiFavURL = `http://localhost:8080/${user.userData.id}/getFavourites/`;
+  const apiFavURL = `http://15.188.133.89:8080/${user.userData.id}/getFavourites/`;
 
   const [favorites] = useFetch(apiFavURL, user);
   const [fav, setFav] = useState(false);
@@ -25,7 +25,7 @@ const GiveFavComponent = ({ data }) => {
   const handleFav = async () => {
     if (!fav) {
       const ret = await fetch(
-        `http://localhost:8080/${data.id}/addFavourite/${user.userData.id}`,
+        `http://15.188.133.89:8080/${data.id}/addFavourite/${user.userData.id}`,
         {
           method: 'POST',
           headers: {
@@ -38,7 +38,7 @@ const GiveFavComponent = ({ data }) => {
       }
     } else {
       const ret = await fetch(
-        `http://localhost:8080/${data.id}/removeFavourite/${user.userData.id}`,
+        `http://15.188.133.89:8080/${data.id}/removeFavourite/${user.userData.id}`,
         {
           method: 'DELETE',
           headers: {

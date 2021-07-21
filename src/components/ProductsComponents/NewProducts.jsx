@@ -3,7 +3,7 @@ import ProductCard from '../ProductCard';
 import { FormattedMessage } from 'react-intl';
 
 const TopProducts = () => {
-  const apiURL = 'http://localhost:8080/new';
+  const apiURL = 'http://15.188.133.89:8080/new';
 
   const [results] = useFetch(apiURL);
 

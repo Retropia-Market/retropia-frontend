@@ -20,7 +20,7 @@ export function PassReset() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://localhost:8080/users/password-reset/${token}`,
+      `http://15.188.133.89:8080/users/password-reset/${token}`,
       {
         method: 'POST',
         body: JSON.stringify({

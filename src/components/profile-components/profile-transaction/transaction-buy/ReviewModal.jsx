@@ -1,49 +1,49 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronUp,
   faStar,
   faStarHalf,
-} from "@fortawesome/free-solid-svg-icons";
-import { FormattedMessage } from "react-intl";
-import StarRatingComponent from "react-star-rating-component";
+} from '@fortawesome/free-solid-svg-icons';
+import { FormattedMessage } from 'react-intl';
+import StarRatingComponent from 'react-star-rating-component';
 
 function ReviewModal({ setShowReviewModal, data, setShowCard }) {
   const [reviewRating, setReviewRating] = useState(0);
-  const [reviewText, setReviewText] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [reviewText, setReviewText] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const dispatch = useDispatch();
   const user = useSelector((s) => s.user);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage("");
+    setErrorMessage('');
     const res = await fetch(
-      `http://localhost:8080/catalogue/${data.id}/review/create`,
+      `http://15.188.133.89:8080/catalogue/${data.id}/review/create`,
       {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify({
           review_rating: reviewRating,
           review_text: reviewText,
         }),
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       }
     );
     if (res.ok) {
       const data = await res.json();
-      dispatch({ type: "modal", user: data });
+      dispatch({ type: 'modal', user: data });
       setShowReviewModal(false);
       setShowCard(false);
     } else if (res.status === 401) {
-      setErrorMessage("Usuario o Contraseña incorrectos.");
+      setErrorMessage('Usuario o Contraseña incorrectos.');
       console.error(errorMessage);
     } else {
-      console.error("Parece que algo fue mal");
+      console.error('Parece que algo fue mal');
     }
   };
 

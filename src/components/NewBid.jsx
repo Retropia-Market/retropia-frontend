@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots, faEuroSign } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots, faEuroSign } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 const NewBid = ({ id, setDoneBid, setShowBidModal }) => {
   const [bidData, setBidData] = useState({
-    message: "",
+    message: '',
     bidPrice: 0,
   });
 
@@ -14,12 +14,12 @@ const NewBid = ({ id, setDoneBid, setShowBidModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:8080/products/${id}/bid`, {
-      method: "POST",
+    const res = await fetch(`http://15.188.133.89:8080/products/${id}/bid`, {
+      method: 'POST',
       body: JSON.stringify(bidData),
       headers: {
-        Authorization: "Bearer " + user.token,
-        "Content-Type": "application/json",
+        Authorization: 'Bearer ' + user.token,
+        'Content-Type': 'application/json',
       },
     });
     if (res.ok) {
@@ -27,7 +27,7 @@ const NewBid = ({ id, setDoneBid, setShowBidModal }) => {
       setShowBidModal(false);
       setDoneBid(true);
     } else {
-      alert("parece que algo salio mal");
+      alert('parece que algo salio mal');
       const data = await res.json();
     }
   };

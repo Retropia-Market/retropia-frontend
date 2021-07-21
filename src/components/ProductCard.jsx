@@ -27,9 +27,11 @@ const ProductCard = ({ data, favorites }) => {
   const [showBidModal, setShowBidModal] = useState(false);
   const history = useHistory();
   const { seller, name, status, price, images, seller_id, id } = data;
-  const results = useFetch(`http://localhost:8080/user/${seller_id}/rating`);
+  const results = useFetch(
+    `http://15.188.133.89:8080/user/${seller_id}/rating`
+  );
   const user = useSelector((s) => s.user);
-  const [getBids] = useFetch(`http://localhost:8080/products/${id}/bid`);
+  const [getBids] = useFetch(`http://15.188.133.89:8080/products/${id}/bid`);
   const contacts = useSelector((s) => s.contacts);
   const dispatch = useDispatch();
   const [doneBid, setDoneBid] = useState(false);
@@ -54,7 +56,7 @@ const ProductCard = ({ data, favorites }) => {
   const chatClickHandler = async (e) => {
     if (!contacts[seller_id]) {
       const res = await fetch(
-        `http://localhost:8080/chats/${user.userData.id}/add-contact/${seller_id}`,
+        `http://15.188.133.89:8080/chats/${user.userData.id}/add-contact/${seller_id}`,
         {
           method: 'POST',
           headers: {
@@ -91,7 +93,7 @@ const ProductCard = ({ data, favorites }) => {
               onClick={handleOnClick}
               style={{
                 backgroundImage: images[0]?.url
-                  ? `url(http:/\/\localhost:8080/${data.images[0]?.url})`
+                  ? `url(http://15.188.133.89:8080/${data.images[0]?.url})`
                   : `url(${productPlaceholder})`,
               }}
             ></div>

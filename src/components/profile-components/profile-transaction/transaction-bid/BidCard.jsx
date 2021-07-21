@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import ProductCard from "../../../ProductCard";
-import { faStar, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from 'react';
+import ProductCard from '../../../ProductCard';
+import { faStar, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import useFetch from "../../../../hooks/useFetch";
-import { FormattedMessage, FormattedNumber } from "react-intl";
-import ReviewModal from "../transaction-buy/ReviewModal";
+import useFetch from '../../../../hooks/useFetch';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
+import ReviewModal from '../transaction-buy/ReviewModal';
 
 function BidCard({ data, user, update, type, className }) {
   const [showReviewModal, setShowReviewModal] = useState(false);
@@ -15,10 +15,13 @@ function BidCard({ data, user, update, type, className }) {
 
   useEffect(() => {
     const fetchProduct = async (product_id) => {
-      const res = await fetch(`http://localhost:8080/catalogue/${product_id}`, {
-        method: "GET",
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const res = await fetch(
+        `http://15.188.133.89:8080/catalogue/${product_id}`,
+        {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
       if (res.ok) {
         const dataRes = await res.json();
         setProduct(dataRes);
@@ -26,11 +29,11 @@ function BidCard({ data, user, update, type, className }) {
     };
 
     const fetchUser = async (user_id) => {
-      const res = await fetch(`http://localhost:8080/users/${user_id}`, {
-        method: "GET",
+      const res = await fetch(`http://15.188.133.89:8080/users/${user_id}`, {
+        method: 'GET',
         headers: {
-          Authorization: "Bearer " + user.token,
-          "Content-Type": "application/json",
+          Authorization: 'Bearer ' + user.token,
+          'Content-Type': 'application/json',
         },
       });
       if (res.ok) {
@@ -46,12 +49,12 @@ function BidCard({ data, user, update, type, className }) {
 
   const handleDelete = async () => {
     const res = await fetch(
-      `http://localhost:8080/products/bid/${data.id}/delete`,
+      `http://15.188.133.89:8080/products/bid/${data.id}/delete`,
       {
-        method: "DELETE",
+        method: 'DELETE',
         headers: {
-          Authorization: "Bearer " + user.token,
-          "Content-Type": "application/json",
+          Authorization: 'Bearer ' + user.token,
+          'Content-Type': 'application/json',
         },
       }
     );
@@ -65,12 +68,12 @@ function BidCard({ data, user, update, type, className }) {
 
   const handleAccept = async () => {
     const res = await fetch(
-      `http://localhost:8080/products/bid/${data.id}/accept`,
+      `http://15.188.133.89:8080/products/bid/${data.id}/accept`,
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          Authorization: "Bearer " + user.token,
-          "Content-Type": "application/json",
+          Authorization: 'Bearer ' + user.token,
+          'Content-Type': 'application/json',
         },
       }
     );
@@ -87,7 +90,7 @@ function BidCard({ data, user, update, type, className }) {
   };
 
   const [resultsReviews] = useFetch(
-    `http://localhost:8080/catalogue/${data.product_id}/review/`,
+    `http://15.188.133.89:8080/catalogue/${data.product_id}/review/`,
     user
   );
   console.log(data);
@@ -101,18 +104,18 @@ function BidCard({ data, user, update, type, className }) {
               <h2 className="bid-card-message-title">
                 <FormattedMessage id="offer.details"></FormattedMessage>
               </h2>
-              {data.sale_status === "vendido" ? (
-                ""
+              {data.sale_status === 'vendido' ? (
+                ''
               ) : (
                 <>
                   <h2 className="bid-card-message-sub-title">
                     <FormattedMessage
                       id={
-                        type === "realizada"
-                          ? "profile.bids.message.to.seller"
-                          : type === "recibida"
-                          ? "profile.bids.message.from.buyer"
-                          : "profile.bids.message.to.seller"
+                        type === 'realizada'
+                          ? 'profile.bids.message.to.seller'
+                          : type === 'recibida'
+                          ? 'profile.bids.message.from.buyer'
+                          : 'profile.bids.message.to.seller'
                       }
                     />
                   </h2>
@@ -123,14 +126,14 @@ function BidCard({ data, user, update, type, className }) {
             <div className="bottom">
               <div className="bid-price">
                 <h2 className="bid-card-price-title">
-                  {" "}
+                  {' '}
                   <FormattedMessage
                     id={
-                      type === "realizada"
-                        ? "profile.bids.offer.to.seller"
-                        : type === "recibida"
-                        ? "profile.bids.offer.from.buyer"
-                        : "profile.bids.total.paid"
+                      type === 'realizada'
+                        ? 'profile.bids.offer.to.seller'
+                        : type === 'recibida'
+                        ? 'profile.bids.offer.from.buyer'
+                        : 'profile.bids.total.paid'
                     }
                   />
                   :
@@ -146,13 +149,13 @@ function BidCard({ data, user, update, type, className }) {
               <div className="bid-card-general-icons">
                 <div className="bid-card-owner-icons">
                   {bidder.id && <h3>{bidder.username}</h3>}
-                  {type === "recibida" && (
+                  {type === 'recibida' && (
                     <button className="submit-button-1" onClick={handleAccept}>
-                      {" "}
+                      {' '}
                       <FormattedMessage id="profile.bids.acceptoffer" />
                     </button>
                   )}
-                  {type === "realizada" && (
+                  {type === 'realizada' && (
                     <div className="bid-card-button" onClick={handleDelete}>
                       <FontAwesomeIcon
                         className="delete-icon"
@@ -162,13 +165,13 @@ function BidCard({ data, user, update, type, className }) {
                       </FontAwesomeIcon>
                     </div>
                   )}
-                  {type === "completada" && (
+                  {type === 'completada' && (
                     <button
                       className="submit-button-1 review-button"
                       id=""
                       onClick={handleReview}
                     >
-                      {" "}
+                      {' '}
                       <FontAwesomeIcon
                         id="review-stars"
                         className="review-star"

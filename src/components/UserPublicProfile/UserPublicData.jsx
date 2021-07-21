@@ -7,23 +7,23 @@ import logo from '../../img/placeholder-logo.png';
 
 const UserPublicData = ({ uid }) => {
   const user = useSelector((s) => s.user);
-  const apiURL = 'http://localhost:8080/users/' + uid;
+  const apiURL = 'http://15.188.133.89:8080/users/' + uid;
   const dispatch = useDispatch();
   const [results] = useFetch(apiURL);
-  const [ratings] = useFetch(`http://localhost:8080/user/${uid}/rating`);
-  const bannerUrl = `http://localhost:8080${
+  const [ratings] = useFetch(`http://15.188.133.89:8080/user/${uid}/rating`);
+  const bannerUrl = `http://15.188.133.89:8080${
     user?.userData?.banner ?? results?.banner
   }`;
 
   const userImg =
     results?.image?.indexOf('google') !== -1
       ? results?.image
-      : `http:\/\/localhost:8080/${results?.image.slice(11)}`;
+      : `http:\/\/15.188.133.89:8080/${results?.image.slice(11)}`;
 
   const handleClick = async (e) => {
     const fd = new FormData();
     fd.append('banner', e.target.files[0]);
-    const res = await fetch(`http://localhost:8080/users/update-banner`, {
+    const res = await fetch(`http://15.188.133.89:8080/users/update-banner`, {
       method: 'PATCH',
       headers: {
         Authorization: 'Bearer ' + user.token,

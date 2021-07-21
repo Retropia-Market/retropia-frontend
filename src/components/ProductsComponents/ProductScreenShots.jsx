@@ -3,7 +3,7 @@ import ImageGallery from 'react-image-gallery';
 import { FormattedMessage } from 'react-intl';
 
 const ProductScreenShots = ({ query, type, setMetacritic }) => {
-  const apiURL = `http://localhost:8080/rawg/search/${query}`;
+  const apiURL = `http://15.188.133.89:8080/rawg/search/${query}`;
   const [results] = useFetch(apiURL);
   if (!results || !results?.count) return null;
 

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { FormattedMessage } from "react-intl";
-import { useSelector } from "react-redux";
-import SellCard from "./SellCard";
+import React, { useState, useEffect, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
+import SellCard from './SellCard';
 
 function TransactionSell() {
   const user = useSelector((s) => s.user);
@@ -9,9 +9,9 @@ function TransactionSell() {
 
   const fetchData = useCallback(async () => {
     const res = await fetch(
-      `http://localhost:8080/users/${user.userData.id}/catalogue`,
+      `http://15.188.133.89:8080/users/${user.userData.id}/catalogue`,
       {
-        method: "GET",
+        method: 'GET',
         headers: { Authorization: `Bearer ${user.token}` },
       }
     );
@@ -26,7 +26,7 @@ function TransactionSell() {
     return () => {};
   }, [fetchData]);
 
-  console.log("Hola");
+  console.log('Hola');
   console.log(sellsObject);
 
   return (

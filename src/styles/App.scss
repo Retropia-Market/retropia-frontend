@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 
 @font-face {
   font-family: PixelDust;
-  src: url("./fonts/pixeldu.ttf");
+  src: url('./fonts/pixeldu.ttf');
 }
 
 body {
@@ -15,14 +15,14 @@ body {
   }
 
   //   background: url('https://www.toptal.com/designers/subtlepatterns/patterns/confectionary.png');
-  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png");
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/playstation-pattern.png');
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -59,7 +59,7 @@ $modal-price-text-size: 1.2rem;
 $modal-title-weight: 800;
 $modal-sub-title-weight: 400;
 $modal-price-text-weight: 400;
-$font-welcome-slogan: "PixelDust", sans-serif;
+$font-welcome-slogan: 'PixelDust', sans-serif;
 
 $main-color-1: rgb(147, 38, 131);
 $main-color-2: rgb(45, 19, 66);
@@ -150,30 +150,30 @@ a:link {
   color: $primary-color;
 }
 // MODELS
-@import "./Models/Modal";
-@import "./Models/Titles";
-@import "./Models/Buttons";
-@import "./Models/Loader";
-@import "./Models/Icons";
+@import './Models/Modal';
+@import './Models/Titles';
+@import './Models/Buttons';
+@import './Models/Loader';
+@import './Models/Icons';
 //
-@import "./WelcomePage";
-@import "./MainBackground";
-@import "./Navbar";
-@import "./Products/Products";
-@import "./Register";
-@import "./Bid";
-@import "./Select";
-@import "./Transactions";
-@import "./PublicProfile";
-@import "./Notifications";
-@import "./Footer";
-@import "./LanguageSelector";
-@import "./Reviews";
+@import './WelcomePage';
+@import './MainBackground';
+@import './Navbar';
+@import './Products/Products';
+@import './Register';
+@import './Bid';
+@import './Select';
+@import './Transactions';
+@import './PublicProfile';
+@import './Notifications';
+@import './Footer';
+@import './LanguageSelector';
+@import './Reviews';
 
 // PROFILE
-@import "./User/User-login-register";
-@import "./User/User-private-page";
-@import "./User/Profile-management";
-@import "./User/Profile-chat";
+@import './User/User-login-register';
+@import './User/User-private-page';
+@import './User/Profile-management';
+@import './User/Profile-chat';
 //
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import '~react-image-gallery/styles/scss/image-gallery.scss';

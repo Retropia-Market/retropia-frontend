@@ -6,16 +6,16 @@ import useChat from '../../hooks/useChat';
 import useFetchChat from '../../hooks/useFetchChat';
 // import useImage from '../../hooks/useImage';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
-function ChatRoom({setContactId}) {
+function ChatRoom({ setContactId }) {
   useChat();
   const { id } = useParams();
 
   const user = useSelector((s) => s.user);
   useFetchChat(
-    `http://localhost:8080/chats/${user.userData.id}/get-messages/${id}`,
+    `http://15.188.133.89:8080/chats/${user.userData.id}/get-messages/${id}`,
     'fetch/messages'
   );
   const [message, setMessage] = useState('');
@@ -24,7 +24,10 @@ function ChatRoom({setContactId}) {
     e.preventDefault();
     setMessage('');
     fetch(
-      'http://localhost:8080/chats/' + user.userData.id + '/send-message/' + id,
+      'http://15.188.133.89:8080/chats/' +
+        user.userData.id +
+        '/send-message/' +
+        id,
       {
         method: 'POST',
         headers: {

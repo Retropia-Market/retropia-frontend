@@ -9,10 +9,10 @@ import mario from '../img/mario.gif';
 const ProductList = ({ type }) => {
   const { category, subcategory } = useParams();
   const apiURL = subcategory
-    ? `http://localhost:8080/catalogue?subcategory=${subcategory}`
+    ? `http://15.188.133.89:8080/catalogue?subcategory=${subcategory}`
     : category
-    ? `http://localhost:8080/catalogue?category=${category}`
-    : `http://localhost:8080/catalogue`;
+    ? `http://15.188.133.89:8080/catalogue?category=${category}`
+    : `http://15.188.133.89:8080/catalogue`;
   const [results] = useFetch(apiURL);
 
   return (

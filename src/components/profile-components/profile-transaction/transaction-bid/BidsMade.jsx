@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { FormattedMessage } from "react-intl";
-import { useSelector } from "react-redux";
-import BidCard from "./BidCard";
+import React, { useState, useEffect, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
+import BidCard from './BidCard';
 
 function BidsMade() {
   const user = useSelector((s) => s.user);
@@ -9,9 +9,9 @@ function BidsMade() {
 
   const fetchData = useCallback(async () => {
     const res = await fetch(
-      `http://localhost:8080/products/bid/user/${user.userData.id}/made`,
+      `http://15.188.133.89:8080/products/bid/user/${user.userData.id}/made`,
       {
-        method: "GET",
+        method: 'GET',
         headers: { Authorization: `Bearer ${user.token}` },
       }
     );
@@ -31,7 +31,7 @@ function BidsMade() {
       <div className="bids-active">
         {!Object.keys(bidsObject).length && <h3>Cargando...</h3>}
 
-        {bidsObject.bids?.filter((bid) => bid.bid_status === "ofertado")
+        {bidsObject.bids?.filter((bid) => bid.bid_status === 'ofertado')
           .length === 0 && (
           <h3 className="transaction-empty">
             <FormattedMessage id="profile.bids.notdoneyet" />
@@ -39,7 +39,7 @@ function BidsMade() {
         )}
         {bidsObject &&
           bidsObject.bids?.map((b) =>
-            b.bid_status === "aceptado" ? (
+            b.bid_status === 'aceptado' ? (
               <></>
             ) : (
               <BidCard

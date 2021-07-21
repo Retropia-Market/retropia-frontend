@@ -27,7 +27,7 @@ function CreateReview({ data }) {
   const handleReview = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://localhost:8080/catalogue/${data.product_id}/review/update`,
+      `http://15.188.133.89:8080/catalogue/${data.product_id}/review/update`,
       {
         method: 'PATCH',
         headers: {

@@ -1,32 +1,50 @@
-import {  useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
-const Subcategories = ({ categoryIndex, hideSubcategories, showCategories, type = {id :'consoles'} , category}) => {
-
-  const [allCategories] = useFetch('http://localhost:8080/categories')
-  const history = useHistory()
+const Subcategories = ({
+  categoryIndex,
+  hideSubcategories,
+  showCategories,
+  type = { id: 'consoles' },
+  category,
+}) => {
+  const [allCategories] = useFetch('http://15.188.133.89:8080/categories');
+  const history = useHistory();
 
   const handleClick = () => {
-    hideSubcategories()
-    showCategories()
-  }
+    hideSubcategories();
+    showCategories();
+  };
 
-   const handleClickSubcategories = (c) => {
+  const handleClickSubcategories = (c) => {
     history.push(`/catalogue/${type.id}/${category}/${c.name}`);
-  }
+  };
 
-  return <> 
-    <FontAwesomeIcon className="category-select" icon={faChevronLeft} onClick={handleClick}></FontAwesomeIcon>
-    {!allCategories && <li>cargando...</li> }
-    {allCategories?.filter(c => c.category_id === categoryIndex).map(c => 
-      <li className="category subcategory" key={c.id} >
-        <div className="category-name" onClick={(e) => handleClickSubcategories(c)}>{c.name}</div>
-      </li>
-      )}
-  </>
-}
+  return (
+    <>
+      <FontAwesomeIcon
+        className="category-select"
+        icon={faChevronLeft}
+        onClick={handleClick}
+      ></FontAwesomeIcon>
+      {!allCategories && <li>cargando...</li>}
+      {allCategories
+        ?.filter((c) => c.category_id === categoryIndex)
+        .map((c) => (
+          <li className="category subcategory" key={c.id}>
+            <div
+              className="category-name"
+              onClick={(e) => handleClickSubcategories(c)}
+            >
+              {c.name}
+            </div>
+          </li>
+        ))}
+    </>
+  );
+};
 
-export default Subcategories
+export default Subcategories;
