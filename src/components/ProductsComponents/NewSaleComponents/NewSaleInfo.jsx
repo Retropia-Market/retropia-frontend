@@ -61,7 +61,7 @@ const NewSaleInfo = ({
     for (const fil of files) {
       fd.append('images', fil);
     }
-    const ret = await fetch('http://15.188.133.89:8080/catalogue/sell', {
+    const ret = await fetch('https://api.retropia-market.com/catalogue/sell', {
       method: 'POST',
       headers: {
         Authorization: 'Bearer ' + user.token,

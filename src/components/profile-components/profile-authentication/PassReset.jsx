@@ -20,7 +20,7 @@ export function PassReset() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://15.188.133.89:8080/users/password-reset/${token}`,
+      `https://api.retropia-market.com/users/password-reset/${token}`,
       {
         method: 'POST',
         body: JSON.stringify({

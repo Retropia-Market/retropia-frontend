@@ -9,7 +9,7 @@ function TransactionSell() {
 
   const fetchData = useCallback(async () => {
     const res = await fetch(
-      `http://15.188.133.89:8080/users/${user.userData.id}/catalogue`,
+      `https://api.retropia-market.com/users/${user.userData.id}/catalogue`,
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${user.token}` },

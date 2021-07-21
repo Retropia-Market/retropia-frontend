@@ -22,7 +22,7 @@ const ProductInfo = ({ data, metacritic }) => {
   const { userData } = useSelector((s) => s.user);
 
   const results = useFetch(
-    `http://15.188.133.89:8080/user/${data?.seller_id}/rating`
+    `https://api.retropia-market.com/user/${data?.seller_id}/rating`
   );
 
   const history = useHistory();
@@ -33,7 +33,7 @@ const ProductInfo = ({ data, metacritic }) => {
   const chatClickHandler = async (e) => {
     if (!contacts[data.seller_id]) {
       const res = await fetch(
-        `http://15.188.133.89:8080/chats/${user.userData.id}/add-contact/${data.seller_id}`,
+        `https://api.retropia-market.com/chats/${user.userData.id}/add-contact/${data.seller_id}`,
         {
           method: 'POST',
           headers: {
@@ -71,8 +71,8 @@ const ProductInfo = ({ data, metacritic }) => {
           <ImageGallery
             items={data.images.map((p) => {
               return {
-                original: `http://15.188.133.89:8080/${p.url}`,
-                thumbnail: `http://15.188.133.89:8080/${p.url}`,
+                original: `https://api.retropia-market.com/${p.url}`,
+                thumbnail: `https://api.retropia-market.com/${p.url}`,
                 originalHeight: 300,
               };
             })}

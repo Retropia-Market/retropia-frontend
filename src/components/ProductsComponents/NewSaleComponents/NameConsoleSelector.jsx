@@ -4,7 +4,7 @@ const NameConsoleSelector = ({ setProductName }) => {
   const getFunOp = (query) => {
     if (!query) return [];
     return new Promise((resolve, reject) => {
-      fetch(`http://15.188.133.89:8080/rawg/platform`)
+      fetch(`https://api.retropia-market.com/rawg/platform`)
         .then((response) => response.json())
         .then(({ results }) => {
           if (results) {

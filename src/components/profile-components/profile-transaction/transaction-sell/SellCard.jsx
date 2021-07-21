@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 function SellCard({ data, user, update }) {
   const handleAccept = async () => {
     const res = await fetch(
-      `http://15.188.133.89:8080/products/bid/${data.id}/delete`,
+      `https://api.retropia-market.com/products/bid/${data.id}/delete`,
       {
         method: 'DELETE',
         headers: {

@@ -4,7 +4,7 @@ const CatSelector = ({ productName, setProductCategory, productType }) => {
   const getFunOp = (query) => {
     if (!query) return [];
     return new Promise((resolve, reject) => {
-      fetch(`http://15.188.133.89:8080/categories`)
+      fetch(`https://api.retropia-market.com/categories`)
         .then((response) => response.json())
         .then((results) => {
           if (results) {

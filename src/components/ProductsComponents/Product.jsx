@@ -12,7 +12,7 @@ import { useState } from 'react';
 const Product = () => {
   const { id } = useParams();
 
-  const apiURL = `http://15.188.133.89:8080/catalogue/${id}`;
+  const apiURL = `https://api.retropia-market.com/catalogue/${id}`;
 
   const [results] = useFetch(apiURL);
 

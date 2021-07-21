@@ -3,7 +3,7 @@ import ProductCard from '../ProductCard';
 import { FormattedMessage } from 'react-intl';
 
 const RelatedProducts = ({ data }) => {
-  const apiURL = `http://15.188.133.89:8080/catalogue/seemore/${data?.Subcategoria}`;
+  const apiURL = `https://api.retropia-market.com/catalogue/seemore/${data?.Subcategoria}`;
 
   const [results_data] = useFetch(apiURL);
 

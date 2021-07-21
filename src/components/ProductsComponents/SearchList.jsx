@@ -8,7 +8,7 @@ import { container } from '../animations';
 const SearchList = () => {
   const { q } = useParams();
 
-  const apiURL = `http://15.188.133.89:8080/search/${q}`;
+  const apiURL = `https://api.retropia-market.com/search/${q}`;
 
   const [results] = useFetch(apiURL);
 

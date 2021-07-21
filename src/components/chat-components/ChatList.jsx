@@ -6,7 +6,7 @@ import ChatEntry from './ChatEntry';
 function ChatList() {
   const { userData } = useSelector((s) => s.user);
   useFetchChat(
-    `http://15.188.133.89:8080/chats/${userData.id}/get-contacts`,
+    `https://api.retropia-market.com/chats/${userData.id}/get-contacts`,
     'fetch/contacts'
   );
   const contactsObj = useSelector((s) => s.contacts);

@@ -35,7 +35,7 @@ function ProfileData({ updateField, user }) {
     e.preventDefault();
     setProfileData((profile) => (profile['location'] = location));
     const res = await fetch(
-      `http://15.188.133.89:8080/users/${user.userData.id}/update-profile`,
+      `https://api.retropia-market.com/users/${user.userData.id}/update-profile`,
       {
         method: 'PATCH',
         headers: {

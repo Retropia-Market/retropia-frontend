@@ -3,7 +3,7 @@ import ProductCard from '../ProductCard';
 import { FormattedMessage } from 'react-intl';
 
 const UserPublicInventory = ({ uid }) => {
-  const apiURL = `http://15.188.133.89:8080/users/${uid}/catalogue`;
+  const apiURL = `https://api.retropia-market.com/users/${uid}/catalogue`;
 
   const [results] = useFetch(apiURL);
 

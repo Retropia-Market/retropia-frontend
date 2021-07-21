@@ -4,7 +4,7 @@ const LocationSelector = ({ setProductLocation }) => {
   const getFunOp = (query) => {
     if (!query) return [];
     return new Promise((resolve, reject) => {
-      fetch(`http://15.188.133.89:8080/sell/autocomplete/${query}`)
+      fetch(`https://api.retropia-market.com/sell/autocomplete/${query}`)
         .then((response) => response.json())
         .then((results) => {
           if (results) {

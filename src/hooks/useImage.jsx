@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function useImage(imageURL) {
-  const serverURL = 'http://15.188.133.89:8080/';
+  const serverURL = 'https://api.retropia-market.com/';
   const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
   const [image, setImage] = useState(defaultImg);
 

@@ -9,7 +9,7 @@ function BidsMade() {
 
   const fetchData = useCallback(async () => {
     const res = await fetch(
-      `http://15.188.133.89:8080/products/bid/user/${user.userData.id}/made`,
+      `https://api.retropia-market.com/products/bid/user/${user.userData.id}/made`,
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${user.token}` },

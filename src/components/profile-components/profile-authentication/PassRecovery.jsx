@@ -12,7 +12,7 @@ export function PassRecovery({ setShow, setErrorMessage }) {
     e.preventDefault();
     setErrorMessage('');
     const res = await fetch(
-      'http://15.188.133.89:8080/users/password-recovery',
+      'https://api.retropia-market.com/users/password-recovery',
       {
         method: 'POST',
         body: JSON.stringify({ email: email }),

@@ -15,7 +15,7 @@ const DeleteProduct = ({ productId, setHide }) => {
 
   const handleClick = async (productId) => {
     const ret = await fetch(
-      `http://15.188.133.89:8080/catalogue/${productId}/product-delete`,
+      `https://api.retropia-market.com/catalogue/${productId}/product-delete`,
       {
         method: 'DELETE',
         headers: {

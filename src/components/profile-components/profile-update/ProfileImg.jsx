@@ -10,7 +10,8 @@ function ProfileImg({ user }) {
   if (userData.image) {
     userData.image.includes('google')
       ? (userImg = userData.image)
-      : (userImg = 'http://15.188.133.89:8080/' + userData.image.slice(11));
+      : (userImg =
+          'https://api.retropia-market.com/' + userData.image.slice(11));
   }
 
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function ProfileImg({ user }) {
     const fd = new FormData();
     fd.append('userImg', file);
     const res = await fetch(
-      `http://15.188.133.89:8080/users/${userData.id}/update-img`,
+      `https://api.retropia-market.com/users/${userData.id}/update-img`,
       {
         method: 'POST',
         headers: {

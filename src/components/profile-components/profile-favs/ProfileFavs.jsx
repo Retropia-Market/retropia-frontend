@@ -5,7 +5,7 @@ import ProductCard from '../../ProductCard';
 
 function ProfileFavs({ user }) {
   const [favs] = useFetch(
-    `http://15.188.133.89:8080/${user.userData.id}/getFavourites`,
+    `https://api.retropia-market.com/${user.userData.id}/getFavourites`,
     user
   );
 

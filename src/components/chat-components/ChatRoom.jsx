@@ -15,7 +15,7 @@ function ChatRoom({ setContactId }) {
 
   const user = useSelector((s) => s.user);
   useFetchChat(
-    `http://15.188.133.89:8080/chats/${user.userData.id}/get-messages/${id}`,
+    `https://api.retropia-market.com/chats/${user.userData.id}/get-messages/${id}`,
     'fetch/messages'
   );
   const [message, setMessage] = useState('');
@@ -24,7 +24,7 @@ function ChatRoom({ setContactId }) {
     e.preventDefault();
     setMessage('');
     fetch(
-      'http://15.188.133.89:8080/chats/' +
+      'https://api.retropia-market.com/chats/' +
         user.userData.id +
         '/send-message/' +
         id,

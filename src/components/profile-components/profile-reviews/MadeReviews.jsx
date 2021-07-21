@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function MadeReviews() {
   const user = useSelector((s) => s.user);
   const [reviews] = useFetch(
-    `http://15.188.133.89:8080/users/${user.userData.id}/review/reviews-made`,
+    `https://api.retropia-market.com/users/${user.userData.id}/review/reviews-made`,
     user
   );
   const madeReviews = reviews?.madeReviews;

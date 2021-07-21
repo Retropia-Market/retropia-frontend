@@ -17,7 +17,7 @@ export function ExternalProfilePassword({ updateField, user }) {
     e.preventDefault();
     setErrorMessage('');
     const res = await fetch(
-      `http://15.188.133.89:8080/users/${user.userData.id}/set-password`,
+      `https://api.retropia-market.com/users/${user.userData.id}/set-password`,
       {
         method: 'POST',
         headers: {

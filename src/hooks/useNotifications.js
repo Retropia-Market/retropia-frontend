@@ -7,13 +7,13 @@ function useNotifications(actionType) {
   const dispatch = useDispatch();
   const url =
     actionType === 'noti/messages'
-      ? 'http://15.188.133.89:8080/api/notifications/messages'
+      ? 'https://api.retropia-market.com/api/notifications/messages'
       : actionType === 'noti/bids'
-      ? 'http://15.188.133.89:8080/api/notifications/bids'
+      ? 'https://api.retropia-market.com/api/notifications/bids'
       : actionType === 'noti/reviews'
-      ? 'http://15.188.133.89:8080/api/notifications/reviews'
+      ? 'https://api.retropia-market.com/api/notifications/reviews'
       : actionType === 'noti/sales'
-      ? 'http://15.188.133.89:8080/api/notifications/sales'
+      ? 'https://api.retropia-market.com/api/notifications/sales'
       : null;
 
   useEffect(() => {

@@ -16,7 +16,7 @@ function BidCard({ data, user, update, type, className }) {
   useEffect(() => {
     const fetchProduct = async (product_id) => {
       const res = await fetch(
-        `http://15.188.133.89:8080/catalogue/${product_id}`,
+        `https://api.retropia-market.com/catalogue/${product_id}`,
         {
           method: 'GET',
           headers: { Authorization: `Bearer ${user.token}` },
@@ -29,13 +29,16 @@ function BidCard({ data, user, update, type, className }) {
     };
 
     const fetchUser = async (user_id) => {
-      const res = await fetch(`http://15.188.133.89:8080/users/${user_id}`, {
-        method: 'GET',
-        headers: {
-          Authorization: 'Bearer ' + user.token,
-          'Content-Type': 'application/json',
-        },
-      });
+      const res = await fetch(
+        `https://api.retropia-market.com/users/${user_id}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: 'Bearer ' + user.token,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
       if (res.ok) {
         const dataRes = await res.json();
         setBidder(dataRes);
@@ -49,7 +52,7 @@ function BidCard({ data, user, update, type, className }) {
 
   const handleDelete = async () => {
     const res = await fetch(
-      `http://15.188.133.89:8080/products/bid/${data.id}/delete`,
+      `https://api.retropia-market.com/products/bid/${data.id}/delete`,
       {
         method: 'DELETE',
         headers: {
@@ -68,7 +71,7 @@ function BidCard({ data, user, update, type, className }) {
 
   const handleAccept = async () => {
     const res = await fetch(
-      `http://15.188.133.89:8080/products/bid/${data.id}/accept`,
+      `https://api.retropia-market.com/products/bid/${data.id}/accept`,
       {
         method: 'PATCH',
         headers: {
@@ -90,7 +93,7 @@ function BidCard({ data, user, update, type, className }) {
   };
 
   const [resultsReviews] = useFetch(
-    `http://15.188.133.89:8080/catalogue/${data.product_id}/review/`,
+    `https://api.retropia-market.com/catalogue/${data.product_id}/review/`,
     user
   );
   console.log(data);

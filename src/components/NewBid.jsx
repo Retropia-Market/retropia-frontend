@@ -14,14 +14,17 @@ const NewBid = ({ id, setDoneBid, setShowBidModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://15.188.133.89:8080/products/${id}/bid`, {
-      method: 'POST',
-      body: JSON.stringify(bidData),
-      headers: {
-        Authorization: 'Bearer ' + user.token,
-        'Content-Type': 'application/json',
-      },
-    });
+    const res = await fetch(
+      `https://api.retropia-market.com/products/${id}/bid`,
+      {
+        method: 'POST',
+        body: JSON.stringify(bidData),
+        headers: {
+          Authorization: 'Bearer ' + user.token,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     if (res.ok) {
       const data = await res.json();
       setShowBidModal(false);

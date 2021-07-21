@@ -77,7 +77,7 @@ const NewSaleImageSelect = ({
 
     const fd = new FormData();
     fd.append('image', files[0]);
-    const ret = await fetch('http://15.188.133.89:8080/sell/vision/', {
+    const ret = await fetch('https://api.retropia-market.com/sell/vision/', {
       method: 'POST',
       headers: {
         Authorization: 'Bearer ' + user.token,

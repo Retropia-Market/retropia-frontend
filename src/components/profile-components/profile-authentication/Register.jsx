@@ -25,7 +25,7 @@ function Register({ setShowRegister, setShowLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const res = await fetch('http://15.188.133.89:8080/users/register', {
+    const res = await fetch('https://api.retropia-market.com/users/register', {
       method: 'POST',
       body: JSON.stringify(userData),
       headers: { 'Content-Type': 'application/json' },

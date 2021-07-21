@@ -34,7 +34,7 @@ const UpdateProduct = ({ productId }) => {
     if (description) productInfo['description'] = description;
 
     const ret = await fetch(
-      `http://15.188.133.89:8080/catalogue/${productId}/update`,
+      `https://api.retropia-market.com/catalogue/${productId}/update`,
       {
         method: 'PATCH',
         body: JSON.stringify(productInfo),

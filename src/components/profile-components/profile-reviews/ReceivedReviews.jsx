@@ -8,7 +8,7 @@ function ReceivedReviews() {
   const user = useSelector((s) => s.user);
   const dispatch = useDispatch();
   const [reviews] = useFetch(
-    `http://15.188.133.89:8080/users/${user.userData.id}/review/reviews-received`,
+    `https://api.retropia-market.com/users/${user.userData.id}/review/reviews-received`,
     user
   );
   let receivedReviews = reviews?.receivedReviews;

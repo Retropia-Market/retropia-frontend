@@ -11,7 +11,7 @@ const ProductCard = ({ data }) => {
 
   const { seller, name, status, price, images, seller_id, id } = data;
   const results = useFetch(
-    `http://15.188.133.89:8080/user/${seller_id}/rating`
+    `https://api.retropia-market.com/user/${seller_id}/rating`
   );
 
   const handleOnClick = () => {
@@ -28,7 +28,7 @@ const ProductCard = ({ data }) => {
           onClick={handleOnClick}
           style={{
             backgroundImage: images[0]?.url
-              ? `url(http://15.188.133.89:8080/${data.images[0]?.url})`
+              ? `url(https://api.retropia-market.com/${data.images[0]?.url})`
               : `url(${productPlaceholder})`,
           }}
         ></div>

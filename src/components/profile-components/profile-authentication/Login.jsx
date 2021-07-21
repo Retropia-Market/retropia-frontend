@@ -17,7 +17,7 @@ function Login({ setShowLogin, setShowRegister }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    const res = await fetch('http://15.188.133.89:8080/users/login', {
+    const res = await fetch('https://api.retropia-market.com/users/login', {
       method: 'POST',
       body: JSON.stringify({ email: username, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -40,15 +40,18 @@ function Login({ setShowLogin, setShowRegister }) {
   };
 
   const handleGoogleLogin = async (googleData) => {
-    const res = await fetch('http://15.188.133.89:8080/users/login-google', {
-      method: 'POST',
-      body: JSON.stringify({
-        token: googleData.tokenId,
-      }),
-      headers: {
-        'content-type': 'application/json',
-      },
-    });
+    const res = await fetch(
+      'https://api.retropia-market.com/users/login-google',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          token: googleData.tokenId,
+        }),
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
     if (res.ok) {
       const data = await res.json();
       dispatch({ type: 'LOGIN', user: data });

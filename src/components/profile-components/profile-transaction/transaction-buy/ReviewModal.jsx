@@ -21,7 +21,7 @@ function ReviewModal({ setShowReviewModal, data, setShowCard }) {
     e.preventDefault();
     setErrorMessage('');
     const res = await fetch(
-      `http://15.188.133.89:8080/catalogue/${data.id}/review/create`,
+      `https://api.retropia-market.com/catalogue/${data.id}/review/create`,
       {
         method: 'POST',
         body: JSON.stringify({

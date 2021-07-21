@@ -9,10 +9,10 @@ import mario from '../img/mario.gif';
 const ProductList = ({ type }) => {
   const { category, subcategory } = useParams();
   const apiURL = subcategory
-    ? `http://15.188.133.89:8080/catalogue?subcategory=${subcategory}`
+    ? `https://api.retropia-market.com/catalogue?subcategory=${subcategory}`
     : category
-    ? `http://15.188.133.89:8080/catalogue?category=${category}`
-    : `http://15.188.133.89:8080/catalogue`;
+    ? `https://api.retropia-market.com/catalogue?category=${category}`
+    : `https://api.retropia-market.com/catalogue`;
   const [results] = useFetch(apiURL);
 
   return (

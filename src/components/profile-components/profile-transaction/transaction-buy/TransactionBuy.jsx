@@ -11,7 +11,7 @@ function TransactionBuy() {
   const dispatch = useDispatch();
 
   const [results] = useFetch(
-    `http://15.188.133.89:8080/products/bid/user/${user.userData.id}/completed/`,
+    `https://api.retropia-market.com/products/bid/user/${user.userData.id}/completed/`,
     user
   );
 

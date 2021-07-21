@@ -5,7 +5,7 @@ import useFetch from '../../../hooks/useFetch';
 
 export function AccountVerification() {
   const { emailCode } = useParams();
-  const url = `http://15.188.133.89:8080/verify-email/${emailCode}`;
+  const url = `https://api.retropia-market.com/verify-email/${emailCode}`;
   const dispatch = useDispatch();
   const history = useHistory();
 

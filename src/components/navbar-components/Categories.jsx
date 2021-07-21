@@ -8,7 +8,9 @@ const Categories = ({
   setCategory,
   type = { id: 'consoles' },
 }) => {
-  const [allCategories] = useFetch('http://15.188.133.89:8080/categories');
+  const [allCategories] = useFetch(
+    'https://api.retropia-market.com/categories'
+  );
   const history = useHistory();
 
   const handleClick = (i, c) => {

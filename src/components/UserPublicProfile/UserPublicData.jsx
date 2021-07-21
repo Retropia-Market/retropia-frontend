@@ -7,11 +7,13 @@ import logo from '../../img/placeholder-logo.png';
 
 const UserPublicData = ({ uid }) => {
   const user = useSelector((s) => s.user);
-  const apiURL = 'http://15.188.133.89:8080/users/' + uid;
+  const apiURL = 'https://api.retropia-market.com/users/' + uid;
   const dispatch = useDispatch();
   const [results] = useFetch(apiURL);
-  const [ratings] = useFetch(`http://15.188.133.89:8080/user/${uid}/rating`);
-  const bannerUrl = `http://15.188.133.89:8080${
+  const [ratings] = useFetch(
+    `https://api.retropia-market.com/user/${uid}/rating`
+  );
+  const bannerUrl = `https://api.retropia-market.com${
     user?.userData?.banner ?? results?.banner
   }`;
 
@@ -23,13 +25,16 @@ const UserPublicData = ({ uid }) => {
   const handleClick = async (e) => {
     const fd = new FormData();
     fd.append('banner', e.target.files[0]);
-    const res = await fetch(`http://15.188.133.89:8080/users/update-banner`, {
-      method: 'PATCH',
-      headers: {
-        Authorization: 'Bearer ' + user.token,
-      },
-      body: fd,
-    });
+    const res = await fetch(
+      `https://api.retropia-market.com/users/update-banner`,
+      {
+        method: 'PATCH',
+        headers: {
+          Authorization: 'Bearer ' + user.token,
+        },
+        body: fd,
+      }
+    );
     if (res.ok) {
       const data = await res.json();
       alert('Banner cambiado!');
